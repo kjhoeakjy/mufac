@@ -50,29 +50,76 @@ def fetch(song: Song, *, pick: int | None = None) -> dict:
     return info
 
 
+# 쓸 수 있는 모델을 차례로 시도한다(계정에 따라 없는 모델이 있다). OPENAI_IMAGE_MODEL로 맨 앞에 끼워 넣을 수 있다
+# 2026-10 기준: gpt-image-1은 퇴역, gpt-image-1.5·1-mini는 2026-12-01 종료 예정, 현행은 gpt-image-2 계열
+IMAGE_MODELS = ["gpt-image-2.5-flare", "gpt-image-2", "gpt-image-1.5", "gpt-image-1-mini", "gpt-image-1"]
+# 모델별 크기 이름: (가로, 세로, 정사각)
+SIZES = {"dall-e-3": ("1792x1024", "1024x1792", "1024x1024")}
+DEFAULT_SIZES = ("1536x1024", "1024x1536", "1024x1024")
+
+
 def _openai(song: Song, scene: str) -> dict:
-    model = os.environ.get("OPENAI_IMAGE_MODEL", "gpt-image-1")
     prompt = f"{scene}\n\n{LOOK}"
+    wanted = os.environ.get("OPENAI_IMAGE_MODEL", "")
+    models = ([wanted] if wanted else []) + [m for m in IMAGE_MODELS if m != wanted]
+    last = None
+    for model in models:
+        try:
+            _openai_model(song, model, prompt)
+            return {"source": "openai", "model": model, "prompt": scene}
+        except _NoModel as e:
+            print(f"이미지 모델 {model} 사용 불가, 다음 모델로: {e}", flush=True)
+            last = e
+    raise RuntimeError(f"쓸 수 있는 OpenAI 이미지 모델이 없습니다: {last}")
+
+
+class _NoModel(RuntimeError):
+    """이 계정에서 그 모델을 쓸 수 없다(없거나 권한 없음)."""
+
+
+def _openai_model(song: Song, model: str, prompt: str) -> None:
+    sizes = SIZES.get(model, DEFAULT_SIZES)
 
     def one(size: str, path) -> None:
-        r = requests.post(
-            "https://api.openai.com/v1/images/generations",
-            headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"},
-            json={"model": model, "prompt": prompt, "size": size, "quality": "high", "n": 1},
-            timeout=600,
-        )
-        if r.status_code >= 400:
-            raise RuntimeError(f"OpenAI 이미지 생성 실패 ({r.status_code}): {r.text[:500]}")
+        body = {"model": model, "prompt": prompt, "size": size, "n": 1}
+        if model.startswith("dall-e"):
+            body.update(quality="hd", response_format="b64_json")
+        else:
+            body.update(quality="high")
+        for _ in range(3):  # 모델이 모르는 size/quality 값이면 그 값만 빼고 한 번 더
+            r = requests.post(
+                "https://api.openai.com/v1/images/generations",
+                headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"},
+                json=body, timeout=600,
+            )
+            if r.status_code < 400:
+                break
+            text = r.text[:500]
+            try:
+                err = r.json().get("error") or {}
+            except ValueError:
+                err = {}
+            param = err.get("param") or ""
+            if r.status_code in (400, 403, 404) and (param == "model" or "does not exist" in text or "verified" in text):
+                raise _NoModel(text)
+            if r.status_code == 400 and param == "size" and body.get("size") != "auto":
+                body["size"] = "auto"
+                continue
+            if r.status_code == 400 and param == "quality" and "quality" in body:
+                body.pop("quality")
+                continue
+            raise RuntimeError(f"OpenAI 이미지 생성 실패 ({r.status_code}): {text}")
+        else:
+            raise RuntimeError(f"OpenAI 이미지 생성 실패: {r.text[:300]}")
         item = r.json()["data"][0]
         raw = base64.b64decode(item["b64_json"]) if item.get("b64_json") else requests.get(item["url"], timeout=120).content
         _save(Image.open(io.BytesIO(raw)), path)
 
     # 가로·세로·정사각 세 장을 동시에 만든다
-    jobs = (("1536x1024", song.photo_path), ("1024x1536", song.photo_v_path), ("1024x1024", song.cover_path))
+    jobs = ((sizes[0], song.photo_path), (sizes[1], song.photo_v_path), (sizes[2], song.cover_path))
     with ThreadPoolExecutor(max_workers=3) as pool:
         for f in [pool.submit(one, size, path) for size, path in jobs]:
             f.result()
-    return {"source": "openai", "model": model, "prompt": scene}
 
 
 def _pexels(song: Song, query: str, pick: int | None) -> dict:
