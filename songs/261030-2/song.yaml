@@ -1,0 +1,462 @@
+title: 하얀
+hook: 하얀 거짓말이라도 해줘
+theme: 사랑
+story: 헤어지고 몇 달 뒤, 너도 가끔 내 생각을 했다는 말을 거짓말로라도 듣고 싶은 사람이 부르는 노래.
+created: 2026-10-30 14:55
+request:
+  id: mvujz8m1
+  title: 하얀
+  idea: 사랑
+  genre: 시티팝
+  style: 느리게
+style: Korean city pop, slow late-80s groove, around 78 bpm, laid-back and steady. Female mezzo vocal, warm and clean with a little breath, sung slightly behind the beat, mature and sincere, sung in Korean, korean lyrics. Rhodes electric piano carries verse 1 with round fretless bass, soft live drums with rim clicks enter at the pre-chorus, clean chorused guitar adds muted funk licks from the first chorus, analog synth pads and light strings join at the second chorus, short clean guitar solo before the bridge. Drops to voice and Rhodes at the bridge, fullest and warmest at the final chorus, short quiet outro. Live band in a room, natural reverb, tender, unhurried, late night.
+exclude: brass section, autotune, trap hi-hats
+photo_query: woman bus window night rain
+image_prompt: A young woman in a beige coat seen from the side, sitting by a bus window at night, holding her phone with the screen dimmed, a folded wet umbrella at her feet. Rain streaks on the glass, blurred warm city lights outside. Soft blue and amber tones, quiet and wistful 80s city pop mood.
+title_kind: 지정
+tempo: 느림
+arc: '화법: 너에게 속으로 하는 말(실제로 전하지 않는 말). 기: 네 사진이 바뀐 걸 먼저 알아채고, 네 동네에 비가 오면 네 우산부터 걱정한다. 감정은 아직 말하지 않는다. 승: 묻지도 못하면서 대답은 듣고 싶어서 ''거짓말이라도 해줘, 속는 건 내가 할게''라고 부탁한다. 전: 2절에서는 내가 친구들에게 잘 지낸다는 거짓말을 하는 쪽이 된다. 브릿지에서 처음으로 ''보고 싶다''를 말하고, 이 말은 하얗지 않아서 너에게는 못 한다고 인정한다. 결: 마지막 후렴의 셋째 줄과 다섯째 줄이 ''하얀 거짓말은 나도 할게 / 나는 잘 지낸다고''로 바뀌어, 부탁하던 사람이 거짓말을 해 주는 사람이 된다. 아웃트로는 ''잘 지내'' 한마디로 끝난다.'
+line_plan: 'V1-1 관찰: 사진 바뀐 걸 제일 먼저 앎 / V1-2 관찰: 확대했다가 얼른 내림 / V1-3 새 사실: 옆에 선 사람 / V1-4 전환: 안 궁금한 걸로 함 / V1-5 관찰: 네 동네 비 소식 / V1-6 관찰: 네 우산 걱정 / V1-7 전환: 정작 내 우산은 두고 나감(자조 한 번) / Pre-1 사실: 어떻게 지내냐는 말 / Pre-2 전환: 묻지도 못함 / Pre-3 관찰: 대답은 듣고 싶은 밤 / Ch: 하얀 거짓말이라도 해줘 + 너도 내 생각 했다고 + 속는 건 내가 할게 / V2-1 새 사실: 친구들이 네 이름을 꺼냄 / V2-2 관찰: 먼저 웃으며 잔을 듦 / V2-3~4 전환: 잘 지낸다는 말이 쉽게 나옴(이번엔 내가 거짓말함) / V2-5~6 관찰: 그런 날은 집에 가는 길이 길어짐 / V2-7 관찰: 지운 번호를 손이 기억함 / Br-1 전환: 아무에게도 안 한 말 / Br-2 인정: 잘 지낸다던 말은 거짓말 / Br-3 진심: 보고 싶다 / Br-4~5 전환: 이 말은 하얗지 않아서 너한테는 못 함 / FC: 3·5줄을 ''하얀 거짓말은 나도 할게 / 나는 잘 지낸다고''로 바꿈 / Outro: 잘 지내'
+why: 연락은 안 하면서도 상대가 내 생각을 했는지 궁금한 마음은 이별을 겪은 거의 모든 사람이 안다. 그래서 0번을 골랐다. 시티팝은 느린 호흡에서 담담하게 부탁하는 말이 가장 잘 산다. 제목이 '하얀'으로 정해져 있어 단어 하나 형태를 그대로 두었고, 이 단어는 후렴의 '하얀 거짓말'과 브릿지의 '하얗지가 않아서'에서 두 번 다른 뜻으로 불린다. 자우림의 '반대 감정을 한 줄에 붙이고 설명하지 않는다'는 원리에서 '속는 건 내가 할게'를 가져왔다. 한로로의 '마지막 후렴은 조금만 바꿔 결론을 낸다'는 원리로, 처음에 거짓말을 해 달라던 사람이 마지막에는 스스로 '잘 지낸다'는 거짓말을 하게 했다.
+share_line: 속는 건 내가 할게
+youtube_meta:
+  situation: 헤어지고 잠 안 오는 밤에 듣는 노래
+  shorts_title: 하얀 거짓말이라도 해줘
+  intro: '너도 가끔 내 생각을 했다고, 하얀 거짓말이라도 해 줘. 속는 건 내가 할게.
+
+    잘 지낸다는 말이 제일 쉬운 거짓말이 된 밤에 듣는 느린 시티팝.'
+  comment_prompt: 요즘 누군가에게 '잘 지내'라고 하얀 거짓말을 했다면, 여기에 진짜 안부를 남겨 두고 가세요.
+  hashtags:
+  - 이별노래
+  - 시티팝
+  - 새벽감성
+  - 하얀
+  - 하얀거짓말
+  - 감성플리
+  - 잠안오는밤
+  - 밤에듣는노래
+  - 헤어진후
+  - 잘지내
+  - 보고싶다
+  - 이별감성
+  - 한국시티팝
+  - 플레이리스트
+  - 퇴근길노래
+tags:
+- 하얀
+- 하얀 거짓말
+- 이별노래
+- 시티팝
+- 한국 시티팝
+- 느린 시티팝
+- 새벽감성
+- 밤에 듣는 노래
+- 잠 안 오는 밤
+- 헤어진 후 듣는 노래
+- 잘 지내
+- 보고 싶다
+- 이별 감성
+- 감성 플레이리스트
+- 감성플리
+- 드라이브 노래
+- 밤 드라이브
+- 퇴근길 노래
+- 위로 노래
+- 잔잔한 노래
+- 여자 보컬
+- 레트로 감성
+- 80년대 감성
+- korean city pop
+- city pop
+- korean breakup song
+- late night playlist
+- slow city pop
+- korean indie
+references:
+- title: 미안해 널 미워해
+  artist: 자우림
+  takeaway: 반대되는 마음을 한 줄에 붙여 두고 설명하지 않는다. 그래서 '거짓말이라도 해줘'와 '속는 건 내가 할게'를 나란히 놓았다.
+- title: 0+0
+  artist: 한로로
+  takeaway: 마지막 후렴은 한두 마디만 바꿔 결론을 낸다. 그래서 '해줘'를 '나도 할게'로 바꿔 화자의 자리를 뒤집었다.
+- title: 캐러밴
+  artist: 술탄 오브 더 디스코
+  takeaway: 감정을 말한 직후에 생활의 말로 김을 뺀다. 그래서 브릿지의 '보고 싶다' 뒤에 '너한테는 못 하겠다'를 놓았다.
+candidates:
+- hook: 하얀 거짓말이라도 해줘
+  theme: 사랑
+  story: 헤어지고 몇 달 뒤, 너도 가끔 내 생각을 했다는 말을 거짓말로라도 듣고 싶은 사람이 부르는 노래.
+- hook: 밤이 하얗게 새도 좋아
+  theme: 사랑
+  story: 막 시작한 연애에서 통화를 끊지 못하고 아침을 맞는 사람이 중간 템포로 부르는 노래.
+- hook: 네 앞에선 하얘져
+  theme: 사랑
+  story: 좋아하는 사람 앞에만 서면 준비한 말을 다 잊는 짝사랑이 가볍게 부르는 노래.
+- hook: 하얗게 지워 줄게
+  theme: 사랑
+  story: 오래된 연인과 다툰 다음 날, 먼저 없던 일로 해 주는 사람이 담담하게 부르는 노래.
+- hook: 하얀 셔츠는 아직 못 버렸어
+  theme: 사랑
+  story: 이별한 뒤 옷장에 남은 상대의 물건 하나를 못 버리는 사람이 천천히 회상하는 노래.
+chosen: 0
+lyrics: |
+  [Intro]
+
+  [Verse 1: sparse, Rhodes and bass]
+  네 사진이 바뀐 걸 제일 먼저 알고
+  크게 눌러 봤다가 얼른 내렸지
+  옆에 선 사람이 누군지는
+  안 궁금한 걸로 하기로 했다
+  날씨 앱엔 아직 네 동네가 있고
+  비 온다는 날엔 우산 챙겼을까 하다가
+  내 우산은 두고 나오네
+
+  [Pre-Chorus: drums enter softly]
+  어떻게 지내냐고
+  묻지도 못할 거면서
+  대답은 듣고 싶은 밤
+
+  [Chorus: full band, laid-back]
+  하얀 거짓말이라도 해줘
+  너도 가끔 내 생각 했다고
+  하얀 거짓말이라도 해줘
+  (거짓말이라도)
+  속는 건 내가 할게
+
+  [Verse 2: groove settles in]
+  친구들이 네 이름을 꺼내면
+  나는 먼저 웃으면서 잔을 들고
+  잘 지낸다는 말은
+  생각보다 쉽게 나오더라
+  그 말을 하고 온 밤에는
+  한 정거장 먼저 내려서 걷고
+  지운 번호를 끝자리까지 누르다 마네
+
+  [Pre-Chorus: drums enter softly]
+  어떻게 지내냐고
+  묻지도 못할 거면서
+  대답은 듣고 싶은 밤
+
+  [Chorus: full band, strings join]
+  하얀 거짓말이라도 해줘
+  너도 가끔 내 생각 했다고
+  하얀 거짓말이라도 해줘
+  (거짓말이라도)
+  속는 건 내가 할게
+
+  [Instrumental: clean guitar solo]
+
+  [Bridge: quiet, voice and Rhodes]
+  아무한테도 안 한 말인데
+  잘 지낸단 말은 다 거짓말이었고
+  보고 싶다
+  이 말은 하얗지가 않아서
+  너한테는 못 하겠다
+
+  [Final Chorus: warmest, full band]
+  하얀 거짓말이라도 해줘
+  너도 가끔 내 생각 했다고
+  하얀 거짓말은 나도 할게
+  (거짓말이라도)
+  나는 잘 지낸다고
+
+  [Outro: Rhodes only]
+  잘 지내
+
+  [End]
+lyrics_draft: '[Intro]
+
+
+  [Verse 1: sparse, Rhodes and bass]
+
+  네 사진이 바뀐 걸 제일 먼저 알고
+
+  크게 눌러 봤다가 얼른 내렸지
+
+  옆에 선 사람이 누군지는
+
+  안 궁금한 걸로 하기로 했다
+
+  네가 사는 동네에 비가 오면
+
+  우산은 챙겼을까 하다가
+
+  내 우산은 두고 나오네
+
+
+  [Pre-Chorus: drums enter softly]
+
+  어떻게 지내냐고
+
+  묻지도 못할 거면서
+
+  대답은 듣고 싶은 밤
+
+
+  [Chorus: full band, laid-back]
+
+  하얀 거짓말이라도 해줘
+
+  너도 가끔 내 생각 했다고
+
+  하얀 거짓말이라도 해줘
+
+  (거짓말이라도)
+
+  속는 건 내가 할게
+
+
+  [Verse 2: groove settles in]
+
+  친구들이 네 이름을 꺼내면
+
+  나는 먼저 웃으면서 잔을 들고
+
+  잘 지낸다는 말은
+
+  생각보다 쉽게 나오더라
+
+  그 말을 하고 온 밤에는
+
+  집에 가는 길이 길어지고
+
+  지운 번호를 손이 먼저 누르네
+
+
+  [Pre-Chorus: drums enter softly]
+
+  어떻게 지내냐고
+
+  묻지도 못할 거면서
+
+  대답은 듣고 싶은 밤
+
+
+  [Chorus: full band, strings join]
+
+  하얀 거짓말이라도 해줘
+
+  너도 가끔 내 생각 했다고
+
+  하얀 거짓말이라도 해줘
+
+  (거짓말이라도)
+
+  속는 건 내가 할게
+
+
+  [Instrumental: clean guitar solo]
+
+
+  [Bridge: quiet, voice and Rhodes]
+
+  아무한테도 안 한 말인데
+
+  잘 지낸단 말은 다 거짓말이었고
+
+  보고 싶다
+
+  이 말은 하얗지가 않아서
+
+  너한테는 못 하겠다
+
+
+  [Final Chorus: warmest, full band]
+
+  하얀 거짓말이라도 해줘
+
+  너도 가끔 내 생각 했다고
+
+  하얀 거짓말은 나도 할게
+
+  (거짓말이라도)
+
+  나는 잘 지낸다고
+
+
+  [Outro: Rhodes only]
+
+  잘 지내
+
+
+  [End]'
+polish:
+- '네가 사는 동네에 비가 오면 → 날씨 앱엔 아직 네 동네가 있고: 날씨만 있던 줄을 못 지운 미련이 보이는 구체적 관찰로 바꿈'
+- '우산은 챙겼을까 하다가 → 비 온다는 날엔 우산 챙겼을까 하다가: 바뀐 앞 줄과 이어지도록 비 소식을 이 줄로 옮김'
+- '집에 가는 길이 길어지고 → 한 정거장 먼저 내려서 걷고: ''길어진다''는 흐린 말 대신 행동 하나로 보여 줌'
+- '지운 번호를 손이 먼저 누르네 → 지운 번호를 끝자리까지 누르다 마네: 절 안에 ''먼저''가 겹쳐서 빼고, 외우고 있으면서 끝내 못 거는 모습으로 관찰을 더 정확하게 함'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A young woman in a beige coat seen from the side, sitting by a bus window at night, holding her phone with the screen dimmed, a folded wet umbrella at her feet. Rain streaks on the glass, blurred warm city lights outside. Soft blue and amber tones, quiet and wistful 80s city pop mood.
+youtube_preview:
+  title: 하얀 - 연주왕김연주 | 헤어지고 잠 안 오는 밤에 듣는 노래
+  shorts_title: '하얀 거짓말이라도 해줘 #shorts'
+  description: '너도 가끔 내 생각을 했다고, 하얀 거짓말이라도 해 줘. 속는 건 내가 할게.
+
+    잘 지낸다는 말이 제일 쉬운 거짓말이 된 밤에 듣는 느린 시티팝.
+
+
+    하얀
+
+
+    네 사진이 바뀐 걸 제일 먼저 알고
+
+    크게 눌러 봤다가 얼른 내렸지
+
+    옆에 선 사람이 누군지는
+
+    안 궁금한 걸로 하기로 했다
+
+    날씨 앱엔 아직 네 동네가 있고
+
+    비 온다는 날엔 우산 챙겼을까 하다가
+
+    내 우산은 두고 나오네
+
+
+    어떻게 지내냐고
+
+    묻지도 못할 거면서
+
+    대답은 듣고 싶은 밤
+
+
+    하얀 거짓말이라도 해줘
+
+    너도 가끔 내 생각 했다고
+
+    하얀 거짓말이라도 해줘
+
+    (거짓말이라도)
+
+    속는 건 내가 할게
+
+
+    친구들이 네 이름을 꺼내면
+
+    나는 먼저 웃으면서 잔을 들고
+
+    잘 지낸다는 말은
+
+    생각보다 쉽게 나오더라
+
+    그 말을 하고 온 밤에는
+
+    한 정거장 먼저 내려서 걷고
+
+    지운 번호를 끝자리까지 누르다 마네
+
+
+    어떻게 지내냐고
+
+    묻지도 못할 거면서
+
+    대답은 듣고 싶은 밤
+
+
+    하얀 거짓말이라도 해줘
+
+    너도 가끔 내 생각 했다고
+
+    하얀 거짓말이라도 해줘
+
+    (거짓말이라도)
+
+    속는 건 내가 할게
+
+
+    아무한테도 안 한 말인데
+
+    잘 지낸단 말은 다 거짓말이었고
+
+    보고 싶다
+
+    이 말은 하얗지가 않아서
+
+    너한테는 못 하겠다
+
+
+    하얀 거짓말이라도 해줘
+
+    너도 가끔 내 생각 했다고
+
+    하얀 거짓말은 나도 할게
+
+    (거짓말이라도)
+
+    나는 잘 지낸다고
+
+
+    잘 지내
+
+
+    요즘 누군가에게 ''잘 지내''라고 하얀 거짓말을 했다면, 여기에 진짜 안부를 남겨 두고 가세요.
+
+
+    작사·작곡 기획·제작 연주왕김연주
+
+    음악 생성 Suno (유료 플랜, 상업적 이용 권리 보유)
+
+    이미지 AI 생성
+
+    이 곡은 AI 음악 생성 도구로 만들었습니다.
+
+
+    © 2026 연주왕김연주. All rights reserved.
+
+    이 영상의 노래, 가사, 영상은 연주왕김연주의 창작물이며 모든 권리는 연주왕김연주에게 있습니다. 무단 복제, 재업로드, 2차 배포를 금지합니다.
+
+
+    #이별노래 #시티팝 #새벽감성 #하얀 #하얀거짓말 #감성플리 #잠안오는밤 #밤에듣는노래 #헤어진후 #잘지내 #보고싶다 #이별감성 #한국시티팝 #플레이리스트 #퇴근길노래'
+  tags:
+  - 하얀
+  - 연주왕김연주
+  - 하얀 거짓말
+  - 이별노래
+  - 시티팝
+  - 한국 시티팝
+  - 느린 시티팝
+  - 새벽감성
+  - 밤에 듣는 노래
+  - 잠 안 오는 밤
+  - 헤어진 후 듣는 노래
+  - 잘 지내
+  - 보고 싶다
+  - 이별 감성
+  - 감성 플레이리스트
+  - 감성플리
+  - 드라이브 노래
+  - 밤 드라이브
+  - 퇴근길 노래
+  - 위로 노래
+  - 잔잔한 노래
+  - 여자 보컬
+  - 레트로 감성
+  - 80년대 감성
+  - korean city pop
+  - city pop
+  - korean breakup song
+  - late night playlist
+  - slow city pop
+  - korean indie
+  hashtags:
+  - 이별노래
+  - 시티팝
+  - 새벽감성
+  - 하얀
+  - 하얀거짓말
+  - 감성플리
+  - 잠안오는밤
+  - 밤에듣는노래
+  - 헤어진후
+  - 잘지내
+  - 보고싶다
+  - 이별감성
+  - 한국시티팝
+  - 플레이리스트
+  - 퇴근길노래
+  playlists:
+  - 연주왕김연주 노래
+  - 헤어진 날 듣는 노래
+  privacy: private
