@@ -210,6 +210,7 @@ def cmd_refresh(a) -> None:
         s.timing_path.unlink()
         print("가사가 바뀌어 자막 타이밍을 지웠습니다. 영상은 다시 만들어야 합니다.", flush=True)
     m["youtube_preview"] = _preview(s)
+    m["youtube_preview_edited"] = False  # 직접 고친 글이 있었어도 새 제목·가사 기준으로 다시 쓴다
     s.save()
     write_readme(s)
     print(s.slug)
@@ -282,7 +283,12 @@ def cmd_publish(a) -> None:
     if not youtube.ready():
         sys.exit("유튜브 키가 없습니다. SETUP.md를 보세요.")
     yt = s.meta.setdefault("youtube", {})
-    pv = youtube.preview(s, cfg)
+    if s.meta.get("youtube_preview_edited") and s.meta.get("youtube_preview"):
+        pv = s.meta["youtube_preview"]  # 대시보드에서 직접 고친 글을 그대로 쓴다
+        pv.setdefault("playlists", youtube.playlist_names(cfg, s.meta))
+        pv.setdefault("privacy", cfg.get("privacy", "private"))
+    else:
+        pv = youtube.preview(s, cfg)
     s.meta["youtube_preview"] = pv
     title, tags = pv["title"], pv["tags"]
     if not yt.get("main"):
