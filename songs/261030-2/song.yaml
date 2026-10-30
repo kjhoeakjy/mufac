@@ -1,0 +1,433 @@
+title: 보송보송
+hook: 보송보송 요즘은 보송보송 / 비 온 게 언제였나
+theme: 아픔
+story: 길게 울던 시기가 지나고, 구름 높은 어느 오후에 자기가 다 말랐다는 걸 문득 알아챈 사람이 혼잣말로 부른다.
+created: 2026-10-30 14:02
+request:
+  id: mvui6q43
+  title: 보송보송
+  idea: 구름
+  genre: 시티팝
+style: 'Korean city pop, 80s groove, mid-tempo around 104 bpm. Warm female mezzo vocal, clean and relaxed, slightly behind the beat, mature and sincere, sung in Korean, korean lyrics. Rhodes electric piano and a round funky bass carry verse 1, clean funk guitar cutting enters at the pre-chorus, light handclaps and synth brass stabs join the chorus, soft synth strings from the second verse. Dynamic arrangement: intimate first verse, full groove at the chorus, drops to Rhodes and voice at the bridge, widest and brightest at the final chorus, short outro on Rhodes alone. Live drums with a dry room sound, warm analog tape feel. Sunny, easygoing, quietly hopeful.'
+exclude: autotune, trap hi-hats, gang vocals
+photo_query: woman city clouds afternoon
+image_prompt: A woman in her late twenties, seen from the side, walks along a quiet city street in the late afternoon, wearing a light cardigan and clean white sneakers, hands empty with no umbrella. Tall white clouds sit high in a clear blue sky above low apartment buildings, and a dried puddle mark fades on the sidewalk. Soft 80s city pop palette of pastel blue, peach and cream, with warm sunlight. The lower third is a simple, plain sidewalk and street surface.
+title_kind: 지정
+tempo: 중간
+arc: '화법: 혼잣말(너는 생각 속에만 등장). 기: 몇 주 만에 높아진 구름과 다 마른 운동화. 아직 감정은 말하지 않고, 우산 없이 나와도 되는 날이라는 것만 말한다. 승: 누가 네 얘기를 꺼내도 웃어넘기는 나를 보고, 후렴에서 ''비 온 게 언제였나'' 한 문장을 읊조린다. 전: 2절은 시선이 너의 동네로 옮겨 가 너도 우산 없이 나갔기를 바란다. 브릿지에서 처음으로 ''밤에는 아직 가끔 비가 온다, 보고 싶다''고 인정하고, 몇 번은 더 젖고 마를 거라고 받아들인다. 결: 마지막 후렴의 ''비 온 게 언제였나''가 ''비 와도 금방 마르네''로 바뀐다. 다 나은 척에서 젖어도 괜찮은 사람으로 넘어가는 것이다. 아웃트로에서는 우산을 오늘도 현관에 두고 나간다.'
+why: 제목이 '보송보송'으로 지정되어 한 글자도 바꾸지 않았고, 형태는 부르는 순간 각자의 기억이 떠오르는 단어 하나다. 1번 후보를 고른 이유는 '비 온 게 언제였나'가 이별이든 일이든 오래 힘들었던 사람 누구나 자기 얘기로 꽂아 넣을 수 있기 때문이다. 빨래를 너는 장면극은 버리고, 자우림처럼 감정의 이유를 높아진 구름이라는 사소한 날씨에 맡겼다. 술탄 오브 더 디스코의 원리대로 감정 옆에 '마른 운동화' 같은 몸의 감각을 붙였고, 한로로처럼 마지막 후렴은 한 줄만 바꿔 '비가 안 온다'를 '비가 와도 금방 마른다'로 뒤집었다. 이전 곡이 '우리'의 구호와 명령형이었으니 이번에는 명령형 없는 혼잣말로 갔다.
+share_line: 비 와도 금방 마르네
+youtube_meta:
+  situation: 비 그친 오후 산책길 노래
+  shorts_title: 보송보송 요즘은 보송보송 비 온 게 언제였나
+  intro: '오래 비가 오다가 어느 날 문득, 구름이 높아진 걸 알게 되는 오후.
+
+    울던 게 언제였는지 잘 생각나지 않는 날을 위한 시티팝, 보송보송.'
+  comment_prompt: 요즘 다 말랐다 싶은 일이 있다면 여기 하나씩 두고 가세요.
+  hashtags:
+  - 보송보송
+  - 시티팝
+  - 감성플리
+  - 한국시티팝
+  - 비그친날
+  - 산책노래
+  - 드라이브노래
+  - 위로노래
+  - 이별극복
+  - 오후감성
+  - 기분전환노래
+  - 구름
+  - 여름노래
+  - 출근길노래
+  - 플레이리스트
+tags:
+- 보송보송
+- 시티팝
+- 한국 시티팝
+- korean city pop
+- city pop
+- 80s city pop
+- 산책 노래
+- 비 그친 날
+- 비 그친 오후
+- 드라이브 노래
+- 기분전환 노래
+- 위로 노래
+- 이별 극복 노래
+- 헤어지고 듣는 노래
+- 오후 감성
+- 햇살 노래
+- 구름
+- 맑은 날 노래
+- 여름 노래
+- 출근길 노래
+- 감성 플레이리스트
+- 시티팝 플레이리스트
+- korean pop
+- AI 음악
+- 여성 보컬
+- 레트로 감성
+- 펑키 베이스
+- Rhodes
+- 힐링 노래
+- 혼자 듣는 노래
+references:
+- title: 일탈
+  artist: 자우림
+  takeaway: 감정의 이유를 사소한 일상, 여기서는 높아진 구름 하나에 맡기면 오히려 누구나 자기 일로 듣는다.
+- title: 0+0
+  artist: 한로로
+  takeaway: 마지막 후렴은 한 줄만 바꿔 결론을 낸다. '비 온 게 언제였나'를 '비 와도 금방 마르네'로 바꿨다.
+- title: 캐러밴
+  artist: 술탄 오브 더 디스코
+  takeaway: 감정을 말한 자리 옆에 몸의 감각을 놓아 무게를 덜어 낸다. 마른 운동화, 젖은 이불이 그 역할을 한다.
+- title: 흐려질거야
+  artist: 극동아시아타이거즈
+  takeaway: 지나간 사람을 원망도 미련도 크게 부풀리지 않고, 담담한 바람 한 줄로 부른다.
+candidates:
+- hook: 보송보송 요즘은 보송보송 / 비 온 게 언제였나
+  theme: 아픔
+  story: 길게 울던 시기가 지나고, 구름 높은 어느 오후에 자기가 다 말랐다는 걸 문득 알아챈 사람이 혼잣말로 부른다.
+- hook: 구름 낀 날에도 네가 오면 보송보송
+  theme: 사랑
+  story: 흐린 날마다 기분이 처지던 사람이 좋아하는 사람이 오는 저녁만 기다리며 부른다.
+- hook: 월요일인데 보송보송 / 하늘이 높아서
+  theme: 어른
+  story: 출근길에 하늘이 높다는 이유 하나로 괜히 기분이 좋은 직장인이 부른다.
+- hook: 다 마른 척 보송보송
+  theme: 아픔
+  story: 헤어지고 아무렇지 않은 척하지만 속은 아직 눅눅한 사람이 부른다.
+- hook: 구름 한 장 덮고 보송보송 자자
+  theme: 사랑
+  story: 오래된 연인이 비 그친 밤에 별일 없이 나란히 누워 부른다.
+chosen: 0
+lyrics: |
+  [Intro]
+
+  [Verse 1: light groove, Rhodes and bass]
+  구름이 오늘따라 높다
+  몇 주 내내 낮게 깔리더니
+  우산은 현관에 두고 나와도
+  아무도 뭐라 안 하는 날
+  젖은 운동화가 다 마른 것도
+  오늘에서야 알았네
+
+  [Pre-Chorus: build, funk guitar enters]
+  누가 네 얘길 꺼내도
+  웃으면서 넘어가는 걸 보니
+
+  [Chorus: full groove, handclaps]
+  보송보송 요즘은 보송보송
+  비 온 게 언제였나
+  (언제였나)
+  보송보송 요즘은 보송보송
+  구름만 천천히 가네
+
+  [Verse 2: groove, synth strings softly]
+  네 동네에도 해가 났을까
+  거기도 비가 오래 왔다던데
+  너도 우산 없이 나갔으면
+  그건 좀 좋겠다 싶었다
+  연락할 일은 없겠지만
+  그 정도는 바라도 되잖아
+
+  [Pre-Chorus: build, funk guitar]
+  누가 네 얘길 꺼내도
+  웃으면서 넘어가는 걸 보니
+
+  [Chorus: full groove, handclaps]
+  보송보송 요즘은 보송보송
+  비 온 게 언제였나
+  (언제였나)
+  보송보송 요즘은 보송보송
+  구름만 천천히 가네
+
+  [Bridge: quiet, Rhodes and voice]
+  사실 밤에는 가끔 또 와
+  네 생각 나는 날엔 베개가 좀 젖고
+  보고 싶다 한 번 말하고 나면
+  아침엔 또 말라 있더라
+  몇 번은 더 젖고 마르겠지
+
+  [Final Chorus: widest, full band and strings]
+  보송보송 요즘은 보송보송
+  비 와도 금방 마르네
+  (금방 마르네)
+  보송보송 요즘은 보송보송
+  구름만 천천히 가네
+
+  [Outro: Rhodes, fade]
+  우산은 오늘도 현관에 두고
+
+  [End]
+lyrics_draft: '[Intro]
+
+
+  [Verse 1: light groove, Rhodes and bass]
+
+  구름이 오늘따라 높다
+
+  몇 주를 낮게만 깔리더니
+
+  우산은 현관에 두고 나와도
+
+  아무도 뭐라 안 하는 날
+
+  젖은 운동화가 다 마른 것도
+
+  오늘에서야 알았네
+
+
+  [Pre-Chorus: build, funk guitar enters]
+
+  누가 네 얘길 꺼내도
+
+  웃으면서 넘어가는 걸 보니
+
+
+  [Chorus: full groove, handclaps]
+
+  보송보송 요즘은 보송보송
+
+  비 온 게 언제였나
+
+  (언제였나)
+
+  보송보송 요즘은 보송보송
+
+  구름만 천천히 가네
+
+
+  [Verse 2: groove, synth strings softly]
+
+  네 동네에도 해가 났을까
+
+  거기도 길게 왔다고 들었는데
+
+  너도 우산 없이 나갔으면
+
+  그건 좀 좋겠다 싶었다
+
+  연락할 일은 없겠지만
+
+  그 정도는 바라도 되잖아
+
+
+  [Pre-Chorus: build, funk guitar]
+
+  누가 네 얘길 꺼내도
+
+  웃으면서 넘어가는 걸 보니
+
+
+  [Chorus: full groove, handclaps]
+
+  보송보송 요즘은 보송보송
+
+  비 온 게 언제였나
+
+  (언제였나)
+
+  보송보송 요즘은 보송보송
+
+  구름만 천천히 가네
+
+
+  [Bridge: quiet, Rhodes and voice]
+
+  사실 밤에는 가끔 또 와
+
+  네 생각 나는 날엔 이불까지 젖고
+
+  보고 싶다 한 번 말하고 나면
+
+  아침엔 또 말라 있더라
+
+  몇 번은 더 젖고 마르겠지
+
+
+  [Final Chorus: widest, full band and strings]
+
+  보송보송 요즘은 보송보송
+
+  비 와도 금방 마르네
+
+  (금방 마르네)
+
+  보송보송 요즘은 보송보송
+
+  구름만 천천히 가네
+
+
+  [Outro: Rhodes, fade]
+
+  우산은 오늘도 현관에 두고
+
+
+  [End]'
+polish:
+- '몇 주를 낮게만 깔리더니 → 몇 주 내내 낮게 깔리더니: ''몇 주를''의 조사가 어색해 입말로 풀었다'
+- '거기도 길게 왔다고 들었는데 → 거기도 비가 오래 왔다던데: ''길게 왔다''는 주어가 빠져 뜻이 흐려서 무엇이 왔는지 밝히고 더 짧은 입말로 바꿨다'
+- '네 생각 나는 날엔 이불까지 젖고 → 네 생각 나는 날엔 베개가 좀 젖고: ''이불까지''는 과장이라 담담한 곡 톤에 맞게 줄였다. 운 날을 설명 없이 사물 하나로 보여 준다'
+youtube_preview:
+  title: 보송보송 - 연주왕김연주 | 비 그친 오후 산책길 노래
+  shorts_title: '보송보송 요즘은 보송보송 / 비 온 게 언제였나 #shorts'
+  description: '오래 비가 오다가 어느 날 문득, 구름이 높아진 걸 알게 되는 오후.
+
+    울던 게 언제였는지 잘 생각나지 않는 날을 위한 시티팝, 보송보송.
+
+
+    보송보송
+
+
+    구름이 오늘따라 높다
+
+    몇 주 내내 낮게 깔리더니
+
+    우산은 현관에 두고 나와도
+
+    아무도 뭐라 안 하는 날
+
+    젖은 운동화가 다 마른 것도
+
+    오늘에서야 알았네
+
+
+    누가 네 얘길 꺼내도
+
+    웃으면서 넘어가는 걸 보니
+
+
+    보송보송 요즘은 보송보송
+
+    비 온 게 언제였나
+
+    (언제였나)
+
+    보송보송 요즘은 보송보송
+
+    구름만 천천히 가네
+
+
+    네 동네에도 해가 났을까
+
+    거기도 비가 오래 왔다던데
+
+    너도 우산 없이 나갔으면
+
+    그건 좀 좋겠다 싶었다
+
+    연락할 일은 없겠지만
+
+    그 정도는 바라도 되잖아
+
+
+    누가 네 얘길 꺼내도
+
+    웃으면서 넘어가는 걸 보니
+
+
+    보송보송 요즘은 보송보송
+
+    비 온 게 언제였나
+
+    (언제였나)
+
+    보송보송 요즘은 보송보송
+
+    구름만 천천히 가네
+
+
+    사실 밤에는 가끔 또 와
+
+    네 생각 나는 날엔 베개가 좀 젖고
+
+    보고 싶다 한 번 말하고 나면
+
+    아침엔 또 말라 있더라
+
+    몇 번은 더 젖고 마르겠지
+
+
+    보송보송 요즘은 보송보송
+
+    비 와도 금방 마르네
+
+    (금방 마르네)
+
+    보송보송 요즘은 보송보송
+
+    구름만 천천히 가네
+
+
+    우산은 오늘도 현관에 두고
+
+
+    요즘 다 말랐다 싶은 일이 있다면 여기 하나씩 두고 가세요.
+
+
+    작사·작곡 기획·제작 연주왕김연주
+
+    음악 생성 Suno (유료 플랜, 상업적 이용 권리 보유)
+
+    이 곡은 AI 음악 생성 도구로 만들었습니다.
+
+
+    © 2026 연주왕김연주. All rights reserved.
+
+    이 영상의 노래, 가사, 영상은 연주왕김연주의 창작물이며 모든 권리는 연주왕김연주에게 있습니다. 무단 복제, 재업로드, 2차 배포를 금지합니다.
+
+
+    #보송보송 #시티팝 #감성플리 #한국시티팝 #비그친날 #산책노래 #드라이브노래 #위로노래 #이별극복 #오후감성 #기분전환노래 #구름 #여름노래 #출근길노래 #플레이리스트'
+  tags:
+  - 보송보송
+  - 연주왕김연주
+  - 시티팝
+  - 한국 시티팝
+  - korean city pop
+  - city pop
+  - 80s city pop
+  - 산책 노래
+  - 비 그친 날
+  - 비 그친 오후
+  - 드라이브 노래
+  - 기분전환 노래
+  - 위로 노래
+  - 이별 극복 노래
+  - 헤어지고 듣는 노래
+  - 오후 감성
+  - 햇살 노래
+  - 구름
+  - 맑은 날 노래
+  - 여름 노래
+  - 출근길 노래
+  - 감성 플레이리스트
+  - 시티팝 플레이리스트
+  - korean pop
+  - AI 음악
+  - 여성 보컬
+  - 레트로 감성
+  - 펑키 베이스
+  - Rhodes
+  - 힐링 노래
+  - 혼자 듣는 노래
+  hashtags:
+  - 보송보송
+  - 시티팝
+  - 감성플리
+  - 한국시티팝
+  - 비그친날
+  - 산책노래
+  - 드라이브노래
+  - 위로노래
+  - 이별극복
+  - 오후감성
+  - 기분전환노래
+  - 구름
+  - 여름노래
+  - 출근길노래
+  - 플레이리스트
+  playlists:
+  - 연주왕김연주 노래
+  - 혼자 우는 밤에
+  privacy: private
