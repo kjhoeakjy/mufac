@@ -9,6 +9,7 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 import datetime as dt
 import os
 import sys
@@ -230,8 +231,10 @@ def cmd_produce(a) -> None:
     stage = a.stage
     if not s.audio_path():
         sys.exit(f"{s.slug}: 노래 파일이 없습니다. mp3를 폴더에 올려주세요.")
-    # 배경 그림이 없거나 크레딧이 없어 단색으로 때운 것이면 다시 그린다(다시 제작 때 일러스트로 바뀌도록)
-    if not s.photo_path.exists() or (s.meta.get("photo") or {}).get("source") == "gradient":
+    def ensure_photo() -> None:
+        """배경 그림이 없거나 크레딧이 없어 단색으로 때운 것이면 다시 그린다(다시 제작 때 일러스트로 바뀌도록)."""
+        if s.photo_path.exists() and (s.meta.get("photo") or {}).get("source") != "gradient":
+            return
         from .photo import _gradient, fetch
         try:
             print("배경 그림 만드는 중", flush=True)
@@ -239,10 +242,14 @@ def cmd_produce(a) -> None:
         except Exception as e:  # 그림 키가 막혀도 영상은 만든다
             print(f"그림을 못 가져와 단색 배경으로 만듭니다: {e}", flush=True)
             s.meta["photo"] = _gradient(s)
-        s.save()
 
+    # 그림 생성(외부 API 대기)과 음성 인식(CPU)은 서로 기다릴 필요가 없어 동시에 돌린다
     print("가사 위치 찾는 중", flush=True)
-    rows = timings(s, cfg.get("whisper_model", "medium"))  # timing.lrc가 있으면 바로 읽는다
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        photo_job = pool.submit(ensure_photo)
+        rows = timings(s, cfg.get("whisper_model", "medium"))  # timing.lrc가 있으면 바로 읽는다
+        photo_job.result()
+    s.save()
     if stage == "align":
         print("완료", s.timing_path, flush=True)
         return

@@ -42,7 +42,10 @@ jobs:
             slugs=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- songs | grep -iE '\.(mp3|wav|m4a|flac)$' | grep -vE '/(melody[^/]*|theme[^/]*)$' | cut -d/ -f2 | sort -u | tr '\n' ' ')
             echo "slugs=$slugs" >> "$GITHUB_OUTPUT"
           fi
-      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+      - uses: FedericoCarboni/setup-ffmpeg@v3  # apt보다 훨씬 빠르다(받아 둔 것을 재사용)
+        with:
+          ffmpeg-version: release
+          github-token: ${{ github.token }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"

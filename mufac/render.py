@@ -49,18 +49,13 @@ def _shade(w: int, h: int, *, bottom: float, top: float, vignette: float) -> Ima
 def prepare(song: Song) -> dict[str, Path]:
     song.out.mkdir(parents=True, exist_ok=True)
     photo = Image.open(song.photo_path).convert("RGB")
-    paths = {
-        "land": song.out / "src_land.jpg",
-        "port": song.out / "src_port.jpg",
-        "land_shade": song.out / "shade_land.png",
-        "port_shade": song.out / "shade_port.png",
-    }
-    # 배경은 움직이지 않으므로 출력 크기 그대로 준비
-    _cover(photo, 1920, 1080).save(paths["land"], quality=94)
+    paths = {"land": song.out / "src_land.png", "port": song.out / "src_port.png"}
+    # 배경은 움직이지 않으므로 출력 크기 그대로, 글자용 그늘까지 미리 합쳐 둔다(ffmpeg에서 겹치면 매 프레임 비용)
     vertical = Image.open(song.photo_v_path).convert("RGB") if song.photo_v_path.exists() else photo
-    _cover(vertical, 1080, 1920).save(paths["port"], quality=94)
-    _shade(1920, 1080, bottom=0.55, top=0.0, vignette=0.3).save(paths["land_shade"])
-    _shade(1080, 1920, bottom=0.45, top=0.0, vignette=0.3).save(paths["port_shade"])
+    land = Image.alpha_composite(_cover(photo, 1920, 1080).convert("RGBA"), _shade(1920, 1080, bottom=0.55, top=0.0, vignette=0.3))
+    port = Image.alpha_composite(_cover(vertical, 1080, 1920).convert("RGBA"), _shade(1080, 1920, bottom=0.45, top=0.0, vignette=0.3))
+    land.convert("RGB").save(paths["land"])
+    port.convert("RGB").save(paths["port"])
     return paths
 
 
@@ -154,17 +149,15 @@ def render_main(song: Song, src: dict[str, Path], ass: Path) -> Path:
     audio = song.audio_path()
     total = duration(audio)
     out = song.out / "main.mp4"
-    graph = (f"[0:v]format=rgba[bg];"
-             f"[bg][1:v]overlay=0:0,{_subs(ass)},"
+    graph = (f"[0:v]{_subs(ass)},"
              f"fade=t=in:st=0:d=1.5,fade=t=out:st={max(0, total - 2.5):.2f}:d=2.5,format=yuv420p[v]")
     _run([
         "ffmpeg", "-y", "-v", "warning", "-stats",
         "-loop", "1", "-framerate", str(FPS), "-i", str(src["land"]),
-        "-loop", "1", "-framerate", str(FPS), "-i", str(src["land_shade"]),
         "-i", str(audio),
-        "-filter_complex", graph, "-map", "[v]", "-map", "2:a",
+        "-filter_complex", graph, "-map", "[v]", "-map", "1:a",
         "-t", f"{total:.2f}", "-r", str(FPS),
-        "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-tune", "film",
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", "19", "-tune", "stillimage",
         "-c:a", "aac", "-b:a", "256k", "-ar", "48000",
         "-movflags", "+faststart", str(out),
     ])
@@ -175,18 +168,16 @@ def render_short(song: Song, src: dict[str, Path], ass: Path, start: float, end:
     audio = song.audio_path()
     span = end - start
     out = song.out / "short.mp4"
-    graph = (f"[0:v]format=rgba[bg];"
-             f"[bg][1:v]overlay=0:0,{_subs(ass)},"
+    graph = (f"[0:v]{_subs(ass)},"
              f"fade=t=in:st=0:d=0.6,fade=t=out:st={max(0, span - 1.5):.2f}:d=1.5,format=yuv420p[v];"
-             f"[2:a]afade=t=in:st=0:d=0.8,afade=t=out:st={max(0, span - 2):.2f}:d=2[a]")
+             f"[1:a]afade=t=in:st=0:d=0.8,afade=t=out:st={max(0, span - 2):.2f}:d=2[a]")
     _run([
         "ffmpeg", "-y", "-v", "warning", "-stats",
         "-loop", "1", "-framerate", str(FPS), "-i", str(src["port"]),
-        "-loop", "1", "-framerate", str(FPS), "-i", str(src["port_shade"]),
         "-ss", f"{start:.2f}", "-t", f"{span:.2f}", "-i", str(audio),
         "-filter_complex", graph, "-map", "[v]", "-map", "[a]",
         "-t", f"{span:.2f}", "-r", str(FPS),
-        "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-tune", "film",
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", "19", "-tune", "stillimage",
         "-c:a", "aac", "-b:a", "256k", "-ar", "48000",
         "-movflags", "+faststart", str(out),
     ])
