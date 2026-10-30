@@ -24,10 +24,12 @@ from .song import Song, config
 
 MIN_WIDTH = 2400
 LOOK = (
-    "Modern editorial illustration, flat shapes with soft textured shading and subtle grain, a restrained palette of four or five colors "
-    "that follows the mood of the scene, clean composition with generous empty space in the lower third so lyrics can sit over it. "
-    "Not photorealistic, not 3D render, not anime. "
-    "No text, no letters, no signs with writing, no watermark, no faces looking at the viewer."
+    "High-end editorial illustration in a painterly style: confident brushwork, rich but harmonious color, real light and shadow, "
+    "detailed people and objects with believable anatomy and clothing, the quality of a New Yorker cover or a premium album artwork. "
+    "A complete scene with people and objects, not an empty landscape. The mood of the colors follows the scene. "
+    "Keep the lower third of the frame relatively calm so lyrics can sit over it. "
+    "Not photorealistic, not 3D render, not anime, not flat vector clip art. "
+    "No text, no letters, no signs with writing, no watermark, no faces looking straight at the viewer."
 )
 
 

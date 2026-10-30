@@ -131,6 +131,8 @@ def cmd_new(a) -> None:
         "photo_query": data["photo_query"],
         "image_prompt": data["image_prompt"],
         "title_kind": data.get("title_kind", ""),
+        "tempo": data.get("tempo", ""),
+        "arc": data.get("arc", ""),
         "why": data.get("why", ""),
         "share_line": data.get("share_line", ""),
         "youtube_meta": {
