@@ -50,9 +50,23 @@ def write_readme(s: Song) -> None:
             lines.append(f"- 쇼츠 https://youtube.com/shorts/{yt['short']}")
         lines += ["- 비공개로 올라갑니다. [YouTube Studio](https://studio.youtube.com)에서 공개로 바꾸세요.", ""]
 
+    cl = m.get("classic") or {}
+    if cl:
+        lines += [
+            f"## 원곡: {cl['name']}", "",
+            f"{cl['composer']}, {cl['year']}. {cl.get('reason', '')}", "",
+            f"- [melody.mp3](melody.mp3) 피아노 멜로디와 반주 ({cl.get('seconds', 0)}초)",
+            "- [melody-solo.mp3](melody-solo.mp3) 멜로디만",
+            "- [cover.jpg](cover.jpg) Suno 곡 이미지", "",
+            "## 1. Suno에 멜로디 올리고 붙여넣기", "",
+            "1. [Suno](https://suno.com/create)에서 **Upload Audio**로 melody.mp3를 올립니다.",
+            "2. 올라간 곡의 메뉴에서 **Cover**를 고릅니다.",
+            "3. 아래 Style, Exclude, Title, Lyrics를 칸마다 붙여넣고 만듭니다.", "",
+        ]
+    else:
+        lines += ["## 1. Suno에 붙여넣기", "",
+                  "[Suno 열기](https://suno.com/create)에서 Custom 모드를 켜고 아래를 칸마다 붙여넣으세요.", ""]
     lines += [
-        "## 1. Suno에 붙여넣기", "",
-        "[Suno 열기](https://suno.com/create)에서 Custom 모드를 켜고 아래를 칸마다 붙여넣으세요.", "",
         "**Style**", f"{fence}text", m.get("style", ""), fence, "",
         "**Exclude styles**", f"{fence}text", m.get("exclude", ""), fence, "",
         "**Title**", f"{fence}text", m.get("title", ""), fence, "",
@@ -75,7 +89,8 @@ def cmd_new(a) -> None:
     from .write import write_song
 
     avoid = [x.meta.get("hook", "") for x in songmod.all_songs()][-40:]
-    data = write_song(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style, avoid=avoid)
+    data = write_song(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style,
+                      classic=a.classic, avoid=avoid)
     s = Song(songmod.new_slug())
     pick = data["candidates"][data["chosen"]]
     s.meta = {
@@ -84,7 +99,7 @@ def cmd_new(a) -> None:
         "theme": pick["theme"],
         "story": pick["story"],
         "created": dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M"),
-        "request": {k: v for k, v in {"id": a.req, "idea": a.idea, "style": a.style}.items() if v},
+        "request": {k: v for k, v in {"id": a.req, "idea": a.idea, "style": a.style, "classic": a.classic}.items() if v},
         "style": data["style"],
         "exclude": data["exclude"],
         "photo_query": data["photo_query"],
@@ -105,6 +120,10 @@ def cmd_new(a) -> None:
         "chosen": data["chosen"],
         "lyrics": data["lyrics"],
     }
+    if data.get("classic"):
+        from .classical import render as render_melody
+        info = render_melody(data["classic"]["id"], s.dir)
+        s.meta["classic"] = {**data["classic"], "seconds": info["seconds"], "plan": info["plan"]}
     s.save()
     if data.get("research"):
         (s.dir / "research.md").write_text(f"# 레퍼런스 조사\n\n{data['research']}\n", encoding="utf-8")
@@ -235,6 +254,7 @@ def main() -> None:
     n.add_argument("--theme", default="")
     n.add_argument("--vocal", default="")
     n.add_argument("--style", default="")
+    n.add_argument("--classic", default="auto", help="auto, none, 또는 클래식 곡 id")
     n.add_argument("--req", default="", help="대시보드가 붙이는 요청 번호")
     n.set_defaults(func=cmd_new)
 

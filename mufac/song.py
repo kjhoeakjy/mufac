@@ -57,6 +57,10 @@ class Song:
         return self.dir / "photo_v.jpg"
 
     @property
+    def cover_path(self) -> Path:
+        return self.dir / "cover.jpg"
+
+    @property
     def timing_path(self) -> Path:
         return self.dir / "timing.lrc"
 

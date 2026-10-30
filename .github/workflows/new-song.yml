@@ -21,6 +21,10 @@ on:
         description: "곡 스타일 (예: 어쿠스틱, 남자 보컬, 밴드 사운드)"
         required: false
         default: ""
+      classic:
+        description: "클래식 원곡: auto(의미로 고름), none, 또는 곡 id"
+        required: false
+        default: "auto"
       req:
         description: "대시보드 요청 번호 (비워도 됨)"
         required: false
@@ -51,7 +55,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - run: pip install anthropic requests PyYAML Pillow numpy
+      - run: pip install anthropic requests PyYAML Pillow numpy mido
       - id: song
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -63,7 +67,8 @@ jobs:
           VOCAL: ${{ inputs.vocal }}
           STYLE: ${{ inputs.style }}
           REQ: ${{ inputs.req }}
-        run: python -m mufac new --idea "$IDEA" --hook "$HOOK" --theme "$THEME" --vocal "$VOCAL" --style "$STYLE" --req "$REQ"
+          CLASSIC: ${{ inputs.classic || 'auto' }}
+        run: python -m mufac new --idea "$IDEA" --hook "$HOOK" --theme "$THEME" --vocal "$VOCAL" --style "$STYLE" --req "$REQ" --classic "$CLASSIC"
       - name: 저장
         env:
           SLUG: ${{ steps.song.outputs.slug }}

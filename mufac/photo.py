@@ -2,6 +2,7 @@
 
 photo.jpg   가로 사진(본편 영상, 썸네일)
 photo_v.jpg 세로 사진(쇼츠). 없으면 가로 사진 가운데를 잘라 쓴다.
+cover.jpg   정사각 커버(Suno 곡 이미지). 없으면 가로 사진 가운데를 잘라 만든다.
 
 OpenAI 이미지(기본) → Pexels 실제 사진 → 둘 다 없으면 색 그라데이션 순서로 시도한다.
 """
@@ -48,7 +49,7 @@ def fetch(song: Song, *, pick: int | None = None) -> dict:
 def _openai(song: Song, scene: str) -> dict:
     model = os.environ.get("OPENAI_IMAGE_MODEL", "gpt-image-1")
     prompt = f"{scene}\n\n{LOOK}"
-    for size, path in (("1536x1024", song.photo_path), ("1024x1536", song.photo_v_path)):
+    for size, path in (("1536x1024", song.photo_path), ("1024x1536", song.photo_v_path), ("1024x1024", song.cover_path)):
         r = requests.post(
             "https://api.openai.com/v1/images/generations",
             headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"},
@@ -84,6 +85,7 @@ def _pexels(song: Song, query: str, pick: int | None) -> dict:
     img.raise_for_status()
     _save(Image.open(io.BytesIO(img.content)), song.photo_path)
     song.photo_v_path.unlink(missing_ok=True)
+    square_cover(song)
     return {
         "source": "pexels", "query": query, "id": p["id"], "page": p["url"],
         "photographer": p["photographer"], "photographer_url": p["photographer_url"],
@@ -101,7 +103,16 @@ def _gradient(song: Song) -> dict:
     img += rng.normal(0, 4, (h, w, 1))
     _save(Image.fromarray(np.clip(img, 0, 255).astype("uint8")), song.photo_path)
     song.photo_v_path.unlink(missing_ok=True)
+    square_cover(song)
     return {"source": "gradient"}
+
+
+def square_cover(song: Song) -> None:
+    """가로 사진 가운데를 잘라 Suno용 정사각 커버를 만든다."""
+    img = Image.open(song.photo_path).convert("RGB")
+    side = min(img.size)
+    left, top = (img.width - side) // 2, (img.height - side) // 2
+    img.crop((left, top, left + side, top + side)).resize((1024, 1024), Image.LANCZOS).save(song.cover_path, "JPEG", quality=90)
 
 
 def _save(img: Image.Image, path) -> None:

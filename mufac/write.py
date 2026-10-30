@@ -12,6 +12,8 @@ import os
 
 import anthropic
 
+from . import classical
+
 MODEL = os.environ.get("MUFAC_MODEL", "claude-opus-5-5")
 KST = dt.timezone(dt.timedelta(hours=9))
 BETAS = ["server-side-fallback-2026-07-01"]
@@ -33,6 +35,9 @@ RESEARCH = """\
 3. 감성 레퍼런스 작사가({ref})의 대표곡 4~6곡: 노랫말의 말투, 낱말 선택, 반복과 리듬, 작은 소재가 큰 울림이 되는 방식.
    리뷰, 인터뷰, 가사 해석 글을 찾아 원리를 정리한다.
 
+4. 클래식 멜로디 위에 쓰는 곡이면 그 원곡의 배경도 검색한다: 작곡 시기와 상황, 헌정 대상, 작곡가가 그때 겪던 일, 초연과 그 뒤의 쓰임,
+   사람들이 이 곡을 어떤 자리에서 듣는지. 노래 가사와 설명란에 쓸 수 있는 확인된 사실만 정리한다.
+
 마지막에 "이번 곡에 가져갈 원칙" 6~8개를 쓴다. 구조와 원리만 가져오고 표현은 베끼지 않는다.
 가사 전문이나 긴 구절은 인용하지 않는다. 한국어로 쓴다.
 """
@@ -42,9 +47,17 @@ SYSTEM = """\
 유튜브 본편과 쇼츠로 올라간다. 목표는 많은 사람이 "내 얘기다" 하며 저장하고 공유하는 곡이다.
 
 주제는 사랑, 어른, 아픔 중 하나다.
-- 사랑: 이별 뒤의 일상, 오래된 연인, 짝사랑, 다시 연락하고 싶은 밤
-- 어른: 되고 싶던 어른과 지금의 나, 부모님, 버티는 출퇴근, 혼자 사는 방
-- 아픔: 상실, 후회, 말하지 못한 것, 누군가의 위로
+- 사랑: 이별 뒤의 일상, 오래된 연인, 짝사랑, 다시 연락하고 싶은 밤, 처음 좋아하던 날
+- 어른: 되고 싶던 어른과 지금의 나, 부모님, 버티는 출퇴근, 혼자 사는 방, 그래도 괜찮은 하루
+- 아픔: 상실, 후회, 말하지 못한 것, 누군가의 위로, 다시 일어나는 아침
+
+[누구나의 이야기]
+- 특수한 사건이 아니라 거의 모든 사람이 이미 겪었거나 겪을 일을 쓴다. 입원, 사고, 장례처럼 드문 사건은 쓰지 않는다.
+  쓰는 것은 이런 것: 엄마 전화를 귀찮아하다 끊은 저녁, 집에 가는 길, 나이를 먹었다고 처음 느낀 날, 오래 못 본 친구,
+  첫사랑의 계절, 월급날, 일요일 밤, 어릴 때 살던 동네, 혼자 먹는 밥, 그래도 내일 또 출근하는 사람.
+- 사물은 누구 집에나 있는 것으로. 서류나 전문 용어, 특정 직업만 아는 장면은 피한다.
+- 꼭 슬플 필요 없다. 따뜻한 곡, 웃음이 나는 곡, 괜찮다고 등 두드리는 곡, 설레는 곡도 쓴다. 후보 5개 중 적어도 둘은 슬프지 않은 결로.
+- 가장 많은 사람이 "내 얘기다" 할 하나를 고른다. 참신함보다 넓이가 먼저다.
 
 [후렴]
 - 후렴 첫 줄은 듣는 사람에게 건네는 질문이나 고백 한 문장. 8~16자, 일상어.
@@ -91,6 +104,14 @@ title_kind에 고른 형태를 적고, why에 왜 그 형태인지 쓴다.
 - 구간 태그는 한 줄에 따로: [Intro] [Verse 1] [Pre-Chorus] [Chorus] [Verse 2] [Pre-Chorus] [Chorus] [Bridge] [Final Chorus] [Outro]
 - [Intro]는 태그만(짧게). 코러스 메아리는 괄호로 따로 한 줄에 쓴다. 예: (괜찮다고 했잖아)
 - 레퍼런스 곡의 표현을 그대로 쓰지 않는다. 원리만 가져온다.
+
+[클래식 멜로디 모드]
+원곡이 정해진 경우 아래 "멜로디 곡 자료"가 붙는다. 그때는
+- 가사는 자료의 가사 계획(구간, 줄 수, 줄마다 음절 수)을 그대로 따른다. 이 계획이 위의 구간 규칙보다 우선한다. [Pre-Chorus]는 쓰지 않는다.
+- 노래의 이야기와 원곡의 배경이 속으로 이어져야 한다. 겉모습이 닮은 게 아니라, 원곡이 태어난 사정과 이 노래의 화자가 같은 자리에 서 있어야 한다. why에 그 연결을 쓴다.
+- classic_note: 유튜브 설명란에 넣을 원곡 이야기 3~4문장. 원곡의 배경 사실 한두 개와 이 노래가 그 위에 선 이유. 담담하게, 과장 없이.
+- style에는 원곡의 조성과 빠르기를 지키고 "piano-led", "based on the uploaded classical melody"를 넣는다.
+- 원곡 선율을 노래가 그대로 부르므로, 가사의 호흡(긴 음, 쉼)이 선율과 맞아야 한다.
 
 [Suno 스타일]
 - 영어, 쉼표 구분, 180자 이내. 장르, 분위기, 핵심 악기 2~3개, 보컬(성별, 음색), BPM, 전개를 넣고 korean을 꼭 넣는다.
@@ -144,6 +165,7 @@ SCHEMA = {
         "comment_prompt": {"type": "string"},
         "hashtags": {"type": "array", "items": {"type": "string"}},
         "tags": {"type": "array", "items": {"type": "string"}},
+        "classic_note": {"type": "string", "description": "클래식 멜로디 모드가 아니면 빈 문자열"},
         "references": {
             "type": "array",
             "description": "참고한 곡",
@@ -161,7 +183,7 @@ SCHEMA = {
     },
     "required": ["candidates", "chosen", "why", "title", "title_kind", "lyrics", "share_line", "style", "exclude",
                  "photo_query", "image_prompt", "situation", "shorts_title", "yt_intro", "comment_prompt",
-                 "hashtags", "tags", "references"],
+                 "hashtags", "tags", "classic_note", "references"],
     "additionalProperties": False,
 }
 
@@ -176,6 +198,29 @@ def _check(response) -> None:
 def _ref() -> str:
     from .song import config
     return config().get("lyric_reference") or "잔나비(최정훈)"
+
+
+CHOOSE = """\
+너는 음악학자이자 프로듀서다. 새로 쓸 노래의 사연에 가장 깊이 이어지는 클래식 원곡을 하나 고른다.
+겉으로 분위기가 비슷한 곡이 아니라, 원곡이 태어난 사정(누구를 위해, 어떤 시기에, 무엇을 잃거나 바라며 썼는지)과
+이 노래의 화자가 같은 자리에 서는 곡을 고른다. 모두 저작권이 끝난 곡이다.
+JSON만 답한다: {"id": "<곡 id>", "reason": "<왜 이 곡인지 4~6문장, 원곡 배경의 구체적 사실을 들어서>"}
+"""
+
+
+def choose_classic(brief: str) -> dict:
+    client = anthropic.Anthropic()
+    schema = {"type": "object", "properties": {"id": {"type": "string", "enum": [p["id"] for p in classical.catalog()]},
+                                                 "reason": {"type": "string"}},
+              "required": ["id", "reason"], "additionalProperties": False}
+    with client.beta.messages.stream(
+        model=MODEL, max_tokens=8000, system=CHOOSE, betas=BETAS, fallbacks="default",
+        output_config={"effort": "high", "format": {"type": "json_schema", "schema": schema}},
+        messages=[{"role": "user", "content": f"[노래 사연]\n{brief}\n\n[고를 수 있는 원곡]\n{classical.catalogue()}"}],
+    ) as stream:
+        response = stream.get_final_message()
+    _check(response)
+    return json.loads(next(b.text for b in response.content if b.type == "text"))
 
 
 def research(brief: str) -> str:
@@ -202,7 +247,8 @@ def research(brief: str) -> str:
 
 
 def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "", style: str = "",
-               avoid: list[str] | None = None) -> dict:
+               classic: str = "", avoid: list[str] | None = None) -> dict:
+    """classic: '' 없음, 'auto' 의미로 고르기, 또는 classical.LIBRARY의 id."""
     asks = []
     if hook:
         asks.append(f"후렴 문장은 이것으로 정했다: \"{hook}\". 후보 첫 번째에 넣고 그걸로 가사를 써라.")
@@ -220,13 +266,30 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
         asks.append("이미 만든 곡의 후렴이다. 겹치지 않게 해라:\n" + "\n".join(f"- {a}" for a in avoid))
     brief = "\n\n".join(asks)
 
+    piece, reason = None, ""
+    if classic == "auto":
+        pick = choose_classic(brief)
+        piece, reason = classical.get(pick["id"]), pick["reason"]
+    elif classic and classic != "none":
+        piece = classical.get(classic)
+        reason = "직접 고른 원곡"
+    if piece:
+        brief += (f"\n\n[멜로디 곡]\n이 노래는 {piece['name']}({piece['composer']}, {piece['year']}) 선율 위에 쓴다. "
+                  f"고른 이유: {reason}")
+
     notes = ""
     try:
         notes = research(brief)
     except (anthropic.APIError, RuntimeError) as e:
         print(f"레퍼런스 조사를 건너뜁니다: {e}", flush=True)
 
-    content = f"[레퍼런스 조사 노트]\n{notes}\n\n[요청]\n{brief}" if notes else brief
+    parts = []
+    if notes:
+        parts.append(f"[레퍼런스 조사 노트]\n{notes}")
+    if piece:
+        parts.append(f"[멜로디 곡 자료]\n{piece['story'].strip()}\n\n{classical.lyric_plan(piece['id'])}")
+    parts.append(f"[요청]\n{brief}")
+    content = "\n\n".join(parts)
     with anthropic.Anthropic().beta.messages.stream(
         model=MODEL, max_tokens=32000, system=SYSTEM.replace("{ref}", _ref()), betas=BETAS, fallbacks="default",
         output_config={"effort": "high", "format": {"type": "json_schema", "schema": SCHEMA}},
@@ -238,4 +301,7 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
     data = json.loads(text)
     data["chosen"] = max(0, min(int(data.get("chosen", 0)), len(data["candidates"]) - 1))
     data["research"] = notes
+    if piece:
+        data["classic"] = {"id": piece["id"], "name": piece["name"], "composer": piece["composer"],
+                           "year": piece["year"], "reason": reason, "note": data.get("classic_note", "")}
     return data

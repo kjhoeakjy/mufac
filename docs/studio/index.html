@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <script src="js-yaml.min.js"></script>
 <style>
-/* 작업실 콘솔: 왼쪽 곡 목록, 오른쪽 한 곡의 진행 단계(Suno → 곡 → 영상 → 유튜브) */
+/* 작업실: 위에 만들기, 왼쪽 곡 목록, 오른쪽 한 곡(원곡 → Suno → 곡 → 영상 → 유튜브) */
 :root{
   --bg:#111214; --panel:#18191c; --raise:#212227; --line:#2b2d33;
   --fg:#eeece6; --muted:#90918f; --accent:#e9b24c; --accent-ink:#1b1408;
@@ -21,7 +21,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
-button,input{font:inherit;color:inherit}
+button,input,select{font:inherit;color:inherit}
 a{color:var(--accent)}
 [hidden]{display:none!important}
 .wrap{max-width:1180px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right)) 80px max(16px,env(safe-area-inset-left))}
@@ -31,14 +31,15 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;ma
 .ghost:hover{color:var(--fg);border-color:var(--muted)}
 
 /* 만들기 */
-.make{display:grid;grid-template-columns:1fr 1fr auto auto;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:24px}
-.make input{background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0;font-size:18px}
-.make input:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.make{display:grid;grid-template-columns:1.3fr 1fr 1fr auto auto;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:24px}
+.make input,.make select{background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0;font-size:18px}
+.make select{appearance:none;-webkit-appearance:none;padding-right:38px;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:right 20px top 50%,right 14px top 50%;background-size:6px 6px;background-repeat:no-repeat;text-overflow:ellipsis}
+.make input:focus,.make select:focus{outline:2px solid var(--accent);outline-offset:-1px}
 .btn{border:0;border-radius:12px;padding:14px 22px;font-weight:700;font-size:18px;cursor:pointer;white-space:nowrap}
 .btn.primary{background:var(--accent);color:var(--accent-ink)}
 .btn.second{background:var(--raise);border:1px solid var(--line)}
 .btn:disabled{opacity:.4;cursor:default}
-.btn:focus-visible,.ghost:focus-visible,.item:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn:focus-visible,.ghost:focus-visible,.item:focus-visible,.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 .cols{display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px;align-items:start}
 .list{display:flex;flex-direction:column;gap:6px;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto}
@@ -49,20 +50,20 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;ma
 .item .t{font:700 16px/1.3 var(--serif);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .item .s{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center;margin-top:3px}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
-.dot.wait{background:var(--muted)} .dot.run{background:var(--accent);animation:pulse 1.2s infinite} .dot.ready{background:var(--accent)} .dot.done{background:var(--ok)} .dot.fail{background:var(--err)}
+.dot.run{background:var(--accent);animation:pulse 1.2s infinite} .dot.ready{background:var(--accent)} .dot.done{background:var(--ok)} .dot.fail{background:var(--err)}
 @keyframes pulse{50%{opacity:.25}}
 @media (prefers-reduced-motion:reduce){.dot.run{animation:none}}
 
 /* 상세 */
 .detail{display:flex;flex-direction:column;gap:18px;min-width:0}
-.head h1{font:700 clamp(28px,4vw,40px)/1.25 var(--serif);margin:0 0 8px;text-wrap:balance}
+.head{display:grid;grid-template-columns:132px minmax(0,1fr);gap:20px;align-items:center}
+.head.nocover{grid-template-columns:1fr}
+.cover{width:132px;height:132px;border-radius:14px;object-fit:cover;background:var(--raise);display:block}
+.head h1{font:700 clamp(28px,4vw,40px)/1.25 var(--serif);margin:0 0 6px;text-wrap:balance}
 .head p{margin:0;color:var(--muted)}
-.why{margin-top:12px;color:var(--muted);font-size:16px}
-.why summary{cursor:pointer;color:var(--fg);width:max-content}
-.why p,.why ul{margin:10px 0 0;line-height:1.7}
-.why li{margin-bottom:6px}
 .step{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
 .step h2{font-size:14px;letter-spacing:.12em;color:var(--muted);margin:0 0 14px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.step h2 a,.step h2 span{letter-spacing:0;font-weight:500}
 .field{margin-bottom:14px}
 .field:last-child{margin-bottom:0}
 .flabel{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:14px;color:var(--muted)}
@@ -70,6 +71,11 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;ma
 .copy.ok{color:var(--ok);border-color:var(--ok)}
 .val{background:var(--raise);border-radius:10px;padding:12px 14px;font:15px/1.6 var(--mono);white-space:pre-wrap;word-break:break-word}
 .val.lyrics{font:17px/1.75 var(--sans);max-height:360px;overflow:auto}
+.orig{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.orig .o{background:var(--raise);border-radius:10px;padding:12px 14px}
+.orig .ol{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--muted);margin-bottom:6px}
+.orig audio{margin:0}
+.reason{color:var(--muted);font-size:16px;line-height:1.7;margin:14px 0 0}
 .drop{display:block;border:1.5px dashed var(--line);border-radius:14px;padding:30px 16px;text-align:center;color:var(--muted);cursor:pointer;font-size:18px}
 .drop.over{border-color:var(--accent);color:var(--fg)}
 .drop input{display:none}
@@ -78,26 +84,28 @@ audio{width:100%;margin-top:12px}
 video{width:100%;border-radius:10px;background:#000;display:block}
 .note{color:var(--muted);font-size:15px;margin:10px 0 0}
 .state{display:flex;align-items:center;gap:10px;font-size:18px}
-.links{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.links{display:flex;flex-wrap:wrap;gap:8px 18px}
 .empty{color:var(--muted);padding:60px 0;text-align:center;font-size:18px}
 .err{color:var(--err)}
 
 /* 토큰 */
 .gate{max-width:560px;margin:10vh auto;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px}
-.gate h1{font:700 28px var(--serif);margin:0 0 10px}
-.gate ol{padding-left:20px;color:var(--muted);margin:14px 0 18px}
+.gate h1{font:700 28px var(--serif);margin:0 0 14px}
+.gate p{color:var(--muted);margin:0 0 14px}
 .gate input{width:100%;background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px;font:15px var(--mono)}
 
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:12px 18px;font-size:16px;max-width:calc(100% - 32px)}
 
-@media (max-width:820px){
+@media (max-width:900px){
   .make{grid-template-columns:1fr 1fr}
-  .make input{grid-column:span 2}
+  .make #kw{grid-column:span 2}
   .cols{grid-template-columns:1fr}
   .list{position:static;max-height:none;flex-direction:row;overflow-x:auto;padding-bottom:6px}
   .item{min-width:220px}
-  .videos{grid-template-columns:1fr}
+  .videos,.orig{grid-template-columns:1fr}
   .videos video.v{max-width:300px}
+  .head{grid-template-columns:96px minmax(0,1fr)}
+  .cover{width:96px;height:96px}
 }
 </style>
 </head>
@@ -106,12 +114,7 @@ video{width:100%;border-radius:10px;background:#000;display:block}
 
 <section class="gate" id="gate" hidden>
   <h1>mufac</h1>
-  <p>이 화면이 저장소를 움직이려면 GitHub 토큰이 한 번 필요해요. 이 브라우저에만 저장됩니다.</p>
-  <ol>
-    <li><a href="https://github.com/settings/personal-access-tokens/new?name=mufac&description=mufac%20dashboard&expires_in=none&contents=write&actions=write" target="_blank" rel="noopener">토큰 만들기</a>에서 Repository access를 <b>mufac</b>만 고르기</li>
-    <li>Permissions에서 <b>Actions</b>와 <b>Contents</b>를 Read and write로</li>
-    <li>만든 토큰을 아래에 붙여넣기</li>
-  </ol>
+  <p><a href="https://github.com/settings/personal-access-tokens/new?name=mufac&description=mufac%20dashboard&expires_in=none&contents=write&actions=write" target="_blank" rel="noopener">GitHub 토큰 만들기</a> · 저장소 mufac, Actions·Contents 읽기/쓰기</p>
   <input id="tokenIn" type="password" placeholder="github_pat_..." autocomplete="off">
   <button class="btn primary" id="tokenSave">시작</button>
   <p class="note err" id="gateErr"></p>
@@ -120,13 +123,14 @@ video{width:100%;border-radius:10px;background:#000;display:block}
 <div id="app" hidden>
   <header>
     <div class="mark">mufac</div>
-    <button class="ghost" id="logout" title="토큰 지우기">토큰</button>
+    <button class="ghost" id="logout">토큰</button>
   </header>
 
   <section class="make">
-    <input id="kw" placeholder="키워드나 상황" autocomplete="off">
-    <input id="style" placeholder="곡 스타일 (선택)" autocomplete="off">
-    <button class="btn primary" id="makeKw">이걸로 만들기</button>
+    <input id="kw" placeholder="키워드" autocomplete="off">
+    <input id="style" placeholder="곡 스타일" autocomplete="off">
+    <select id="classic" aria-label="클래식 원곡"><option value="auto">클래식 자동</option><option value="none">클래식 없음</option></select>
+    <button class="btn primary" id="makeKw">만들기</button>
     <button class="btn second" id="makeAuto">자동 생성</button>
   </section>
 
@@ -142,7 +146,9 @@ video{width:100%;border-radius:10px;background:#000;display:block}
 <script>
 const OWNER = "kjhoeakjy", REPO = "mufac", BRANCH = "main";
 const API = `https://api.github.com/repos/${OWNER}/${REPO}`;
+const RAW = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}`;
 const AUDIO = /\.(mp3|wav|m4a|flac)$/i;
+const PD_DIED = 1955, PD_YEAR = 1930;   // mufac/classical.py 와 같은 규칙
 const $ = (id) => document.getElementById(id);
 
 const store = {
@@ -150,11 +156,12 @@ const store = {
   set(k,v){ try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k,v); } catch {} },
 };
 let token = store.get("mufac.token");
-let songs = [];          // {slug, meta, audio, release, runs}
-let pending = [];        // 대시보드에서 요청한 새 곡 {req, at, label}
+let songs = [];          // {slug, meta, files, audio, release}
+let pending = [];        // 대시보드에서 요청한 새 곡 {req, label}
 let runs = [];
 let selected = store.get("mufac.selected");
 const yamlCache = new Map();
+let catalogSha = null;
 
 // ---------------------------------------------------------------- GitHub
 async function gh(path, opts = {}) {
@@ -163,7 +170,7 @@ async function gh(path, opts = {}) {
     headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json",
                "X-GitHub-Api-Version": "2022-11-28", ...(opts.headers || {}) },
   });
-  if (res.status === 401) { logout("토큰이 맞지 않아요. 다시 넣어 주세요."); throw new Error("401"); }
+  if (res.status === 401) { logout("토큰이 맞지 않아요."); throw new Error("401"); }
   if (!res.ok && res.status !== 404) {
     let msg = res.status + "";
     try { msg = (await res.json()).message || msg; } catch {}
@@ -182,12 +189,14 @@ function b64utf8(b64) {
 async function loadSongs() {
   const head = await gh(`/git/ref/heads/${BRANCH}`);
   const tree = await gh(`/git/trees/${head.object.sha}?recursive=1`);
-  const bySlug = {};
+  const bySlug = {}, midi = new Set();
+  let catSha = null;
   for (const n of tree.tree) {
     const m = n.path.match(/^songs\/([^/]+)\/(.+)$/);
-    if (!m || m[2].includes("/")) continue;
-    const s = bySlug[m[1]] ||= { slug: m[1], files: {} };
-    s.files[m[2]] = n.sha;
+    if (m && !m[2].includes("/")) { (bySlug[m[1]] ||= { slug: m[1], files: {} }).files[m[2]] = n.sha; continue; }
+    const k = n.path.match(/^assets\/classical\/midi\/(.+)\.mid$/);
+    if (k) midi.add(k[1]);
+    if (n.path === "assets/classical/catalog.yaml") catSha = n.sha;
   }
   const list = Object.values(bySlug).filter(s => s.files["song.yaml"]);
   await Promise.all(list.map(async s => {
@@ -205,11 +214,24 @@ async function loadSongs() {
   for (const s of list) s.release = relMap[s.slug] || null;
   list.sort((a, b) => b.slug.localeCompare(a.slug, "en", { numeric: true }));
   songs = list;
-  // 새 곡 요청이 끝났으면 대기 목록에서 빼고 그 곡을 연다
   for (const p of [...pending]) {
     const hit = songs.find(s => s.meta?.request?.id === p.req);
     if (hit) { pending = pending.filter(x => x !== p); selected = hit.slug; store.set("mufac.selected", selected); }
   }
+  if (catSha && catSha !== catalogSha) { catalogSha = catSha; await loadCatalog(catSha, midi); }
+}
+
+// 클래식 목록: 저작권 규칙을 지나고 선율 파일(midi 또는 hand)이 있는 곡만
+async function loadCatalog(sha, midi) {
+  const blob = await gh(`/git/blobs/${sha}`);
+  const pieces = (jsyaml.load(b64utf8(blob.content)) || {}).pieces || [];
+  const ok = pieces.filter(p => Number.isInteger(p.died) && Number.isInteger(p.year) && p.died <= PD_DIED && p.year <= PD_YEAR
+                                 && (midi.has(p.id) || p.hand));
+  ok.sort((a, b) => a.composer.localeCompare(b.composer, "ko") || a.year - b.year);
+  const sel = $("classic"), keep = sel.value;
+  sel.innerHTML = `<option value="auto">클래식 자동</option><option value="none">클래식 없음</option>` +
+    ok.map(p => `<option value="${esc(p.id)}">${esc(p.name)} · ${esc(p.composer)}</option>`).join("");
+  sel.value = [...sel.options].some(o => o.value === keep) ? keep : "auto";
 }
 
 async function loadRuns() {
@@ -219,7 +241,7 @@ async function loadRuns() {
     const run = runs.find(x => x.display_title === `새 곡 ${p.req}`);
     if (run && run.status === "completed" && run.conclusion !== "success") {
       pending = pending.filter(x => x !== p);
-      toast("새 곡 만들기가 실패했어요.", run.html_url);
+      toast("새 곡 만들기 실패", run.html_url);
     }
   }
 }
@@ -245,6 +267,7 @@ function asset(s, name) {
   const a = s.release?.assets?.find(x => x.name === name);
   return a ? a.browser_download_url : null;
 }
+const raw = (s, name) => s.files[name] ? `${RAW}/songs/${encodeURIComponent(s.slug)}/${encodeURIComponent(name)}?v=${s.files[name].slice(0, 8)}` : null;
 
 // ---------------------------------------------------------------- 그리기
 function esc(t) { return String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
@@ -256,13 +279,13 @@ function renderList() {
       <div><div class="t">${esc(p.label)}</div><div class="s"><span class="dot run"></span>가사 쓰는 중</div></div></div>`);
   for (const s of songs) {
     const [k, label] = status(s);
-    const th = asset(s, "thumb.jpg");
+    const th = asset(s, "thumb.jpg") || raw(s, "cover.jpg");
     items.push(`<button class="item ${s.slug === selected ? "on" : ""}" data-slug="${esc(s.slug)}">
       <div class="thumb" style="${th ? `background-image:url('${th}')` : ""}"></div>
       <div style="min-width:0"><div class="t">${esc(s.meta.title || s.slug)}</div>
       <div class="s"><span class="dot ${k}"></span>${label}</div></div></button>`);
   }
-  el.innerHTML = items.join("") || `<div class="empty">아직 곡이 없어요</div>`;
+  el.innerHTML = items.join("") || `<div class="empty">곡 없음</div>`;
   el.querySelectorAll("[data-slug]").forEach(b => b.onclick = () => { selected = b.dataset.slug; store.set("mufac.selected", selected); render(); });
 }
 
@@ -279,40 +302,48 @@ function renderDetail() {
   selected = s.slug;
   const m = s.meta, prod = runFor(s.slug, "영상 만들기"), up = runFor(s.slug, "유튜브 업로드");
   const main = asset(s, "main.mp4"), short = asset(s, "short.mp4");
-  const yt = m.youtube || {};
-  const audioUrl = s.audio ? `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/songs/${encodeURIComponent(s.slug)}/${encodeURIComponent(s.audio)}` : null;
+  const yt = m.youtube || {}, cl = m.classic;
+  const audioUrl = s.audio ? raw(s, s.audio) : null;
+  const cover = raw(s, "cover.jpg"), melody = raw(s, "melody.mp3"), solo = raw(s, "melody-solo.mp3");
+
+  let orig = "";
+  if (cl) orig = `<section class="step"><h2>원곡 <span>${esc(cl.name)} · ${esc(cl.composer)}${cl.year ? ` · ${esc(cl.year)}` : ""}</span></h2>
+      <div class="orig">
+        ${melody ? `<div class="o"><div class="ol"><span>멜로디 + 반주</span><a href="${melody}" download>받기</a></div><audio src="${melody}" controls preload="none"></audio></div>` : ""}
+        ${solo ? `<div class="o"><div class="ol"><span>멜로디만</span><a href="${solo}" download>받기</a></div><audio src="${solo}" controls preload="none"></audio></div>` : ""}
+      </div>
+      ${cl.reason ? `<p class="reason">${esc(cl.reason)}</p>` : ""}</section>`;
 
   let video;
-  if (active(prod)) video = `<div class="state"><span class="dot run"></span>영상 만드는 중 · 보통 10분 안팎</div>`;
+  if (active(prod)) video = `<div class="state"><span class="dot run"></span>영상 만드는 중</div>`;
   else if (main) video = `<div class="videos"><video src="${main}" controls preload="metadata" poster="${asset(s, "thumb.jpg") || ""}"></video>
       ${short ? `<video class="v" src="${short}" controls preload="metadata"></video>` : ""}</div>`;
-  else if (s.audio && prod?.conclusion === "failure") video = `<div class="state err"><span class="dot fail"></span>영상 만들기 실패</div>
-      <p class="note"><a href="${prod.html_url}" target="_blank" rel="noopener">기록 보기</a> · <button class="copy" id="reprod">다시 만들기</button></p>`;
-  else if (s.audio) video = `<div class="state"><span class="dot run"></span>곧 시작해요</div>`;
-  else video = `<p class="note">곡을 올리면 썸네일과 영상이 만들어져요.</p>`;
+  else if (s.audio && prod?.conclusion === "failure") video = `<div class="state err"><span class="dot fail"></span>실패 ·
+      <a href="${prod.html_url}" target="_blank" rel="noopener">기록</a> · <button class="copy" id="reprod">다시 만들기</button></div>`;
+  else if (s.audio) video = `<div class="state"><span class="dot run"></span>대기 중</div>`;
+  else video = `<div class="state"><span class="dot"></span>MP3를 올리면 시작</div>`;
 
   let tube;
   if (active(up)) tube = `<div class="state"><span class="dot run"></span>올리는 중</div>`;
   else if (yt.main) tube = `<div class="links">
-      <a href="https://youtu.be/${esc(yt.main)}" target="_blank" rel="noopener">본편 열기</a>
-      ${yt.short ? `<a href="https://youtube.com/shorts/${esc(yt.short)}" target="_blank" rel="noopener">쇼츠 열기</a>` : ""}
-      <a href="https://studio.youtube.com" target="_blank" rel="noopener">Studio에서 공개로 바꾸기</a></div>`;
+      <a href="https://youtu.be/${esc(yt.main)}" target="_blank" rel="noopener">본편</a>
+      ${yt.short ? `<a href="https://youtube.com/shorts/${esc(yt.short)}" target="_blank" rel="noopener">쇼츠</a>` : ""}
+      <a href="https://studio.youtube.com" target="_blank" rel="noopener">Studio에서 공개로</a></div>`;
   else tube = `<button class="btn primary" id="publish" ${main ? "" : "disabled"}>유튜브 업로드</button>
-      ${up?.conclusion === "failure" ? `<p class="note err">지난번 업로드 실패 · <a href="${up.html_url}" target="_blank" rel="noopener">기록 보기</a></p>` : ""}
-      <p class="note">본편과 쇼츠가 비공개로 올라가요.</p>`;
+      ${up?.conclusion === "failure" ? `<p class="note err">지난 업로드 실패 · <a href="${up.html_url}" target="_blank" rel="noopener">기록</a></p>` : ""}`;
 
   el.innerHTML = `
-    <div class="head"><h1>${esc(m.title)}</h1><p>${esc(m.story || "")}</p>
-      ${m.why ? `<details class="why"><summary>이렇게 쓴 이유</summary><p>${esc(m.why)}</p>
-        ${(m.references || []).length ? `<ul>${m.references.map(r => `<li>${esc(r.title)} · ${esc(r.artist)} — ${esc(r.takeaway)}</li>`).join("")}</ul>` : ""}</details>` : ""}</div>
-    <section class="step"><h2>SUNO <a href="https://suno.com/create" target="_blank" rel="noopener">Suno 열기</a></h2>
+    <div class="head ${cover ? "" : "nocover"}">${cover ? `<img class="cover" src="${cover}" alt="">` : ""}
+      <div><h1>${esc(m.title)}</h1><p>${esc(m.story || "")}</p></div></div>
+    ${orig}
+    <section class="step"><h2>SUNO <span>${cl ? `Upload Audio → Cover · ` : ""}${cover ? `<a href="${cover}" download>이미지</a> · ` : ""}<a href="https://suno.com/create" target="_blank" rel="noopener">Suno 열기</a></span></h2>
       ${field("Style", m.style || "")}
       ${field("Exclude styles", m.exclude || "")}
       ${field("Title", m.title || "")}
       ${field("Lyrics", (m.lyrics || "").trim(), "lyrics")}
     </section>
     <section class="step"><h2>곡</h2>
-      <label class="drop" id="drop">${s.audio ? "다른 곡으로 바꾸기" : "MP3를 여기에 놓거나 눌러서 고르기"}
+      <label class="drop" id="drop">${s.audio ? "다른 MP3로 바꾸기" : "MP3 놓기"}
         <input type="file" id="file" accept=".mp3,.wav,.m4a,audio/*"></label>
       ${audioUrl ? `<audio src="${audioUrl}" controls preload="none"></audio>` : ""}
     </section>
@@ -347,7 +378,7 @@ async function copy(btn) {
 
 function toast(msg, link) {
   const t = $("toast");
-  t.innerHTML = esc(msg) + (link ? ` <a href="${link}" target="_blank" rel="noopener">기록 보기</a>` : "");
+  t.innerHTML = esc(msg) + (link ? ` <a href="${link}" target="_blank" rel="noopener">기록</a>` : "");
   t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 6000);
 }
 
@@ -359,17 +390,17 @@ async function dispatch(workflow, inputs) {
 async function makeSong(auto) {
   const idea = auto ? "" : $("kw").value.trim();
   if (!auto && !idea) { $("kw").focus(); return; }
-  const style = $("style").value.trim();
+  const style = $("style").value.trim(), classic = $("classic").value;
   const req = Date.now().toString(36);
   $("makeKw").disabled = $("makeAuto").disabled = true;
   try {
-    await dispatch("new-song.yml", { idea, style, req, hook: "", theme: "자동", vocal: "자동" });
-    pending.unshift({ req, at: Date.now(), label: idea || "새 곡" });
+    await dispatch("new-song.yml", { idea, style, classic, req, hook: "", theme: "자동", vocal: "자동" });
+    pending.unshift({ req, label: idea || "새 곡" });
     $("kw").value = "";
     renderList();
-    toast("가사를 쓰고 있어요. 1분쯤 걸려요.");
+    toast("가사 쓰는 중 · 2분쯤");
     poll(4000);
-  } catch (e) { toast("시작하지 못했어요: " + e.message); }
+  } catch (e) { toast("시작 실패: " + e.message); }
   finally { $("makeKw").disabled = $("makeAuto").disabled = false; }
 }
 
@@ -384,7 +415,7 @@ function readB64(file) {
 
 async function uploadAudio(s, file) {
   const ext = (file.name.match(/\.(mp3|wav|m4a|flac)$/i) || [".mp3"])[0].toLowerCase();
-  if (file.size > 90 * 1024 * 1024) { toast("파일이 너무 커요. 90MB 이하로 올려 주세요."); return; }
+  if (file.size > 90 * 1024 * 1024) { toast("90MB 이하만"); return; }
   const drop = $("drop");
   drop.firstChild.textContent = "올리는 중…";
   try {
@@ -399,24 +430,24 @@ async function uploadAudio(s, file) {
     const body = { message: `mp3: ${s.slug}`, content: await readB64(file), branch: BRANCH };
     if (s.files[name]) body.sha = s.files[name];
     await gh(`/contents/songs/${s.slug}/${name}`, { method: "PUT", body: JSON.stringify(body) });
-    toast("올렸어요. 영상 만들기가 곧 시작돼요.");
+    toast("올렸어요 · 영상 만들기 시작");
     await refresh();
     poll(5000);
   } catch (e) {
-    toast("올리지 못했어요: " + e.message);
-    drop.firstChild.textContent = "MP3를 여기에 놓거나 눌러서 고르기";
+    toast("업로드 실패: " + e.message);
+    drop.firstChild.textContent = "MP3 놓기";
   }
 }
 
 async function publish(s) {
   $("publish").disabled = true;
-  try { await dispatch("upload.yml", { slug: s.slug }); toast("유튜브에 올리기 시작했어요."); setTimeout(refresh, 4000); poll(5000); }
-  catch (e) { toast("시작하지 못했어요: " + e.message); $("publish").disabled = false; }
+  try { await dispatch("upload.yml", { slug: s.slug }); toast("유튜브 업로드 시작"); setTimeout(refresh, 4000); poll(5000); }
+  catch (e) { toast("시작 실패: " + e.message); $("publish").disabled = false; }
 }
 
 async function reproduce(s) {
-  try { await dispatch("produce.yml", { slug: s.slug }); toast("영상을 다시 만들어요."); setTimeout(refresh, 4000); poll(5000); }
-  catch (e) { toast("시작하지 못했어요: " + e.message); }
+  try { await dispatch("produce.yml", { slug: s.slug }); toast("영상 다시 만드는 중"); setTimeout(refresh, 4000); poll(5000); }
+  catch (e) { toast("시작 실패: " + e.message); }
 }
 
 // ---------------------------------------------------------------- 갱신
@@ -425,13 +456,12 @@ async function refresh() {
   try {
     await loadRuns();
     const busy = pending.length || runs.some(active);
-    // 실행이 끝났거나 처음이면 곡 데이터도 다시 읽는다
     if (!songs.length || busyBefore !== busy || !busy || pending.length) await loadSongs();
     busyBefore = busy;
     render();
     return busy;
   } catch (e) {
-    if (e.message !== "401") $("detail").innerHTML = `<div class="empty err">불러오지 못했어요: ${esc(e.message)}</div>`;
+    if (e.message !== "401") $("detail").innerHTML = `<div class="empty err">${esc(e.message)}</div>`;
     return false;
   }
 }
