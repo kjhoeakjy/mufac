@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+songs/*/out/
+.venv/
+.env

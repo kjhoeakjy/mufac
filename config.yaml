@@ -1,0 +1,18 @@
+# 활동명. 영상 설명과 자막 첫 화면에 들어갑니다.
+artist: ""
+
+# 유튜브 제목 형식. {title}, {artist} 사용 가능.
+youtube_title: "{title} - {artist}"
+
+# 업로드 공개 범위: private, unlisted, public
+# 심사받지 않은 구글 앱은 public으로 보내도 비공개로 올라갑니다.
+privacy: private
+
+# 사진: pexels(실제 사진) 또는 openai(AI 이미지)
+photo_source: openai
+
+# 가사 타이밍에 쓰는 음성 인식 모델 크기: small, medium, large-v3
+whisper_model: medium
+
+# 쇼츠 길이(초)
+short_seconds: 40

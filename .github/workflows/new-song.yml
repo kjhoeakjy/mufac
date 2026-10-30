@@ -1,0 +1,66 @@
+name: 새 곡
+
+on:
+  workflow_dispatch:
+    inputs:
+      idea:
+        description: "요즘 생각이나 상황 (비워도 됨)"
+        required: false
+        default: ""
+      hook:
+        description: "후렴 문장을 직접 정하려면 (비워도 됨)"
+        required: false
+        default: ""
+      theme:
+        description: "주제"
+        type: choice
+        options: [자동, 사랑, 어른, 아픔]
+        default: 자동
+      vocal:
+        description: "보컬"
+        type: choice
+        options: [자동, 여성, 남성, 듀엣]
+        default: 자동
+  schedule:
+    # 매일 아침 8시(한국 시간)에 한 곡씩 준비해 둔다. 원하지 않으면 이 두 줄을 지우세요.
+    - cron: "0 23 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-write
+  cancel-in-progress: false
+
+jobs:
+  new:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install anthropic requests PyYAML Pillow numpy
+      - id: song
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          IDEA: ${{ inputs.idea }}
+          HOOK: ${{ inputs.hook }}
+          THEME: ${{ inputs.theme }}
+          VOCAL: ${{ inputs.vocal }}
+        run: python -m mufac new --idea "$IDEA" --hook "$HOOK" --theme "$THEME" --vocal "$VOCAL"
+      - name: 저장
+        env:
+          SLUG: ${{ steps.song.outputs.slug }}
+          TITLE: ${{ steps.song.outputs.title }}
+        run: |
+          git config user.name "mufac"
+          git config user.email "mufac@users.noreply.github.com"
+          git add "songs/$SLUG"
+          git commit -m "새 곡: $TITLE"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          echo "### [$TITLE](https://github.com/${{ github.repository }}/tree/main/songs/$SLUG)" >> "$GITHUB_STEP_SUMMARY"
