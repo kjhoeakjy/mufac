@@ -1,0 +1,458 @@
+title: 너는 삼 초면 잊는다며
+hook: 너는 삼 초면 잊는다며
+theme: 사랑
+story: 자기를 금붕어라 부르며 뭐든 잘 잊던 사람과 헤어진 뒤, 남은 쪽이 셋을 셀 때마다 다시 그 사람을 떠올리는 이야기다.
+created: 2026-10-30 14:51
+request:
+  id: mvujw6to
+  idea: 금붕어
+  genre: 인디밴드
+style: Korean indie rock, slow-burn 2010s band sound, around 82 bpm. Warm male baritone, slightly raspy, plain and unforced, a little behind the beat, mature and sincere, sung in Korean, korean lyrics. Clean electric guitar with light tremolo carries verse 1 over soft bass and brushed live drums. A second guitar with gentle overdrive enters at the pre-chorus. Chorus opens into full band, steady eighth-note bass, wide ringing chords. Short guitar lead before the bridge, then the bridge drops to one clean guitar and voice. Final chorus is the biggest and widest, drums open up. Short outro on a single clean guitar. Live band in a room, natural reverb, warm tape. Tender, wry, unhurried.
+exclude: autotune, synth pads, brass section
+photo_query: man watching goldfish window
+image_prompt: A young man in a gray hoodie, seen from behind, sits on the floor of a small room at dusk beside a round goldfish bowl on a low shelf. A folded umbrella leans against the wall. Muted blue light from the window mixes with a warm lamp glow, quiet and wistful.
+title_kind: 후렴 문장
+tempo: 느림
+arc: '화법: 너에게 말하기. 기: 우산을 잃어버리고 약속을 다시 묻던 너는 ''나 금붕어잖아'' 하며 웃었고, 나는 그 말에 따라 웃었다. 승: 연락 한 번 없는 걸 보니 나쯤은 쉽게 잊었겠지. 그래서 후렴은 ''너는 삼 초면 잊는다며''를 되풀이하고, 셋을 세고 나면 또 처음부터 너다. 전: 2절에서는 시점이 지금의 나로 옮겨 가고, 쓸데없는 걸 오래 외우는 나를 보여 준다. 브릿지에서 처음으로 금붕어도 몇 달은 기억한다는 사실과 ''보고 싶다''는 말이 나오고, 바로 ''아니면 말고''로 물러선다. 결: 마지막 후렴의 셋째 줄 ''하나 둘 셋 세고 나면''이 ''거짓말인 줄 알면서''로 바뀌고, 메아리는 ''아직 처음부터 너''가 된다. 아웃트로는 ''우산은 챙겼니'' 한마디로 1절에 다시 닿는다.'
+why: 헤어진 사람은 금방 잊는 것 같은데 나만 남아 있다는 기분은 거의 모두가 겪어 봤고, '금붕어는 삼 초'라는 통념 덕분에 설명 없이 한 줄로 통하기 때문에 골랐다. 잔나비 「뜨거운 여름밤은 가고 남은 건 볼품없지만」처럼 후렴 첫 문장을 그대로 제목으로 삼아 부르는 순간 제목이 박히게 했고, 같은 제목 「금붕어」가 있는 한로로와 겹치지 않도록 단어 하나 대신 후렴 문장형을 택했다. 한로로 「0+0」과 터치드 「불시」처럼 마지막 후렴은 둘째 연의 한 줄과 메아리만 바꿨다. 셋을 세는 줄이 '잊으려는 시도'에서 '거짓말인 줄 알면서도 세는 것'으로 뜻이 바뀐다. 이전 곡이 빠른 스카 펑크와 중간 템포 시티팝이었으므로 이번에는 느린 인디록으로 했다. 화법은 우리와 혼잣말을 피해 너에게 말하기로 정했다.
+share_line: 보고 싶다 아니면 말고
+youtube_meta:
+  situation: 헤어지고 못 잊은 밤에 듣는 노래
+  shorts_title: 너는 삼 초면 잊는다며
+  intro: '금붕어는 삼 초면 잊는대. 너는 자기가 금붕어라고 웃었다.
+
+    하나 둘 셋을 세고 나면, 나는 또 처음부터 너다.'
+  comment_prompt: 아직 셋을 세고 있는 사람이 있다면, 여기 한 줄 남겨 두고 가요.
+  hashtags:
+  - 이별노래
+  - 인디록
+  - 못잊은노래
+  - 너는삼초면잊는다며
+  - 금붕어
+  - 인디밴드
+  - 새벽감성
+  - 감성플리
+  - 이별후
+  - 짝사랑노래
+  - 밤에듣는노래
+  - 혼자듣는노래
+  - 위로노래
+  - 인디음악
+  - 한국인디
+tags:
+- 너는 삼 초면 잊는다며
+- 금붕어
+- 금붕어 노래
+- 삼 초
+- 이별 노래
+- 헤어진 후 노래
+- 못 잊은 사람
+- 인디록
+- 인디밴드
+- 한국 인디
+- 느린 인디록
+- 밤에 듣는 노래
+- 새벽 감성
+- 감성 플레이리스트
+- 이별 플레이리스트
+- 보고 싶다
+- 잊지 못한 너
+- 잔잔한 밴드 음악
+- 남자 보컬 인디
+- 혼자 듣는 노래
+- 위로 노래
+- 일렉기타 감성
+- 인디 신곡
+- AI 음악
+- 수노 노래
+- korean indie rock
+- korean indie
+- breakup song
+- slow indie rock
+- goldfish song
+references:
+- title: 뜨거운 여름밤은 가고 남은 건 볼품없지만
+  artist: 잔나비
+  takeaway: 후렴 첫 문장을 그대로 제목으로 삼고, 감정이 가장 높은 순간 뒤에는 생활 말로 내려온다(보고 싶다 → 아니면 말고, 우산은 챙겼니).
+- title: 0+0
+  artist: 한로로
+  takeaway: 마지막 후렴은 한 줄만 바꿔 같은 반복이 다른 뜻으로 들리게 한다.
+- title: 스물다섯, 스물하나
+  artist: 자우림
+  takeaway: 믿었던 말과 지금을 부딪혀 감정을 만든다. 삼 초라던 말이 거짓말인 줄 알면서 또 세는 마음이 그렇다.
+- title: 불시
+  artist: 터치드
+  takeaway: 후렴의 낱말을 조금만 바꿔 화자가 달라졌다는 것을 보여 주고, 반복은 짧게 끊는다.
+candidates:
+- hook: 너는 삼 초면 잊는다며
+  theme: 사랑
+  story: 자기를 금붕어라 부르며 뭐든 잘 잊던 사람과 헤어진 뒤, 남은 쪽이 셋을 셀 때마다 다시 그 사람을 떠올리는 이야기다.
+- hook: 금붕어처럼 살자
+  theme: 어른
+  story: 상사에게 혼난 말을 삼 초 만에 털고 다시 자리에 앉고 싶은 직장인이 혼자 중얼거린다.
+- hook: 또 처음 보는 것처럼
+  theme: 사랑
+  story: 오래 만나 무뎌진 연인이 서로를 매번 처음처럼 볼 수 있으면 좋겠다고 생각한다.
+- hook: 한 바퀴만 더 돌고
+  theme: 아픔
+  story: 같은 자리를 맴도는 하루를 보내는 사람이 그래도 한 바퀴만 더 돌아 보자며 다시 나선다.
+- hook: 다 잊은 줄 알았는데
+  theme: 아픔
+  story: 말 못 하고 보낸 사람이 아무렇지 않던 날 문득 떠오른 사람의 혼잣말이다.
+chosen: 0
+lyrics: |
+  [Intro]
+
+  [Verse 1: sparse, clean guitar]
+  우산은 세 번이나 잃어버렸고
+  약속은 매번 다시 묻더라
+  그럴 때마다 웃으면서
+  나 금붕어잖아 그랬지
+  나는 그게 귀여워서
+  따라 웃고 말았는데
+
+  [Pre-Chorus: second guitar enters]
+  연락 한 번 없는 걸 보면
+  잘 잊는 사람이었으니까
+  나쯤은 쉬웠겠지
+
+  [Chorus: full band]
+  너는 삼 초면 잊는다며
+  삼 초면 잊는다며
+  하나 둘 셋 세고 나면
+  또 처음부터 너
+  (또 처음부터 너)
+
+  [Verse 2: band, softer]
+  나는 쓸데없는 걸 오래 외워
+  네가 어디서 웃었는지
+  걸을 때 왼쪽에 서던 것도
+  아직도 왼쪽을 비워 두고
+  그게 우스워서 웃다가
+  아무도 없는 쪽을 본다
+
+  [Pre-Chorus: second guitar enters]
+  연락 한 번 없는 걸 보면
+  잘 잊는 사람이었으니까
+  나쯤은 쉬웠겠지
+
+  [Chorus: full band]
+  너는 삼 초면 잊는다며
+  삼 초면 잊는다며
+  하나 둘 셋 세고 나면
+  또 처음부터 너
+  (또 처음부터 너)
+
+  [Instrumental: guitar lead]
+
+  [Bridge: quiet, guitar and voice]
+  근데 그거 아니래
+  금붕어도 몇 달은 기억한대
+  그럼 너도 어디쯤
+  조금은 남았겠지
+  보고 싶다
+  아니면 말고
+
+  [Final Chorus: biggest, full band]
+  너는 삼 초면 잊는다며
+  삼 초면 잊는다며
+  거짓말인 줄 알면서
+  또 처음부터 너
+  (아직 처음부터 너)
+
+  [Outro: single clean guitar]
+  우산은 챙겼니
+
+  [End]
+lyrics_draft: '[Intro]
+
+
+  [Verse 1: sparse, clean guitar]
+
+  우산은 세 번을 잃어버렸고
+
+  약속은 매번 다시 묻더라
+
+  그럴 때마다 웃으면서
+
+  나 금붕어잖아 그랬지
+
+  나는 그게 귀여워서
+
+  따라 웃고 말았는데
+
+
+  [Pre-Chorus: second guitar enters]
+
+  연락 한 번 없는 걸 보면
+
+  잘 잊는 사람이었으니까
+
+  나쯤은 쉬웠겠지
+
+
+  [Chorus: full band]
+
+  너는 삼 초면 잊는다며
+
+  삼 초면 잊는다며
+
+  하나 둘 셋 세고 나면
+
+  또 처음부터 너
+
+  (또 처음부터 너)
+
+
+  [Verse 2: band, softer]
+
+  나는 쓸데없는 걸 오래 외워
+
+  네가 웃던 데가 어딘지
+
+  걸을 때 왼쪽에 서던 것도
+
+  그래서 아직 왼쪽을 비우고
+
+  그게 우스워서 웃다가
+
+  아무도 없는 쪽을 본다
+
+
+  [Pre-Chorus: second guitar enters]
+
+  연락 한 번 없는 걸 보면
+
+  잘 잊는 사람이었으니까
+
+  나쯤은 쉬웠겠지
+
+
+  [Chorus: full band]
+
+  너는 삼 초면 잊는다며
+
+  삼 초면 잊는다며
+
+  하나 둘 셋 세고 나면
+
+  또 처음부터 너
+
+  (또 처음부터 너)
+
+
+  [Instrumental: guitar lead]
+
+
+  [Bridge: quiet, guitar and voice]
+
+  근데 그거 아니래
+
+  금붕어도 몇 달은 기억한대
+
+  그럼 너도 어디쯤
+
+  조금은 남았겠지
+
+  보고 싶다
+
+  아니면 말고
+
+
+  [Final Chorus: biggest, full band]
+
+  너는 삼 초면 잊는다며
+
+  삼 초면 잊는다며
+
+  거짓말인 줄 알면서
+
+  또 처음부터 너
+
+  (아직 처음부터 너)
+
+
+  [Outro: single clean guitar]
+
+  우산은 챙겼니
+
+
+  [End]'
+polish:
+- '우산은 세 번을 잃어버렸고 → 우산은 세 번이나 잃어버렸고: ''세 번을''은 입에 붙지 않는 조사라 말할 때 쓰는 ''이나''로 바꿈'
+- '네가 웃던 데가 어딘지 → 네가 어디서 웃었는지: ''웃던 데가 어딘지''는 꼬인 문장이라 소리 내어 하기 쉬운 말로 풂'
+- '그래서 아직 왼쪽을 비우고 → 아직도 왼쪽을 비워 두고: 앞줄과 이유로 묶어 주는 ''그래서''를 빼서 설명하는 느낌을 걷어냄'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A young man in a gray hoodie, seen from behind, sits on the floor of a small room at dusk beside a round goldfish bowl on a low shelf. A folded umbrella leans against the wall. Muted blue light from the window mixes with a warm lamp glow, quiet and wistful.
+youtube_preview:
+  title: 너는 삼 초면 잊는다며 - 연주왕김연주 | 헤어지고 못 잊은 밤에 듣는 노래
+  shorts_title: '너는 삼 초면 잊는다며 #shorts'
+  description: '금붕어는 삼 초면 잊는대. 너는 자기가 금붕어라고 웃었다.
+
+    하나 둘 셋을 세고 나면, 나는 또 처음부터 너다.
+
+
+    너는 삼 초면 잊는다며
+
+
+    우산은 세 번이나 잃어버렸고
+
+    약속은 매번 다시 묻더라
+
+    그럴 때마다 웃으면서
+
+    나 금붕어잖아 그랬지
+
+    나는 그게 귀여워서
+
+    따라 웃고 말았는데
+
+
+    연락 한 번 없는 걸 보면
+
+    잘 잊는 사람이었으니까
+
+    나쯤은 쉬웠겠지
+
+
+    너는 삼 초면 잊는다며
+
+    삼 초면 잊는다며
+
+    하나 둘 셋 세고 나면
+
+    또 처음부터 너
+
+    (또 처음부터 너)
+
+
+    나는 쓸데없는 걸 오래 외워
+
+    네가 어디서 웃었는지
+
+    걸을 때 왼쪽에 서던 것도
+
+    아직도 왼쪽을 비워 두고
+
+    그게 우스워서 웃다가
+
+    아무도 없는 쪽을 본다
+
+
+    연락 한 번 없는 걸 보면
+
+    잘 잊는 사람이었으니까
+
+    나쯤은 쉬웠겠지
+
+
+    너는 삼 초면 잊는다며
+
+    삼 초면 잊는다며
+
+    하나 둘 셋 세고 나면
+
+    또 처음부터 너
+
+    (또 처음부터 너)
+
+
+    근데 그거 아니래
+
+    금붕어도 몇 달은 기억한대
+
+    그럼 너도 어디쯤
+
+    조금은 남았겠지
+
+    보고 싶다
+
+    아니면 말고
+
+
+    너는 삼 초면 잊는다며
+
+    삼 초면 잊는다며
+
+    거짓말인 줄 알면서
+
+    또 처음부터 너
+
+    (아직 처음부터 너)
+
+
+    우산은 챙겼니
+
+
+    아직 셋을 세고 있는 사람이 있다면, 여기 한 줄 남겨 두고 가요.
+
+
+    작사·작곡 기획·제작 연주왕김연주
+
+    음악 생성 Suno (유료 플랜, 상업적 이용 권리 보유)
+
+    이미지 AI 생성
+
+    이 곡은 AI 음악 생성 도구로 만들었습니다.
+
+
+    © 2026 연주왕김연주. All rights reserved.
+
+    이 영상의 노래, 가사, 영상은 연주왕김연주의 창작물이며 모든 권리는 연주왕김연주에게 있습니다. 무단 복제, 재업로드, 2차 배포를 금지합니다.
+
+
+    #이별노래 #인디록 #못잊은노래 #너는삼초면잊는다며 #금붕어 #인디밴드 #새벽감성 #감성플리 #이별후 #짝사랑노래 #밤에듣는노래 #혼자듣는노래 #위로노래 #인디음악 #한국인디'
+  tags:
+  - 너는 삼 초면 잊는다며
+  - 연주왕김연주
+  - 금붕어
+  - 금붕어 노래
+  - 삼 초
+  - 이별 노래
+  - 헤어진 후 노래
+  - 못 잊은 사람
+  - 인디록
+  - 인디밴드
+  - 한국 인디
+  - 느린 인디록
+  - 밤에 듣는 노래
+  - 새벽 감성
+  - 감성 플레이리스트
+  - 이별 플레이리스트
+  - 보고 싶다
+  - 잊지 못한 너
+  - 잔잔한 밴드 음악
+  - 남자 보컬 인디
+  - 혼자 듣는 노래
+  - 위로 노래
+  - 일렉기타 감성
+  - 인디 신곡
+  - AI 음악
+  - 수노 노래
+  - korean indie rock
+  - korean indie
+  - breakup song
+  - slow indie rock
+  - goldfish song
+  hashtags:
+  - 이별노래
+  - 인디록
+  - 못잊은노래
+  - 너는삼초면잊는다며
+  - 금붕어
+  - 인디밴드
+  - 새벽감성
+  - 감성플리
+  - 이별후
+  - 짝사랑노래
+  - 밤에듣는노래
+  - 혼자듣는노래
+  - 위로노래
+  - 인디음악
+  - 한국인디
+  playlists:
+  - 연주왕김연주 노래
+  - 헤어진 날 듣는 노래
+  privacy: private
