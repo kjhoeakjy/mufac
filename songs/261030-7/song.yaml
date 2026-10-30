@@ -1,0 +1,465 @@
+title: 노란
+hook: 노란 불이야
+theme: 어른
+story: 뛰면 탈 버스도 안 뛰고 사표는 임시보관함에 묵혀 두던 사람이, 노란 불 앞에서 처음으로 묻지 않고 건너려는 노래.
+created: 2026-10-30 16:53
+request:
+  id: mvuo7zpg
+  title: 노란
+  genre: 펑크
+  style: 작품성 높음
+sound_plan: 밝은 장조에 단조 화음이 한 번씩 스치는 씁쓸한 느낌, 178bpm 안팎의 빠른 멜로딕 가라지 펑크다. 드럼은 방에서 친 라이브 드럼으로 스네어를 2·4에 세게, 하이햇은 8분음으로 열고 후렴마다 크래시를 연타한다. 베이스는 피크로 8분음 뿌리를 몰아 1절을 끌고 간다. 화성은 디스토션 기타 두 대의 다운스트로크 파워코드이고, 1절은 한 대가 팜뮤트로만, 프리코러스에서 둘째 기타와 탐이 들어온다. 멜로디는 절에서 좁은 음역으로 말하듯, 프리코러스는 같은 음을 반복하며 밀어 올리고, 후렴 첫 음 '노란'에서 위로 도약해 '불이야'의 마지막 모음을 길게 늘인다. 보컬은 거칠고 약간 갈라지는 남성 테너, 외치기보다 진심으로 부르는 톤이고 떼창은 훅 줄에만 붙인다. 2절에 단순한 리드 기타 대선율이 더해지고, 두 번째 후렴 뒤 짧고 거친 기타 솔로가 나온다. 브릿지는 하프타임으로 떨어져 베이스와 클린 기타 한 대, 거의 말하는 보컬만 남는다. 마지막 후렴은 한 옥타브 올라가 가장 크고 넓게 터진 뒤 밴드가 급정지하고, 목소리 혼자 '초록 오기 전에'를 부른 다음 밴드 전체가 한 번 내리치고 끝난다. 공간은 작은 방, 마이크를 가깝게 댄 건조한 소리에 테이프 질감.
+style: Korean punk rock, melodic 2000s garage punk, fast around 178 bpm, urgent and driving, major key with a bittersweet minor turn. Male tenor vocal, raw and slightly raspy, cracking a little on high notes, plain and sincere rather than shouty, sung in Korean, korean lyrics. Verse 1 rides on picked eighth-note bass and one palm-muted power chord guitar over tight live drums, narrow talky melody. Pre-chorus adds the second guitar and pounding toms, repeated note pushing upward. Chorus bursts open with two distorted downstroke guitars and crash cymbals, upward leap on the first word, long held last note, gang vocals only on the hook line. Verse 2 adds a simple lead guitar counter-melody. Short raw guitar solo after the second chorus. Bridge drops to half-time, bass, one clean guitar and a close, almost spoken voice. Final chorus octave up, loudest and widest, then a hard stop, one solo vocal line, one last full-band hit. Small live room, dry close mics, tape grit. Restless, bittersweet,
+  brave.
+exclude: synth, brass, autotune
+photo_query: yellow traffic light crosswalk night
+image_prompt: A young office worker in a loose coat seen from behind, standing at the edge of a city crosswalk at dusk, backpack strap in one hand. The traffic light glows amber above, cars streaking past in blurred light. Warm yellow against deep blue, restless and hopeful mood.
+title_kind: 지정
+tempo: 빠름
+arc: '화법: 혼잣말(2절에만 지나간 ''너''가 등장). 기: 뛰면 탈 버스도 안 뛰고 사표 날짜만 고치는 나, 감정 없이 사실만. 승: 초록이 깜빡이면 발부터 멈추는 버릇에서 후렴 ''노란 불이야''로, 처음엔 멈출 핑계로 들린다. 전: 2절은 노란 불에 뛰어 건너간 너, 넘어지고도 잘 사는 너의 무릎 흉이 부럽다. 브릿지는 하프타임으로 내려앉아 처음으로 진심을 말한다: 멈춰 있어서 다친 데가 없는 게 싫다. 결: 마지막 후렴은 같은 ''서라는 건지 가라는 건지'' 뒤에 ''서는 거라면 자신 있어''가 ''이번엔 안 물어''로 바뀌어 같은 훅이 출발 신호가 된다. 아웃트로는 밴드가 멈춘 자리에서 ''초록 오기 전에'' 한 줄.'
+line_plan: '[Verse 1] 1 관찰: 뛰면 탈 수 있던 버스 / 2 관찰: 다음 거 타면 된다는 버릇 / 3 새 사실: 문 닫히는 소리 / 4 관찰: 그 뒤에 혼자 웃는 나 / 5 새 사실: 임시보관함의 사표 / 6 관찰: 날짜만 고치는 손 / 7 새 사실: ''생각해 볼게''라는 말 / 8 전환: 그게 거절인 걸 나도 안다. [Pre-Chorus] 9 사실: 초록이 깜빡이는 순간 / 10 관찰: 발부터 멈춤(열린 끝 -는데). [Chorus] 11 훅 / 12·13 전환: 서라는 건지 가라는 건지 / 14 관찰(자조): 서는 건 자신 있음 / 15 훅. [Verse 2] 16 새 사실: 노란 불에 뛰던 너 / 17 새 사실: 건너편에서 손 흔듦 / 18 새 사실: 빨간 불이 켜짐 / 19 관찰: 우리 사이로 차만 지나감 / 20 새 사실: 잘 산다는 소식 / 21 전환: 넘어지기도 했다는 말 / 22 관찰: 무릎에 남은 흉 / 23 전환: 그 흉이 처음으로 부러움. [Pre-Chorus] 24 사실: 초록이 깜빡이면 / 25 전환: 너는 먼저 뛰었다(열린 끝). [Chorus] 26 훅 / 27·28 반복 / 29 자조 / 30 훅. [Bridge] 31 사실: 멈춰 있는 동안 / 32 관찰: 넘어질 일도 없음 / 33 전환·진심: 다친 데 없는 게 싫다 / 34 새 사실: 무릎 하나쯤 까져도 / 35 결심: 건너편까지 가 볼래. [Final Chorus] 36 훅 / 37·38 반복 / 39 전환: 이번엔 안 물어 / 40·41 훅. [Outro] 42 결: 초록 오기 전에. 훅 줄 번호: 11, 15, 26, 30, 36, 40, 41(총 7번).'
+why: '''노란 불이야''는 다섯 음절이고 끝이 모음이라 떼창으로 늘여 부르기 쉽습니다. 서야 할지 가야 할지 모르는 순간은 연애, 퇴사, 이사 누구에게나 있어서 가장 넓습니다. 조사 노트의 장판 초안은 집주인과 보증금으로 이어지는 상황극이라 버리고, 크라잉넛 ''말달리자''처럼 외침 앞에 망설임을 쌓아 두는 원리와 극동아시아타이거즈처럼 지나간 사람을 펑크 템포로 담담하게 부르는 결을 가져왔습니다. 터치드 ''Hi Bully''처럼 후렴 한 줄만 바꿔 화자의 변화를 보여 주려고, 마지막 후렴에서 ''서는 거라면 자신 있어''를 ''이번엔 안 물어''로 바꿨습니다. 제목은 지정된 ''노란''을 그대로 쓰고, 훅 ''노란 불이야''의 첫 낱말로 세웠습니다.'
+share_line: 다친 데 없는 게 싫어
+youtube_meta:
+  situation: 망설여질 때 듣는 노래
+  shorts_title: 노란 불이야
+  hashtags:
+  - 펑크
+  - 락
+  - 인디
+  - 신나는노래
+  - 퇴근길노래
+  - 드라이브노래
+  - 밴드음악
+  - 한국펑크
+  - 위로노래
+  - 퇴사고민
+  - 용기노래
+  - 노란불
+tags:
+- 음악
+- 노래
+- 노래 추천
+- 플레이리스트
+- 펑크
+- 펑크락
+- 락
+- 인디
+- 밴드
+- 밴드 음악
+- 한국 펑크
+- 신나는 노래
+- 퇴근길 노래
+- 출근길 노래
+- 드라이브 노래
+- 위로 노래
+- 용기 나는 노래
+- 망설일 때 듣는 노래
+- 퇴사 고민
+- 사표
+- 노란불
+- 신호등
+- 횡단보도
+- 직장인 노래
+- 어른 노래
+- 청춘 노래
+- 결심
+- 도전
+- 새로운 시작
+- 가라지 펑크
+- korean punk
+- korean rock
+- korean indie
+- punk rock
+- 노란
+- 감성 펑크
+references:
+- title: 말달리자
+  artist: 크라잉넛
+  takeaway: 외침은 그 앞에 쌓아 둔 망설임이 있어야 터진다는 것, 그래서 후렴 전에 멈추는 장면들을 먼저 쌓았다.
+- title: 비냄새
+  artist: 극동아시아타이거즈
+  takeaway: 빠른 펑크 템포 위에서도 지나간 사람은 담담한 평서로 불러야 오래 남는다.
+- title: Hi Bully
+  artist: 터치드
+  takeaway: 후렴의 한 줄만 바꿔 화자가 달라진 것을 보여 준다(서는 거라면 자신 있어 → 이번엔 안 물어).
+- title: 뜨거운 여름밤은 가고 남은 건 볼품없지만
+  artist: 잔나비
+  takeaway: 큰 감정어 옆에 손에 잡히는 사물 하나를 붙인다(부러움 옆의 무릎 흉).
+candidates:
+- hook: 노란 불이야
+  theme: 어른
+  story: 뛰면 탈 버스도 안 뛰고 사표는 임시보관함에 묵혀 두던 사람이, 노란 불 앞에서 처음으로 묻지 않고 건너려는 노래.
+- hook: 노란 거 맞지
+  theme: 사랑
+  story: 헤어진 뒤 바랜 방을 보며 처음부터 이 색이었다고 우기는 사람의 노래.
+- hook: 노란 머리 할래
+  theme: 어른
+  story: 서른이 넘어 남 눈치 보느라 못 해 본 일들을 하나씩 해 보겠다는 사람의 노래.
+- hook: 노란 잎 질 때까지
+  theme: 아픔
+  story: 말 못 하고 보낸 사람을 가을이 끝날 때까지만 생각하겠다고 미루는 사람의 노래.
+- hook: 노란 불빛 하나
+  theme: 사랑
+  story: 헤어진 사람 집 앞을 지나며 아직 켜진 창 하나에 발을 멈추는 사람의 노래.
+chosen: 0
+lyrics: |
+  [Intro: two-bar guitar riff, drum fill]
+
+  [Verse 1: picked bass and palm-muted guitar, tight drums]
+  뛰면 탈 수 있던 버스
+  다음 거 타면 되지
+  문 닫히는 소리 뒤로
+  혼자 웃는 얼굴 하나
+  임시보관함엔 사표
+  날짜만 고쳐 두고
+  생각해 볼게라는 말
+  안 한다는 뜻인 거 알아
+
+  [Pre-Chorus: second guitar and toms, building]
+  초록이 깜빡이면
+  발부터 멈추는데
+
+  [Chorus: full band, crash cymbals, gang vocals on the hook]
+  노란 불이야
+  서라는 건지
+  가라는 건지
+  서는 건 자신 있는데
+  노란 불이야
+
+  [Verse 2: lead guitar counter-melody added]
+  노란 불에 뛰던 너
+  건너편에서 손 흔들고
+  빨간 불 내내 나는
+  이쪽에 서 있었지
+  잘 산다는 얘기 들려
+  넘어지기도 했다는데
+  무릎에 남은 흉까지
+  부러운 건 처음이야
+
+  [Pre-Chorus: toms building]
+  초록이 깜빡이면
+  너는 먼저 뛰었는데
+
+  [Chorus: full band, crash cymbals, gang vocals on the hook]
+  노란 불이야
+  서라는 건지
+  가라는 건지
+  서는 건 자신 있는데
+  노란 불이야
+
+  [Guitar Solo: fast and raw]
+
+  [Bridge: half-time, bass, clean guitar and close voice]
+  멈춰 있는 동안엔
+  넘어질 일은 없지
+  다친 데 없는 게 싫어
+  무릎 하나쯤 까져도
+  건너편까지 가 볼래
+
+  [Final Chorus: octave up, loudest and widest]
+  노란 불이야
+  서라는 건지
+  가라는 건지
+  이번엔 안 물어
+  노란 불이야
+  노란 불이야
+
+  [Outro: band stops, solo voice, one last full-band hit]
+  초록 오기 전에
+
+  [End]
+lyrics_draft: '[Intro: two-bar guitar riff, drum fill]
+
+
+  [Verse 1: picked bass and palm-muted guitar, tight drums]
+
+  뛰면 탈 수 있던 버스
+
+  다음 거 타면 되지
+
+  문 닫히는 소리 뒤로
+
+  혼자 웃는 얼굴 하나
+
+  임시보관함엔 사표
+
+  날짜만 고쳐 두고
+
+  생각해 볼게라는 말
+
+  안 한다는 뜻인 거 알아
+
+
+  [Pre-Chorus: second guitar and toms, building]
+
+  초록이 깜빡이면
+
+  발부터 멈추는데
+
+
+  [Chorus: full band, crash cymbals, gang vocals on the hook]
+
+  노란 불이야
+
+  서라는 건지
+
+  가라는 건지
+
+  서는 거라면 자신 있어
+
+  노란 불이야
+
+
+  [Verse 2: lead guitar counter-melody added]
+
+  노란 불에 뛰던 너
+
+  건너편에서 손 흔들고
+
+  빨간 불 켜진 사이로
+
+  차들만 지나가
+
+  잘 산다는 얘기 들려
+
+  넘어지기도 했다는데
+
+  무릎에 남은 흉까지
+
+  부러운 건 처음이야
+
+
+  [Pre-Chorus: toms building]
+
+  초록이 깜빡이면
+
+  너는 먼저 뛰었는데
+
+
+  [Chorus: full band, crash cymbals, gang vocals on the hook]
+
+  노란 불이야
+
+  서라는 건지
+
+  가라는 건지
+
+  서는 거라면 자신 있어
+
+  노란 불이야
+
+
+  [Guitar Solo: fast and raw]
+
+
+  [Bridge: half-time, bass, clean guitar and close voice]
+
+  멈춰 있는 동안엔
+
+  넘어질 일도 없어
+
+  다친 데 없는 게 싫어
+
+  무릎 하나쯤 까져도
+
+  건너편까지 가 볼래
+
+
+  [Final Chorus: octave up, loudest and widest]
+
+  노란 불이야
+
+  서라는 건지
+
+  가라는 건지
+
+  이번엔 안 물어
+
+  노란 불이야
+
+  노란 불이야
+
+
+  [Outro: band stops, solo voice, one last full-band hit]
+
+  초록 오기 전에
+
+
+  [End]'
+polish:
+- '서는 거라면 자신 있어 → 서는 건 자신 있는데 (두 후렴 모두): 후렴 안 해체 어미(-야/-어)가 세 줄 몰려 있어 연결어미로 바꿔 섞음. 자조는 그대로 두고 문장도 짧게 함'
+- '빨간 불 켜진 사이로 / 차들만 지나가 → 빨간 불 내내 나는 / 이쪽에 서 있었지: 사람 없이 풍경만 있던 두 줄을, 건너편의 너와 이쪽에 멈춰 선 나라는 대비로 바꿈. 후렴의 ''서는 건 자신 있는데''와 이어지고, 어미도 -지로 바꿔 해체 어미를 줄임'
+- '넘어질 일도 없어 → 넘어질 일은 없지: 브릿지에 해체 어미가 세 줄(없어/싫어/볼래) 몰려 있어 평서 -지로 바꿈. 다음 줄 ''싫어''가 더 세게 들림'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A young office worker in a loose coat seen from behind, standing at the edge of a city crosswalk at dusk, backpack strap in one hand. The traffic light glows amber above, cars streaking past in blurred light. Warm yellow against deep blue, restless and hopeful mood.
+youtube_preview:
+  title: 노란 - 연주왕김연주 | 망설여질 때 듣는 노래
+  shorts_title: '노란 불이야 #shorts'
+  description: '뛰면 탈 수 있던 버스
+
+    다음 거 타면 되지
+
+    문 닫히는 소리 뒤로
+
+    혼자 웃는 얼굴 하나
+
+    임시보관함엔 사표
+
+    날짜만 고쳐 두고
+
+    생각해 볼게라는 말
+
+    안 한다는 뜻인 거 알아
+
+
+    초록이 깜빡이면
+
+    발부터 멈추는데
+
+
+    노란 불이야
+
+    서라는 건지
+
+    가라는 건지
+
+    서는 건 자신 있는데
+
+    노란 불이야
+
+
+    노란 불에 뛰던 너
+
+    건너편에서 손 흔들고
+
+    빨간 불 내내 나는
+
+    이쪽에 서 있었지
+
+    잘 산다는 얘기 들려
+
+    넘어지기도 했다는데
+
+    무릎에 남은 흉까지
+
+    부러운 건 처음이야
+
+
+    초록이 깜빡이면
+
+    너는 먼저 뛰었는데
+
+
+    노란 불이야
+
+    서라는 건지
+
+    가라는 건지
+
+    서는 건 자신 있는데
+
+    노란 불이야
+
+
+    멈춰 있는 동안엔
+
+    넘어질 일은 없지
+
+    다친 데 없는 게 싫어
+
+    무릎 하나쯤 까져도
+
+    건너편까지 가 볼래
+
+
+    노란 불이야
+
+    서라는 건지
+
+    가라는 건지
+
+    이번엔 안 물어
+
+    노란 불이야
+
+    노란 불이야
+
+
+    초록 오기 전에
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #펑크 #락 #인디 #음악 #노래 #감성 #신나는노래 #퇴근길노래 #드라이브노래 #밴드음악 #한국펑크 #위로노래 #퇴사고민 #용기노래 #노란불'
+  tags:
+  - 노란
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 노래 추천
+  - 플레이리스트
+  - 펑크
+  - 펑크락
+  - 락
+  - 인디
+  - 밴드
+  - 밴드 음악
+  - 한국 펑크
+  - 신나는 노래
+  - 퇴근길 노래
+  - 출근길 노래
+  - 드라이브 노래
+  - 위로 노래
+  - 용기 나는 노래
+  - 망설일 때 듣는 노래
+  - 퇴사 고민
+  - 사표
+  - 노란불
+  - 신호등
+  - 횡단보도
+  - 직장인 노래
+  - 어른 노래
+  - 청춘 노래
+  - 결심
+  - 도전
+  - 새로운 시작
+  - 가라지 펑크
+  - korean punk
+  - korean rock
+  - korean indie
+  - punk rock
+  - 감성 펑크
+  - 감성
+  - 신곡
+  - 가사
+  - kpop
+  - korean music
+  - k-pop
+  hashtags:
+  - 펑크
+  - 락
+  - 인디
+  - 음악
+  - 노래
+  - 감성
+  - 신나는노래
+  - 퇴근길노래
+  - 드라이브노래
+  - 밴드음악
+  - 한국펑크
+  - 위로노래
+  - 퇴사고민
+  - 용기노래
+  - 노란불
+  playlists:
+  - 연주왕김연주 노래
+  - 어른이 된 우리에게
+  privacy: private
