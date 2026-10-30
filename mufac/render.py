@@ -96,7 +96,7 @@ def write_ass_main(song: Song, rows: list[dict], path: Path, artist: str) -> Non
     title = song.meta.get("title", "")
     lines = [_ass_header(1920, 1080, [
         _style("Lyric", LYRIC_FONT, 62, 2, 110),
-        _style("Title", TITLE_FONT, 108, 5, 0, bold=-1, spacing=1),
+        _style("Title", TITLE_FONT, 84, 5, 0, bold=-1, spacing=1),
         _style("Artist", SMALL_FONT, 36, 5, 0, color="&H00E6E6E6", spacing=2),
     ])]
     first = rows[0]["start"] if rows else 8.0
@@ -115,7 +115,7 @@ def write_ass_short(song: Song, rows: list[dict], path: Path, artist: str, start
     title = song.meta.get("title", "")
     lines = [_ass_header(1080, 1920, [
         _style("Lyric", LYRIC_FONT, 72, 5, 0, margin_lr=90),
-        _style("Title", TITLE_FONT, 92, 5, 0, bold=-1, margin_lr=90, spacing=1),
+        _style("Title", TITLE_FONT, 72, 5, 0, bold=-1, margin_lr=90, spacing=1),
         _style("Artist", SMALL_FONT, 34, 5, 0, color="&H00E6E6E6", spacing=2),
     ])]
     span = end - start
@@ -202,19 +202,19 @@ def thumbnail(song: Song, artist: str) -> Path:
     img = Image.alpha_composite(img.convert("RGBA"), _shade(1280, 720, bottom=0.35, top=0.0, vignette=0.55))
     draw = ImageDraw.Draw(img)
     title = song.meta.get("title", "")
-    font = _fit_font(draw, title, TITLE_FILE, 1280 - 160, 120)
-    small = ImageFont.truetype(str(SMALL_FILE), 32)
+    font = _fit_font(draw, title, TITLE_FILE, 1280 - 400, 60)
+    small = ImageFont.truetype(str(SMALL_FILE), 22)
     tw = draw.textlength(title, font=font)
-    x, y = (1280 - tw) / 2, 360 - font.size * 0.62 - (24 if artist else 0)
+    x, y = (1280 - tw) / 2, 360 - font.size * 0.62 - (16 if artist else 0)
     shadow = Image.new("RGBA", img.size, (0, 0, 0, 0))
     sd = ImageDraw.Draw(shadow)
-    sd.text((x + 2, y + 5), title, font=font, fill=(0, 0, 0, 150))
-    img = Image.alpha_composite(img, shadow.filter(ImageFilter.GaussianBlur(10)))
+    sd.text((x + 1, y + 3), title, font=font, fill=(0, 0, 0, 150))
+    img = Image.alpha_composite(img, shadow.filter(ImageFilter.GaussianBlur(6)))
     draw = ImageDraw.Draw(img)
     draw.text((x, y), title, font=font, fill=(255, 255, 255, 255))
     if artist:
         aw = draw.textlength(artist, font=small)
-        draw.text(((1280 - aw) / 2, y + font.size + 30), artist, font=small, fill=(232, 232, 232, 255))
+        draw.text(((1280 - aw) / 2, y + font.size + 22), artist, font=small, fill=(232, 232, 232, 255))
     out = song.out / "thumb.jpg"
     img.convert("RGB").save(out, quality=92)
     return out

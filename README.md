@@ -54,3 +54,9 @@ assets/fonts/            자막 글꼴 (Pretendard, SIL Open Font License)
 mufac/                   코드 (write: 가사, learn: 레퍼런스, photo: 사진, align: 자막, render: 영상, youtube: 업로드)
 docs/studio/             대시보드 (GitHub Pages)
 ```
+
+## 유튜브 토큰이 끊길 때
+
+업로드가 `invalid_grant: Token has been expired or revoked`로 실패하면 refresh token이 만료된 것이다.
+Google Cloud 콘솔의 OAuth 동의 화면 게시 상태가 "테스트"면 토큰이 7일마다 끊기므로 "프로덕션"으로 바꾼다.
+그다음 내 컴퓨터에서 `python tools/yt_token.py`를 실행해 새 토큰을 받고, 저장소 Secrets의 `YT_REFRESH_TOKEN`을 바꾼다.
