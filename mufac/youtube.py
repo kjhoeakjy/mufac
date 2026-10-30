@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import datetime as _dt
 from pathlib import Path
 
 from .song import Song
@@ -83,8 +84,8 @@ def description(song: Song, artist: str, *, main_id: str | None = None, short: b
         parts.append(ym["comment_prompt"])
     credit = []
     if artist:
-        credit.append(f"작사·기획 {artist}")
-    credit.append("음악 생성 Suno")
+        credit.append(f"작사·작곡 기획·제작 {artist}")
+    credit.append("음악 생성 Suno (유료 플랜, 상업적 이용 권리 보유)")
     photo = m.get("photo") or {}
     if photo.get("source") == "pexels":
         credit.append(f"사진 {photo.get('photographer')} (Pexels)")
@@ -92,6 +93,11 @@ def description(song: Song, artist: str, *, main_id: str | None = None, short: b
         credit.append("이미지 AI 생성")
     credit.append("이 곡은 AI 음악 생성 도구로 만들었습니다.")
     parts.append("\n".join(credit))
+    year = str(m.get("created", ""))[:4] or _dt.date.today().strftime("%Y")
+    owner = artist or "채널 운영자"
+    parts.append(f"© {year} {owner}. All rights reserved.\n"
+                 f"이 영상의 노래, 가사, 영상은 {owner}의 창작물이며 모든 권리는 {owner}에게 있습니다. "
+                 "무단 복제, 재업로드, 2차 배포를 금지합니다.")
     parts.append(" ".join("#" + t for t in hashtags(m, artist)))
     return "\n\n".join(p for p in parts if p).strip()[:4900]
 

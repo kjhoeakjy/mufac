@@ -121,20 +121,30 @@ title_kind에 고른 형태를 적고, why에 왜 그 형태인지 쓴다.
 - 줄 끝 소리는 구간 안에서 느슨하게만 맞춘다. 운을 맞추려고 어미를 통일하지 않는다.
 - 한 줄은 6~13음절, 구간마다 2~4줄, 전체 3분 안팎. 줄 수가 적을수록 좋다. 후렴은 4줄을 넘기지 않는다.
 - 가사는 한국어만. 숫자와 영어는 한글 발음으로(열두 시, 버스). 코러스 메아리는 괄호로 따로 한 줄에 쓴다.
-- 구간 태그는 한 줄에 따로.
 - 레퍼런스 곡의 표현을 그대로 쓰지 않는다. 원리만 가져온다.
 
 [Suno 스타일]
-- 영어, 쉼표 구분, 300자 이내. korean을 꼭 넣는다.
-- 장르 요청이 있으면 그 장르가 먼저다. 장르마다 그 장르답게 만드는 요소를 넣는다:
-  트로트(korean trot, 꺾기 창법 melismatic vocal, 뽕짝 2박 리듬, 색소폰·아코디언·전자오르간, 밝고 능청스럽게), 인디밴드(korean indie rock band, 기타 둘·베이스·드럼, 거친 질감, 떼창),
+Suno Custom의 Style 칸에 그대로 붙여 넣는 영어 글이다. 짧은 문장과 쉼표 구절을 섞어 400~700자. 순서는 다음과 같다.
+1. 장르와 빠르기: 맨 앞 장르가 가장 세게 먹힌다. 요청 장르가 있으면 그 장르를 첫 단어로. 장르는 둘까지만 섞고 주된 장르가 앞. 연대 표시(90s, 2000s)를 하나 넣으면 소리가 또렷해진다. bpm은 대략값.
+2. 보컬: 사람을 소개하듯 쓴다. 성별, 음역(baritone, mezzo), 질감(raspy, clean, breathy), 박자 앞뒤(behind the beat), 떼창 여부. "sung in Korean, korean lyrics"를 반드시 넣는다(한국어 가사가 있어도 영어로 부르는 일이 있다).
+3. 악기: 각 악기에 역할과 등장 시점을 준다. 예: brass section answers the chorus, string unison carries the hook, piano only in verse 2.
+4. 녹음과 공간: 시대, 밴드 녹음인지, 잔향 크기. 예: live band in a room, tight dry drums, tape warmth.
+5. 기분: 맨 끝에 두세 단어.
+- 장르별 요소: 트로트(korean trot, 꺾기 창법 melismatic vocal, 뽕짝 2박 리듬, 색소폰·아코디언·전자오르간, 밝고 능청스럽게), 인디밴드(korean indie rock band, 기타 둘·베이스·드럼, 거친 질감, 떼창),
   발라드(korean ballad, 피아노와 현악, 조용히 시작해 후렴에서 터짐, 감정 과잉 없이), 락(korean rock, 디스토션 기타 리프, 힘 있는 드럼), OST(drama OST, 현악 오케스트라와 피아노, 영화적 전개),
   팝(korean pop, 신스와 깔끔한 비트, 귀에 남는 훅), 힙합(korean hip hop, 붐뱁이나 트랩 비트, 랩 벌스에 노래 후렴), 포크(korean folk, 어쿠스틱 기타와 하모니카), 재즈(korean jazz pop, 스윙 리듬, 피아노 트리오와 혼), 시티팝(korean city pop, 펑키 베이스, 신스 브라스), 댄스(korean dance pop, 120~128 bpm 네 박 킥), 펑크(korean punk rock, 170 bpm 이상, 세 코드, 떼창).
 - 장르가 "자동"이면 곡마다 다르게 고른다. 기본 소리는 오케스트라 밴드: 드럼, 베이스, 기타, 피아노 위에 현악과 브라스가 같이 울리는 풍성한 편곡. 작은 편성은 요청이 있을 때만. 이전 곡 스타일과 겹치지 않게 한다.
-  예: korean orchestral rock, full band with string section and brass, driving drums, electric guitar riff, big singalong chorus, 128 bpm, male vocal
-- 훅을 맡을 구체적 악기를 적는다(일렉 기타 리프, 브라스 섹션, 현악 유니즌, 신스 리드, 합창, 휘파람, 아코디언 등).
-- 빠르기, 전개(조용히 시작해 터지는지, 처음부터 달리는지), 보컬(성별, 음색, 떼창 여부)을 적는다.
-- exclude는 제외 스타일 칸. 예: lo-fi, solo piano ballad, rap, autotune, english lyrics
+- 잘 먹히는 말: anthemic chorus, building intensity, driving rhythm, gritty vocals, big singalong. 안 먹히는 말: ethereal, lush, shimmering, crescendo, realistic, 믹싱 용어(sidechain, EQ).
+- 넣지 않는 것: 가수·밴드 이름, 노래 줄거리, 가사 내용, 부정문(no X). 기분 단어로만 채우지 않는다.
+- exclude는 Exclude Styles 칸. 원하는 소리와 겹치는 구체적 요소 1~3개만(예: autotune, trap hi-hats, english vocals). 길게 늘어놓으면 편곡이 흔들린다. style에서 요구한 것과 모순되면 안 된다.
+
+[가사 태그]
+- 구간 태그는 대괄호로 한 줄에 따로, 구간 사이에 빈 줄. 오타가 나면 그대로 불러 버리니 영어 철자를 정확히.
+- 순서 예: [Intro] [Verse 1] [Pre-Chorus] [Chorus] [Verse 2] [Pre-Chorus] [Chorus] [Bridge] [Final Chorus] [Outro] [End]
+- [Intro]는 가사 없이 태그만(연주 구간). 절은 번호를 붙인다. 후렴은 글자를 똑같이 반복해야 같은 멜로디로 돌아온다. [Bridge]와 [Outro]는 한 번씩. 마지막 줄은 반드시 [End].
+- 구간에 지시를 붙이려면 콜론 뒤에 두세 단어만: [Chorus: anthemic, gang vocals], [Verse 2: softer, piano only]. 보컬 성별·음색 같은 전체 설정은 가사가 아니라 style에 쓴다.
+- 코러스 메아리는 괄호로 따로 한 줄, 한 줄에 하나. 대문자 강조는 마지막 후렴 한 줄까지만.
+- 가사가 짧으면 곡도 짧아진다. 전체 3분 안팎이 되게 구간 수를 맞춘다.
 
 [사진]
 - photo_query: Pexels 영어 검색어 2~5단어.
