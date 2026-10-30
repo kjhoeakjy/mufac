@@ -230,9 +230,11 @@ def cmd_produce(a) -> None:
     stage = a.stage
     if not s.audio_path():
         sys.exit(f"{s.slug}: 노래 파일이 없습니다. mp3를 폴더에 올려주세요.")
-    if not s.photo_path.exists():
+    # 배경 그림이 없거나 크레딧이 없어 단색으로 때운 것이면 다시 그린다(다시 제작 때 일러스트로 바뀌도록)
+    if not s.photo_path.exists() or (s.meta.get("photo") or {}).get("source") == "gradient":
         from .photo import _gradient, fetch
         try:
+            print("배경 그림 만드는 중", flush=True)
             fetch(s)
         except Exception as e:  # 그림 키가 막혀도 영상은 만든다
             print(f"그림을 못 가져와 단색 배경으로 만듭니다: {e}", flush=True)

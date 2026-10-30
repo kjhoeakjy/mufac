@@ -87,6 +87,6 @@ jobs:
         run: |
           git config user.name "mufac"
           git config user.email "mufac@users.noreply.github.com"
-          for s in $SLUGS; do git add "songs/$s/song.yaml" "songs/$s/README.md" "songs/$s/timing.lrc" songs/$s/photo*.jpg 2>/dev/null || true; done
+          for s in $SLUGS; do git add "songs/$s/song.yaml" "songs/$s/README.md" "songs/$s/timing.lrc" songs/$s/photo*.jpg "songs/$s/cover.jpg" 2>/dev/null || true; done
           git diff --cached --quiet || git commit -m "영상 완료: $SLUGS"
           for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
