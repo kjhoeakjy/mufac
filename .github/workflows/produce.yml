@@ -38,7 +38,8 @@ jobs:
           if [ -n "$SLUG" ]; then
             echo "slugs=$SLUG" >> "$GITHUB_OUTPUT"
           else
-            slugs=$(git diff --name-only HEAD~1 HEAD -- songs | grep -iE '\.(mp3|wav|m4a|flac)$' | cut -d/ -f2 | sort -u | tr '\n' ' ')
+            # 새로 올라온 노래 파일만 (지운 파일, 원곡 멜로디 melody*/theme* 는 제외)
+            slugs=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- songs | grep -iE '\.(mp3|wav|m4a|flac)$' | grep -vE '/(melody[^/]*|theme[^/]*)$' | cut -d/ -f2 | sort -u | tr '\n' ' ')
             echo "slugs=$slugs" >> "$GITHUB_OUTPUT"
           fi
       - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
