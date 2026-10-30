@@ -170,6 +170,21 @@ def cmd_produce(a) -> None:
     print("완료", s.out, flush=True)
 
 
+def cmd_check(a) -> None:
+    from . import youtube
+
+    if not youtube.ready():
+        sys.exit("유튜브 키 세 개 중 빠진 것이 있습니다.")
+    name = youtube.whoami()
+    if not name:
+        sys.exit("연결은 됐지만 이 구글 계정에 유튜브 채널이 없습니다.")
+    print(f"연결된 채널: {name}")
+    summary = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary:
+        with open(summary, "a", encoding="utf-8") as f:
+            f.write(f"### 연결된 채널: {name}\n")
+
+
 def main() -> None:
     p = argparse.ArgumentParser(prog="mufac")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -192,6 +207,9 @@ def main() -> None:
     pr.add_argument("--upload", action="store_true")
     pr.add_argument("--no-short", action="store_true")
     pr.set_defaults(func=cmd_produce)
+
+    c = sub.add_parser("check", help="유튜브 연결 확인")
+    c.set_defaults(func=cmd_check)
 
     a = p.parse_args()
     a.func(a)

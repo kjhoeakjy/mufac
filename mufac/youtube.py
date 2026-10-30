@@ -29,6 +29,12 @@ def _client():
     return build("youtube", "v3", credentials=creds, cache_discovery=False)
 
 
+def whoami() -> str:
+    r = _client().channels().list(part="snippet", mine=True).execute()
+    items = r.get("items") or []
+    return items[0]["snippet"]["title"] if items else ""
+
+
 def description(song: Song, artist: str, *, main_id: str | None = None) -> str:
     m = song.meta
     parts = [m.get("hook", "")]
