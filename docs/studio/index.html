@@ -32,10 +32,12 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;ma
 .make textarea{grid-column:1/4;resize:vertical;min-height:38px;height:38px;line-height:1.4}
 .make #style{grid-column:4/6}
 .make textarea:focus{outline:1px solid var(--fg);outline-offset:-1px;border-color:var(--fg)}
-.head .edit{display:none;gap:6px;align-items:center;margin-bottom:4px}
-.head.editing .edit{display:flex} .head.editing h1,.head.editing .fix{display:none}
-.head .edit input{flex:1;min-width:0;font:inherit;font-size:18px;font-weight:700;padding:4px 8px;border:1px solid var(--line2);border-radius:4px}
 .head .fix{margin-left:8px;vertical-align:middle;font-weight:400}
+.editor input,.editor textarea{width:100%;box-sizing:border-box;font:inherit;background:#fff;border:1px solid var(--line2);border-radius:4px;padding:9px 12px}
+.editor input{font-weight:600}
+.editor textarea{min-height:360px;line-height:1.6;resize:vertical;margin-top:8px}
+.editor .row{display:flex;gap:8px;margin-top:10px;align-items:center}
+.editor .row .note{margin:0 0 0 auto}
 .make select{appearance:none;-webkit-appearance:none;padding-right:30px;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:right 15px top 50%,right 10px top 50%;background-size:5px 5px;background-repeat:no-repeat;text-overflow:ellipsis}
 .make input:focus,.make select:focus{outline:1px solid var(--fg);outline-offset:-1px;border-color:var(--fg)}
 .btn{border:1px solid var(--fg);border-radius:4px;padding:9px 16px;font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap;background:#fff}
@@ -177,6 +179,7 @@ let songs = [];          // {slug, meta, files, audio, release}
 let pending = [];        // 대시보드에서 요청한 새 곡 {req, label}
 let runs = [];
 let selected = store.get("mufac.selected");
+let editSlug = null;     // 제목·가사 수정 중인 곡
 const yamlCache = new Map();
 let catalogSha = null;
 
@@ -306,6 +309,7 @@ const active = (r) => r && r.status !== "completed";
 // ---------------------------------------------------------------- 상태
 function status(s) {
   const prod = runFor(s.slug, "영상 만들기"), up = runFor(s.slug, "유튜브 업로드");
+  if (active(runFor(s.slug, "글 갱신"))) return ["run", "글 갱신 중"];
   if (active(up)) return ["run", "업로드 중"];
   if (s.meta?.youtube?.main) return ["done", "업로드 완료"];
   if (active(prod)) return ["run", "영상 제작 중"];
@@ -368,14 +372,17 @@ function renderDetail() {
   let video;
   if (active(prod)) video = `<div class="state"><span class="dot run"></span>영상 제작 중</div>`;
   else if (main) video = `<div class="videos"><video src="${main}" controls preload="metadata" poster="${asset(s, "thumb.jpg") || ""}"></video>
-      ${short ? `<video class="v" src="${short}" controls preload="metadata"></video>` : ""}</div>`;
+      ${short ? `<video class="v" src="${short}" controls preload="metadata"></video>` : ""}</div>
+      <p class="note"><button class="copy" id="reprod">다시 제작</button></p>`;
   else if (s.audio && prod?.conclusion === "failure") video = `<div class="state err"><span class="dot fail"></span>영상 제작 실패 ·
       <a href="${prod.html_url}" target="_blank" rel="noopener">실행 기록</a> · <button class="copy" id="reprod">다시 제작</button></div>`;
   else if (s.audio) video = `<div class="state"><span class="dot run"></span>영상 제작 대기</div>`;
   else video = `<div class="state"><span class="dot"></span>MP3 업로드 후 자동 제작</div>`;
 
   let tube = "";
-  if (active(up)) tube = `<div class="state"><span class="dot run"></span>업로드 중</div>`;
+  const rf = runFor(s.slug, "글 갱신");
+  if (active(rf)) tube = `<div class="state"><span class="dot run"></span>유튜브 글 다시 쓰는 중</div>`;
+  else if (active(up)) tube = `<div class="state"><span class="dot run"></span>업로드 중</div>`;
   else if (yt.main) tube = `<div class="links">
       <a href="https://youtu.be/${esc(yt.main)}" target="_blank" rel="noopener">본편</a>
       ${yt.short ? `<a href="https://youtube.com/shorts/${esc(yt.short)}" target="_blank" rel="noopener">쇼츠</a>` : ""}
@@ -395,11 +402,17 @@ function renderDetail() {
 
   el.innerHTML = `
     <div class="head ${cover ? "" : "nocover"}">${cover ? `<img class="cover" src="${cover}" alt="">` : ""}
-      <div><h1>${esc(m.title)}<button class="ghost fix" id="editTitle">제목 수정</button></h1>
-      <form class="edit" id="titleForm"><input id="titleIn" value="${esc(m.title)}" maxlength="60" autocomplete="off"><button class="btn primary" type="submit">저장</button><button class="ghost" type="button" id="titleCancel">취소</button></form>
+      <div><h1>${esc(m.title)}${editSlug === s.slug ? "" : `<button class="ghost fix" id="edit">제목·가사 수정</button>`}</h1>
       ${cl ? `<p class="from">원곡 ${esc(cl.name)} · ${esc(cl.composer)}${cl.year ? ` (${esc(cl.year)})` : ""}</p>` : ""}
       <p>${esc(m.story || "")}</p></div></div>
     ${orig}
+    ${editSlug === s.slug ? `<section class="step"><h2>수정</h2>
+      <form class="editor" id="editForm">
+        <input id="editTitle" value="${esc(m.title)}" maxlength="60" autocomplete="off" aria-label="제목">
+        <textarea id="editLyrics" aria-label="가사" spellcheck="false">${esc((m.lyrics || "").trim())}</textarea>
+        <div class="row"><button class="btn primary" type="submit">저장</button><button class="ghost" type="button" id="editCancel">취소</button>
+        <p class="note">저장하면 유튜브 제목·설명·해시태그를 다시 씁니다${s.release ? ". 가사를 바꾸면 영상도 다시 만들어야 합니다" : ""}</p></div>
+      </form></section>` : ""}
     <section class="step"><h2>SUNO <span>Custom · ${cover ? `<a href="${cover}" download>곡 이미지</a> · ` : ""}<a href="https://suno.com/create" target="_blank" rel="noopener">Suno</a></span></h2>
       ${field("Style", m.style || "")}
       ${field("Exclude styles", m.exclude || "")}
@@ -422,16 +435,20 @@ function renderDetail() {
   drop.ondrop = e => { e.preventDefault(); drop.classList.remove("over"); const f = e.dataTransfer.files[0]; if (f) uploadAudio(s, f); };
   if ($("publish")) $("publish").onclick = () => publish(s);
   if ($("reprod")) $("reprod").onclick = () => reproduce(s);
-  const head = el.querySelector(".head");
-  $("editTitle").onclick = () => { head.classList.add("editing"); $("titleIn").focus(); $("titleIn").select(); };
-  $("titleCancel").onclick = () => head.classList.remove("editing");
-  $("titleForm").onsubmit = async e => {
+  if ($("edit")) $("edit").onclick = () => { editSlug = s.slug; renderDetail(); $("editTitle").focus(); };
+  if ($("editCancel")) $("editCancel").onclick = () => { editSlug = null; renderDetail(); };
+  if ($("editForm")) $("editForm").onsubmit = async e => {
     e.preventDefault();
-    const title = $("titleIn").value.trim();
-    if (!title || title === m.title) { head.classList.remove("editing"); return; }
+    const title = $("editTitle").value.trim(), lyrics = $("editLyrics").value;
+    if (!title) { $("editTitle").focus(); return; }
+    if (title === m.title && lyrics.trim() === (m.lyrics || "").trim()) { editSlug = null; renderDetail(); return; }
     e.submitter.disabled = true;
-    try { await saveTitle(s, title); toast("제목 저장"); await loadSongs(); render(); }
-    catch (err) { toast("저장 실패: " + err.message); e.submitter.disabled = false; }
+    try {
+      const changed = await saveEdit(s, title, lyrics);
+      editSlug = null;
+      toast(changed && s.release ? "저장. 글 갱신 뒤 영상을 다시 제작해야 합니다" : "저장. 유튜브 글 갱신 중");
+      await loadSongs(); render(); poll(5000);
+    } catch (err) { toast("저장 실패: " + err.message); e.submitter.disabled = false; }
   };
 }
 
@@ -485,19 +502,18 @@ function b64enc(str) {
   return btoa(bin);
 }
 
-// 제목 수정: song.yaml의 title과 유튜브 미리보기 안의 제목을 함께 바꾼다
-async function saveTitle(s, title) {
+// 제목·가사 수정: song.yaml을 바꿔 올리고, 글 갱신 실행으로 유튜브 제목·설명·해시태그를 다시 쓰게 한다
+async function saveEdit(s, title, lyrics) {
   const m = JSON.parse(JSON.stringify(s.meta)), old = m.title || "";
-  m.title = title;
+  const lyricsChanged = lyrics.trim() !== (m.lyrics || "").trim();
+  m.title = title; m.lyrics = lyrics.trim() + "\n";
   const pv = m.youtube_preview;
-  if (pv && old) {
+  if (pv && old && old !== title)  // 갱신이 끝나기 전까지 보일 임시 값
     for (const k of ["title", "shorts_title", "description"]) if (typeof pv[k] === "string") pv[k] = pv[k].split(old).join(title);
-    if (pv.tags) pv.tags = pv.tags.map(x => x === old ? title : x);
-    const o = old.replace(/\s+/g, ""), n = title.replace(/\s+/g, "");
-    if (pv.hashtags) pv.hashtags = pv.hashtags.map(x => x === o ? n : x);
-  }
   await gh(`/contents/songs/${encodeURIComponent(s.slug)}/song.yaml`, { method: "PUT",
-    body: JSON.stringify({ message: `제목: ${title}`, content: b64enc(jsyaml.dump(m, { lineWidth: -1, noRefs: true })), sha: s.files["song.yaml"], branch: BRANCH }) });
+    body: JSON.stringify({ message: `수정: ${title}`, content: b64enc(jsyaml.dump(m, { lineWidth: -1, noRefs: true })), sha: s.files["song.yaml"], branch: BRANCH }) });
+  await dispatch("refresh.yml", { slug: s.slug, lyrics_changed: String(lyricsChanged) });
+  return lyricsChanged;
 }
 
 function readB64(file) {

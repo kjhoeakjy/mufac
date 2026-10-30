@@ -302,6 +302,41 @@ def polish(data: dict, plan: str = "", fixed_title: str = "") -> dict:
     return data
 
 
+META_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "situation": {"type": "string"}, "shorts_title": {"type": "string"}, "yt_intro": {"type": "string"},
+        "comment_prompt": {"type": "string"}, "share_line": {"type": "string", "description": "가사 안에 그대로 있는 한 줄"},
+        "hashtags": {"type": "array", "items": {"type": "string"}}, "tags": {"type": "array", "items": {"type": "string"}},
+        "story": {"type": "string", "description": "누가 어떤 상황에서 부르는지 한 문장"},
+    },
+    "required": ["situation", "shorts_title", "yt_intro", "comment_prompt", "share_line", "hashtags", "tags", "story"],
+    "additionalProperties": False,
+}
+
+
+def refresh_meta(meta: dict) -> dict:
+    """사용자가 제목이나 가사를 고친 뒤, 유튜브 글(상황 문구, 쇼츠 제목, 설명 첫 줄, 댓글 유도, 해시태그, 태그)과
+    공유용 한 줄을 지금 제목·가사에 맞게 다시 쓴다."""
+    yt = SYSTEM[SYSTEM.index("[유튜브]"):]
+    system = ("너는 유튜브 채널 편집자다. 아래 노래의 제목과 가사가 확정됐다. 그에 맞는 유튜브 글을 쓴다. "
+              "담백하게, 과장과 감탄사 없이, 사람이 쓴 말로. '-해요/-거예요' 어미는 쓰지 않는다. JSON만 답한다.\n\n" + yt)
+    cl = meta.get("classic") or {}
+    content = (f"[제목]\n{meta.get('title', '')}\n\n[가사]\n{meta.get('lyrics', '')}\n\n[Suno 스타일]\n{meta.get('style', '')}"
+               + (f"\n\n[원곡]\n{cl.get('name')} · {cl.get('composer')} ({cl.get('year')})" if cl else "")
+               + f"\n\n[이전 값(참고만)]\n{json.dumps(meta.get('youtube_meta') or {}, ensure_ascii=False)}")
+    t0 = time.time()
+    with anthropic.Anthropic().beta.messages.stream(
+        model=FAST_MODEL, max_tokens=6000, system=system, betas=BETAS, fallbacks="default",
+        output_config={"effort": "medium", "format": {"type": "json_schema", "schema": META_SCHEMA}},
+        messages=[{"role": "user", "content": content}],
+    ) as stream:
+        response = stream.get_final_message()
+    _check(response)
+    took("유튜브 글", t0)
+    return json.loads(next(b.text for b in response.content if b.type == "text"))
+
+
 def safe_polish(data: dict, piece_id: str = "", fixed_title: str = "") -> dict:
     """검수가 실패해도 초고는 남긴다."""
     try:

@@ -188,6 +188,33 @@ def cmd_new(a) -> None:
     _output("title", s.meta["title"])
 
 
+def cmd_refresh(a) -> None:
+    """사용자가 대시보드에서 제목·가사를 고친 뒤: 유튜브 글을 다시 쓰고 미리보기·README를 갱신한다.
+    가사가 바뀌었으면 자막 타이밍(timing.lrc)을 지워 다음 영상 제작 때 다시 맞추게 한다."""
+    from .write import refresh_meta
+
+    s = Song(a.slug)
+    m = s.meta
+    try:
+        new = refresh_meta(m)
+        ym = m.setdefault("youtube_meta", {})
+        for k_src, k_dst in (("situation", "situation"), ("shorts_title", "shorts_title"), ("yt_intro", "intro"),
+                             ("comment_prompt", "comment_prompt"), ("hashtags", "hashtags")):
+            ym[k_dst] = new[k_src]
+        m["tags"], m["story"] = new["tags"], new["story"]
+        if new["share_line"].strip() and new["share_line"].strip() in m.get("lyrics", ""):
+            m["share_line"] = new["share_line"].strip()
+    except Exception as e:  # 글을 못 받아도 제목·가사 반영은 한다
+        print(f"유튜브 글을 다시 쓰지 못했습니다: {e}", file=sys.stderr)
+    if a.lyrics_changed and s.timing_path.exists():
+        s.timing_path.unlink()
+        print("가사가 바뀌어 자막 타이밍을 지웠습니다. 영상은 다시 만들어야 합니다.", flush=True)
+    m["youtube_preview"] = _preview(s)
+    s.save()
+    write_readme(s)
+    print(s.slug)
+
+
 def cmd_photo(a) -> None:
     from .photo import fetch
 
@@ -318,6 +345,11 @@ def main() -> None:
     n.add_argument("--stage", default="all", choices=["all", "plan", "write", "finish"],
                    help="단계별 실행 (Actions가 진행률을 보여 주려고 셋으로 나눠 부른다)")
     n.set_defaults(func=cmd_new)
+
+    rf = sub.add_parser("refresh", help="제목·가사를 고친 뒤 유튜브 글과 미리보기 다시 만들기")
+    rf.add_argument("slug")
+    rf.add_argument("--lyrics-changed", action="store_true", help="가사가 바뀌었으면 자막 타이밍을 지운다")
+    rf.set_defaults(func=cmd_refresh)
 
     ph = sub.add_parser("photo", help="사진 다시 만들기")
     ph.add_argument("slug")
