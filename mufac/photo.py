@@ -23,8 +23,8 @@ from .song import Song, config
 
 MIN_WIDTH = 2400
 LOOK = (
-    "Shot on 35mm film, natural available light, shallow depth of field, soft grain, muted realistic colors, "
-    "quiet and lonely mood, like a still from a Korean indie film. "
+    "Shot on 35mm film, natural light, shallow depth of field, soft grain, realistic colors that follow the mood of the scene, "
+    "like a still from a Korean film. "
     "No text, no letters, no signs with writing, no watermark, no people facing the camera."
 )
 

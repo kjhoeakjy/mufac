@@ -65,7 +65,7 @@ def hashtags(meta: dict, artist: str) -> list[str]:
     cl = meta.get("classic") or {}
     if cl:
         raw = raw[:10] + [cl.get("name", ""), "클래식리메이크", "클래식팝", "클래식"] + raw[10:]
-    raw += [meta.get("title", ""), artist, "발라드", "감성발라드", "노래추천"]
+    raw += [meta.get("title", ""), artist, "노래추천", "신곡"]
     out = []
     for t in raw:
         t = "".join(ch for ch in (t or "") if ch.isalnum() or ch == "_")
