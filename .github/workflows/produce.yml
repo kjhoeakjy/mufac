@@ -53,12 +53,20 @@ jobs:
           path: ~/.cache/huggingface
           key: whisper-${{ hashFiles('config.yaml') }}
           restore-keys: whisper-
-      - name: 영상 만들기
+      - name: 가사 위치 찾기
         env:
           SLUGS: ${{ steps.pick.outputs.slugs }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-        run: for s in $SLUGS; do python -m mufac produce "$s"; done
+        run: for s in $SLUGS; do python -m mufac produce "$s" --stage align; done
+      - name: 본편 영상
+        env:
+          SLUGS: ${{ steps.pick.outputs.slugs }}
+        run: for s in $SLUGS; do python -m mufac produce "$s" --stage video; done
+      - name: 쇼츠 영상
+        env:
+          SLUGS: ${{ steps.pick.outputs.slugs }}
+        run: for s in $SLUGS; do python -m mufac produce "$s" --stage short; done
       - name: 영상 보관(Release)
         env:
           SLUGS: ${{ steps.pick.outputs.slugs }}

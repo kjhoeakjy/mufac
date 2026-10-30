@@ -56,8 +56,9 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;ma
 .item .t{font-weight:600;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .item .c{font-size:12px;color:var(--fg);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:1px}
 .item .s{font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center;margin-top:2px}
-.item .bar{height:2px;background:var(--line);margin-top:6px;overflow:hidden}
-.item .bar i{display:block;height:100%;background:var(--fg);transition:width .8s linear}
+.bar{height:2px;background:var(--line);margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--fg);transition:width .8s linear}
+.state .bar{width:min(100%,360px)}
 .grp summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:10px 6px;border-bottom:1px solid var(--line);font-size:13px;font-weight:600;user-select:none}
 .grp summary::-webkit-details-marker{display:none}
 .grp summary::before{content:"";width:6px;height:6px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(-45deg);transition:transform .15s;margin-left:2px}
@@ -180,6 +181,18 @@ let songs = [];          // {slug, meta, files, audio, release}
 let pending = (() => { try { return JSON.parse(store.get("mufac.pending") || "[]"); } catch { return []; } })()
   .filter(p => p && p.req && Date.now() - (p.at || 0) < 30 * 60 * 1000);
 function setPending(list) { pending = list; store.set("mufac.pending", JSON.stringify(list)); }
+// 영상 제작을 막 시작한 곡 {slug: 시각}. 실행이 목록에 나타날 때까지 "시작"으로 보여 준다
+let videoPending = (() => { try { return JSON.parse(store.get("mufac.video") || "{}"); } catch { return {}; } })();
+function markVideo(slug) { videoPending[slug] = Date.now(); store.set("mufac.video", JSON.stringify(videoPending)); }
+function videoStarting(s) {
+  const ts = videoPending[s.slug];
+  if (!ts) return false;
+  const run = runFor(s.slug, "영상 만들기");
+  if (Date.now() - ts > 15 * 60 * 1000 || (run && Date.parse(run.created_at) >= ts - 60000)) {
+    delete videoPending[s.slug]; store.set("mufac.video", JSON.stringify(videoPending)); return false;
+  }
+  return true;
+}
 let runs = [];
 let selected = store.get("mufac.selected");
 let editSlug = null;     // 제목·가사 수정 중인 곡
@@ -251,32 +264,38 @@ async function loadRuns() {
       toast("새 곡 생성 실패", run.html_url);
     }
   }
-  // 진행 중인 새 곡은 단계(작업 step)를 받아 진행률을 계산한다
-  await Promise.all(runs.filter(x => x.name === "새 곡" && active(x)).map(async x => {
+  // 진행 중인 새 곡·영상은 단계(작업 step)를 받아 진행률을 계산한다
+  await Promise.all(runs.filter(x => (wf(x) === "새 곡" || wf(x) === "영상 만들기") && active(x)).map(async x => {
     try { x.jobs = (await gh(`/actions/runs/${x.id}/jobs`))?.jobs || []; } catch { x.jobs = []; }
   }));
 }
 
-// 단계 이름, 시작 %, 끝 %, 보통 걸리는 초
-const STAGES = [["조사", 8, 30, 50], ["작사", 30, 85, 150], ["검수", 85, 97, 45], ["저장", 97, 100, 5]];
+// 작업별 단계: prep은 준비(설치) 구간 [시작 %, 끝 %, 보통 걸리는 초], stages는 [단계 이름, 시작 %, 끝 %, 보통 걸리는 초]
+const STAGE_SETS = {
+  "새 곡": { prep: [0, 8, 30], stages: [["조사", 8, 30, 50], ["작사", 30, 85, 150], ["검수", 85, 97, 45], ["저장", 97, 100, 5]] },
+  "영상 만들기": { prep: [0, 12, 95], stages: [["가사 위치", 12, 45, 170], ["본편", 45, 82, 110], ["쇼츠", 82, 94, 40], ["영상 보관", 94, 98, 6], ["결과 저장", 98, 100, 5]] },
+};
 function progressOf(run) {
+  const set = STAGE_SETS[wf(run)] || STAGE_SETS["새 곡"];
   const steps = run.jobs?.[0]?.steps || [];
   if (run.status === "queued" || !steps.length) return { pct: 2, label: "대기" };
-  let band = [0, 8, 30], label = "준비";
-  for (const [key, a, b, sec] of STAGES)
+  let band = [...set.prep], label = "준비";
+  for (const [key, a, b] of set.stages)
     if (steps.some(s => s.status === "completed" && s.name.startsWith(key))) { band = [b, b, 0]; label = key; }
   const cur = steps.find(s => s.status === "in_progress");
   if (cur) {
-    const m = STAGES.find(([k]) => cur.name.startsWith(k));
+    const m = set.stages.find(([k]) => cur.name.startsWith(k));
+    let since = cur.started_at;
     if (m) { band = [m[1], m[2], m[3]]; label = m[0]; }
     else if (band[2] === 0) { band = [band[1], band[1] + 3, 20]; }
-    const sec = Math.max(0, (Date.now() - Date.parse(cur.started_at)) / 1000);
+    else since = run.run_started_at || cur.started_at;  // 준비 구간은 실행 시작부터 센다
+    const sec = Math.max(0, (Date.now() - Date.parse(since)) / 1000);
     return { pct: band[0] + (band[1] - band[0]) * Math.min(0.95, sec / band[2]), label };
   }
   return { pct: band[1], label };
 }
 function making() {
-  const out = runs.filter(x => x.name === "새 곡" && active(x)).map(x => {
+  const out = runs.filter(x => wf(x) === "새 곡" && active(x)).map(x => {
     const req = (x.display_title.match(/^새 곡 (\S*)/) || [])[1] || "";
     const p = pending.find(q => q.req === req);
     const label = p?.label || x.display_title.replace(/^새 곡 \S*\s*/, "") || "새 곡";
@@ -289,9 +308,12 @@ function making() {
 }
 
 function runFor(slug, workflow) {
-  return runs.find(r => r.name === workflow && r.display_title.includes(slug));
+  return runs.find(r => wf(r) === workflow && r.display_title.includes(slug));
 }
 const active = (r) => r && r.status !== "completed";
+// 실행의 name은 run-name(예: "새 곡 abc 제목")이라 워크플로 파일로 어떤 작업인지 가린다
+const WORKFLOWS = { "new-song.yml": "새 곡", "produce.yml": "영상 만들기", "upload.yml": "유튜브 업로드", "refresh.yml": "글 갱신" };
+const wf = (r) => WORKFLOWS[(r?.path || "").split("/").pop()] || r?.name;
 
 // ---------------------------------------------------------------- 상태
 function status(s) {
@@ -299,7 +321,8 @@ function status(s) {
   if (active(runFor(s.slug, "글 갱신"))) return ["run", "글 갱신 중"];
   if (active(up)) return ["run", "업로드 중"];
   if (s.meta?.youtube?.main) return ["done", "업로드 완료"];
-  if (active(prod)) return ["run", "영상 제작 중"];
+  if (videoStarting(s)) return ["run", "영상 제작 시작"];
+  if (active(prod)) { const pr = progressOf(prod); return ["run", `영상 제작 · ${pr.label} ${Math.round(pr.pct)}%`]; }
   if (s.release) return ["ready", "업로드 대기"];
   if (s.audio && prod?.conclusion === "failure") return ["fail", "영상 제작 실패"];
   if (s.audio) return ["run", "영상 제작 대기"];
@@ -375,7 +398,9 @@ function renderDetail() {
   const cover = raw(s, "cover.jpg");
 
   let video;
-  if (active(prod)) video = `<div class="state"><span class="dot run"></span>영상 제작 중</div>`;
+  if (videoStarting(s)) video = `<div class="state"><span class="dot run"></span>영상 제작 시작</div>`;
+  else if (active(prod)) { const pr = progressOf(prod), pct = Math.round(pr.pct);
+    video = `<div class="state"><span class="dot run"></span>${esc(pr.label)} ${pct}%<div class="bar"><i style="width:${pct}%"></i></div></div>`; }
   else if (main) video = `<div class="videos"><video src="${main}" controls preload="metadata" poster="${asset(s, "thumb.jpg") || ""}"></video>
       ${short ? `<video class="v" src="${short}" controls preload="metadata"></video>` : ""}</div>
       <p class="note"><button class="copy" id="reprod">다시 제작</button></p>`;
@@ -587,6 +612,7 @@ async function uploadAudio(s, file) {
     const body = { message: `mp3: ${s.slug}`, content: await readB64(file), branch: BRANCH };
     if (s.files[name]) body.sha = s.files[name];
     await gh(`/contents/songs/${s.slug}/${name}`, { method: "PUT", body: JSON.stringify(body) });
+    markVideo(s.slug);
     toast("업로드 완료. 영상 제작 시작");
     await refresh();
     poll(5000);
@@ -603,7 +629,7 @@ async function publish(s) {
 }
 
 async function reproduce(s) {
-  try { await dispatch("produce.yml", { slug: s.slug }); toast("영상 제작 다시 시작"); setTimeout(refresh, 4000); poll(5000); }
+  try { await dispatch("produce.yml", { slug: s.slug }); markVideo(s.slug); renderList(); renderDetail(); toast("영상 제작 다시 시작"); setTimeout(refresh, 4000); poll(5000); }
   catch (e) { toast("시작 실패: " + e.message); }
 }
 
@@ -627,7 +653,13 @@ function poll(ms) {
   timer = setTimeout(async () => { const busy = await refresh(); poll(busy ? 8000 : 60000); }, ms);
 }
 // 진행률은 시간에 따라 움직이므로 1초마다 목록만 다시 그린다
-setInterval(() => { if (making().length) renderList(); }, 1000);
+setInterval(() => {
+  const videoBusy = runs.some(r => wf(r) === "영상 만들기" && active(r));
+  if (!making().length && !videoBusy) return;
+  renderList();
+  const s = songs.find(x => x.slug === selected);
+  if (s && !editSlug && !editYt && active(runFor(s.slug, "영상 만들기"))) renderDetail();
+}, 1000);
 
 function logout(msg) {
   token = null; store.set("mufac.token", null);

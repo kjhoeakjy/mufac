@@ -219,32 +219,42 @@ def cmd_photo(a) -> None:
 
 
 def cmd_produce(a) -> None:
+    """--stage all(기본) | align(가사 위치) | video(썸네일·본편) | short(쇼츠·저장).
+    워크플로가 단계를 나눠 돌리면 대시보드가 단계별 진행률을 보여 준다."""
     from .align import short_window, timings
     from .render import prepare, render_main, render_short, thumbnail, write_ass_main, write_ass_short
 
     cfg = songmod.config()
     artist = cfg.get("artist", "")
     s = Song(a.slug)
+    stage = a.stage
     if not s.audio_path():
         sys.exit(f"{s.slug}: 노래 파일이 없습니다. mp3를 폴더에 올려주세요.")
     if not s.photo_path.exists():
         from .photo import _gradient, fetch
         try:
             fetch(s)
-        except Exception as e:  # 사진 키가 막혀도 영상은 만든다
-            print(f"사진을 못 가져와 단색 배경으로 만듭니다: {e}", flush=True)
+        except Exception as e:  # 그림 키가 막혀도 영상은 만든다
+            print(f"그림을 못 가져와 단색 배경으로 만듭니다: {e}", flush=True)
             s.meta["photo"] = _gradient(s)
         s.save()
 
     print("가사 위치 찾는 중", flush=True)
-    rows = timings(s, cfg.get("whisper_model", "medium"))
-    src = prepare(s)
-    thumbnail(s, artist)
+    rows = timings(s, cfg.get("whisper_model", "medium"))  # timing.lrc가 있으면 바로 읽는다
+    if stage == "align":
+        print("완료", s.timing_path, flush=True)
+        return
 
-    ass = s.out / "main.ass"
-    write_ass_main(s, rows, ass, artist)
-    print("본편 영상 만드는 중", flush=True)
-    render_main(s, src, ass)
+    src = prepare(s)
+    if stage in ("all", "video"):
+        thumbnail(s, artist)
+        ass = s.out / "main.ass"
+        write_ass_main(s, rows, ass, artist)
+        print("본편 영상 만드는 중", flush=True)
+        render_main(s, src, ass)
+        if stage == "video":
+            print("완료", s.out / "main.mp4", flush=True)
+            return
 
     if not a.no_short:
         start, end = short_window(s, rows, float(cfg.get("short_seconds", 40)))
@@ -356,6 +366,7 @@ def main() -> None:
     pr = sub.add_parser("produce", help="자막 영상과 썸네일 만들기")
     pr.add_argument("slug")
     pr.add_argument("--no-short", action="store_true")
+    pr.add_argument("--stage", default="all", choices=["all", "align", "video", "short"])
     pr.set_defaults(func=cmd_produce)
 
     pu = sub.add_parser("publish", help="만든 영상을 유튜브에 올리기")
