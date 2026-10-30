@@ -9,6 +9,8 @@ from __future__ import annotations
 import datetime as dt
 import json
 import os
+import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import anthropic
@@ -207,6 +209,10 @@ SCHEMA = {
 }
 
 
+def took(label: str, t0: float) -> None:
+    print(f"[{label}] {time.time() - t0:.0f}초", flush=True)
+
+
 def _check(response) -> None:
     if response.stop_reason == "refusal":
         raise RuntimeError("Claude가 이 요청을 거절했습니다. 키워드를 바꿔서 다시 실행하세요.")
@@ -264,13 +270,15 @@ def polish(data: dict, plan: str = "") -> dict:
     content = f"[제목]\n{data['title']}\n\n[가사]\n{data['lyrics']}"
     if plan:
         content += f"\n\n[후렴 음절 계획]\n{plan}"
+    t0 = time.time()
     with anthropic.Anthropic().beta.messages.stream(
         model=MODEL, max_tokens=12000, system=system, betas=BETAS, fallbacks="default",
-        output_config={"effort": "high", "format": {"type": "json_schema", "schema": schema}},
+        output_config={"effort": "medium", "format": {"type": "json_schema", "schema": schema}},
         messages=[{"role": "user", "content": content}],
     ) as stream:
         response = stream.get_final_message()
     _check(response)
+    took("가사 검수", t0)
     out = json.loads(next(b.text for b in response.content if b.type == "text"))
     if out.get("lyrics", "").count("[") >= 3:
         data["lyrics_draft"] = data["lyrics"]
@@ -279,6 +287,15 @@ def polish(data: dict, plan: str = "") -> dict:
         data["share_line"] = out.get("share_line") or data.get("share_line", "")
         data["polish"] = out.get("changes", [])
     return data
+
+
+def safe_polish(data: dict, piece_id: str = "") -> dict:
+    """검수가 실패해도 초고는 남긴다."""
+    try:
+        return polish(data, classical.lyric_plan(piece_id) if piece_id else "")
+    except (anthropic.APIError, RuntimeError) as e:
+        print(f"가사 검수를 건너뜁니다: {e}", flush=True)
+        return data
 
 
 CHOOSE = """\
@@ -299,13 +316,15 @@ def choose_classic(brief: str, used: list[str] | None = None) -> dict:
     schema = {"type": "object", "properties": {"id": {"type": "string", "enum": [p["id"] for p in classical.catalog()]},
                                                  "reason": {"type": "string"}},
               "required": ["id", "reason"], "additionalProperties": False}
+    t0 = time.time()
     with client.beta.messages.stream(
         model=MODEL, max_tokens=8000, system=CHOOSE, betas=BETAS, fallbacks="default",
-        output_config={"effort": "high", "format": {"type": "json_schema", "schema": schema}},
+        output_config={"effort": "medium", "format": {"type": "json_schema", "schema": schema}},
         messages=[{"role": "user", "content": f"[노래 사연]\n{brief}\n\n[고를 수 있는 원곡]\n{classical.catalogue()}"}],
     ) as stream:
         response = stream.get_final_message()
     _check(response)
+    took("원곡 고르기", t0)
     return json.loads(next(b.text for b in response.content if b.type == "text"))
 
 
@@ -315,12 +334,13 @@ def research(brief: str) -> str:
     today = dt.datetime.now(KST).strftime("%Y년 %m월 %d일")
     first = {"role": "user", "content": f"오늘은 {today}.\n\n{brief}"}
     messages = [first]
-    tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 10,
+    tools = [{"type": "web_search_20260209", "name": "web_search", "max_uses": 6,
               "user_location": {"type": "approximate", "country": "KR", "timezone": "Asia/Seoul"}}]
+    t0 = time.time()
     for _ in range(5):
         with client.beta.messages.stream(
-            model=MODEL, max_tokens=24000, system=_system(RESEARCH), betas=BETAS, fallbacks="default",
-            output_config={"effort": "high"}, tools=tools, messages=messages,
+            model=MODEL, max_tokens=16000, system=_system(RESEARCH), betas=BETAS, fallbacks="default",
+            output_config={"effort": "medium"}, tools=tools, messages=messages,
         ) as stream:
             response = stream.get_final_message()
         if response.stop_reason == "pause_turn":
@@ -328,14 +348,16 @@ def research(brief: str) -> str:
             messages = [first, {"role": "assistant", "content": response.content}]
             continue
         _check(response)
+        took("레퍼런스 조사", t0)
         return "\n".join(b.text for b in response.content if b.type == "text").strip()
     return ""
 
 
 def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "", style: str = "",
                classic: str = "", avoid: list[str] | None = None, avoid_styles: list[str] | None = None,
-               used_classics: list[str] | None = None) -> dict:
-    """classic: '' 없음, 'auto' 의미로 고르기, 또는 classical.LIBRARY의 id."""
+               used_classics: list[str] | None = None, do_polish: bool = True) -> dict:
+    """classic: '' 없음, 'auto' 의미로 고르기, 또는 classical.LIBRARY의 id.
+    do_polish=False면 검수(polish)를 건너뛰고 호출한 쪽이 나중에 돌린다(다른 일과 동시에 하려고)."""
     asks = []
     if hook:
         asks.append(f"후렴 문장은 이것으로 정했다: \"{hook}\". 후보 첫 번째에 넣고 그걸로 가사를 써라.")
@@ -355,22 +377,26 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
         asks.append("이미 만든 곡의 스타일이다. 장르와 악기가 겹치지 않게 해라:\n" + "\n".join(f"- {a}" for a in avoid_styles))
     brief = "\n\n".join(asks)
 
+    # 원곡 고르기와 레퍼런스 조사는 서로 기다릴 필요가 없어 동시에 한다
     piece, reason = None, ""
-    if classic == "auto":
-        pick = choose_classic(brief, used_classics)
-        piece, reason = classical.get(pick["id"]), pick["reason"]
-    elif classic and classic != "none":
-        piece = classical.get(classic)
-        reason = "직접 고른 원곡"
+    if classic and classic not in ("auto", "none"):
+        piece, reason = classical.get(classic), "직접 고른 원곡"
+    research_brief = brief + ("\n\n[멜로디 곡]\n이 노래는 저작권이 끝난 클래식 선율을 전주·후렴·간주에 그대로 쓴다."
+                              if classic and classic != "none" else "")
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        f_notes = pool.submit(research, research_brief)
+        f_pick = pool.submit(choose_classic, brief, used_classics) if classic == "auto" else None
+        if f_pick:
+            pick = f_pick.result()
+            piece, reason = classical.get(pick["id"]), pick["reason"]
+        notes = ""
+        try:
+            notes = f_notes.result()
+        except (anthropic.APIError, RuntimeError) as e:
+            print(f"레퍼런스 조사를 건너뜁니다: {e}", flush=True)
     if piece:
         brief += (f"\n\n[멜로디 곡]\n이 노래는 {piece['name']}({piece['composer']}, {piece['year']}) 선율 위에 쓴다. "
                   f"고른 이유: {reason}")
-
-    notes = ""
-    try:
-        notes = research(brief)
-    except (anthropic.APIError, RuntimeError) as e:
-        print(f"레퍼런스 조사를 건너뜁니다: {e}", flush=True)
 
     parts = []
     if notes:
@@ -379,6 +405,7 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
         parts.append(f"[멜로디 곡 자료]\n{piece['story'].strip()}\n\n{classical.lyric_plan(piece['id'])}")
     parts.append(f"[요청]\n{brief}")
     content = "\n\n".join(parts)
+    t0 = time.time()
     with anthropic.Anthropic().beta.messages.stream(
         model=MODEL, max_tokens=32000, system=_system(SYSTEM), betas=BETAS, fallbacks="default",
         output_config={"effort": "high", "format": {"type": "json_schema", "schema": SCHEMA}},
@@ -386,13 +413,12 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
     ) as stream:
         response = stream.get_final_message()
     _check(response)
+    took("작사", t0)
     text = next(b.text for b in response.content if b.type == "text")
     data = json.loads(text)
     data["chosen"] = max(0, min(int(data.get("chosen", 0)), len(data["candidates"]) - 1))
-    try:
-        data = polish(data, classical.lyric_plan(piece["id"]) if piece else "")
-    except (anthropic.APIError, RuntimeError) as e:
-        print(f"가사 검수를 건너뜁니다: {e}", flush=True)
+    if do_polish:
+        data = safe_polish(data, piece["id"] if piece else "")
     data["research"] = notes
     if piece:
         data["classic"] = {"id": piece["id"], "name": piece["name"], "composer": piece["composer"],

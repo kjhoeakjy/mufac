@@ -12,6 +12,7 @@ from __future__ import annotations
 import base64
 import io
 import os
+from concurrent.futures import ThreadPoolExecutor
 import random
 import zlib
 
@@ -49,7 +50,8 @@ def fetch(song: Song, *, pick: int | None = None) -> dict:
 def _openai(song: Song, scene: str) -> dict:
     model = os.environ.get("OPENAI_IMAGE_MODEL", "gpt-image-1")
     prompt = f"{scene}\n\n{LOOK}"
-    for size, path in (("1536x1024", song.photo_path), ("1024x1536", song.photo_v_path), ("1024x1024", song.cover_path)):
+
+    def one(size: str, path) -> None:
         r = requests.post(
             "https://api.openai.com/v1/images/generations",
             headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"},
@@ -61,6 +63,12 @@ def _openai(song: Song, scene: str) -> dict:
         item = r.json()["data"][0]
         raw = base64.b64decode(item["b64_json"]) if item.get("b64_json") else requests.get(item["url"], timeout=120).content
         _save(Image.open(io.BytesIO(raw)), path)
+
+    # 가로·세로·정사각 세 장을 동시에 만든다
+    jobs = (("1536x1024", song.photo_path), ("1024x1536", song.photo_v_path), ("1024x1024", song.cover_path))
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        for f in [pool.submit(one, size, path) for size, path in jobs]:
+            f.result()
     return {"source": "openai", "model": model, "prompt": scene}
 
 

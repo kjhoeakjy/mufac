@@ -90,16 +90,20 @@ def _preview(s: Song) -> dict:
 
 
 def cmd_new(a) -> None:
-    from .photo import fetch
-    from .write import write_song
+    import time
+    from concurrent.futures import ThreadPoolExecutor
 
+    from .photo import fetch
+    from .write import safe_polish, took, write_song
+
+    t_all = time.time()
     done = songmod.all_songs()
     avoid = [x.meta.get("hook", "") for x in done][-40:]
     avoid_styles = [x.meta.get("style", "") for x in done][-12:]
     used_classics = [(x.meta.get("classic") or {}).get("id", "") for x in done][-8:]
     data = write_song(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style,
                       classic=a.classic, avoid=avoid, avoid_styles=avoid_styles,
-                      used_classics=[u for u in used_classics if u])
+                      used_classics=[u for u in used_classics if u], do_polish=False)
     s = Song(songmod.new_slug())
     pick = data["candidates"][data["chosen"]]
     s.meta = {
@@ -131,25 +135,45 @@ def cmd_new(a) -> None:
         "lyrics_draft": data.get("lyrics_draft", ""),
         "polish": data.get("polish", []),
     }
-    if data.get("classic"):
-        s.meta["classic"] = data["classic"]
+    classic = data.get("classic")
+    if classic:
+        s.meta["classic"] = classic
     s.save()
-    if data.get("classic"):
-        from .classical import render as render_melody
-        try:
-            info = render_melody(data["classic"]["id"], s.dir, data["classic"].get("instrument", "piano"))
-            s.meta["classic"].update({k: info[k] for k in ("seconds", "theme_seconds", "bpm", "key", "chorus_syllables", "plan")})
-        except Exception as e:  # 멜로디 파일이 없어도 가사는 남긴다
-            print(f"원곡 멜로디를 만들지 못했습니다: {e}", file=sys.stderr)
     if data.get("research"):
         (s.dir / "research.md").write_text(f"# 레퍼런스 조사\n\n{data['research']}\n", encoding="utf-8")
-    try:
-        fetch(s)
-    except Exception as e:  # 사진이 없어도 곡 폴더는 남긴다
-        print(f"사진을 못 가져왔습니다: {e}", file=sys.stderr)
+
+    # 가사 검수, 사진, 원곡 멜로디는 서로 상관없으니 동시에 한다
+    def melody() -> None:
+        from .classical import render as render_melody
+        t0 = time.time()
+        try:
+            info = render_melody(classic["id"], s.dir, classic.get("instrument", "piano"))
+            s.meta["classic"].update({k: info[k] for k in ("seconds", "theme_seconds", "bpm", "key", "chorus_syllables", "plan")})
+            took("원곡 멜로디", t0)
+        except Exception as e:  # 멜로디 파일이 없어도 가사는 남긴다
+            print(f"원곡 멜로디를 만들지 못했습니다: {e}", file=sys.stderr)
+
+    def photo() -> None:
+        t0 = time.time()
+        try:
+            fetch(s)
+            took("사진", t0)
+        except Exception as e:  # 사진이 없어도 곡 폴더는 남긴다
+            print(f"사진을 못 가져왔습니다: {e}", file=sys.stderr)
+
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        f_polish = pool.submit(safe_polish, data, classic["id"] if classic else "")
+        if classic:
+            pool.submit(melody)
+        pool.submit(photo)
+        data = f_polish.result()
+    for k in ("title", "lyrics", "lyrics_draft", "polish", "share_line"):
+        if k in data:
+            s.meta[k] = data[k]
     s.meta["youtube_preview"] = _preview(s)
     s.save()
     write_readme(s)
+    took("전체", t_all)
     print(s.slug)
     _output("slug", s.slug)
     _output("title", s.meta["title"])
