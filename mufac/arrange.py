@@ -162,6 +162,21 @@ def _play_theme(track: cl.Track, phrases: list[list[Note]], t0: float, vel: floa
             track.note(m + 12 * octave, t0 + s, max(0.12, e - s), vel)
 
 
+def _bar(beat: float) -> float:
+    """마디 길이. 1.6~3.4초 사이로 맞춘다(아주 빠르거나 느린 박은 묶거나 나눈다)."""
+    bar = beat * 4
+    while bar < 1.6:
+        bar *= 2
+    while bar > 3.4:
+        bar /= 2
+    return bar
+
+
+def _verse_bars(bar: float) -> int:
+    """절 길이가 16초 안팎이 되도록 4마디 단위로."""
+    return max(8, int(round(16 / bar / 4)) * 4)
+
+
 def render(piece: dict, out_dir: Path) -> dict:
     if piece.get("midi"):
         phrases, beat = theme_from_midi(piece["midi"])
@@ -169,14 +184,14 @@ def render(piece: dict, out_dir: Path) -> dict:
         phrases, beat = theme_from_hand(cl.BY_ID[piece["hand"]])
     theme = [n for p in phrases for n in p]
     theme_len = max(e for _, e, _ in theme)
-    bar = beat * 4
+    bar = _bar(beat)
     # 주제 길이를 마디 단위로 올림
     theme_bars = int(np.ceil(theme_len / bar - 1e-6))
     theme_span = theme_bars * bar
     tonic, mode = key_of(theme)
     under = chords_under(theme, tonic, mode, bar, theme_span)
     verse = verse_progression(tonic, mode)
-    verse_bars = 8
+    verse_bars = _verse_bars(bar)
     verse_chords = [(i * bar, verse[i % 4]) for i in range(verse_bars)]
     verse_span = verse_bars * bar
 
@@ -239,7 +254,8 @@ def lyric_plan(piece: dict) -> str:
         phrases, beat = theme_from_hand(cl.BY_ID[piece["hand"]])
     counts = [len(p) for p in phrases]
     theme_len = max(e for p in phrases for _, e, _ in p)
-    verse_sec = 8 * beat * 4
+    bar = _bar(beat)
+    verse_sec = _verse_bars(bar) * bar
     return "\n".join([
         f"멜로디 곡: {piece['name']} ({piece['composer']}). 노래 형태는 melody.mp3와 같다: 전주(원곡 주제 연주 {theme_len:.0f}초) → 1절 → 후렴 → 2절 → 후렴 → 간주(원곡 주제) → 마지막 후렴 → 후주.",
         f"- [Chorus]와 [Final Chorus]는 원곡 주제 선율을 그대로 부른다. 줄 {len(counts)}개, 줄마다 음절 수 {' / '.join(map(str, counts))} (±1).",
