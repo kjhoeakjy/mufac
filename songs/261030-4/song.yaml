@@ -1,0 +1,384 @@
+title: 다 녹아
+hook: 봄 오면 다 녹아 다 녹아
+theme: 아픔
+story: 올겨울이 통째로 망한 사람이 지금 꽁꽁 언 것도 결국 녹는다고 우기며 부르는 노래.
+created: 2026-10-30 13:12
+request:
+  id: mvugdh30
+  idea: 겨울
+  genre: 인디밴드
+  style: 몽환적인
+style: korean indie rock band, dreamy dream pop, two reverb-soaked guitars, tremolo lead guitar hook, glockenspiel melody, warm bass, steady driving drums, soft choir oohs, 104 bpm, hazy intro builds to big singalong chorus, airy male vocal, female harmony, korean lyrics
+exclude: brass, horn section, accordion, electric organ, heavy distortion, ska, trot, rap, autotune, english lyrics, solo piano ballad, lo-fi
+photo_query: melting snow winter sunlight
+image_prompt: Late afternoon winter street where snow is melting off rooftops and icicles drip, soft golden backlight through a hazy pastel sky. Dreamy, bright, warm tones with glowing water droplets, no text, no faces.
+title_kind: 후렴 문장
+why: '''봄 오면 다 녹아''는 망한 연애든 회사든 각자 지금 얼어붙은 것을 꽂아 넣을 수 있는 선언이라 다섯 후보 가운데 가장 넓다. 녹는다는 그림이 몽환적인 소리와 맞고, ''눈사람도 원래 물이야''라는 능청 한 줄이 위로를 교훈이 아닌 농담으로 바꿔 준다. 잔나비의 원리를 주로 가져왔다. 핵심어 ''다 녹아''를 두 번 겹치고, 고백 직전에 ''아는 건 쥐뿔도 없는데''로 자기를 낮추고, 가장 높은 순간 뒤에는 ''호빵이나 하나 사 먹자''라는 생활 말로 내려온다. 감정 이름 대신 ''발 시려''처럼 몸의 감각을 쓴 것은 술탄오브더디스코의 김 빼기에서 가져왔다. 조사한 곡들에서 외치는 반말 문장 제목이 가장 세게 박히므로, 제목은 후렴에서 가장 많이 외치는 말인 ''다 녹아''로 정했다.'
+share_line: 눈사람도 원래 물이야
+youtube_meta:
+  situation: 겨울에 듣는 몽환적인 인디 노래
+  shorts_title: 눈사람도 원래 물이야 | 다 녹아
+  intro: '올겨울 망했어도 괜찮다, 봄 오면 다 녹으니까.
+
+    꽁꽁 언 것들한테 부르는 몽환적인 겨울 인디밴드 노래 ''다 녹아''.'
+  comment_prompt: 올봄에 녹여 버리고 싶은 거 하나 적고 가.
+  hashtags:
+  - 겨울노래
+  - 인디밴드
+  - 밴드음악
+  - 다녹아
+  - 몽환적인노래
+  - 인디록
+  - 드림팝
+  - 겨울플리
+  - 위로노래
+  - 감성플리
+  - 새벽노래
+  - 눈오는날노래
+  - 퇴근길노래
+  - 따라부르기좋은노래
+  - 한국인디
+tags:
+- 다 녹아
+- 겨울 노래
+- 인디밴드
+- 밴드 음악
+- 몽환적인 노래
+- 인디록
+- 드림팝
+- 겨울 플레이리스트
+- 눈 오는 날 노래
+- 위로 노래
+- 감성 플리
+- 새벽 감성
+- 퇴근길 노래
+- 따라 부르기 좋은 노래
+- 떼창 노래
+- 한국 인디
+- 겨울 감성
+- 봄 기다리는 노래
+- 눈사람
+- 신곡
+- 창작곡
+- AI 음악
+- 밴드 신곡
+- 겨울밤 노래
+- 혼자 듣기 좋은 노래
+- korean indie
+- korean band
+- korean indie rock
+- dream pop
+- winter song
+references:
+- title: 뜨거운 여름밤은 가고 남은 건 볼품없지만
+  artist: 잔나비
+  takeaway: 후렴 핵심어를 겹치고, 고백 직전에 자기를 낮추는 한 줄을 놓고, 감정이 가장 높은 곳 뒤에는 생활 말로 내려온다.
+- title: 캐러밴
+  artist: 술탄 오브 더 디스코
+  takeaway: 비장해질 법한 대목 다음 줄에 몸의 감각을 놓아 김을 뺀다.
+- title: 좋지 아니한가
+  artist: 크라잉넛
+  takeaway: 위로는 설명이 아니라 우기기로 한다. 근거 없이 단정하는 한마디가 떼창이 된다.
+candidates:
+- hook: 입김만 나와 입김만 나와
+  theme: 사랑
+  story: 할 말은 목까지 왔는데 끝내 못 하고 하얀 숨만 내뱉는 사람이 부르는 노래.
+- hook: 얼어 죽어도 나가자
+  theme: 어른
+  story: 영하 십 도에도 친구들 연락 한 통에 패딩을 걸치고 뛰쳐나가는 사람들의 떼창.
+- hook: 눈 온다 연락해 봐
+  theme: 사랑
+  story: 연락 안 한다고 백 번 말해 놓고 첫눈을 핑계로 휴대폰을 만지작거리는 사람의 능청.
+- hook: 봄 오면 다 녹아 다 녹아
+  theme: 아픔
+  story: 올겨울이 통째로 망한 사람이 지금 꽁꽁 언 것도 결국 녹는다고 우기며 부르는 노래.
+- hook: 십 분만 더 누워
+  theme: 어른
+  story: 추운 아침마다 이불 속에서 알람과 협상하다 결국 일어나 출근하는 모두의 노래.
+chosen: 3
+lyrics: |
+  [Intro - reverb guitar, glockenspiel, breath]
+  (후—)
+
+  [Verse 1 - hushed, floating]
+  올겨울은 그냥 망했어
+  뭐 다들 그렇다더라
+  꽁꽁 언 건 그대로 둬
+  건드리면 깨져
+
+  [Pre-Chorus - drums build]
+  아는 건 쥐뿔도 없는데
+  이거 하나는 알아
+
+  [Chorus - wide, airy harmony, singalong]
+  봄 오면 다 녹아 다 녹아
+  눈사람도 원래 물이야
+  (워어 워어)
+  봄 오면 다 녹아 다 녹아
+
+  [Verse 2 - hushed]
+  너도 요샌 영 별로라며
+  답장 끝에 점만 하나
+  그 꽁한 말투도
+  삼월이면 줄줄
+
+  [Pre-Chorus - drums build]
+  아는 건 쥐뿔도 없는데
+  이거 하나는 알아
+
+  [Chorus - wide, airy harmony, singalong]
+  봄 오면 다 녹아 다 녹아
+  눈사람도 원래 물이야
+  (워어 워어)
+  봄 오면 다 녹아 다 녹아
+
+  [Bridge - half-whispered]
+  아 근데 발 시려
+  호빵이나 하나 사 먹자
+
+  [Instrumental - tremolo guitar swell, choir hum]
+  (음— 음—)
+
+  [Final Chorus - full band, gang vocals]
+  봄 오면 다 녹아 다 녹아
+  눈사람도 원래 물이야
+  (워어 워어)
+  봄 오면 그때 보자
+
+  [Outro - fade, glockenspiel]
+  (다 녹아)
+lyrics_draft: '[Intro - reverb guitar, glockenspiel, breath]
+
+  (후—)
+
+
+  [Verse 1 - hushed, floating]
+
+  올겨울은 그냥 망했어
+
+  뭐 다들 그렇다더라
+
+  꽁꽁 언 건 그대로 둬
+
+  건드리면 깨져
+
+
+  [Pre-Chorus - drums build]
+
+  아는 건 쥐뿔도 없는데
+
+  이거 하나는 알아
+
+
+  [Chorus - wide, airy harmony, singalong]
+
+  봄 오면 다 녹아 다 녹아
+
+  눈사람도 원래 물이야
+
+  (워어 워어)
+
+  봄 오면 다 녹아 다 녹아
+
+
+  [Verse 2 - hushed]
+
+  너도 요샌 영 별로라며
+
+  답장 끝에 점만 하나
+
+  얼음 같은 그 말투도
+
+  삼월이면 줄줄
+
+
+  [Pre-Chorus - drums build]
+
+  아는 건 쥐뿔도 없는데
+
+  이거 하나는 알아
+
+
+  [Chorus - wide, airy harmony, singalong]
+
+  봄 오면 다 녹아 다 녹아
+
+  눈사람도 원래 물이야
+
+  (워어 워어)
+
+  봄 오면 다 녹아 다 녹아
+
+
+  [Bridge - half-whispered]
+
+  아 근데 발 시려
+
+  호빵이나 하나 사 먹자
+
+
+  [Instrumental - tremolo guitar swell, choir hum]
+
+  (음— 음—)
+
+
+  [Final Chorus - full band, gang vocals]
+
+  봄 오면 다 녹아 다 녹아
+
+  눈사람도 원래 물이야
+
+  (워어 워어)
+
+  봄 오면 그때 보자
+
+
+  [Outro - fade, glockenspiel]
+
+  (다 녹아)'
+polish:
+- '얼음 같은 그 말투도 → 그 꽁한 말투도: ''~같은'' 비유를 지움. 1절의 ''꽁꽁''과 이어지는 입말로 바꿨고, ''줄줄''과 붙어 능청이 산다.'
+- '나머지 줄은 그대로 둠: 이미 짧은 입말이고 자조(망했어, 쥐뿔도), 엉뚱한 딴소리(호빵), 비틀린 끝맺음(그때 보자)이 있어 점검표에 걸리지 않음. 제목도 설명문이 아니라서 유지.'
+youtube_preview:
+  title: 다 녹아 - 연주왕김연주 | 겨울에 듣는 몽환적인 인디 노래
+  shorts_title: '눈사람도 원래 물이야 | 다 녹아 #shorts'
+  description: '올겨울 망했어도 괜찮다, 봄 오면 다 녹으니까.
+
+    꽁꽁 언 것들한테 부르는 몽환적인 겨울 인디밴드 노래 ''다 녹아''.
+
+
+    다 녹아
+
+
+    (후—)
+
+
+    올겨울은 그냥 망했어
+
+    뭐 다들 그렇다더라
+
+    꽁꽁 언 건 그대로 둬
+
+    건드리면 깨져
+
+
+    아는 건 쥐뿔도 없는데
+
+    이거 하나는 알아
+
+
+    봄 오면 다 녹아 다 녹아
+
+    눈사람도 원래 물이야
+
+    (워어 워어)
+
+    봄 오면 다 녹아 다 녹아
+
+
+    너도 요샌 영 별로라며
+
+    답장 끝에 점만 하나
+
+    그 꽁한 말투도
+
+    삼월이면 줄줄
+
+
+    아는 건 쥐뿔도 없는데
+
+    이거 하나는 알아
+
+
+    봄 오면 다 녹아 다 녹아
+
+    눈사람도 원래 물이야
+
+    (워어 워어)
+
+    봄 오면 다 녹아 다 녹아
+
+
+    아 근데 발 시려
+
+    호빵이나 하나 사 먹자
+
+
+    (음— 음—)
+
+
+    봄 오면 다 녹아 다 녹아
+
+    눈사람도 원래 물이야
+
+    (워어 워어)
+
+    봄 오면 그때 보자
+
+
+    (다 녹아)
+
+
+    올봄에 녹여 버리고 싶은 거 하나 적고 가.
+
+
+    작사·기획 연주왕김연주
+
+    음악 생성 Suno
+
+    이 곡은 AI 음악 생성 도구로 만들었습니다.
+
+
+    #겨울노래 #인디밴드 #밴드음악 #다녹아 #몽환적인노래 #인디록 #드림팝 #겨울플리 #위로노래 #감성플리 #새벽노래 #눈오는날노래 #퇴근길노래 #따라부르기좋은노래 #한국인디'
+  tags:
+  - 다 녹아
+  - 연주왕김연주
+  - 겨울 노래
+  - 인디밴드
+  - 밴드 음악
+  - 몽환적인 노래
+  - 인디록
+  - 드림팝
+  - 겨울 플레이리스트
+  - 눈 오는 날 노래
+  - 위로 노래
+  - 감성 플리
+  - 새벽 감성
+  - 퇴근길 노래
+  - 따라 부르기 좋은 노래
+  - 떼창 노래
+  - 한국 인디
+  - 겨울 감성
+  - 봄 기다리는 노래
+  - 눈사람
+  - 신곡
+  - 창작곡
+  - AI 음악
+  - 밴드 신곡
+  - 겨울밤 노래
+  - 혼자 듣기 좋은 노래
+  - korean indie
+  - korean band
+  - korean indie rock
+  - dream pop
+  - winter song
+  hashtags:
+  - 겨울노래
+  - 인디밴드
+  - 밴드음악
+  - 다녹아
+  - 몽환적인노래
+  - 인디록
+  - 드림팝
+  - 겨울플리
+  - 위로노래
+  - 감성플리
+  - 새벽노래
+  - 눈오는날노래
+  - 퇴근길노래
+  - 따라부르기좋은노래
+  - 한국인디
+  playlists:
+  - 연주왕김연주 노래
+  - 혼자 우는 밤에
+  privacy: private
