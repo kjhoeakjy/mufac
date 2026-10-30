@@ -342,10 +342,10 @@ def lyric_plan(piece: dict) -> str:
     bar = _bar(beat)
     verse_sec = _verse_bars(bar) * bar
     return "\n".join([
-        f"멜로디 곡: {piece['name']} ({piece['composer']}). 노래 형태는 melody.mp3와 같다: 전주(원곡 주제 연주 {theme_len:.0f}초) → 1절 → 후렴 → 2절 → 후렴 → 간주(원곡 주제) → 마지막 후렴 → 후주.",
-        f"- [Chorus]와 [Final Chorus]는 원곡 주제 선율을 그대로 부른다. 줄 {len(counts)}개, 줄마다 음절 수 {' / '.join(map(str, counts))} (±1).",
-        f"- [Verse 1], [Verse 2]는 반주만 있는 {verse_sec:.0f}초 구간이라 선율과 가사가 자유다. 4줄, 한 줄 7~11음절. 두 절의 줄 수와 음절 수를 맞춘다.",
-        "- [Intro]와 [Interlude]는 태그만 쓴다(원곡 주제가 연주되는 자리). [Pre-Chorus], [Bridge]는 쓰지 않는다. [Outro]는 태그만.",
+        f"멜로디 곡: {piece['name']} ({piece['composer']}). 노래 형태: 전주(원곡 주제 연주 약 {theme_len:.0f}초) → 1절 → 후렴 → 2절 → 후렴 → 간주(원곡 주제) → 마지막 후렴 → 후주.",
+        f"- [Chorus]와 [Final Chorus]는 원곡 주제 선율로 부른다. 줄 {len(counts)}개, 줄마다 음절 수 {' / '.join(map(str, counts))} (±1).",
+        f"- [Verse 1], [Verse 2]는 약 {verse_sec:.0f}초 구간으로 선율과 가사가 자유다. 4줄, 한 줄 7~11음절. 두 절의 줄 수와 음절 수를 맞춘다.",
+        "- [Intro]와 [Interlude]는 태그만 쓴다(원곡 주제가 연주되는 자리, 태그에 영어 지시를 붙인다). [Pre-Chorus], [Bridge]는 쓰지 않는다. [Outro]는 태그만.",
         "- 구간 순서: [Intro] [Verse 1] [Chorus] [Verse 2] [Chorus] [Interlude] [Final Chorus] [Outro]. [Final Chorus]는 [Chorus]와 같은 줄 수·음절 수로 한두 줄만 바꾼다.",
         "- 긴 음 자리에는 열린 모음(아, 어, 오)을 둔다.",
     ])

@@ -86,6 +86,7 @@ SYSTEM = """\
 - 짧은 명사구: 예: 열한 시 반, 그해 여름, 월급날의 왕
 사람이 지은 제목처럼 보여야 한다. "-해요/-거예요/-했어요"로 끝나는 제목은 쓰지 않는다. 조사한 히트곡들의 제목 형태 분포를 따른다.
 title_kind에 고른 형태를 적고, why에 왜 그 형태인지 쓴다.
+요청에 제목이 정해져 있으면 그 제목을 한 글자도 바꾸지 않고 쓴다(title_kind: 지정). 가사와 후렴을 그 제목에 맞춘다.
 
 [가사의 결]
 - 감성 레퍼런스: {ref}. 밴드 음악의 노랫말이다. 쉬운 말, 입말, 유머와 자조, 능청, 허세, 갑자기 진심이 되는 한 줄, 낱말의 리듬.
@@ -121,20 +122,28 @@ title_kind에 고른 형태를 적고, why에 왜 그 형태인지 쓴다.
 
 [클래식 멜로디 모드]
 원곡이 정해진 경우 아래 "멜로디 곡 자료"가 붙는다. 클래식은 숨기지 않고 티 나게 쓴다:
-전주에서 원곡 주제가 크게 연주되고, 후렴은 원곡 주제 선율을 그대로 부르며, 간주에서 다시 원곡 주제가 나온다. 절은 새 선율과 자유로운 가사다.
-- 가사는 자료의 가사 계획(구간 순서, 줄 수, 후렴의 줄마다 음절 수)을 그대로 따른다. 이 계획이 위의 구간 규칙보다 우선한다. [Pre-Chorus], [Bridge]는 쓰지 않는다.
+전주에서 원곡 주제가 크게 연주되고, 후렴은 원곡 주제 선율로 부르며, 간주에서 다시 원곡 주제가 나온다. 절은 새 선율과 자유로운 가사다.
+Suno에 음원은 올리지 않는다. 원곡을 알아듣게 만드는 것은 오직 Style 문구와 가사의 구간 태그다. 그래서:
+- Style에 원곡의 널리 쓰이는 영어 제목과 작곡가를 반드시 넣는다(예: Beethoven's Ode to Joy, Pachelbel's Canon in D, Debussy's Clair de Lune, Dvořák's New World Symphony Largo).
+  "intro quotes <영어 제목> melody on <악기>, chorus vocal melody interpolates <영어 제목>, interlude restates the theme, verses original" 식으로 어디서 어떻게 나오는지 적는다.
+- 가사의 [Intro], [Interlude], [Outro] 태그에는 짧은 영어 지시를 붙인다. 예: [Intro - brass section plays the Ode to Joy theme], [Interlude - guitar solo on the Ode to Joy melody], [Outro - theme fades]. [Chorus] 태그는 [Chorus - sung to the Ode to Joy melody]처럼 쓴다. 태그 안의 영어는 노래로 불리지 않는다.
+- classic_en에 그 영어 제목(작곡가 포함, 예: Beethoven's Ode to Joy)을 적는다.
+- 가사는 자료의 가사 계획(구간 순서, 줄 수, 후렴의 줄마다 음절 수)을 따른다. [Pre-Chorus], [Bridge]는 쓰지 않는다.
 - 후렴이 원곡 선율이므로 후렴 가사가 곡의 중심이다. 제목과 외칠 말은 후렴에 둔다. 후렴 가사의 호흡(긴 음, 쉼)이 선율과 맞아야 한다.
 - 노래의 태도와 원곡의 배경이 속으로 이어져야 한다. why에 그 연결을 한두 문장으로 쓴다. 억지로 슬픈 사연을 끌어오지 않는다. 원곡이 밝으면 밝게 쓴다.
 - classic_note: 유튜브 설명란에 넣을 원곡 이야기 3~4문장. 원곡의 배경 사실 한두 개와 이 노래가 그 위에 선 이유. 담담하게, 과장 없이.
-- theme_instrument(piano, guitar, strings, bell)는 Suno에 넣을 멜로디 파일에서 주제를 연주할 음색이다. 곡마다 다르게 고른다.
+- theme_instrument(piano, guitar, strings, bell)는 전주·간주에서 원곡 주제를 맡을 악기 계열이다. 곡마다 다르게 고르고 Style에도 같은 악기를 적는다.
 
 [Suno 스타일]
-- 영어, 쉼표 구분, 200자 이내. korean을 꼭 넣는다.
-- 기본 소리는 오케스트라 밴드: 드럼, 베이스, 기타, 피아노 위에 현악과 브라스가 같이 울리는 풍성한 편곡. 작은 편성은 요청이 있을 때만.
-  예: korean orchestral rock, full band with string section and brass, driving drums, electric guitar riff quoting the classical theme, big singalong chorus, 128 bpm, male vocal
-- 장르는 곡마다 다르게: 오케스트라 록, 브라스 팝, 디스코 펑크, 인디 록, 펑크, 시티팝, 스윙, 레트로 팝, 왈츠 록, 포크 록 등. 이전 곡 스타일과 겹치지 않게 한다.
+- 영어, 쉼표 구분, 300자 이내. korean을 꼭 넣는다.
+- 장르 요청이 있으면 그 장르가 먼저다. 장르마다 그 장르답게 만드는 요소를 넣는다:
+  트로트(korean trot, 꺾기 창법 melismatic vocal, 뽕짝 2박 리듬, 색소폰·아코디언·전자오르간, 밝고 능청스럽게), 인디밴드(korean indie rock band, 기타 둘·베이스·드럼, 거친 질감, 떼창),
+  발라드(korean ballad, 피아노와 현악, 조용히 시작해 후렴에서 터짐, 감정 과잉 없이), 락(korean rock, 디스토션 기타 리프, 힘 있는 드럼), OST(drama OST, 현악 오케스트라와 피아노, 영화적 전개),
+  팝(korean pop, 신스와 깔끔한 비트, 귀에 남는 훅), 힙합(korean hip hop, 붐뱁이나 트랩 비트, 랩 벌스에 노래 후렴), 포크(korean folk, 어쿠스틱 기타와 하모니카), 재즈(korean jazz pop, 스윙 리듬, 피아노 트리오와 혼), 시티팝(korean city pop, 펑키 베이스, 신스 브라스), 댄스(korean dance pop, 120~128 bpm 네 박 킥), 펑크(korean punk rock, 170 bpm 이상, 세 코드, 떼창).
+- 장르가 "자동"이면 곡마다 다르게 고른다. 기본 소리는 오케스트라 밴드: 드럼, 베이스, 기타, 피아노 위에 현악과 브라스가 같이 울리는 풍성한 편곡. 작은 편성은 요청이 있을 때만. 이전 곡 스타일과 겹치지 않게 한다.
+  예: korean orchestral rock, full band with string section and brass, driving drums, electric guitar riff quoting Beethoven's Ode to Joy, big singalong chorus, 128 bpm, male vocal
 - 원곡 주제를 맡을 구체적 악기를 적는다(일렉 기타 리프, 브라스 섹션, 현악 유니즌, 신스 리드, 합창, 휘파람, 아코디언 등).
-- 클래식 모드면 원곡의 조성과 빠르기를 존중하되 BPM은 편곡에 맞게 올려도 되고, "intro and chorus quote the uploaded classical theme prominently, verses original"을 넣는다.
+- 클래식 모드면 위 [클래식 멜로디 모드]대로 원곡의 영어 제목과 나오는 자리를 적는다. 음원 업로드를 전제한 말("uploaded audio")은 쓰지 않는다.
 - 빠르기, 전개(조용히 시작해 터지는지, 처음부터 달리는지), 보컬(성별, 음색, 떼창 여부)을 적는다.
 - exclude는 제외 스타일 칸. 예: lo-fi, solo piano ballad, rap, autotune, english lyrics
 
@@ -186,8 +195,9 @@ SCHEMA = {
         "hashtags": {"type": "array", "items": {"type": "string"}},
         "tags": {"type": "array", "items": {"type": "string"}},
         "classic_note": {"type": "string", "description": "클래식 멜로디 모드가 아니면 빈 문자열"},
+        "classic_en": {"type": "string", "description": "원곡의 널리 쓰이는 영어 제목(작곡가 포함). 클래식 모드가 아니면 빈 문자열"},
         "theme_instrument": {"type": "string", "enum": ["piano", "guitar", "strings", "bell"],
-                             "description": "전주·간주에서 원곡 주제를 연주할 악기 느낌. 클래식 모드가 아니면 piano"},
+                             "description": "전주·간주에서 원곡 주제를 맡을 악기 계열. 클래식 모드가 아니면 piano"},
         "references": {
             "type": "array",
             "description": "참고한 곡",
@@ -205,7 +215,7 @@ SCHEMA = {
     },
     "required": ["candidates", "chosen", "why", "title", "title_kind", "lyrics", "share_line", "style", "exclude",
                  "photo_query", "image_prompt", "situation", "shorts_title", "yt_intro", "comment_prompt",
-                 "hashtags", "tags", "classic_note", "theme_instrument", "references"],
+                 "hashtags", "tags", "classic_note", "classic_en", "theme_instrument", "references"],
     "additionalProperties": False,
 }
 
@@ -261,14 +271,16 @@ JSON만 답한다: {"lyrics": "<고친 가사 전문>", "title": "<제목>", "sh
 """
 
 
-def polish(data: dict, plan: str = "") -> dict:
-    """쓴 가사를 점검표로 한 번 더 걸러 담백하게 고친다."""
+def polish(data: dict, plan: str = "", fixed_title: str = "") -> dict:
+    """쓴 가사를 점검표로 한 번 더 걸러 담백하게 고친다. fixed_title이 있으면 제목은 건드리지 않는다."""
     schema = {"type": "object",
               "properties": {"lyrics": {"type": "string"}, "title": {"type": "string"}, "share_line": {"type": "string"},
                              "changes": {"type": "array", "items": {"type": "string"}}},
               "required": ["lyrics", "title", "share_line", "changes"], "additionalProperties": False}
     system = REVIEW + "\n\n[AI 티 점검표]\n" + _checklist()
     content = f"[제목]\n{data['title']}\n\n[가사]\n{data['lyrics']}"
+    if fixed_title:
+        content += "\n\n[제목은 사용자가 정한 것이라 바꾸지 않는다]"
     if plan:
         content += f"\n\n[후렴 음절 계획]\n{plan}"
     t0 = time.time()
@@ -284,16 +296,16 @@ def polish(data: dict, plan: str = "") -> dict:
     if out.get("lyrics", "").count("[") >= 3:
         data["lyrics_draft"] = data["lyrics"]
         data["lyrics"] = out["lyrics"].strip()
-        data["title"] = (out.get("title") or data["title"]).strip()
+        data["title"] = fixed_title or (out.get("title") or data["title"]).strip()
         data["share_line"] = out.get("share_line") or data.get("share_line", "")
         data["polish"] = out.get("changes", [])
     return data
 
 
-def safe_polish(data: dict, piece_id: str = "") -> dict:
+def safe_polish(data: dict, piece_id: str = "", fixed_title: str = "") -> dict:
     """검수가 실패해도 초고는 남긴다."""
     try:
-        return polish(data, classical.lyric_plan(piece_id) if piece_id else "")
+        return polish(data, classical.lyric_plan(piece_id) if piece_id else "", fixed_title)
     except (anthropic.APIError, RuntimeError) as e:
         print(f"가사 검수를 건너뜁니다: {e}", flush=True)
         return data
@@ -356,7 +368,7 @@ def research(brief: str) -> str:
 
 def prepare(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "", style: str = "",
             classic: str = "", avoid: list[str] | None = None, avoid_styles: list[str] | None = None,
-            used_classics: list[str] | None = None) -> dict:
+            used_classics: list[str] | None = None, title: str = "", content: str = "", genre: str = "") -> dict:
     """1단계: 요청문을 만들고, 원곡 고르기와 레퍼런스 조사를 동시에 한다.
     classic: '' 없음, 'auto' 의미로 고르기, 또는 카탈로그의 곡 id. 결과는 JSON으로 저장할 수 있는 dict."""
     asks = []
@@ -364,8 +376,14 @@ def prepare(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "",
         asks.append(f"후렴 문장은 이것으로 정했다: \"{hook}\". 후보 첫 번째에 넣고 그걸로 가사를 써라.")
     else:
         asks.append("후렴 후보 5개를 만들고, 그중 가장 많은 사람을 움직일 하나를 골라 가사를 써라.")
+    if title:
+        asks.append(f"제목은 이것으로 정해졌다: \"{title}\". 한 글자도 바꾸지 말고, 후렴과 가사를 이 제목에 맞춰라.")
     if idea:
         asks.append(f"이 키워드나 상황으로 만들어라: {idea}")
+    if content:
+        asks.append(f"노래에 담을 내용(사용자가 적은 것):\n{content}")
+    if genre and genre != "자동":
+        asks.append(f"장르는 {genre}. Suno 스타일 문구를 이 장르로 쓰고, 가사의 말투와 호흡도 이 장르답게 맞춰라.")
     if theme and theme != "자동":
         asks.append(f"주제는 {theme}.")
     if vocal and vocal != "자동":
@@ -398,7 +416,7 @@ def prepare(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "",
     if piece:
         brief += (f"\n\n[멜로디 곡]\n이 노래는 {piece['name']}({piece['composer']}, {piece['year']}) 선율 위에 쓴다. "
                   f"고른 이유: {reason}")
-    return {"brief": brief, "piece_id": piece["id"] if piece else "", "reason": reason, "notes": notes}
+    return {"brief": brief, "piece_id": piece["id"] if piece else "", "reason": reason, "notes": notes, "title": title}
 
 
 def compose(work: dict) -> dict:
@@ -424,11 +442,13 @@ def compose(work: dict) -> dict:
     text = next(b.text for b in response.content if b.type == "text")
     data = json.loads(text)
     data["chosen"] = max(0, min(int(data.get("chosen", 0)), len(data["candidates"]) - 1))
+    if work.get("title"):
+        data["title"], data["title_kind"] = work["title"], "지정"
     data["research"] = notes
     if piece:
         data["classic"] = {"id": piece["id"], "name": piece["name"], "composer": piece["composer"],
-                           "year": piece["year"], "reason": work.get("reason", ""), "note": data.get("classic_note", ""),
-                           "instrument": data.get("theme_instrument", "piano")}
+                           "year": piece["year"], "en": data.get("classic_en", ""), "reason": work.get("reason", ""),
+                           "note": data.get("classic_note", ""), "instrument": data.get("theme_instrument", "piano")}
     return data
 
 
@@ -437,5 +457,5 @@ def write_song(*, do_polish: bool = True, **kw) -> dict:
     work = prepare(**kw)
     data = compose(work)
     if do_polish:
-        data = safe_polish(data, work["piece_id"])
+        data = safe_polish(data, work["piece_id"], work.get("title", ""))
     return data

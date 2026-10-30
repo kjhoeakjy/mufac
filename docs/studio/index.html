@@ -27,8 +27,15 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;ma
 .ghost:hover{color:var(--fg);border-color:var(--fg)}
 
 /* 만들기 */
-.make{display:grid;grid-template-columns:1.3fr 1fr 1fr auto auto;gap:8px;margin-bottom:20px}
-.make input,.make select{background:#fff;border:1px solid var(--line2);border-radius:4px;padding:9px 12px;min-width:0;font-size:14px}
+.make{display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:8px;margin-bottom:20px}
+.make input,.make select,.make textarea{background:#fff;border:1px solid var(--line2);border-radius:4px;padding:9px 12px;min-width:0;font-size:14px;font-family:inherit}
+.make textarea{grid-column:1/4;resize:vertical;min-height:38px;height:38px;line-height:1.4}
+.make #style{grid-column:4/6}
+.make textarea:focus{outline:1px solid var(--fg);outline-offset:-1px;border-color:var(--fg)}
+.head .edit{display:none;gap:6px;align-items:center;margin-bottom:4px}
+.head.editing .edit{display:flex} .head.editing h1,.head.editing .fix{display:none}
+.head .edit input{flex:1;min-width:0;font:inherit;font-size:18px;font-weight:700;padding:4px 8px;border:1px solid var(--line2);border-radius:4px}
+.head .fix{margin-left:8px;vertical-align:middle;font-weight:400}
 .make select{appearance:none;-webkit-appearance:none;padding-right:30px;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:right 15px top 50%,right 10px top 50%;background-size:5px 5px;background-repeat:no-repeat;text-overflow:ellipsis}
 .make input:focus,.make select:focus{outline:1px solid var(--fg);outline-offset:-1px;border-color:var(--fg)}
 .btn{border:1px solid var(--fg);border-radius:4px;padding:9px 16px;font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap;background:#fff}
@@ -102,7 +109,7 @@ video{width:100%;border-radius:3px;background:#000;display:block}
 
 @media (max-width:900px){
   .make{grid-template-columns:1fr 1fr}
-  .make #kw{grid-column:span 2}
+  .make textarea,.make #style,.make #make{grid-column:1/3}
   .cols{grid-template-columns:1fr}
   .list{position:static;max-height:none;flex-direction:row;overflow-x:auto;border-top:0;border-bottom:1px solid var(--line)}
   .item{min-width:200px;border-bottom:0;border-right:1px solid var(--line)}
@@ -131,11 +138,16 @@ video{width:100%;border-radius:3px;background:#000;display:block}
   </header>
 
   <section class="make">
+    <input id="title" placeholder="제목" autocomplete="off">
     <input id="kw" placeholder="키워드" autocomplete="off">
-    <input id="style" placeholder="곡 스타일" autocomplete="off">
+    <select id="genre" aria-label="장르">
+      <option value="자동">장르 자동</option><option>트로트</option><option>인디밴드</option><option>발라드</option><option>락</option>
+      <option>OST</option><option>팝</option><option>힙합</option><option>포크</option><option>재즈</option><option>시티팝</option><option>댄스</option><option>펑크</option>
+    </select>
     <select id="classic" aria-label="클래식 원곡"><option value="auto">클래식 자동 선택</option><option value="none">클래식 없음</option></select>
-    <button class="btn primary" id="makeKw">만들기</button>
-    <button class="btn" id="makeAuto">자동 생성</button>
+    <button class="btn primary" id="make">만들기</button>
+    <textarea id="content" placeholder="원하는 내용 (비우면 알아서)" rows="1"></textarea>
+    <input id="style" placeholder="곡 스타일 (악기, 보컬, 빠르기 등)" autocomplete="off">
   </section>
 
   <div class="cols">
@@ -347,14 +359,10 @@ function renderDetail() {
   const main = asset(s, "main.mp4"), short = asset(s, "short.mp4");
   const yt = m.youtube || {}, cl = m.classic;
   const audioUrl = s.audio ? raw(s, s.audio) : null;
-  const cover = raw(s, "cover.jpg"), melody = raw(s, "melody.mp3"), solo = raw(s, "theme.mp3") || raw(s, "melody-solo.mp3");
+  const cover = raw(s, "cover.jpg");
 
   let orig = "";
-  if (cl) orig = `<section class="step"><h2>원곡 <span>${esc(cl.name)} · ${esc(cl.composer)}${cl.year ? ` · ${esc(cl.year)}` : ""}</span></h2>
-      <div class="orig">
-        ${melody ? `<div class="o"><div class="ol"><span>노래 형태 (전주·후렴·간주에 원곡)</span><a href="${melody}" download>내려받기</a></div><audio src="${melody}" controls preload="none"></audio></div>` : ""}
-        ${solo ? `<div class="o"><div class="ol"><span>원곡 주제</span><a href="${solo}" download>내려받기</a></div><audio src="${solo}" controls preload="none"></audio></div>` : ""}
-      </div>
+  if (cl) orig = `<section class="step"><h2>원곡 <span>${esc(cl.name)} · ${esc(cl.composer)}${cl.year ? ` · ${esc(cl.year)}` : ""}${cl.en ? ` · ${esc(cl.en)}` : ""}</span></h2>
       ${cl.reason ? `<p class="reason">${esc(cl.reason)}</p>` : ""}</section>`;
 
   let video;
@@ -387,11 +395,12 @@ function renderDetail() {
 
   el.innerHTML = `
     <div class="head ${cover ? "" : "nocover"}">${cover ? `<img class="cover" src="${cover}" alt="">` : ""}
-      <div><h1>${esc(m.title)}</h1>
+      <div><h1>${esc(m.title)}<button class="ghost fix" id="editTitle">제목 수정</button></h1>
+      <form class="edit" id="titleForm"><input id="titleIn" value="${esc(m.title)}" maxlength="60" autocomplete="off"><button class="btn primary" type="submit">저장</button><button class="ghost" type="button" id="titleCancel">취소</button></form>
       ${cl ? `<p class="from">원곡 ${esc(cl.name)} · ${esc(cl.composer)}${cl.year ? ` (${esc(cl.year)})` : ""}</p>` : ""}
       <p>${esc(m.story || "")}</p></div></div>
     ${orig}
-    <section class="step"><h2>SUNO <span>${cl ? `Upload Audio → Cover · ` : ""}${cover ? `<a href="${cover}" download>곡 이미지</a> · ` : ""}<a href="https://suno.com/create" target="_blank" rel="noopener">Suno</a></span></h2>
+    <section class="step"><h2>SUNO <span>Custom · ${cover ? `<a href="${cover}" download>곡 이미지</a> · ` : ""}<a href="https://suno.com/create" target="_blank" rel="noopener">Suno</a></span></h2>
       ${field("Style", m.style || "")}
       ${field("Exclude styles", m.exclude || "")}
       ${field("Title", m.title || "")}
@@ -413,6 +422,17 @@ function renderDetail() {
   drop.ondrop = e => { e.preventDefault(); drop.classList.remove("over"); const f = e.dataTransfer.files[0]; if (f) uploadAudio(s, f); };
   if ($("publish")) $("publish").onclick = () => publish(s);
   if ($("reprod")) $("reprod").onclick = () => reproduce(s);
+  const head = el.querySelector(".head");
+  $("editTitle").onclick = () => { head.classList.add("editing"); $("titleIn").focus(); $("titleIn").select(); };
+  $("titleCancel").onclick = () => head.classList.remove("editing");
+  $("titleForm").onsubmit = async e => {
+    e.preventDefault();
+    const title = $("titleIn").value.trim();
+    if (!title || title === m.title) { head.classList.remove("editing"); return; }
+    e.submitter.disabled = true;
+    try { await saveTitle(s, title); toast("제목 저장"); await loadSongs(); render(); }
+    catch (err) { toast("저장 실패: " + err.message); e.submitter.disabled = false; }
+  };
 }
 
 function render() {
@@ -442,21 +462,42 @@ async function dispatch(workflow, inputs) {
   await gh(`/actions/workflows/${workflow}/dispatches`, { method: "POST", body: JSON.stringify({ ref: BRANCH, inputs }) });
 }
 
-async function makeSong(auto) {
-  const idea = auto ? "" : $("kw").value.trim();
-  if (!auto && !idea) { $("kw").focus(); return; }
-  const style = $("style").value.trim(), classic = $("classic").value;
+async function makeSong() {
+  const v = id => $(id).value.trim();
+  const title = v("title"), idea = v("kw"), content = v("content"), genre = $("genre").value, style = v("style"), classic = $("classic").value;
   const req = Date.now().toString(36);
-  $("makeKw").disabled = $("makeAuto").disabled = true;
+  $("make").disabled = true;
   try {
-    await dispatch("new-song.yml", { idea, style, classic, req, hook: "", theme: "자동", vocal: "자동" });
-    pending.unshift({ req, label: idea || "새 곡" });
-    $("kw").value = "";
+    await dispatch("new-song.yml", { title, idea, content, genre, style, classic, req, hook: "", theme: "자동", vocal: "자동" });
+    pending.unshift({ req, label: title || idea || content.slice(0, 24) || "자동" });
+    for (const id of ["title", "kw", "content", "style"]) $(id).value = "";
     renderList();
     toast("작사 시작. 약 5분 소요");
     poll(4000);
   } catch (e) { toast("시작 실패: " + e.message); }
-  finally { $("makeKw").disabled = $("makeAuto").disabled = false; }
+  finally { $("make").disabled = false; }
+}
+
+function b64enc(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  return btoa(bin);
+}
+
+// 제목 수정: song.yaml의 title과 유튜브 미리보기 안의 제목을 함께 바꾼다
+async function saveTitle(s, title) {
+  const m = JSON.parse(JSON.stringify(s.meta)), old = m.title || "";
+  m.title = title;
+  const pv = m.youtube_preview;
+  if (pv && old) {
+    for (const k of ["title", "shorts_title", "description"]) if (typeof pv[k] === "string") pv[k] = pv[k].split(old).join(title);
+    if (pv.tags) pv.tags = pv.tags.map(x => x === old ? title : x);
+    const o = old.replace(/\s+/g, ""), n = title.replace(/\s+/g, "");
+    if (pv.hashtags) pv.hashtags = pv.hashtags.map(x => x === o ? n : x);
+  }
+  await gh(`/contents/songs/${encodeURIComponent(s.slug)}/song.yaml`, { method: "PUT",
+    body: JSON.stringify({ message: `제목: ${title}`, content: b64enc(jsyaml.dump(m, { lineWidth: -1, noRefs: true })), sha: s.files["song.yaml"], branch: BRANCH }) });
 }
 
 function readB64(file) {
@@ -539,9 +580,8 @@ $("tokenSave").onclick = async () => {
   start();
 };
 $("logout").onclick = () => logout();
-$("makeKw").onclick = () => makeSong(false);
-$("makeAuto").onclick = () => makeSong(true);
-$("kw").onkeydown = e => { if (e.key === "Enter") makeSong(false); };
+$("make").onclick = () => makeSong();
+for (const id of ["title", "kw", "style"]) $(id).onkeydown = e => { if (e.key === "Enter") makeSong(); };
 document.addEventListener("visibilitychange", () => { if (!document.hidden && token) poll(100); });
 
 async function start() {

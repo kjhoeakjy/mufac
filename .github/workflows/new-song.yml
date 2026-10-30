@@ -1,5 +1,5 @@
 name: 새 곡
-run-name: "새 곡 ${{ inputs.req }} ${{ inputs.idea || '자동' }}"
+run-name: "새 곡 ${{ inputs.req }} ${{ inputs.title || inputs.idea || '자동' }}"
 
 on:
   workflow_dispatch:
@@ -34,6 +34,18 @@ on:
         type: choice
         options: [자동, 여성, 남성, 듀엣]
         default: 자동
+      title:
+        description: "제목 (비우면 알아서)"
+        required: false
+        default: ""
+      content:
+        description: "노래에 담을 내용 (비워도 됨)"
+        required: false
+        default: ""
+      genre:
+        description: "장르 (자동, 트로트, 인디밴드, 발라드, 락, OST, 팝, 힙합, 포크, 재즈, 시티팝, 댄스, 펑크)"
+        required: false
+        default: "자동"
   schedule:
     # 매일 아침 8시(한국 시간)에 한 곡씩 준비해 둔다. 원하지 않으면 이 두 줄을 지우세요.
     - cron: "0 23 * * *"
@@ -60,6 +72,9 @@ jobs:
       STYLE: ${{ inputs.style }}
       REQ: ${{ inputs.req }}
       CLASSIC: ${{ inputs.classic || 'auto' }}
+      TITLE_IN: ${{ inputs.title }}
+      CONTENT: ${{ inputs.content }}
+      GENRE: ${{ inputs.genre || '자동' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -68,7 +83,7 @@ jobs:
           cache: pip
       - run: pip install anthropic requests PyYAML Pillow numpy mido imageio-ffmpeg
       - name: 원곡 고르기 · 조사
-        run: python -m mufac new --stage plan --idea "$IDEA" --hook "$HOOK" --theme "$THEME" --vocal "$VOCAL" --style "$STYLE" --req "$REQ" --classic "$CLASSIC"
+        run: python -m mufac new --stage plan --idea "$IDEA" --hook "$HOOK" --theme "$THEME" --vocal "$VOCAL" --style "$STYLE" --req "$REQ" --classic "$CLASSIC" --title "$TITLE_IN" --content "$CONTENT" --genre "$GENRE"
       - name: 작사
         run: python -m mufac new --stage write
       - name: 검수 · 사진 · 멜로디

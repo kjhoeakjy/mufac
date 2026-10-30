@@ -52,20 +52,11 @@ def write_readme(s: Song) -> None:
 
     cl = m.get("classic") or {}
     if cl:
-        lines += [
-            f"## 원곡: {cl['name']}", "",
-            f"{cl['composer']}, {cl['year']}. {cl.get('reason', '')}", "",
-            f"- [melody.mp3](melody.mp3) 노래 형태 전체: 전주·후렴·간주에 원곡 주제 ({cl.get('seconds', 0)}초)",
-            f"- [theme.mp3](theme.mp3) 원곡 주제만 ({cl.get('theme_seconds', 0)}초)",
-            "- [cover.jpg](cover.jpg) Suno 곡 이미지", "",
-            "## 1. Suno에 멜로디 올리고 붙여넣기", "",
-            "1. [Suno](https://suno.com/create)에서 **Upload Audio**로 melody.mp3를 올립니다.",
-            "2. 올라간 곡의 메뉴에서 **Cover**를 고릅니다.",
-            "3. 아래 Style, Exclude, Title, Lyrics를 칸마다 붙여넣고 만듭니다.", "",
-        ]
-    else:
-        lines += ["## 1. Suno에 붙여넣기", "",
-                  "[Suno 열기](https://suno.com/create)에서 Custom 모드를 켜고 아래를 칸마다 붙여넣으세요.", ""]
+        lines += [f"## 원곡: {cl['name']}", "",
+                  f"{cl['composer']}, {cl['year']}{' · ' + cl['en'] if cl.get('en') else ''}. {cl.get('reason', '')}", "",
+                  "원곡은 Style 문구와 가사의 구간 태그로 Suno에 지시한다(음원은 올리지 않는다).", ""]
+    lines += ["## 1. Suno에 붙여넣기", "",
+              "[Suno](https://suno.com/create)에서 Custom 모드를 켜고 아래를 칸마다 붙여넣는다. 곡 이미지는 cover.jpg.", ""]
     lines += [
         "**Style**", f"{fence}text", m.get("style", ""), fence, "",
         "**Exclude styles**", f"{fence}text", m.get("exclude", ""), fence, "",
@@ -117,8 +108,10 @@ def cmd_new(a) -> None:
         used_classics = [(x.meta.get("classic") or {}).get("id", "") for x in done][-8:]
         work = prepare(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style,
                        classic=a.classic, avoid=avoid, avoid_styles=avoid_styles,
-                       used_classics=[u for u in used_classics if u])
-        work["request"] = {k: v for k, v in {"id": a.req, "idea": a.idea, "style": a.style, "classic": a.classic}.items() if v}
+                       used_classics=[u for u in used_classics if u],
+                       title=a.title, content=a.content, genre=a.genre)
+        work["request"] = {k: v for k, v in {"id": a.req, "title": a.title, "idea": a.idea, "content": a.content,
+                                             "genre": a.genre, "style": a.style, "classic": a.classic}.items() if v and v != "자동"}
         (wd / "plan.json").write_text(json.dumps(work, ensure_ascii=False), encoding="utf-8")
         if stage == "plan":
             return
@@ -170,17 +163,7 @@ def cmd_new(a) -> None:
     if data.get("research"):
         (s.dir / "research.md").write_text(f"# 레퍼런스 조사\n\n{data['research']}\n", encoding="utf-8")
 
-    # 가사 검수, 사진, 원곡 멜로디는 서로 상관없으니 동시에 한다
-    def melody() -> None:
-        from .classical import render as render_melody
-        t0 = time.time()
-        try:
-            info = render_melody(classic["id"], s.dir, classic.get("instrument", "piano"))
-            s.meta["classic"].update({k: info[k] for k in ("seconds", "theme_seconds", "bpm", "key", "chorus_syllables", "plan")})
-            took("원곡 멜로디", t0)
-        except Exception as e:  # 멜로디 파일이 없어도 가사는 남긴다
-            print(f"원곡 멜로디를 만들지 못했습니다: {e}", file=sys.stderr)
-
+    # 가사 검수와 사진은 서로 상관없으니 동시에 한다 (원곡 음원은 만들지 않는다: Suno가 음원 지문 검사로 막는다)
     def photo() -> None:
         t0 = time.time()
         try:
@@ -189,10 +172,8 @@ def cmd_new(a) -> None:
         except Exception as e:  # 사진이 없어도 곡 폴더는 남긴다
             print(f"사진을 못 가져왔습니다: {e}", file=sys.stderr)
 
-    with ThreadPoolExecutor(max_workers=3) as pool:
-        f_polish = pool.submit(safe_polish, data, classic["id"] if classic else "")
-        if classic:
-            pool.submit(melody)
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        f_polish = pool.submit(safe_polish, data, classic["id"] if classic else "", (data.get("request") or {}).get("title", ""))
         pool.submit(photo)
         data = f_polish.result()
     for k in ("title", "lyrics", "lyrics_draft", "polish", "share_line"):
@@ -331,6 +312,9 @@ def main() -> None:
     n.add_argument("--style", default="")
     n.add_argument("--classic", default="auto", help="auto, none, 또는 클래식 곡 id")
     n.add_argument("--req", default="", help="대시보드가 붙이는 요청 번호")
+    n.add_argument("--title", default="", help="제목을 직접 정하려면")
+    n.add_argument("--content", default="", help="노래에 담을 내용")
+    n.add_argument("--genre", default="", help="장르 (트로트, 인디밴드, 발라드, 락, OST, 팝 ...)")
     n.add_argument("--stage", default="all", choices=["all", "plan", "write", "finish"],
                    help="단계별 실행 (Actions가 진행률을 보여 주려고 셋으로 나눠 부른다)")
     n.set_defaults(func=cmd_new)
