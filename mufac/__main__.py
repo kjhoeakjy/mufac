@@ -84,6 +84,11 @@ def write_readme(s: Song) -> None:
     (s.dir / "README.md").write_text("\n".join(lines), encoding="utf-8")
 
 
+def _preview(s: Song) -> dict:
+    from . import youtube
+    return youtube.preview(s, songmod.config())
+
+
 def cmd_new(a) -> None:
     from .photo import fetch
     from .write import write_song
@@ -136,6 +141,7 @@ def cmd_new(a) -> None:
         fetch(s)
     except Exception as e:  # 사진이 없어도 곡 폴더는 남긴다
         print(f"사진을 못 가져왔습니다: {e}", file=sys.stderr)
+    s.meta["youtube_preview"] = _preview(s)
     s.save()
     write_readme(s)
     print(s.slug)
@@ -191,6 +197,7 @@ def cmd_produce(a) -> None:
         s.meta["short_window"] = [round(start, 2), round(end, 2)]
 
     s.meta["produced"] = dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M")
+    s.meta["youtube_preview"] = _preview(s)
     s.save()
     write_readme(s)
     print("완료", s.out, flush=True)
@@ -209,12 +216,12 @@ def cmd_publish(a) -> None:
     if not youtube.ready():
         sys.exit("유튜브 키가 없습니다. SETUP.md를 보세요.")
     yt = s.meta.setdefault("youtube", {})
-    ym = s.meta.get("youtube_meta") or {}
-    title = youtube.main_title(cfg["youtube_title"], s.meta["title"], artist, ym.get("situation", ""))
-    tags = youtube.fit_tags([s.meta["title"], artist, *(s.meta.get("tags") or [])])
+    pv = youtube.preview(s, cfg)
+    s.meta["youtube_preview"] = pv
+    title, tags = pv["title"], pv["tags"]
     if not yt.get("main"):
         print("유튜브 본편 업로드:", title, flush=True)
-        yt["main"] = youtube.upload(main, title=title, desc=youtube.description(s, artist),
+        yt["main"] = youtube.upload(main, title=title, desc=pv["description"],
                                     tags=tags, privacy=cfg["privacy"], thumb=thumb)
         s.save()
         for name in youtube.playlist_names(cfg, s.meta):
@@ -223,9 +230,8 @@ def cmd_publish(a) -> None:
             except Exception as e:  # 재생목록은 실패해도 업로드는 유지
                 print(f"  재생목록 '{name}' 추가 실패: {e}", flush=True)
     if short.exists() and not yt.get("short"):
-        stitle = (ym.get("shorts_title") or s.meta["title"]).strip()
-        print("유튜브 쇼츠 업로드:", stitle, flush=True)
-        yt["short"] = youtube.upload(short, title=f"{stitle} #shorts"[:100],
+        print("유튜브 쇼츠 업로드:", pv["shorts_title"], flush=True)
+        yt["short"] = youtube.upload(short, title=pv["shorts_title"],
                                      desc=youtube.description(s, artist, main_id=yt.get("main"), short=True),
                                      tags=tags, privacy=cfg["privacy"])
     s.meta["uploaded"] = dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M")

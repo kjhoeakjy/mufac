@@ -103,6 +103,21 @@ def description(song: Song, artist: str, *, main_id: str | None = None, short: b
     return "\n\n".join(p for p in parts if p).strip()[:4900]
 
 
+def preview(song: Song, cfg: dict) -> dict:
+    """업로드 전에 보여 줄 유튜브 메타데이터. 업로드도 같은 값을 쓴다."""
+    artist = cfg.get("artist", "")
+    m, ym = song.meta, song.meta.get("youtube_meta") or {}
+    return {
+        "title": main_title(cfg["youtube_title"], m["title"], artist, ym.get("situation", "")),
+        "shorts_title": f"{(ym.get('shorts_title') or m['title']).strip()} #shorts"[:100],
+        "description": description(song, artist),
+        "tags": fit_tags([m["title"], artist, *(m.get("tags") or [])]),
+        "hashtags": hashtags(m, artist),
+        "playlists": playlist_names(cfg, m),
+        "privacy": cfg.get("privacy", "private"),
+    }
+
+
 def playlist_names(cfg: dict, meta: dict) -> list[str]:
     names = list(cfg.get("playlists") or [])
     theme = meta.get("theme")
