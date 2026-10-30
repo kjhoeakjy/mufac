@@ -2,9 +2,9 @@
 
 ![](photo.jpg)
 
-> 또 너야 윤회
+> 또 나야 윤회
 
-사랑 · 다시는 안 본다고 해 놓고 돌아서면 또 그 사람 앞에 서 있는 누구나의 이야기다.
+사랑 · 다르게 살겠다고 다짐하고도 어제와 같은 자리에서 또 넘어지는 사람이, 불을 끄지 못하는 밤에 부르는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -26,12 +26,12 @@
 
 **Style**
 ```text
-Korean alternative rock, 90s grunge quiet-loud dynamics, around 112 bpm, minor key. Female alto lead, husky chest voice, plain and close in the verses, raw and strong in the chorus, mature and sincere, sung in Korean, korean lyrics. One temple bell under the intro. Verse 1 nearly bare: clean electric guitar arpeggio, round fingered bass on roots, soft rim clicks, narrow talky melody. Pre-chorus builds on snare and toms with a repeated rising note, then one beat of silence. Chorus explodes: two distorted guitars left and right, crash cymbals, picked bass locked to the riff, upward leap on the first word, doubled vocal with low octave backing, long held last note. Verse 2 drops back to quiet with melodic bass. 8-bar fuzzy guitar solo after chorus 2. Half-time bridge, one clean guitar and near-spoken voice. Final chorus loudest and widest, octave-up harmony, hard stop. Live band in a room, dry verses, big room chorus. Restless, wry, tender.
+Korean cinematic ballad with slow chamber rock, around 66 bpm, minor key with a bittersweet major turn. Female alto lead, warm husky chest voice, close and calm in the verses, opening up but never shouting in the chorus, mature and sincere, sung in Korean, korean lyrics. One temple bell opens the song. Solo cello and soft felt piano carry verse 1, narrow conversational melody. Pre-chorus: low strings swell on a repeated rising note, soft mallet toms. Chorus: cello section plays the countermelody, piano chords, slow live drums with brushed snare, upward leap on the first word, long held last note. Verse 2 back to cello and voice, pizzicato upright bass. Cello solo before the bridge. Bridge strips to one cello and near-whispered voice. Final chorus fullest, layered cellos, low strings, octave-up harmony, still restrained. Outro: solo cello holds one note, bell. Natural hall reverb, elegant. Meditative, aching, graceful.
 ```
 
 **Exclude styles**
 ```text
-autotune, strings, gang vocals
+distorted guitar, choir, autotune
 ```
 
 **Title**
@@ -41,66 +41,66 @@ autotune, strings, gang vocals
 
 **Lyrics**
 ```text
-[Intro: one temple bell, single clean guitar]
+[Intro: one temple bell, solo cello]
 
-[Verse 1: clean guitar and bass only, close voice]
-지워 버린 번호를
-손끝은 아직 외우고
-다신 없을 거라던 밤
-같은 골목 열한 시
-신발 끈만 다시 묶고
-모르는 척 서 있어
+[Verse 1: solo cello and soft piano, close voice]
+씻고 나온 거울 속에
+어제 두고 온 얼굴
+다르게 살겠다던 말은
+베개 밑에 그대로
+같은 말에 화를 내고
+넘어진 데서 또 넘어져
 
-[Pre-Chorus: snare builds, toms, one beat of silence]
-끊었다고 해 놓고
-돌아서는 길 끝에
-고개를 들면
+[Pre-Chorus: low strings swell, soft mallet toms]
+이번엔 다를 거라고
+신발 끈을 고쳐 매고
+문을 열면
 
-[Chorus: full band explodes, distorted guitars, doubled vocal]
-또 너야 윤회
-한 바퀴 돌아온 자리
-또 너야 윤회
-이번 생도 너야
-또 너야 윤회
+[Chorus: cello section and piano, brushed drums, doubled vocal]
+또 나야 윤회
+돌고 돌아 이 자리
+또 나야 윤회
+이번 생도 나야
+또 나야 윤회
 
-[Verse 2: drops back to quiet, melodic bass]
-새로 만난 사람의
-웃음 끝이 너를 닮아
-옷깃만 스쳐도 인연
-그 말이 겁나는 밤
-다른 길로 왔는데도
-모르는 척 서 있어
+[Verse 2: back to cello and voice, pizzicato upright bass]
+작년에 꽃 진 그 자리에
+올해는 다른 꽃잎
+내가 붙든 사람들은
+다른 얼굴로 다시 와
+반가운 줄도 모르고
+처음인 듯 내미는 손
 
-[Pre-Chorus: snare builds, toms, one beat of silence]
-끊었다고 해 놓고
-돌아서는 길 끝에
-고개를 들면
+[Pre-Chorus: low strings swell, soft mallet toms]
+이번엔 다를 거라고
+신발 끈을 고쳐 매고
+문을 열면
 
-[Chorus: full band, crash cymbals, low octave backing]
-또 너야 윤회
-한 바퀴 돌아온 자리
-또 너야 윤회
-이번 생도 너야
-또 너야 윤회
+[Chorus: fuller strings, low octave backing]
+또 나야 윤회
+돌고 돌아 이 자리
+또 나야 윤회
+이번 생도 나야
+또 나야 윤회
 
-[Guitar Solo]
+[Instrumental Break: cello solo]
 
-[Bridge: half-time, one clean guitar and near-spoken voice]
-불 끄면 잊는다더니
-불 켜 놓고 잠든 밤
-바퀴를 돌린 건 너 말고
-놓지 못한 내 손
-보고 싶어
+[Bridge: half-time, one cello and near-whispered voice]
+불을 끄면 끝이라는데
+불 켜 놓고 잠드는 밤
+바퀴를 돌린 건 하늘 말고
+쥐고 놓지 못한 이 손
+놓기 싫어
 
-[Final Chorus: loudest and widest, octave-up harmony]
-또 너야 윤회
-한 바퀴 돌아온 자리
-또 너야 윤회
-다음 생도 너야
-또 너야 윤회
-또 너야 윤회
+[Final Chorus: layered cellos, low strings, octave-up harmony, fullest]
+또 나야 윤회
+돌고 돌아 이 자리
+또 나야 윤회
+손만 펴면 되는데
+또 나야 윤회
+또 나야 윤회
 
-[Outro: hard stop, one clean chord, bell]
+[Outro: solo cello holds one note, bell]
 불은 내일 끌게
 
 [End]
