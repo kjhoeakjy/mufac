@@ -17,7 +17,8 @@ import anthropic
 
 from . import classical
 
-MODEL = os.environ.get("MUFAC_MODEL", "claude-opus-5-5")
+MODEL = os.environ.get("MUFAC_MODEL", "claude-opus-5-5")  # 작사·검수: 가장 좋은 모델
+FAST_MODEL = os.environ.get("MUFAC_FAST_MODEL", "claude-sonnet-5-5")  # 원곡 고르기·조사: 넓게 보는 일이라 빠른 모델
 KST = dt.timezone(dt.timedelta(hours=9))
 BETAS = ["server-side-fallback-2026-07-01"]
 
@@ -318,7 +319,7 @@ def choose_classic(brief: str, used: list[str] | None = None) -> dict:
               "required": ["id", "reason"], "additionalProperties": False}
     t0 = time.time()
     with client.beta.messages.stream(
-        model=MODEL, max_tokens=8000, system=CHOOSE, betas=BETAS, fallbacks="default",
+        model=FAST_MODEL, max_tokens=8000, system=CHOOSE, betas=BETAS, fallbacks="default",
         output_config={"effort": "medium", "format": {"type": "json_schema", "schema": schema}},
         messages=[{"role": "user", "content": f"[노래 사연]\n{brief}\n\n[고를 수 있는 원곡]\n{classical.catalogue()}"}],
     ) as stream:
@@ -339,7 +340,7 @@ def research(brief: str) -> str:
     t0 = time.time()
     for _ in range(5):
         with client.beta.messages.stream(
-            model=MODEL, max_tokens=16000, system=_system(RESEARCH), betas=BETAS, fallbacks="default",
+            model=FAST_MODEL, max_tokens=16000, system=_system(RESEARCH), betas=BETAS, fallbacks="default",
             output_config={"effort": "medium"}, tools=tools, messages=messages,
         ) as stream:
             response = stream.get_final_message()

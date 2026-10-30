@@ -55,8 +55,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - run: pip install anthropic requests PyYAML Pillow numpy mido
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - run: pip install anthropic requests PyYAML Pillow numpy mido imageio-ffmpeg
       - id: song
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

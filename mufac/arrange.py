@@ -180,6 +180,16 @@ def _verse_bars(bar: float) -> int:
     return max(8, int(round(16 / bar / 4)) * 4)
 
 
+def _ffmpeg() -> str:
+    """시스템 ffmpeg가 없으면 pip의 imageio-ffmpeg 정적 바이너리를 쓴다(apt 설치 시간 절약)."""
+    import shutil
+    found = shutil.which("ffmpeg")
+    if found:
+        return found
+    import imageio_ffmpeg
+    return imageio_ffmpeg.get_ffmpeg_exe()
+
+
 def render(piece: dict, out_dir: Path, timbre: str = "piano") -> dict:
     """timbre: 주제 선율의 음색 piano | guitar | strings | bell. 반주는 피아노."""
     timbre = timbre if timbre in cl.TIMBRES else "piano"
@@ -237,7 +247,7 @@ def render(piece: dict, out_dir: Path, timbre: str = "piano") -> dict:
             w.setframerate(cl.SR)
             w.writeframes((x * 32767).astype("<i2").tobytes())
         mp3 = out_dir / f"{label}.mp3"
-        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(wav), "-codec:a", "libmp3lame", "-q:a", "2", str(mp3)], check=True)
+        subprocess.run([_ffmpeg(), "-y", "-v", "error", "-i", str(wav), "-codec:a", "libmp3lame", "-q:a", "2", str(mp3)], check=True)
         wav.unlink()
         files[label] = mp3
     for old in ("melody-solo.mp3",):
