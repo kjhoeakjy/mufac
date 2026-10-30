@@ -34,6 +34,12 @@ def write_readme(s: Song) -> None:
     if s.photo_path.exists():
         lines += ["![](photo.jpg)", ""]
     lines += [f"> {m.get('hook', '')}", "", f"{m.get('theme', '')} · {m.get('story', '')}", ""]
+    if m.get("why"):
+        lines += ["## 이렇게 쓴 이유", "", m["why"], ""]
+    refs = m.get("references") or []
+    if refs:
+        lines += ["참고한 곡", ""] + [f"- {r['title']} / {r['artist']}: {r['takeaway']}" for r in refs]
+        lines += ["", "조사 전체는 [research.md](research.md).", ""]
 
     yt = m.get("youtube") or {}
     if yt:
@@ -83,12 +89,25 @@ def cmd_new(a) -> None:
         "exclude": data["exclude"],
         "photo_query": data["photo_query"],
         "image_prompt": data["image_prompt"],
+        "title_kind": data.get("title_kind", ""),
+        "why": data.get("why", ""),
+        "share_line": data.get("share_line", ""),
+        "youtube_meta": {
+            "situation": data.get("situation", ""),
+            "shorts_title": data.get("shorts_title", ""),
+            "intro": data.get("yt_intro", ""),
+            "comment_prompt": data.get("comment_prompt", ""),
+            "hashtags": data.get("hashtags", []),
+        },
         "tags": data["tags"],
+        "references": data.get("references", []),
         "candidates": data["candidates"],
         "chosen": data["chosen"],
         "lyrics": data["lyrics"],
     }
     s.save()
+    if data.get("research"):
+        (s.dir / "research.md").write_text(f"# 레퍼런스 조사\n\n{data['research']}\n", encoding="utf-8")
     try:
         fetch(s)
     except Exception as e:  # 사진이 없어도 곡 폴더는 남긴다
@@ -166,17 +185,24 @@ def cmd_publish(a) -> None:
     if not youtube.ready():
         sys.exit("유튜브 키가 없습니다. SETUP.md를 보세요.")
     yt = s.meta.setdefault("youtube", {})
-    title = cfg["youtube_title"].format(title=s.meta["title"], artist=artist).strip(" -")
-    tags = s.meta.get("tags") or []
+    ym = s.meta.get("youtube_meta") or {}
+    title = youtube.main_title(cfg["youtube_title"], s.meta["title"], artist, ym.get("situation", ""))
+    tags = youtube.fit_tags([s.meta["title"], artist, *(s.meta.get("tags") or [])])
     if not yt.get("main"):
-        print("유튜브 본편 업로드", flush=True)
+        print("유튜브 본편 업로드:", title, flush=True)
         yt["main"] = youtube.upload(main, title=title, desc=youtube.description(s, artist),
                                     tags=tags, privacy=cfg["privacy"], thumb=thumb)
         s.save()
+        for name in youtube.playlist_names(cfg, s.meta):
+            try:
+                youtube.add_to_playlist(yt["main"], name, cfg["privacy"])
+            except Exception as e:  # 재생목록은 실패해도 업로드는 유지
+                print(f"  재생목록 '{name}' 추가 실패: {e}", flush=True)
     if short.exists() and not yt.get("short"):
-        print("유튜브 쇼츠 업로드", flush=True)
-        yt["short"] = youtube.upload(short, title=f"{s.meta['title']} #shorts",
-                                     desc=youtube.description(s, artist, main_id=yt.get("main")),
+        stitle = (ym.get("shorts_title") or s.meta["title"]).strip()
+        print("유튜브 쇼츠 업로드:", stitle, flush=True)
+        yt["short"] = youtube.upload(short, title=f"{stitle} #shorts"[:100],
+                                     desc=youtube.description(s, artist, main_id=yt.get("main"), short=True),
                                      tags=tags, privacy=cfg["privacy"])
     s.meta["uploaded"] = dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M")
     s.save()

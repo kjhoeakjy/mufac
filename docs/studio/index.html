@@ -57,6 +57,10 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;ma
 .detail{display:flex;flex-direction:column;gap:18px;min-width:0}
 .head h1{font:700 clamp(28px,4vw,40px)/1.25 var(--serif);margin:0 0 8px;text-wrap:balance}
 .head p{margin:0;color:var(--muted)}
+.why{margin-top:12px;color:var(--muted);font-size:16px}
+.why summary{cursor:pointer;color:var(--fg);width:max-content}
+.why p,.why ul{margin:10px 0 0;line-height:1.7}
+.why li{margin-bottom:6px}
 .step{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
 .step h2{font-size:14px;letter-spacing:.12em;color:var(--muted);margin:0 0 14px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:8px}
 .field{margin-bottom:14px}
@@ -298,7 +302,9 @@ function renderDetail() {
       <p class="note">본편과 쇼츠가 비공개로 올라가요.</p>`;
 
   el.innerHTML = `
-    <div class="head"><h1>${esc(m.title)}</h1><p>${esc(m.story || "")}</p></div>
+    <div class="head"><h1>${esc(m.title)}</h1><p>${esc(m.story || "")}</p>
+      ${m.why ? `<details class="why"><summary>이렇게 쓴 이유</summary><p>${esc(m.why)}</p>
+        ${(m.references || []).length ? `<ul>${m.references.map(r => `<li>${esc(r.title)} · ${esc(r.artist)} — ${esc(r.takeaway)}</li>`).join("")}</ul>` : ""}</details>` : ""}</div>
     <section class="step"><h2>SUNO <a href="https://suno.com/create" target="_blank" rel="noopener">Suno 열기</a></h2>
       ${field("Style", m.style || "")}
       ${field("Exclude styles", m.exclude || "")}

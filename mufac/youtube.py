@@ -35,12 +35,52 @@ def whoami() -> str:
     return items[0]["snippet"]["title"] if items else ""
 
 
-def description(song: Song, artist: str, *, main_id: str | None = None) -> str:
+def main_title(fmt: str, title: str, artist: str, situation: str) -> str:
+    """config의 youtube_title 형식으로 제목을 만든다. 빈 칸은 구분자째 지운다."""
+    out = fmt.format(title=title, artist=artist, situation=situation)
+    for sep in (" |  ", " | |", " -  |", "  "):
+        out = out.replace(sep, " ")
+    return out.strip(" -|")[:100]
+
+
+def fit_tags(tags: list[str], limit: int = 480) -> list[str]:
+    """중복을 지우고 유튜브 태그 500자 제한 안에 맞춘다(띄어쓰기 있는 태그는 따옴표 2자 추가)."""
+    seen, out, total = set(), [], 0
+    for t in tags:
+        t = (t or "").strip().lstrip("#")
+        if not t or t.lower() in seen or any(c in t for c in "<>,"):
+            continue
+        cost = len(t) + (2 if " " in t else 0) + (1 if out else 0)
+        if total + cost > limit:
+            break
+        seen.add(t.lower())
+        out.append(t)
+        total += cost
+    return out
+
+
+def hashtags(meta: dict, artist: str) -> list[str]:
+    """설명란 해시태그. 유튜브는 15개를 넘으면 전부 무시하므로 15개까지만."""
+    raw = list((meta.get("youtube_meta") or {}).get("hashtags") or [])
+    raw += [meta.get("title", ""), artist, "발라드", "감성발라드", "노래추천"]
+    out = []
+    for t in raw:
+        t = "".join(ch for ch in (t or "") if ch.isalnum() or ch == "_")
+        if t and t not in out:
+            out.append(t)
+    return out[:15]
+
+
+def description(song: Song, artist: str, *, main_id: str | None = None, short: bool = False) -> str:
     m = song.meta
-    parts = [m.get("hook", "")]
+    ym = m.get("youtube_meta") or {}
+    parts = [ym.get("intro") or m.get("hook", "")]
     if main_id:
-        parts.append(f"전체 듣기 https://youtu.be/{main_id}")
-    parts.append(song.plain_lyrics())
+        parts.append(f"전체 노래 ▶ https://youtu.be/{main_id}")
+    if not short:
+        parts.append(f"{m.get('title', '')}\n\n{song.plain_lyrics()}")
+    if ym.get("comment_prompt"):
+        parts.append(ym["comment_prompt"])
     credit = []
     if artist:
         credit.append(f"작사·기획 {artist}")
@@ -52,10 +92,38 @@ def description(song: Song, artist: str, *, main_id: str | None = None) -> str:
         credit.append("이미지 AI 생성")
     credit.append("이 곡은 AI 음악 생성 도구로 만들었습니다.")
     parts.append("\n".join(credit))
-    tags = m.get("tags") or []
-    if tags:
-        parts.append(" ".join("#" + t.replace(" ", "") for t in tags[:5]))
+    parts.append(" ".join("#" + t for t in hashtags(m, artist)))
     return "\n\n".join(p for p in parts if p).strip()[:4900]
+
+
+def playlist_names(cfg: dict, meta: dict) -> list[str]:
+    names = list(cfg.get("playlists") or [])
+    theme = meta.get("theme")
+    themed = (cfg.get("theme_playlists") or {}).get(theme)
+    if themed:
+        names.append(themed)
+    return names
+
+
+def add_to_playlist(video_id: str, name: str, privacy: str) -> None:
+    yt = _client()
+    pid = None
+    req = yt.playlists().list(part="snippet", mine=True, maxResults=50)
+    while req is not None and pid is None:
+        resp = req.execute()
+        for p in resp.get("items", []):
+            if p["snippet"]["title"] == name:
+                pid = p["id"]
+                break
+        req = yt.playlists().list_next(req, resp)
+    if pid is None:
+        pid = yt.playlists().insert(part="snippet,status", body={
+            "snippet": {"title": name, "defaultLanguage": "ko"},
+            "status": {"privacyStatus": "public" if privacy == "public" else privacy},
+        }).execute()["id"]
+    yt.playlistItems().insert(part="snippet", body={
+        "snippet": {"playlistId": pid, "resourceId": {"kind": "youtube#video", "videoId": video_id}},
+    }).execute()
 
 
 def upload(path: Path, *, title: str, desc: str, tags: list[str], privacy: str,

@@ -1,12 +1,25 @@
 # 활동명. 영상 설명과 자막 첫 화면에 들어갑니다.
 artist: "연주왕김연주"
 
-# 유튜브 제목 형식. {title}, {artist} 사용 가능.
-youtube_title: "{title} - {artist}"
+# 유튜브 제목 형식. {title}(곡 제목), {artist}, {situation}(듣는 상황 문구) 사용 가능.
+youtube_title: "{title} - {artist} | {situation}"
+
+# 본편이 들어갈 재생목록. 없으면 만든다.
+playlists:
+  - 연주왕김연주 노래
+
+# 주제별 재생목록
+theme_playlists:
+  사랑: 헤어진 날 듣는 노래
+  어른: 어른이 된 우리에게
+  아픔: 혼자 우는 밤에
 
 # 업로드 공개 범위: private, unlisted, public
 # 심사받지 않은 구글 앱은 public으로 보내도 비공개로 올라갑니다.
 privacy: private
+
+# 가사 감성 레퍼런스(작사가나 밴드). 원리만 참고하고 표현은 베끼지 않는다.
+lyric_reference: 잔나비(최정훈)
 
 # 사진: pexels(실제 사진) 또는 openai(AI 이미지)
 photo_source: openai
