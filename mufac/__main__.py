@@ -126,6 +126,8 @@ def cmd_new(a) -> None:
         "candidates": data["candidates"],
         "chosen": data["chosen"],
         "lyrics": data["lyrics"],
+        "lyrics_draft": data.get("lyrics_draft", ""),
+        "polish": data.get("polish", []),
     }
     if data.get("classic"):
         s.meta["classic"] = data["classic"]

@@ -9,6 +9,7 @@ from __future__ import annotations
 import datetime as dt
 import json
 import os
+from pathlib import Path
 
 import anthropic
 
@@ -89,6 +90,12 @@ title_kind에 고른 형태를 적고, why에 왜 그 형태인지 쓴다.
 - 많이 말하지 않는다. 곡 하나에 태도 하나, 외칠 말 하나. 나머지는 리듬과 농담으로 채운다.
 - 비유는 곡 전체에 한두 개만, 일상의 것에서. 시처럼 다듬은 문장보다 사람이 중얼거리거나 소리치는 말이 낫다.
 - 진심은 한 줄이면 된다. 그 한 줄 앞뒤는 가볍게 둔다. 그래야 그 줄이 산다.
+
+[담백]
+- 담백해야 한다. 꾸미는 말(형용사, 부사)을 거의 쓰지 않는다. 명사와 동사로 쓴다. 한 줄에 한 가지만.
+- 서술하지 않는다. 장면을 시간 순서로 옮기는 줄거리, 상황 묘사, 설명은 가사가 아니다. 말 한마디를 남기고 나머지는 지운다.
+- 억지로 감동시키려는 장치, 낯간지러운 고백, 시 흉내는 한 줄도 쓰지 않는다. 의심되면 지운다.
+- 쓰고 나서 아래 [AI 티 점검표]로 줄마다 점검하고, 걸리는 줄은 고치거나 지운다. 줄이 줄어드는 것은 좋은 일이다.
 
 [말투]
 - 진짜 사람이 쓴 가사처럼 읽혀야 한다. 조사에서 모은 실제 가사의 말투 분포를 따른다.
@@ -212,14 +219,66 @@ def _ref() -> str:
     return ", ".join(references())
 
 
+CHECKLIST = Path(__file__).resolve().parent.parent / "assets" / "lyrics" / "_점검표.md"
+
+
+def _checklist() -> str:
+    return CHECKLIST.read_text(encoding="utf-8").strip() if CHECKLIST.exists() else ""
+
+
 def _system(base: str) -> str:
-    """시스템 프롬프트에 레퍼런스 이름과, 있으면 작사 프로필을 붙인다."""
+    """시스템 프롬프트에 레퍼런스 이름, 작사 프로필, AI 티 점검표를 붙인다."""
     from .learn import profiles_text
     text = base.replace("{ref}", _ref())
     profiles = profiles_text()
     if profiles:
         text += "\n\n[레퍼런스 작사 프로필]\n" + profiles
+    check = _checklist()
+    if check:
+        text += "\n\n[AI 티 점검표]\n" + check
     return text
+
+
+REVIEW = """\
+너는 가사를 고치는 편집자다. 작사가가 쓴 가사를 받아 AI가 쓴 티, 억지 감성, 오글거림, 서술식 줄거리, 설명하는 줄을 걷어낸다.
+담백하게. 더 짧게, 더 쉽게, 덜 설명하게. 사람이 중얼거리거나 외치는 말만 남긴다.
+
+지킬 것
+- 구간 태그와 구간 순서는 그대로 둔다. [Chorus]와 [Final Chorus]의 줄 수와 줄마다 음절 수는 바꾸지 않는다(원곡 선율에 얹히는 자리다). 음절 수를 지키면서 낱말만 바꾼다.
+- 절의 줄은 지우거나 줄여도 된다. 두 절의 줄 수는 같게 유지한다.
+- 제목이 점검표에 걸리면 바꾼다. 바꾸지 않아도 되면 그대로 둔다.
+- 새로 쓰는 줄도 아래 점검표를 통과해야 한다. 고친 뒤 다시 한 번 점검한다.
+- 바꾼 줄마다 왜 바꿨는지 짧게 적는다.
+
+JSON만 답한다: {"lyrics": "<고친 가사 전문>", "title": "<제목>", "share_line": "<가사 안에 그대로 있는 공유용 한 줄>", "changes": ["<바꾼 줄: 이유>", ...]}
+"""
+
+
+def polish(data: dict, plan: str = "") -> dict:
+    """쓴 가사를 점검표로 한 번 더 걸러 담백하게 고친다."""
+    schema = {"type": "object",
+              "properties": {"lyrics": {"type": "string"}, "title": {"type": "string"}, "share_line": {"type": "string"},
+                             "changes": {"type": "array", "items": {"type": "string"}}},
+              "required": ["lyrics", "title", "share_line", "changes"], "additionalProperties": False}
+    system = REVIEW + "\n\n[AI 티 점검표]\n" + _checklist()
+    content = f"[제목]\n{data['title']}\n\n[가사]\n{data['lyrics']}"
+    if plan:
+        content += f"\n\n[후렴 음절 계획]\n{plan}"
+    with anthropic.Anthropic().beta.messages.stream(
+        model=MODEL, max_tokens=12000, system=system, betas=BETAS, fallbacks="default",
+        output_config={"effort": "high", "format": {"type": "json_schema", "schema": schema}},
+        messages=[{"role": "user", "content": content}],
+    ) as stream:
+        response = stream.get_final_message()
+    _check(response)
+    out = json.loads(next(b.text for b in response.content if b.type == "text"))
+    if out.get("lyrics", "").count("[") >= 3:
+        data["lyrics_draft"] = data["lyrics"]
+        data["lyrics"] = out["lyrics"].strip()
+        data["title"] = (out.get("title") or data["title"]).strip()
+        data["share_line"] = out.get("share_line") or data.get("share_line", "")
+        data["polish"] = out.get("changes", [])
+    return data
 
 
 CHOOSE = """\
@@ -325,6 +384,10 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
     text = next(b.text for b in response.content if b.type == "text")
     data = json.loads(text)
     data["chosen"] = max(0, min(int(data.get("chosen", 0)), len(data["candidates"]) - 1))
+    try:
+        data = polish(data, classical.lyric_plan(piece["id"]) if piece else "")
+    except (anthropic.APIError, RuntimeError) as e:
+        print(f"가사 검수를 건너뜁니다: {e}", flush=True)
     data["research"] = notes
     if piece:
         data["classic"] = {"id": piece["id"], "name": piece["name"], "composer": piece["composer"],
