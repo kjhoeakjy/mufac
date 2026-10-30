@@ -6,20 +6,12 @@ created: 2026-10-30 12:30
 request:
   id: mvueskza
   classic: auto
-style: korean ska punk, brass and strings, guitar and horns quote Ode to Joy, intro
-  and chorus quote the uploaded classical theme prominently, verses original, 168
-  bpm, bright male vocal, gang chorus
+style: korean ska punk, brass and strings, guitar and horns quote Ode to Joy, intro brass section plays Beethoven's Ode to Joy theme, chorus vocal melody interpolates Ode to Joy, interlude restates the theme, verses original, 168 bpm, bright male vocal, gang chorus
 exclude: lo-fi, solo piano ballad, rap, autotune, english lyrics, slow tempo
 photo_query: office workers leaving sunset
-image_prompt: Office workers with bags spilling out of a glass building onto a wide
-  city sidewalk at golden hour, warm orange sunlight and long shadows, seen from behind,
-  cheerful and bright. No text, no signs, no frontal faces.
+image_prompt: Office workers with bags spilling out of a glass building onto a wide city sidewalk at golden hour, warm orange sunlight and long shadows, seen from behind, cheerful and bright. No text, no signs, no frontal faces.
 title_kind: 짧은 명사구
-why: 다섯 후보 가운데 퇴근 시간은 직업과 나이를 가리지 않고 거의 모든 사람이 매일 겪는 기쁨이라 가장 넓게 따라 부를 수 있다. 실러의 시에서
-  가장 유명한 '모든 사람은 형제가 되리라'를 여섯 시 퇴근으로 끌어내려, 그 순간에는 얄미운 옆자리도 형제가 된다고 우긴다. 원곡이 처음부터 많은
-  사람이 함께 부르라고 쓴 밝은 노래라 슬픈 사연 없이 밝게 썼다. 크라잉넛처럼 외칠 수 있는 한 덩이 말로 후렴을 짜고, 술탄 오브 더 디스코처럼
-  마지막 후렴에서 '부장님도 형제다'로 거창한 형제애를 초라한 사무실로 떨어뜨렸다. 제목은 단어처럼 짧은 명사구 '여섯 시'로 골랐다. 조사한 히트곡에서
-  명사 제목이 가장 많았고, 부르는 순간 각자의 퇴근 시간이 떠오른다.
+why: 다섯 후보 가운데 퇴근 시간은 직업과 나이를 가리지 않고 거의 모든 사람이 매일 겪는 기쁨이라 가장 넓게 따라 부를 수 있다. 실러의 시에서 가장 유명한 '모든 사람은 형제가 되리라'를 여섯 시 퇴근으로 끌어내려, 그 순간에는 얄미운 옆자리도 형제가 된다고 우긴다. 원곡이 처음부터 많은 사람이 함께 부르라고 쓴 밝은 노래라 슬픈 사연 없이 밝게 썼다. 크라잉넛처럼 외칠 수 있는 한 덩이 말로 후렴을 짜고, 술탄 오브 더 디스코처럼 마지막 후렴에서 '부장님도 형제다'로 거창한 형제애를 초라한 사무실로 떨어뜨렸다. 제목은 단어처럼 짧은 명사구 '여섯 시'로 골랐다. 조사한 히트곡에서 명사 제목이 가장 많았고, 부르는 순간 각자의 퇴근 시간이 떠오른다.
 share_line: 내일 일은 내일의 나 그 녀석한테 맡겨
 youtube_meta:
   situation: 금요일 퇴근길 신나는 노래
@@ -105,58 +97,36 @@ candidates:
   theme: 사랑
   story: 서로 지겹다고 투덜대면서도 매일 붙어 다니는 오래된 연인이 주고받는 농담
 chosen: 0
-lyrics: '[Intro]
-
+lyrics: |
+  [Intro - brass section plays the Ode to Joy theme]
 
   [Verse 1]
-
   오늘 한 일 물어보지 마
-
   메일 하나 보내고 점심
-
   시계 바늘 고장 났나 봐
-
   오 분 남았어 아 몰라
 
-
-  [Chorus]
-
+  [Chorus - sung to the Ode to Joy melody]
   여섯 시다 가방 메라 옆자리도 형제다
-
   내일 일은 내일의 나 그 녀석한테 맡겨
-
 
   [Verse 2]
-
   월급날은 아직 멀었어
-
   그래도 한 잔은 되잖아
-
   지갑은 얇고 목청은 커
-
   이 동네 다 내 편이야
 
-
-  [Chorus]
-
+  [Chorus - sung to the Ode to Joy melody]
   여섯 시다 가방 메라 옆자리도 형제다
-
   내일 일은 내일의 나 그 녀석한테 맡겨
 
+  [Interlude - horns and guitar restate the Ode to Joy theme]
 
-  [Interlude]
-
-
-  [Final Chorus]
-
+  [Final Chorus - sung to the Ode to Joy melody]
   여섯 시다 불을 꺼라 부장님도 형제다
-
   내일 일은 내일의 나 그 녀석한테 맡겨
-
 
   [Outro]
-
-  '
 lyrics_draft: '[Intro]
 
 
@@ -208,26 +178,16 @@ lyrics_draft: '[Intro]
 
   [Outro]'
 polish:
-- '월급은 아직 멀었다며 → 월급날은 아직 멀었어: ''-다며''는 누구 말을 옮기는지 흐릿하다. 내 입으로 툭 던지는 말로 바꿨다. 음절 수(9)는
-  그대로다.'
-- '나머지 줄은 그대로 둠: 이미 짧은 입말이다. 자조(''아 몰라'', ''지갑은 얇고 목청은 커'')와 능청(''그 녀석한테 맡겨'', ''부장님도
-  형제다'')이 살아 있어 점검표에 걸리지 않는다. 후렴 음절 수(15/15)도 ±1 안에 든다.'
+- '월급은 아직 멀었다며 → 월급날은 아직 멀었어: ''-다며''는 누구 말을 옮기는지 흐릿하다. 내 입으로 툭 던지는 말로 바꿨다. 음절 수(9)는 그대로다.'
+- '나머지 줄은 그대로 둠: 이미 짧은 입말이다. 자조(''아 몰라'', ''지갑은 얇고 목청은 커'')와 능청(''그 녀석한테 맡겨'', ''부장님도 형제다'')이 살아 있어 점검표에 걸리지 않는다. 후렴 음절 수(15/15)도 ±1 안에 든다.'
 - '제목 그대로 둠: 주제를 설명하지 않는 짧은 명사다.'
 classic:
   id: ode_to_joy
   name: 환희의 송가
   composer: 루트비히 판 베토벤
   year: 1824
-  reason: 이 노래의 사연은 후렴 후보 다섯 개 가운데 가장 많은 사람을 움직일 하나를 고르는 것이니, 원곡도 처음부터 많은 사람이 함께 부르라고
-    쓴 곡이 맞습니다. 베토벤은 20대부터 실러의 1785년 시 「환희에 부쳐」에 곡을 붙이고 싶어 했고, 30년 만인 1824년 교향곡 9번
-    마지막 악장에서 '모든 사람은 형제가 되리라'는 구절을 합창으로 완성했습니다. 초연 때 그는 귀가 완전히 먹어 박수를 듣지 못했고, 알토 가수가
-    돌려세워 주고서야 환호하는 청중을 보았습니다. 자기는 들을 수 없는 사람이 모두가 함께 부를 노래를 만든 셈이고, 1989년 베를린 장벽이
-    무너진 성탄절에는 '환희' 대신 '자유'로 가사를 바꿔 불렀을 만큼 수많은 사람의 목소리를 하나로 모은 선율입니다. 첫 네 음만 들려도 누구나
-    알아듣는 곡이라, 14/14음절 두 줄 후렴을 그 선율 그대로 부르면 곧바로 떼창이 되는 밝고 힘 있는 노래가 됩니다.
-  note: 「환희의 송가」는 베토벤이 1824년에 완성한 교향곡 9번의 마지막 악장으로, 실러가 1785년에 쓴 시 「환희에 부쳐」에 곡을 붙였다.
-    베토벤은 이십 대부터 이 시를 노래로 만들고 싶어 했고, 완성하기까지 30년이 걸렸다. 초연 날 그는 귀가 완전히 먹어 박수를 듣지 못했고,
-    알토 가수가 돌려세운 뒤에야 환호하는 객석을 봤다. 이 노래는 그 곡의 '모든 사람은 형제가 되리라'라는 구절을 매일 저녁 여섯 시에 퇴근하는
-    모든 사람에게 붙였다.
+  reason: 이 노래의 사연은 후렴 후보 다섯 개 가운데 가장 많은 사람을 움직일 하나를 고르는 것이니, 원곡도 처음부터 많은 사람이 함께 부르라고 쓴 곡이 맞습니다. 베토벤은 20대부터 실러의 1785년 시 「환희에 부쳐」에 곡을 붙이고 싶어 했고, 30년 만인 1824년 교향곡 9번 마지막 악장에서 '모든 사람은 형제가 되리라'는 구절을 합창으로 완성했습니다. 초연 때 그는 귀가 완전히 먹어 박수를 듣지 못했고, 알토 가수가 돌려세워 주고서야 환호하는 청중을 보았습니다. 자기는 들을 수 없는 사람이 모두가 함께 부를 노래를 만든 셈이고, 1989년 베를린 장벽이 무너진 성탄절에는 '환희' 대신 '자유'로 가사를 바꿔 불렀을 만큼 수많은 사람의 목소리를 하나로 모은 선율입니다. 첫 네 음만 들려도 누구나 알아듣는 곡이라, 14/14음절 두 줄 후렴을 그 선율 그대로 부르면 곧바로 떼창이 되는 밝고 힘 있는 노래가 됩니다.
+  note: 「환희의 송가」는 베토벤이 1824년에 완성한 교향곡 9번의 마지막 악장으로, 실러가 1785년에 쓴 시 「환희에 부쳐」에 곡을 붙였다. 베토벤은 이십 대부터 이 시를 노래로 만들고 싶어 했고, 완성하기까지 30년이 걸렸다. 초연 날 그는 귀가 완전히 먹어 박수를 듣지 못했고, 알토 가수가 돌려세운 뒤에야 환호하는 객석을 봤다. 이 노래는 그 곡의 '모든 사람은 형제가 되리라'라는 구절을 매일 저녁 여섯 시에 퇴근하는 모든 사람에게 붙였다.
   instrument: guitar
   seconds: 149.7
   theme_seconds: 19.8
@@ -261,6 +221,7 @@ classic:
   - part: 후주
     start: 144.1
     seconds: 5.6
+  en: Beethoven's Ode to Joy
 youtube_preview:
   title: 여섯 시 - 연주왕김연주 | 금요일 퇴근길 신나는 노래
   shorts_title: '내일 일은 내일의 나한테 맡겨 #shorts'
@@ -307,10 +268,7 @@ youtube_preview:
 
     원곡 이야기
 
-    「환희의 송가」는 베토벤이 1824년에 완성한 교향곡 9번의 마지막 악장으로, 실러가 1785년에 쓴 시 「환희에 부쳐」에 곡을 붙였다. 베토벤은
-    이십 대부터 이 시를 노래로 만들고 싶어 했고, 완성하기까지 30년이 걸렸다. 초연 날 그는 귀가 완전히 먹어 박수를 듣지 못했고, 알토 가수가
-    돌려세운 뒤에야 환호하는 객석을 봤다. 이 노래는 그 곡의 ''모든 사람은 형제가 되리라''라는 구절을 매일 저녁 여섯 시에 퇴근하는 모든
-    사람에게 붙였다.
+    「환희의 송가」는 베토벤이 1824년에 완성한 교향곡 9번의 마지막 악장으로, 실러가 1785년에 쓴 시 「환희에 부쳐」에 곡을 붙였다. 베토벤은 이십 대부터 이 시를 노래로 만들고 싶어 했고, 완성하기까지 30년이 걸렸다. 초연 날 그는 귀가 완전히 먹어 박수를 듣지 못했고, 알토 가수가 돌려세운 뒤에야 환호하는 객석을 봤다. 이 노래는 그 곡의 ''모든 사람은 형제가 되리라''라는 구절을 매일 저녁 여섯 시에 퇴근하는 모든 사람에게 붙였다.
 
     원곡 환희의 송가 · 루트비히 판 베토벤 (1824), 저작권이 소멸된 곡입니다.
 
@@ -325,8 +283,7 @@ youtube_preview:
     이 곡은 AI 음악 생성 도구로 만들었습니다.
 
 
-    #퇴근길노래 #신나는노래 #직장인노래 #여섯시 #밴드음악 #스카펑크 #금요일노래 #노동요 #퇴근송 #불금 #환희의송가 #클래식리메이크 #클래식팝
-    #클래식 #직장인공감'
+    #퇴근길노래 #신나는노래 #직장인노래 #여섯시 #밴드음악 #스카펑크 #금요일노래 #노동요 #퇴근송 #불금 #환희의송가 #클래식리메이크 #클래식팝 #클래식 #직장인공감'
   tags:
   - 여섯 시
   - 연주왕김연주

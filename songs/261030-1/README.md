@@ -19,21 +19,17 @@
 
 ## 원곡: 환희의 송가
 
-루트비히 판 베토벤, 1824. 이 노래의 사연은 후렴 후보 다섯 개 가운데 가장 많은 사람을 움직일 하나를 고르는 것이니, 원곡도 처음부터 많은 사람이 함께 부르라고 쓴 곡이 맞습니다. 베토벤은 20대부터 실러의 1785년 시 「환희에 부쳐」에 곡을 붙이고 싶어 했고, 30년 만인 1824년 교향곡 9번 마지막 악장에서 '모든 사람은 형제가 되리라'는 구절을 합창으로 완성했습니다. 초연 때 그는 귀가 완전히 먹어 박수를 듣지 못했고, 알토 가수가 돌려세워 주고서야 환호하는 청중을 보았습니다. 자기는 들을 수 없는 사람이 모두가 함께 부를 노래를 만든 셈이고, 1989년 베를린 장벽이 무너진 성탄절에는 '환희' 대신 '자유'로 가사를 바꿔 불렀을 만큼 수많은 사람의 목소리를 하나로 모은 선율입니다. 첫 네 음만 들려도 누구나 알아듣는 곡이라, 14/14음절 두 줄 후렴을 그 선율 그대로 부르면 곧바로 떼창이 되는 밝고 힘 있는 노래가 됩니다.
+루트비히 판 베토벤, 1824 · Beethoven's Ode to Joy. 이 노래의 사연은 후렴 후보 다섯 개 가운데 가장 많은 사람을 움직일 하나를 고르는 것이니, 원곡도 처음부터 많은 사람이 함께 부르라고 쓴 곡이 맞습니다. 베토벤은 20대부터 실러의 1785년 시 「환희에 부쳐」에 곡을 붙이고 싶어 했고, 30년 만인 1824년 교향곡 9번 마지막 악장에서 '모든 사람은 형제가 되리라'는 구절을 합창으로 완성했습니다. 초연 때 그는 귀가 완전히 먹어 박수를 듣지 못했고, 알토 가수가 돌려세워 주고서야 환호하는 청중을 보았습니다. 자기는 들을 수 없는 사람이 모두가 함께 부를 노래를 만든 셈이고, 1989년 베를린 장벽이 무너진 성탄절에는 '환희' 대신 '자유'로 가사를 바꿔 불렀을 만큼 수많은 사람의 목소리를 하나로 모은 선율입니다. 첫 네 음만 들려도 누구나 알아듣는 곡이라, 14/14음절 두 줄 후렴을 그 선율 그대로 부르면 곧바로 떼창이 되는 밝고 힘 있는 노래가 됩니다.
 
-- [melody.mp3](melody.mp3) 노래 형태 전체: 전주·후렴·간주에 원곡 주제 (127.2초)
-- [theme.mp3](theme.mp3) 원곡 주제만 (16.8초)
-- [cover.jpg](cover.jpg) Suno 곡 이미지
+원곡은 Style 문구와 가사의 구간 태그로 Suno에 지시한다(음원은 올리지 않는다).
 
-## 1. Suno에 멜로디 올리고 붙여넣기
+## 1. Suno에 붙여넣기
 
-1. [Suno](https://suno.com/create)에서 **Upload Audio**로 melody.mp3를 올립니다.
-2. 올라간 곡의 메뉴에서 **Cover**를 고릅니다.
-3. 아래 Style, Exclude, Title, Lyrics를 칸마다 붙여넣고 만듭니다.
+[Suno](https://suno.com/create)에서 Custom 모드를 켜고 아래를 칸마다 붙여넣는다. 곡 이미지는 cover.jpg.
 
 **Style**
 ```text
-korean ska punk, brass and strings, guitar and horns quote Ode to Joy, intro and chorus quote the uploaded classical theme prominently, verses original, 168 bpm, bright male vocal, gang chorus
+korean ska punk, brass and strings, guitar and horns quote Ode to Joy, intro brass section plays Beethoven's Ode to Joy theme, chorus vocal melody interpolates Ode to Joy, interlude restates the theme, verses original, 168 bpm, bright male vocal, gang chorus
 ```
 
 **Exclude styles**
@@ -48,7 +44,7 @@ lo-fi, solo piano ballad, rap, autotune, english lyrics, slow tempo
 
 **Lyrics**
 ```text
-[Intro]
+[Intro - brass section plays the Ode to Joy theme]
 
 [Verse 1]
 오늘 한 일 물어보지 마
@@ -56,7 +52,7 @@ lo-fi, solo piano ballad, rap, autotune, english lyrics, slow tempo
 시계 바늘 고장 났나 봐
 오 분 남았어 아 몰라
 
-[Chorus]
+[Chorus - sung to the Ode to Joy melody]
 여섯 시다 가방 메라 옆자리도 형제다
 내일 일은 내일의 나 그 녀석한테 맡겨
 
@@ -66,13 +62,13 @@ lo-fi, solo piano ballad, rap, autotune, english lyrics, slow tempo
 지갑은 얇고 목청은 커
 이 동네 다 내 편이야
 
-[Chorus]
+[Chorus - sung to the Ode to Joy melody]
 여섯 시다 가방 메라 옆자리도 형제다
 내일 일은 내일의 나 그 녀석한테 맡겨
 
-[Interlude]
+[Interlude - horns and guitar restate the Ode to Joy theme]
 
-[Final Chorus]
+[Final Chorus - sung to the Ode to Joy melody]
 여섯 시다 불을 꺼라 부장님도 형제다
 내일 일은 내일의 나 그 녀석한테 맡겨
 
