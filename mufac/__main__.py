@@ -121,10 +121,15 @@ def cmd_new(a) -> None:
         "lyrics": data["lyrics"],
     }
     if data.get("classic"):
-        from .classical import render as render_melody
-        info = render_melody(data["classic"]["id"], s.dir)
-        s.meta["classic"] = {**data["classic"], "seconds": info["seconds"], "plan": info["plan"]}
+        s.meta["classic"] = data["classic"]
     s.save()
+    if data.get("classic"):
+        from .classical import render as render_melody
+        try:
+            info = render_melody(data["classic"]["id"], s.dir)
+            s.meta["classic"].update({"seconds": info["seconds"], "plan": info["plan"]})
+        except Exception as e:  # 멜로디 파일이 없어도 가사는 남긴다
+            print(f"원곡 멜로디를 만들지 못했습니다: {e}", file=sys.stderr)
     if data.get("research"):
         (s.dir / "research.md").write_text(f"# 레퍼런스 조사\n\n{data['research']}\n", encoding="utf-8")
     try:
@@ -244,6 +249,12 @@ def cmd_check(a) -> None:
             f.write(f"### 연결된 채널: {name}\n")
 
 
+def cmd_learn(a) -> None:
+    from .learn import learn_all
+    paths = learn_all(a.names or None, force=a.force)
+    _output("count", str(len(paths)))
+
+
 def main() -> None:
     p = argparse.ArgumentParser(prog="mufac")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -275,6 +286,11 @@ def main() -> None:
 
     c = sub.add_parser("check", help="유튜브 연결 확인")
     c.set_defaults(func=cmd_check)
+
+    l = sub.add_parser("learn", help="레퍼런스 아티스트의 노랫말 프로필 만들기")
+    l.add_argument("names", nargs="*", help="비우면 config.yaml의 lyric_reference 전부")
+    l.add_argument("--force", action="store_true", help="이미 있는 프로필도 다시 쓴다")
+    l.set_defaults(func=cmd_learn)
 
     a = p.parse_args()
     a.func(a)

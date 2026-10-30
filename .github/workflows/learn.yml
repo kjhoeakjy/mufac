@@ -1,0 +1,48 @@
+name: 레퍼런스 학습
+run-name: "레퍼런스 학습 ${{ inputs.names }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      names:
+        description: "아티스트 이름 (띄어쓰기로 여러 개, 비우면 config.yaml의 전부 중 아직 없는 것)"
+        required: false
+        default: ""
+      force:
+        description: "이미 있는 프로필도 다시 쓰기"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-write
+  cancel-in-progress: false
+
+jobs:
+  learn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install anthropic PyYAML
+      - name: 학습
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NAMES: ${{ inputs.names }}
+          FORCE: ${{ inputs.force && '--force' || '' }}
+        run: python -m mufac learn $NAMES $FORCE
+      - name: 저장
+        run: |
+          git config user.name "mufac"
+          git config user.email "mufac@users.noreply.github.com"
+          git add assets/lyrics
+          git diff --cached --quiet || git commit -m "레퍼런스 작사 프로필"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          echo "### 프로필" >> "$GITHUB_STEP_SUMMARY"
+          for f in assets/lyrics/*.md; do echo "- [$(basename "$f" .md)](https://github.com/${{ github.repository }}/blob/main/$f)" >> "$GITHUB_STEP_SUMMARY"; done

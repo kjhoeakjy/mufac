@@ -34,8 +34,8 @@ RESEARCH = """\
 - 말투: 줄 끝이 어떻게 끝나는지(반말 -어/-지/-네, 명사로 끊김, 존댓말), 문장이 끊기는 방식, 한 줄의 길이
 - 제목의 형태(단어 하나, 명사구, 반말 문장, 존댓말 문장)
 
-3. 감성 레퍼런스 작사가({ref})의 대표곡 4~6곡: 노랫말의 말투, 낱말 선택, 반복과 리듬, 작은 소재가 큰 울림이 되는 방식.
-   리뷰, 인터뷰, 가사 해석 글을 찾아 원리를 정리한다.
+3. 감성 레퍼런스({ref}): 아래에 [레퍼런스 작사 프로필]이 붙어 있으면 그것을 읽고, 이번 곡의 정서와 가장 가까운 팀 두셋을 골라
+   그 팀의 최근 곡이나 이번 주제와 닿는 곡만 짧게 더 찾는다. 프로필이 없으면 대표곡 4~6곡의 말투, 낱말, 반복과 리듬을 조사해 원리를 정리한다.
 
 4. 클래식 멜로디 위에 쓰는 곡이면 그 원곡의 배경도 검색한다: 작곡 시기와 상황, 헌정 대상, 작곡가가 그때 겪던 일, 초연과 그 뒤의 쓰임,
    사람들이 이 곡을 어떤 자리에서 듣는지. 노래 가사와 설명란에 쓸 수 있는 확인된 사실만 정리한다.
@@ -90,7 +90,9 @@ title_kind에 고른 형태를 적고, why에 왜 그 형태인지 쓴다.
 - 비유는 곡 전체에 한두 개만, 일상의 사물에서 가져온다.
 - 같은 말을 조금씩 바꿔 되풀이하거나, 짧은 낱말을 나란히 놓는 리듬(대구)을 쓴다.
 - 지나간 시간과 계절의 공기를 묻힌다. 쓸쓸하지만 끝은 따뜻하게 놓아준다.
-- 감성 레퍼런스: {ref}. 그 노랫말이 왜 좋은지(쉬운 말, 오래된 것에 대한 다정함, 청춘의 쓸쓸함, 낱말의 리듬)를 원리로만 가져오고 표현은 절대 베끼지 않는다.
+- 감성 레퍼런스: {ref}. 밴드 음악의 노랫말이다. 쉬운 말, 입말, 유머와 자조, 능청, 갑자기 진심이 되는 순간, 청춘의 쓸쓸함, 낱말의 리듬.
+  아래 [레퍼런스 작사 프로필]의 원리를 가져오되 표현과 특정 낱말은 절대 베끼지 않는다. 곡마다 가장 맞는 팀의 결을 고르고, 여섯 팀을 섞어 뭉개지 않는다.
+- 레퍼런스가 밴드이므로 곡 스타일도 밴드 사운드(기타, 베이스, 드럼)가 어울리면 그쪽으로 간다. 발라드만 고집하지 않는다.
 
 [말투]
 - 진짜 사람이 쓴 가사처럼 읽혀야 한다. 조사에서 모은 실제 가사의 말투 분포를 따른다.
@@ -209,8 +211,18 @@ def _check(response) -> None:
 
 
 def _ref() -> str:
-    from .song import config
-    return config().get("lyric_reference") or "잔나비(최정훈)"
+    from .learn import references
+    return ", ".join(references())
+
+
+def _system(base: str) -> str:
+    """시스템 프롬프트에 레퍼런스 이름과, 있으면 작사 프로필을 붙인다."""
+    from .learn import profiles_text
+    text = base.replace("{ref}", _ref())
+    profiles = profiles_text()
+    if profiles:
+        text += "\n\n[레퍼런스 작사 프로필]\n" + profiles
+    return text
 
 
 CHOOSE = """\
@@ -246,7 +258,7 @@ def research(brief: str) -> str:
               "user_location": {"type": "approximate", "country": "KR", "timezone": "Asia/Seoul"}}]
     for _ in range(5):
         with client.beta.messages.stream(
-            model=MODEL, max_tokens=24000, system=RESEARCH.replace("{ref}", _ref()), betas=BETAS, fallbacks="default",
+            model=MODEL, max_tokens=24000, system=_system(RESEARCH), betas=BETAS, fallbacks="default",
             output_config={"effort": "high"}, tools=tools, messages=messages,
         ) as stream:
             response = stream.get_final_message()
@@ -304,7 +316,7 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
     parts.append(f"[요청]\n{brief}")
     content = "\n\n".join(parts)
     with anthropic.Anthropic().beta.messages.stream(
-        model=MODEL, max_tokens=32000, system=SYSTEM.replace("{ref}", _ref()), betas=BETAS, fallbacks="default",
+        model=MODEL, max_tokens=32000, system=_system(SYSTEM), betas=BETAS, fallbacks="default",
         output_config={"effort": "high", "format": {"type": "json_schema", "schema": SCHEMA}},
         messages=[{"role": "user", "content": content}],
     ) as stream:
