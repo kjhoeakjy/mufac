@@ -305,13 +305,13 @@ function renderDetail() {
   const main = asset(s, "main.mp4"), short = asset(s, "short.mp4");
   const yt = m.youtube || {}, cl = m.classic;
   const audioUrl = s.audio ? raw(s, s.audio) : null;
-  const cover = raw(s, "cover.jpg"), melody = raw(s, "melody.mp3"), solo = raw(s, "melody-solo.mp3");
+  const cover = raw(s, "cover.jpg"), melody = raw(s, "melody.mp3"), solo = raw(s, "theme.mp3") || raw(s, "melody-solo.mp3");
 
   let orig = "";
   if (cl) orig = `<section class="step"><h2>원곡 <span>${esc(cl.name)} · ${esc(cl.composer)}${cl.year ? ` · ${esc(cl.year)}` : ""}</span></h2>
       <div class="orig">
-        ${melody ? `<div class="o"><div class="ol"><span>멜로디 + 반주</span><a href="${melody}" download>내려받기</a></div><audio src="${melody}" controls preload="none"></audio></div>` : ""}
-        ${solo ? `<div class="o"><div class="ol"><span>멜로디만</span><a href="${solo}" download>내려받기</a></div><audio src="${solo}" controls preload="none"></audio></div>` : ""}
+        ${melody ? `<div class="o"><div class="ol"><span>노래 형태 (전주·후렴·간주에 원곡)</span><a href="${melody}" download>내려받기</a></div><audio src="${melody}" controls preload="none"></audio></div>` : ""}
+        ${solo ? `<div class="o"><div class="ol"><span>원곡 주제</span><a href="${solo}" download>내려받기</a></div><audio src="${solo}" controls preload="none"></audio></div>` : ""}
       </div>
       ${cl.reason ? `<p class="reason">${esc(cl.reason)}</p>` : ""}</section>`;
 

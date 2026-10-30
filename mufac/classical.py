@@ -544,20 +544,16 @@ def get(piece_id: str) -> dict:
 
 
 def lyric_plan(piece_id: str) -> str:
-    p = get(piece_id)
-    if p["midi"]:
-        from . import midi
-        return midi.lyric_plan(p["midi"], p["name"])
-    return lyric_plan_hand(p["hand"])
+    """노래 형태(전주·절·후렴·간주)에 맞춘 가사 계획. 후렴만 원곡 선율을 따른다."""
+    from . import arrange
+    return arrange.lyric_plan(get(piece_id))
 
 
 def render(piece_id: str, out_dir: Path) -> dict:
+    """melody.mp3(노래 형태 전체)와 theme.mp3(원곡 주제만)를 만든다."""
+    from . import arrange
     p = get(piece_id)
-    if p["midi"]:
-        from . import midi
-        info = midi.render(p["midi"], out_dir)
-    else:
-        info = render_hand(p["hand"], out_dir)
+    info = arrange.render(p, out_dir)
     info.update({"id": p["id"], "name": p["name"], "composer": p["composer"]})
     return info
 

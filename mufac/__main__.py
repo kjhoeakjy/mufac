@@ -55,8 +55,8 @@ def write_readme(s: Song) -> None:
         lines += [
             f"## 원곡: {cl['name']}", "",
             f"{cl['composer']}, {cl['year']}. {cl.get('reason', '')}", "",
-            f"- [melody.mp3](melody.mp3) 피아노 멜로디와 반주 ({cl.get('seconds', 0)}초)",
-            "- [melody-solo.mp3](melody-solo.mp3) 멜로디만",
+            f"- [melody.mp3](melody.mp3) 노래 형태 전체: 전주·후렴·간주에 원곡 주제 ({cl.get('seconds', 0)}초)",
+            f"- [theme.mp3](theme.mp3) 원곡 주제만 ({cl.get('theme_seconds', 0)}초)",
             "- [cover.jpg](cover.jpg) Suno 곡 이미지", "",
             "## 1. Suno에 멜로디 올리고 붙여넣기", "",
             "1. [Suno](https://suno.com/create)에서 **Upload Audio**로 melody.mp3를 올립니다.",
@@ -132,7 +132,7 @@ def cmd_new(a) -> None:
         from .classical import render as render_melody
         try:
             info = render_melody(data["classic"]["id"], s.dir)
-            s.meta["classic"].update({"seconds": info["seconds"], "plan": info["plan"]})
+            s.meta["classic"].update({k: info[k] for k in ("seconds", "theme_seconds", "bpm", "key", "chorus_syllables", "plan")})
         except Exception as e:  # 멜로디 파일이 없어도 가사는 남긴다
             print(f"원곡 멜로디를 만들지 못했습니다: {e}", file=sys.stderr)
     if data.get("research"):
