@@ -1,0 +1,456 @@
+title: 어른
+hook: 어른인 척 해
+theme: 어른
+story: 모르는 말에도 고개부터 끄덕이는 사람이 혼자 중얼거리는 노래다. 그러다 어릴 때 올려다본 어른들도 사실은 척하고 있었다는 걸 알게 된다.
+created: 2026-10-30 17:48
+request:
+  id: mvuq7dfp
+  title: 어른
+  idea: 어른
+  genre: 재즈
+  style: 베이스 쫀득. 재즈 기교 엄청 많음. 조용한 부분이랑 소리 큰 부분 차이 크게 존재.
+sound_plan: 단조로 시작하고, 후렴에서 씁쓸한 장조로 살짝 열리는 미디엄업 스윙이다. 빠르기는 약 112bpm. 업라이트 베이스가 곡의 주인공이다. 굵고 쫀득한 톤으로 고스트 노트, 슬라이드, 더블스톱, 반음 경과음을 섞어 걸으며 믹스 맨 앞에 선다. 드럼은 절에서는 스네어 위 브러시로 아주 작게 치고, 후렴에서는 스틱으로 바꿔 라이드 심벌을 크게 때린다. 피아노는 프리코러스에서 알터드 코드로 드문드문 컴핑하며 들어오고, 후렴에서는 세게 찍는다. 테너 색소폰과 뮤트 트럼펫은 후렴에서 보컬에 짧은 혼 스탭으로 대답한다. 멜로디는 절에서 좁은 음역으로 말하듯 박자 뒤에 늦게 붙고, 프리코러스는 같은 음을 되풀이하며 밀어 올린다. 후렴 첫 음은 위로 도약하고, 훅 끝 '해'는 길게 끈다. 마지막 후렴은 한 옥타브 올린다. 보컬은 따뜻하고 약간 허스키한 남성 바리톤으로, 마이크 가까이에서 거의 드라이하게 부른다. 공간은 작은 재즈 클럽의 라이브 룸에 테이프 질감을 얹는다. 전개는 조용함과 큼의 낙차를 크게 잡는다. 인트로는 베이스 혼자 걷는다. 1절은 베이스·브러시·목소리만으로 속삭이듯 간다. 첫 후렴에서 밴드 전체가 터지고, 2절에서 다시 작아지되 베이스 필이 더 바빠진다. 두 번째 후렴 뒤에는 기교 구간을 둔다. 빠른 비밥 피아노 솔로, 색소폰 솔로, 드럼과 네 마디씩 주고받기, 스톱타임 히트가 이어진다. 브릿지는 거의 정적에 베이스와 말하듯 하는 목소리만 남기고 루바토로 늘인다. 마지막 후렴은 혼 섹션 샤우트와 함께 가장 크고, 베이스와 드럼이 가장 바쁘게 움직인다. 끝은 갑자기 멈춘다. 베이스가 홀로 남고, 마지막 한 줄 뒤에 피아노 텐션 코드 하나로 닫는다.
+style: 'Korean jazz pop, hard-swinging bebop small group, medium-up swing around 112 bpm, minor key opening into a bittersweet major chorus. Male baritone, warm, slightly husky, close to the mic, behind the beat, mature and sincere, sung in Korean, korean lyrics. Fat chewy upright bass up front, walking lines with ghost notes, slides, double stops, chromatic fills. Verse 1 whisper-quiet: bass, brushes, voice. Pre-chorus adds sparse piano comping. Chorus explodes: loud ride, punchy piano, sax and muted trumpet stabs answer the vocal, upward leap, long held note on the hook. Verse 2 drops back to quiet, busier bass fills. After chorus two: fast bebop piano solo, sax solo, trading fours, stop-time hits. Bridge near silence, bass and almost spoken voice, rubato. Final chorus loudest, shout horns, octave up. Sudden stop, final piano tension chord. Small jazz club, tape warmth. Wry, tender.'
+exclude: autotune, synth pads, scat singing
+photo_query: man loosened tie jazz bar
+image_prompt: A man in a loosened tie sits alone at the edge of a small jazz club stage, seen in side profile, an upright bass leaning against the wall behind him. Warm amber lamp light, a half-empty glass on a small round table. Deep blue and amber tones, quiet, wry late-night mood.
+title_kind: 지정
+tempo: 중간
+arc: '화법: 혼잣말(아무에게도 말하지 않고 중얼거림, 브릿지에서만 속을 꺼냄). 기: 모르는 말 앞에서 먼저 끄덕이는 고개, 책상 밑에서 떨리는 다리를 담담히 놓는다. 승: 낮춘 목소리와 편 어깨로 문을 나서며 ''어른인 척 해'', 아픈 건 집에 가서. 전: 2절은 불 끈 밤, 어릴 때 다 아는 줄 알았던 어른들의 등을 떠올리고 그들의 다리도 떨렸을까 묻는다. 브릿지에서 처음으로 ''사실은 무서워''라고 말하고, 나를 잡아 주던 손도 떨렸다면 나도 떨면서 잡겠다고 받아들인다. 결: 마지막 후렴의 넷째 줄 ''아픈 건 집에 가서''가 ''누가 내 손 잡는 동안''으로 바뀐다. 척하는 이유가 나를 숨기는 데서 남을 잡아 주는 데로 넘어가고, 아웃트로는 리프레인 한 줄로 닫는다.'
+line_plan: '[Verse 1] 1 사실: 모르는 말 앞(장면 하나) / 2 관찰: 먼저 끄덕이는 고개 / 3 관찰: 다 아는 얼굴 / 4 전환: 책상 밑으로는 / 5 관찰: 다리가 떨림 / 6 자조: 이런 건 금방 늚 / 7 리프레인: 들키지 않을 만큼만. [Pre-Chorus] 8 사실: 낮춘 목소리 / 9 사실: 편 어깨 / 10 전환(열림): 문 열고 나가면. [Chorus] 11 훅 / 12 관찰(자조): 속은 열한 살 / 13 훅 / 14 관찰: 아픈 건 집에 가서 / 15 훅. [Verse 2] 16 사실: 불 끈 밤(시점 바뀜) / 17 사실: 올려다보던 어른들 / 18 전환: 다 아는 줄 알았던 / 19 사실: 넓은 등 / 20 관찰: 책상 밑(1절 되받기) / 21 전환: 떨렸을까 / 22 리프레인. [Pre-Chorus] 23~25 = 8~10. [Chorus] 26 훅 / 27 / 28 훅 / 29 / 30 훅. [Bridge] 31 전환(진심): 무서워(감정어 한 번) / 32 인정: 하나도 몰라 / 33 사실: 나를 잡아 주던 손 / 34 전환: 떨고 있었다면 / 35 받아들임: 떨면서 잡을게. [Final Chorus] 36 훅 / 37 / 38 훅 / 39 바뀐 줄: 누가 내 손 잡는 동안 / 40 훅. [Outro] 41 리프레인. 훅이 들어가는 줄: 11, 13, 15, 26, 28, 30, 36, 38, 40으로 모두 9번.'
+why: '''어른인 척 해''는 누구나 어제 한 번은 한 일이라서 설명 없이 바로 자기 얘기로 받힌다. 끝이 모음이라 스윙 위에서 늘여 부르기 좋고, 정해진 제목 ''어른''이 후렴 첫머리에 그대로 선다. 1절은 지금의 나, 2절은 어릴 때 올려다본 어른들로 시점을 바꿨다. 같은 훅이 처음에는 자조로 들리고, 마지막 후렴에서는 누군가를 위해 버티는 말로 바뀐다. 자우림의 ''~줄 알았던'' 과거 기대를 현재와 부딪히는 원리와 잔나비의 ''고백 직전에 자기를 낮추는 줄'' 원리를 가져왔고, 마지막 후렴은 한로로처럼 한 줄만 바꿔 결론을 냈다. 제목은 요청대로 ''어른''을 한 글자도 바꾸지 않은 단어 하나다.'
+share_line: 속은 아직 열한 살
+youtube_meta:
+  situation: 어른인 척 지친 밤에 듣는 재즈
+  shorts_title: 어른인 척 해
+  hashtags:
+  - 재즈
+  - 감성노래
+  - 퇴근길노래
+  - 재즈플리
+  - 새벽감성
+  - 위로노래
+  - 직장인노래
+  - 감성플리
+  - 밤에듣는노래
+  - 재즈팝
+  - 어른
+  - 어른인척
+tags:
+- 음악
+- 노래
+- 감성
+- 재즈
+- 재즈팝
+- 플레이리스트
+- 노래 추천
+- 감성노래
+- 재즈 플레이리스트
+- 퇴근길 노래
+- 밤에 듣는 노래
+- 새벽 감성
+- 위로 노래
+- 직장인 노래
+- 어른
+- 어른인 척
+- 어른 노래
+- 사회초년생
+- 직장인 공감
+- 자취생 노래
+- 혼자 듣는 노래
+- 잠 안 오는 밤
+- 재즈바
+- 스윙 재즈
+- 비밥
+- 업라이트 베이스
+- 재즈 보컬
+- 남자 재즈 보컬
+- 신곡
+- 창작곡
+- korean jazz
+- korean jazz pop
+- jazz playlist
+- late night jazz
+- swing jazz
+- kpop
+references:
+- title: 스물다섯, 스물하나
+  artist: 자우림
+  takeaway: '''~줄 알았던'' 과거의 기대를 세우고 지금과 부딪히게 해서 설명 없이 시간을 보여 준다.'
+- title: 뜨거운 여름밤은 가고 남은 건 볼품없지만
+  artist: 잔나비
+  takeaway: 고백하기 직전에 자기를 낮추는 줄을 놓고, 큰 감정어 옆에는 손에 잡히는 사물을 붙인다.
+- title: '1111'
+  artist: 한로로
+  takeaway: 마지막 후렴은 한 줄만 바꿔서 같은 후렴이 다른 결론으로 들리게 한다.
+candidates:
+- hook: 어른인 척 해
+  theme: 어른
+  story: 모르는 말에도 고개부터 끄덕이는 사람이 혼자 중얼거리는 노래다. 그러다 어릴 때 올려다본 어른들도 사실은 척하고 있었다는 걸 알게 된다.
+- hook: 어른이 되면
+  theme: 어른
+  story: 어릴 때 입버릇처럼 하던 '어른이 되면'을 서른 넘어 다시 떠올리는 사람이 부르는 느린 회상이다.
+- hook: 다 큰 어른
+  theme: 어른
+  story: 퇴근길 빈 놀이터 그네에 앉아 다리를 흔드는 사람을 지켜보는 밝은 관찰 노래다.
+- hook: 어른도 울어
+  theme: 어른
+  story: 화장실 칸에서 오 분 울고 나와 다시 자리에 앉는 사람에게 건네는 담담한 위로다.
+- hook: 어른이라서
+  theme: 어른
+  story: 하고 싶은 말을 삼키고 '어른이라서' 웃고 마는 오래된 친구 둘이 늦은 밤 나누는 말이다.
+chosen: 0
+lyrics: |
+  [Intro: upright bass alone, slow walking line]
+
+  [Verse 1: bass, brushes and voice only, whisper-quiet]
+  모르는 말 앞에서
+  먼저 끄덕이는 고개
+  얼굴은 다 아는 얼굴
+  책상 밑으로는
+  다리가 떨리는데
+  이런 건 금방 늘어
+  들키지 않을 만큼만
+
+  [Pre-Chorus: sparse piano comping enters, brushes build]
+  낮춘 목소리 하나
+  펴 둔 어깨 하나
+  문 열고 나가면
+
+  [Chorus: full band explodes, loud ride, horn stabs answer]
+  어른인 척 해
+  속은 아직 열한 살
+  어른인 척 해
+  아픈 건 집에 가서
+  어른인 척 해
+
+  [Verse 2: drops back to quiet, busier bass fills]
+  열한 살 내 눈에
+  올려다보던 그 어른들
+  뭐든 다 아는 줄 알았던
+  그 넓은 등도
+  책상 밑에서는
+  다리가 떨렸을까
+  들키지 않을 만큼만
+
+  [Pre-Chorus: piano comping, drums build]
+  낮춘 목소리 하나
+  펴 둔 어깨 하나
+  문 열고 나가면
+
+  [Chorus: full band explodes, loud ride, horn stabs answer]
+  어른인 척 해
+  속은 아직 열한 살
+  어른인 척 해
+  아픈 건 집에 가서
+  어른인 척 해
+
+  [Instrumental Break: bebop piano solo, tenor sax solo, trading fours, stop-time hits]
+
+  [Bridge: near silence, upright bass and close voice, rubato]
+  사실은 무서워
+  아는 건 아직 하나도 없고
+  그때 날 잡아 주던 손도
+  떨고 있었다면
+  나도 떨면서 잡을게
+
+  [Final Chorus: loudest, shout horns, octave up]
+  어른인 척 해
+  속은 아직 열한 살
+  어른인 척 해
+  누가 내 손 잡는 동안
+  어른인 척 해
+
+  [Outro: sudden stop, bass alone, final piano tension chord]
+  들키지 않을 만큼만
+
+  [End]
+lyrics_draft: '[Intro: upright bass alone, slow walking line]
+
+
+  [Verse 1: bass, brushes and voice only, whisper-quiet]
+
+  모르는 말 앞에서
+
+  먼저 끄덕이는 고개
+
+  얼굴은 다 아는 얼굴
+
+  책상 밑으로는
+
+  다리가 떨리는데
+
+  이런 건 금방 늘어
+
+  들키지 않을 만큼만
+
+
+  [Pre-Chorus: sparse piano comping enters, brushes build]
+
+  낮춘 목소리 하나
+
+  펴 둔 어깨 하나
+
+  문 열고 나가면
+
+
+  [Chorus: full band explodes, loud ride, horn stabs answer]
+
+  어른인 척 해
+
+  속은 아직 열한 살
+
+  어른인 척 해
+
+  아픈 건 집에 가서
+
+  어른인 척 해
+
+
+  [Verse 2: drops back to quiet, busier bass fills]
+
+  불 끄고 누운 밤에
+
+  올려다보던 그 어른들
+
+  뭐든 다 아는 줄 알았던
+
+  그 넓은 등들도
+
+  책상 밑에서는
+
+  다리가 떨렸을까
+
+  들키지 않을 만큼만
+
+
+  [Pre-Chorus: piano comping, drums build]
+
+  낮춘 목소리 하나
+
+  펴 둔 어깨 하나
+
+  문 열고 나가면
+
+
+  [Chorus: full band explodes, loud ride, horn stabs answer]
+
+  어른인 척 해
+
+  속은 아직 열한 살
+
+  어른인 척 해
+
+  아픈 건 집에 가서
+
+  어른인 척 해
+
+
+  [Instrumental Break: bebop piano solo, tenor sax solo, trading fours, stop-time hits]
+
+
+  [Bridge: near silence, upright bass and close voice, rubato]
+
+  사실은 무서워
+
+  아직 하나도 몰라
+
+  그때 날 잡아 주던 손도
+
+  떨고 있었다면
+
+  나도 떨면서 잡을게
+
+
+  [Final Chorus: loudest, shout horns, octave up]
+
+  어른인 척 해
+
+  속은 아직 열한 살
+
+  어른인 척 해
+
+  누가 내 손 잡는 동안
+
+  어른인 척 해
+
+
+  [Outro: sudden stop, bass alone, final piano tension chord]
+
+  들키지 않을 만큼만
+
+
+  [End]'
+polish:
+- '불 끄고 누운 밤에 → 열한 살 내 눈에: 시간·배경만 있는 줄이었고, 누워서 어른을 올려다본다는 그림도 맞지 않음. 후렴의 ''열한 살''과 이어지게 바꿔 1절의 지금과 2절의 어린 시절을 분명히 나눔'
+- '그 넓은 등들도 → 그 넓은 등도: ''등들''은 소리 내어 하기 어색한 복수형이라 입말로 고침'
+- '아직 하나도 몰라 → 아는 건 아직 하나도 없고: 브릿지에 해체 종결어미(무서워·몰라·잡을게)가 셋 몰려 있어 연결어미로 바꿔 다음 줄로 이어지게 함'
+- '구조 점검: 브릿지가 처음으로 ''무섭다''는 진심을 말하며 곡을 뒤집고, 마지막 후렴의 넷째 줄이 바뀌어 ''척''이 누군가를 지키는 일로 들리므로 나머지 구조는 그대로 둠'
+- 제목은 사용자 지정이라 유지(후렴 훅 '어른인 척 해' 안에 들어 있음)
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A man in a loosened tie sits alone at the edge of a small jazz club stage, seen in side profile, an upright bass leaning against the wall behind him. Warm amber lamp light, a half-empty glass on a small round table. Deep blue and amber tones, quiet, wry late-night mood.
+youtube_preview:
+  title: 어른 - 연주왕김연주 | 어른인 척 지친 밤에 듣는 재즈
+  shorts_title: '어른인 척 해 #shorts'
+  description: '모르는 말 앞에서
+
+    먼저 끄덕이는 고개
+
+    얼굴은 다 아는 얼굴
+
+    책상 밑으로는
+
+    다리가 떨리는데
+
+    이런 건 금방 늘어
+
+    들키지 않을 만큼만
+
+
+    낮춘 목소리 하나
+
+    펴 둔 어깨 하나
+
+    문 열고 나가면
+
+
+    어른인 척 해
+
+    속은 아직 열한 살
+
+    어른인 척 해
+
+    아픈 건 집에 가서
+
+    어른인 척 해
+
+
+    열한 살 내 눈에
+
+    올려다보던 그 어른들
+
+    뭐든 다 아는 줄 알았던
+
+    그 넓은 등도
+
+    책상 밑에서는
+
+    다리가 떨렸을까
+
+    들키지 않을 만큼만
+
+
+    낮춘 목소리 하나
+
+    펴 둔 어깨 하나
+
+    문 열고 나가면
+
+
+    어른인 척 해
+
+    속은 아직 열한 살
+
+    어른인 척 해
+
+    아픈 건 집에 가서
+
+    어른인 척 해
+
+
+    사실은 무서워
+
+    아는 건 아직 하나도 없고
+
+    그때 날 잡아 주던 손도
+
+    떨고 있었다면
+
+    나도 떨면서 잡을게
+
+
+    어른인 척 해
+
+    속은 아직 열한 살
+
+    어른인 척 해
+
+    누가 내 손 잡는 동안
+
+    어른인 척 해
+
+
+    들키지 않을 만큼만
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #재즈 #감성노래 #퇴근길노래 #음악 #노래 #감성 #재즈플리 #새벽감성 #위로노래 #직장인노래 #감성플리 #밤에듣는노래 #재즈팝 #어른 #어른인척'
+  tags:
+  - 어른
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 감성
+  - 재즈
+  - 재즈팝
+  - 플레이리스트
+  - 노래 추천
+  - 감성노래
+  - 재즈 플레이리스트
+  - 퇴근길 노래
+  - 밤에 듣는 노래
+  - 새벽 감성
+  - 위로 노래
+  - 직장인 노래
+  - 어른인 척
+  - 어른 노래
+  - 사회초년생
+  - 직장인 공감
+  - 자취생 노래
+  - 혼자 듣는 노래
+  - 잠 안 오는 밤
+  - 재즈바
+  - 스윙 재즈
+  - 비밥
+  - 업라이트 베이스
+  - 재즈 보컬
+  - 남자 재즈 보컬
+  - 신곡
+  - 창작곡
+  - korean jazz
+  - korean jazz pop
+  - jazz playlist
+  - late night jazz
+  - swing jazz
+  - kpop
+  - 가사
+  - korean music
+  - k-pop
+  hashtags:
+  - 재즈
+  - 감성노래
+  - 퇴근길노래
+  - 음악
+  - 노래
+  - 감성
+  - 재즈플리
+  - 새벽감성
+  - 위로노래
+  - 직장인노래
+  - 감성플리
+  - 밤에듣는노래
+  - 재즈팝
+  - 어른
+  - 어른인척
+  playlists:
+  - 연주왕김연주 노래
+  - 어른이 된 우리에게
+  privacy: private
