@@ -108,7 +108,8 @@ def preview(song: Song, cfg: dict) -> dict:
     m, ym = song.meta, song.meta.get("youtube_meta") or {}
     return {
         "title": main_title(cfg["youtube_title"], m["title"], artist, ym.get("situation", "")),
-        "shorts_title": f"{(ym.get('shorts_title') or m['title']).strip()} #shorts"[:100],
+        # 쇼츠 제목은 후렴 문장 그대로(사용자 지정)
+        "shorts_title": f"{(m.get('hook') or ym.get('shorts_title') or m['title']).strip()} #shorts"[:100],
         "description": description(song, artist),
         "tags": fit_tags([m["title"], artist, *(m.get("tags") or [])]),
         "hashtags": hashtags(m, artist),

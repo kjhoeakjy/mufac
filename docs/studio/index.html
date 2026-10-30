@@ -171,7 +171,10 @@ const store = {
 };
 let token = store.get("mufac.token");
 let songs = [];          // {slug, meta, files, audio, release}
-let pending = [];        // 대시보드에서 요청한 새 곡 {req, label}
+// 대시보드에서 요청한 새 곡 {req, label, at}. 새로고침해도 남도록 저장하고, 30분 지나면 버린다
+let pending = (() => { try { return JSON.parse(store.get("mufac.pending") || "[]"); } catch { return []; } })()
+  .filter(p => p && p.req && Date.now() - (p.at || 0) < 30 * 60 * 1000);
+function setPending(list) { pending = list; store.set("mufac.pending", JSON.stringify(list)); }
 let runs = [];
 let selected = store.get("mufac.selected");
 let editSlug = null;     // 제목·가사 수정 중인 곡
@@ -181,6 +184,7 @@ const yamlCache = new Map();
 // ---------------------------------------------------------------- GitHub
 async function gh(path, opts = {}) {
   const res = await fetch(path.startsWith("http") ? path : API + path, {
+    cache: "no-cache",  // 브라우저는 API 응답을 60초 재사용하므로 매번 서버에 확인(304면 요금 없음)
     ...opts,
     headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json",
                "X-GitHub-Api-Version": "2022-11-28", ...(opts.headers || {}) },
@@ -227,7 +231,7 @@ async function loadSongs() {
   songs = list;
   for (const p of [...pending]) {
     const hit = songs.find(s => s.meta?.request?.id === p.req);
-    if (hit) { pending = pending.filter(x => x !== p); selected = hit.slug; store.set("mufac.selected", selected); }
+    if (hit) { setPending(pending.filter(x => x !== p)); selected = hit.slug; store.set("mufac.selected", selected); }
   }
 }
 
@@ -238,7 +242,7 @@ async function loadRuns() {
   for (const p of [...pending]) {
     const run = runs.find(x => x.display_title.startsWith(`새 곡 ${p.req}`));
     if (run && run.status === "completed" && run.conclusion !== "success") {
-      pending = pending.filter(x => x !== p);
+      setPending(pending.filter(x => x !== p));
       toast("새 곡 생성 실패", run.html_url);
     }
   }
@@ -484,7 +488,7 @@ async function makeSong() {
   $("make").disabled = true;
   try {
     await dispatch("new-song.yml", { title, idea, content, genre, style, req, hook: "", theme: "자동", vocal: "자동" });
-    pending.unshift({ req, label: title || idea || content.slice(0, 24) || "자동" });
+    setPending([{ req, label: title || idea || content.slice(0, 24) || "자동", at: Date.now() }, ...pending]);
     for (const id of ["title", "kw", "content", "style"]) $(id).value = "";
     renderList();
     toast("작사 시작. 약 5분 소요");
