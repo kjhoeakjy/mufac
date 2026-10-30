@@ -156,10 +156,13 @@ def _play_chords(track: cl.Track, chords: list[tuple[float, str]], t0: float, ba
                 track.note(n, at, bar * 0.95, vel * 0.65)
 
 
-def _play_theme(track: cl.Track, phrases: list[list[Note]], t0: float, vel: float, octave: int = 0) -> None:
+def _play_theme(track: cl.Track, phrases: list[list[Note]], t0: float, vel: float, octave: int = 0, timbre: str = "piano") -> None:
     for p in phrases:
         for s, e, m in p:
-            track.note(m + 12 * octave, t0 + s, max(0.12, e - s), vel)
+            dur = max(0.12, e - s)
+            if timbre == "strings":
+                dur = max(dur, 0.35)
+            track.note(m + 12 * octave, t0 + s, dur, vel, timbre)
 
 
 def _bar(beat: float) -> float:
@@ -177,7 +180,9 @@ def _verse_bars(bar: float) -> int:
     return max(8, int(round(16 / bar / 4)) * 4)
 
 
-def render(piece: dict, out_dir: Path) -> dict:
+def render(piece: dict, out_dir: Path, timbre: str = "piano") -> dict:
+    """timbre: 주제 선율의 음색 piano | guitar | strings | bell. 반주는 피아노."""
+    timbre = timbre if timbre in cl.TIMBRES else "piano"
     if piece.get("midi"):
         phrases, beat = theme_from_midi(piece["midi"])
     else:
@@ -205,7 +210,7 @@ def render(piece: dict, out_dir: Path) -> dict:
     for label, kind, dur in form:
         if kind in ("intro", "chorus", "interlude"):
             _play_chords(full, under, t, bar, beat, 0.45 if kind != "chorus" else 0.5, arp=(kind != "intro"))
-            _play_theme(full, phrases, t, 0.95 if kind == "chorus" else 0.8, octave=1 if kind == "interlude" else 0)
+            _play_theme(full, phrases, t, 0.95 if kind == "chorus" else 0.8, octave=1 if kind == "interlude" else 0, timbre=timbre)
         elif kind == "verse":
             _play_chords(full, verse_chords, t, bar, beat, 0.42, arp=True)
         else:
@@ -216,7 +221,7 @@ def render(piece: dict, out_dir: Path) -> dict:
         plan.append({"part": label, "start": round(t, 1), "seconds": round(dur, 1)})
         t += dur
     _play_chords(solo, under, 0.0, bar, beat, 0.45, arp=True)
-    _play_theme(solo, phrases, 0.0, 0.95)
+    _play_theme(solo, phrases, 0.0, 0.95, timbre=timbre)
 
     out_dir.mkdir(parents=True, exist_ok=True)
     files = {}
@@ -240,7 +245,7 @@ def render(piece: dict, out_dir: Path) -> dict:
     return {
         "seconds": round(total, 1), "theme_seconds": round(theme_span, 1), "bpm": round(60 / beat),
         "key": chord_name(tonic, "" if mode == "major" else "m"),
-        "chorus_syllables": [len(p) for p in phrases], "verse_bars": verse_bars,
+        "chorus_syllables": [len(p) for p in phrases], "verse_bars": verse_bars, "instrument": timbre,
         "plan": plan, "source": "midi" if piece.get("midi") else "hand",
     }
 

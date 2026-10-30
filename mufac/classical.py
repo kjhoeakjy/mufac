@@ -339,6 +339,53 @@ def _piano(f: float, dur: float, vel: float) -> np.ndarray:
     return out * env * gate
 
 
+def _pluck(f: float, dur: float, vel: float) -> np.ndarray:
+    """기타처럼 뜯는 소리: 밝게 시작해 빨리 잦아든다."""
+    n = int((dur + 0.8) * SR)
+    t = np.arange(n) / SR
+    env = (1 - np.exp(-t / 0.002)) * np.exp(-t * (2.2 + f / 400.0))
+    out = np.zeros(n)
+    for k in range(1, 9):
+        fk = f * k
+        if fk > SR / 2:
+            break
+        out += vel * (0.7 ** (k - 1)) * np.sin(2 * math.pi * fk * t) * np.exp(-t * k * 1.6)
+    return out * env
+
+
+def _pad(f: float, dur: float, vel: float) -> np.ndarray:
+    """현악기·패드처럼 천천히 들어와 끝까지 이어지는 소리. 두 음을 살짝 어긋나게 겹친다."""
+    n = int((dur + 1.0) * SR)
+    t = np.arange(n) / SR
+    att = min(0.25, dur / 3)
+    env = np.clip(t / att, 0, 1) * np.where(t > dur, np.exp(-(t - dur) * 4.0), 1.0)
+    vib = 1 + 0.004 * np.sin(2 * math.pi * 5.2 * t) * np.clip((t - 0.3) / 0.6, 0, 1)
+    out = np.zeros(n)
+    for det in (0.9985, 1.0, 1.0015):
+        for k in (1, 2, 3, 4):
+            fk = f * k * det * vib
+            if f * k > SR / 2:
+                break
+            out += vel * (0.5 ** (k - 1)) / 3 * np.sin(2 * math.pi * np.cumsum(fk) / SR)
+    return out * env * 0.8
+
+
+def _bell(f: float, dur: float, vel: float) -> np.ndarray:
+    """오르골·종 소리: 배음이 정수배가 아니고 길게 울린다."""
+    n = int((dur + 2.0) * SR)
+    t = np.arange(n) / SR
+    out = np.zeros(n)
+    for ratio, amp, dec in ((1.0, 1.0, 1.4), (2.76, 0.45, 2.6), (5.4, 0.22, 3.8), (8.9, 0.1, 5.0)):
+        fk = f * ratio
+        if fk > SR / 2:
+            break
+        out += vel * amp * np.sin(2 * math.pi * fk * t) * np.exp(-t * dec)
+    return out * (1 - np.exp(-t / 0.001)) * 0.7
+
+
+TIMBRES = {"piano": _piano, "guitar": _pluck, "strings": _pad, "bell": _bell}
+
+
 def _reverb(x: np.ndarray, mix: float = 0.16) -> np.ndarray:
     rng = np.random.default_rng(3)
     L = int(1.4 * SR)
@@ -354,8 +401,8 @@ class Track:
     def __init__(self, seconds: float):
         self.buf = np.zeros(int(seconds * SR) + SR * 3)
 
-    def note(self, m: int, start: float, dur: float, vel: float) -> None:
-        s = _piano(freq(m), dur, vel)
+    def note(self, m: int, start: float, dur: float, vel: float, timbre: str = "piano") -> None:
+        s = TIMBRES.get(timbre, _piano)(freq(m), dur, vel)
         i = int(start * SR)
         j = min(len(self.buf), i + len(s))
         self.buf[i:j] += s[: j - i]
@@ -549,11 +596,11 @@ def lyric_plan(piece_id: str) -> str:
     return arrange.lyric_plan(get(piece_id))
 
 
-def render(piece_id: str, out_dir: Path) -> dict:
+def render(piece_id: str, out_dir: Path, timbre: str = "piano") -> dict:
     """melody.mp3(노래 형태 전체)와 theme.mp3(원곡 주제만)를 만든다."""
     from . import arrange
     p = get(piece_id)
-    info = arrange.render(p, out_dir)
+    info = arrange.render(p, out_dir, timbre)
     info.update({"id": p["id"], "name": p["name"], "composer": p["composer"]})
     return info
 

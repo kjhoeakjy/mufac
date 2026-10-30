@@ -128,6 +128,10 @@ title_kind에 고른 형태를 적고, why에 왜 그 형태인지 쓴다.
 - 노래의 이야기와 원곡의 배경이 속으로 이어져야 한다. 겉모습이 닮은 게 아니라, 원곡이 태어난 사정과 이 노래의 화자가 같은 자리에 서 있어야 한다. why에 그 연결을 쓴다.
 - classic_note: 유튜브 설명란에 넣을 원곡 이야기 3~4문장. 원곡의 배경 사실 한두 개와 이 노래가 그 위에 선 이유. 담담하게, 과장 없이.
 - style에는 원곡의 조성과 빠르기를 지키고 "chorus sings the uploaded classical theme, verses original"을 넣는다.
+- 원곡 주제를 꼭 피아노로 연주할 필요 없다. 곡마다 장르와 주제 악기를 다르게 고른다. theme_instrument(piano, guitar, strings, bell)를 정하고
+  style에는 그보다 구체적인 악기를 쓴다(일렉 기타 리프, 베이스, 브라스, 신스, 휘파람, 합창, 오르골, 현악 4중주, 아코디언, 하모니카 등).
+  장르도 발라드에 묶이지 않는다: 밴드 사운드, 인디 록, 펑크, 디스코 펑크, 포크, 시티팝, 보사노바, 레트로 팝, 왈츠 등. 노래의 사연과 레퍼런스 팀의 결에 맞는 것을 고른다.
+  아래 "이미 만든 곡의 스타일"과 겹치지 않게 한다.
 - 후렴은 원곡 선율을 그대로 부르므로, 후렴 가사의 호흡(긴 음, 쉼)이 선율과 맞아야 한다.
 
 [Suno 스타일]
@@ -183,6 +187,8 @@ SCHEMA = {
         "hashtags": {"type": "array", "items": {"type": "string"}},
         "tags": {"type": "array", "items": {"type": "string"}},
         "classic_note": {"type": "string", "description": "클래식 멜로디 모드가 아니면 빈 문자열"},
+        "theme_instrument": {"type": "string", "enum": ["piano", "guitar", "strings", "bell"],
+                             "description": "전주·간주에서 원곡 주제를 연주할 악기 느낌. 클래식 모드가 아니면 piano"},
         "references": {
             "type": "array",
             "description": "참고한 곡",
@@ -200,7 +206,7 @@ SCHEMA = {
     },
     "required": ["candidates", "chosen", "why", "title", "title_kind", "lyrics", "share_line", "style", "exclude",
                  "photo_query", "image_prompt", "situation", "shorts_title", "yt_intro", "comment_prompt",
-                 "hashtags", "tags", "classic_note", "references"],
+                 "hashtags", "tags", "classic_note", "theme_instrument", "references"],
     "additionalProperties": False,
 }
 
@@ -274,7 +280,7 @@ def research(brief: str) -> str:
 
 
 def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "", style: str = "",
-               classic: str = "", avoid: list[str] | None = None) -> dict:
+               classic: str = "", avoid: list[str] | None = None, avoid_styles: list[str] | None = None) -> dict:
     """classic: '' 없음, 'auto' 의미로 고르기, 또는 classical.LIBRARY의 id."""
     asks = []
     if hook:
@@ -291,6 +297,8 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
         asks.append(f"곡 스타일 요청: {style}\nSuno 스타일 문구에 이 요청을 반영하고, 가사의 호흡도 그 스타일에 맞춰라.")
     if avoid:
         asks.append("이미 만든 곡의 후렴이다. 겹치지 않게 해라:\n" + "\n".join(f"- {a}" for a in avoid))
+    if avoid_styles:
+        asks.append("이미 만든 곡의 스타일이다. 장르와 악기가 겹치지 않게 해라:\n" + "\n".join(f"- {a}" for a in avoid_styles))
     brief = "\n\n".join(asks)
 
     piece, reason = None, ""
@@ -330,5 +338,6 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
     data["research"] = notes
     if piece:
         data["classic"] = {"id": piece["id"], "name": piece["name"], "composer": piece["composer"],
-                           "year": piece["year"], "reason": reason, "note": data.get("classic_note", "")}
+                           "year": piece["year"], "reason": reason, "note": data.get("classic_note", ""),
+                           "instrument": data.get("theme_instrument", "piano")}
     return data

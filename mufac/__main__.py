@@ -93,9 +93,11 @@ def cmd_new(a) -> None:
     from .photo import fetch
     from .write import write_song
 
-    avoid = [x.meta.get("hook", "") for x in songmod.all_songs()][-40:]
+    done = songmod.all_songs()
+    avoid = [x.meta.get("hook", "") for x in done][-40:]
+    avoid_styles = [x.meta.get("style", "") for x in done][-12:]
     data = write_song(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style,
-                      classic=a.classic, avoid=avoid)
+                      classic=a.classic, avoid=avoid, avoid_styles=avoid_styles)
     s = Song(songmod.new_slug())
     pick = data["candidates"][data["chosen"]]
     s.meta = {
@@ -131,7 +133,7 @@ def cmd_new(a) -> None:
     if data.get("classic"):
         from .classical import render as render_melody
         try:
-            info = render_melody(data["classic"]["id"], s.dir)
+            info = render_melody(data["classic"]["id"], s.dir, data["classic"].get("instrument", "piano"))
             s.meta["classic"].update({k: info[k] for k in ("seconds", "theme_seconds", "bpm", "key", "chorus_syllables", "plan")})
         except Exception as e:  # 멜로디 파일이 없어도 가사는 남긴다
             print(f"원곡 멜로디를 만들지 못했습니다: {e}", file=sys.stderr)
