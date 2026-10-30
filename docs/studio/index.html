@@ -414,7 +414,7 @@ async function makeSong(auto) {
     pending.unshift({ req, label: idea || "새 곡" });
     $("kw").value = "";
     renderList();
-    toast("작사 시작. 약 10분 소요");
+    toast("작사 시작. 약 5분 소요");
     poll(4000);
   } catch (e) { toast("시작 실패: " + e.message); }
   finally { $("makeKw").disabled = $("makeAuto").disabled = false; }
