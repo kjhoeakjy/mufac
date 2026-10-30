@@ -12,6 +12,8 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor
 import datetime as dt
 import os
+from pathlib import Path
+import shutil
 import sys
 
 from . import song as songmod
@@ -178,6 +180,22 @@ def cmd_new(a) -> None:
     print(s.slug)
     _output("slug", s.slug)
     _output("title", s.meta["title"])
+
+
+def cmd_place(a) -> None:
+    """만들어 둔 곡 폴더를 songs/ 안의 비어 있는 첫 번호로 넣는다.
+    저장 직전(최신 main을 받은 뒤)에 불러서, 같은 시각에 만든 두 곡이 같은 번호를 쓰는 일을 막는다.
+    원본 폴더는 그대로 두므로(복사) push가 밀려 다시 시도할 때 또 부를 수 있다."""
+    src = Path(a.src)
+    if not (src / "song.yaml").exists():
+        sys.exit(f"{src}: song.yaml이 없습니다.")
+    s = Song(songmod.new_slug())
+    shutil.copytree(src, s.dir)
+    s = Song(s.slug)
+    write_readme(s)
+    print(s.slug)
+    _output("slug", s.slug)
+    _output("title", s.meta.get("title", s.slug))
 
 
 def cmd_refresh(a) -> None:
@@ -404,6 +422,10 @@ def main() -> None:
     n.add_argument("--stage", default="all", choices=["all", "plan", "write", "finish"],
                    help="단계별 실행 (Actions가 진행률을 보여 주려고 셋으로 나눠 부른다)")
     n.set_defaults(func=cmd_new)
+
+    pl = sub.add_parser("place", help="곡 폴더를 비어 있는 첫 번호로 넣기 (저장 직전에 쓴다)")
+    pl.add_argument("src")
+    pl.set_defaults(func=cmd_place)
 
     rf = sub.add_parser("refresh", help="제목·가사를 고친 뒤 유튜브 글과 미리보기 다시 만들기")
     rf.add_argument("slug")

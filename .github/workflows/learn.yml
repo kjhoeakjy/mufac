@@ -17,7 +17,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: repo-write
+  group: learn
   cancel-in-progress: false
 
 jobs:
@@ -43,6 +43,11 @@ jobs:
           git config user.email "mufac@users.noreply.github.com"
           git add assets/lyrics
           git diff --cached --quiet || git commit -m "레퍼런스 작사 프로필"
-          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
+          pushed=0
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase origin main && git push -q; then pushed=1; break; fi
+            git rebase --abort 2>/dev/null || true; sleep $((i * 5))
+          done
+          [ "$pushed" = 1 ] || { echo "::error::저장 실패: push가 다섯 번 밀렸습니다"; exit 1; }
           echo "### 프로필" >> "$GITHUB_STEP_SUMMARY"
           for f in assets/lyrics/*.md; do echo "- [$(basename "$f" .md)](https://github.com/${{ github.repository }}/blob/main/$f)" >> "$GITHUB_STEP_SUMMARY"; done
