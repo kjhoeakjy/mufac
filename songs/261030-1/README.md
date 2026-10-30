@@ -6,7 +6,7 @@
 
 ## 이렇게 쓴 이유
 
-다섯 후보 가운데 퇴근 시간은 직업과 나이를 가리지 않고 거의 모든 사람이 매일 겪는 기쁨이라 가장 넓게 따라 부를 수 있다. 실러의 시에서 가장 유명한 '모든 사람은 형제가 되리라'를 여섯 시 퇴근으로 끌어내려, 그 순간에는 얄미운 옆자리도 형제가 된다고 우긴다. 원곡이 처음부터 많은 사람이 함께 부르라고 쓴 밝은 노래라 슬픈 사연 없이 밝게 썼다. 크라잉넛처럼 외칠 수 있는 한 덩이 말로 후렴을 짜고, 술탄 오브 더 디스코처럼 마지막 후렴에서 '부장님도 형제다'로 거창한 형제애를 초라한 사무실로 떨어뜨렸다. 제목은 단어처럼 짧은 명사구 '여섯 시'로 골랐다. 조사한 히트곡에서 명사 제목이 가장 많았고, 부르는 순간 각자의 퇴근 시간이 떠오른다.
+다섯 후보 가운데 퇴근 시간은 직업과 나이를 가리지 않고 거의 모든 사람이 매일 겪는 기쁨이라 가장 넓게 따라 부를 수 있다. 퇴근하는 순간에는 얄미운 옆자리도 형제가 된다고 우긴다. 슬픈 사연 없이 밝게 썼다. 크라잉넛처럼 외칠 수 있는 한 덩이 말로 후렴을 짜고, 술탄 오브 더 디스코처럼 마지막 후렴에서 '부장님도 형제다'로 거창한 형제애를 초라한 사무실로 떨어뜨렸다. 제목은 단어처럼 짧은 명사구 '여섯 시'로 골랐다. 조사한 히트곡에서 명사 제목이 가장 많았고, 부르는 순간 각자의 퇴근 시간이 떠오른다.
 
 참고한 곡
 
@@ -17,19 +17,13 @@
 
 조사 전체는 [research.md](research.md).
 
-## 원곡: 환희의 송가
-
-루트비히 판 베토벤, 1824 · Beethoven's Ode to Joy. 이 노래의 사연은 후렴 후보 다섯 개 가운데 가장 많은 사람을 움직일 하나를 고르는 것이니, 원곡도 처음부터 많은 사람이 함께 부르라고 쓴 곡이 맞습니다. 베토벤은 20대부터 실러의 1785년 시 「환희에 부쳐」에 곡을 붙이고 싶어 했고, 30년 만인 1824년 교향곡 9번 마지막 악장에서 '모든 사람은 형제가 되리라'는 구절을 합창으로 완성했습니다. 초연 때 그는 귀가 완전히 먹어 박수를 듣지 못했고, 알토 가수가 돌려세워 주고서야 환호하는 청중을 보았습니다. 자기는 들을 수 없는 사람이 모두가 함께 부를 노래를 만든 셈이고, 1989년 베를린 장벽이 무너진 성탄절에는 '환희' 대신 '자유'로 가사를 바꿔 불렀을 만큼 수많은 사람의 목소리를 하나로 모은 선율입니다. 첫 네 음만 들려도 누구나 알아듣는 곡이라, 14/14음절 두 줄 후렴을 그 선율 그대로 부르면 곧바로 떼창이 되는 밝고 힘 있는 노래가 됩니다.
-
-원곡은 Style 문구와 가사의 구간 태그로 Suno에 지시한다(음원은 올리지 않는다).
-
 ## 1. Suno에 붙여넣기
 
 [Suno](https://suno.com/create)에서 Custom 모드를 켜고 아래를 칸마다 붙여넣는다. 곡 이미지는 cover.jpg.
 
 **Style**
 ```text
-korean ska punk, brass and strings, guitar and horns quote Ode to Joy, intro brass section plays Beethoven's Ode to Joy theme, chorus vocal melody interpolates Ode to Joy, interlude restates the theme, verses original, 168 bpm, bright male vocal, gang chorus
+korean ska punk, brass and strings, upstroke guitar and horn section, driving drums, 168 bpm, bright male vocal, gang chorus, big singalong hook
 ```
 
 **Exclude styles**
@@ -44,7 +38,7 @@ lo-fi, solo piano ballad, rap, autotune, english lyrics, slow tempo
 
 **Lyrics**
 ```text
-[Intro - brass section plays the Ode to Joy theme]
+[Intro]
 
 [Verse 1]
 오늘 한 일 물어보지 마
@@ -52,7 +46,7 @@ lo-fi, solo piano ballad, rap, autotune, english lyrics, slow tempo
 시계 바늘 고장 났나 봐
 오 분 남았어 아 몰라
 
-[Chorus - sung to the Ode to Joy melody]
+[Chorus]
 여섯 시다 가방 메라 옆자리도 형제다
 내일 일은 내일의 나 그 녀석한테 맡겨
 
@@ -62,13 +56,13 @@ lo-fi, solo piano ballad, rap, autotune, english lyrics, slow tempo
 지갑은 얇고 목청은 커
 이 동네 다 내 편이야
 
-[Chorus - sung to the Ode to Joy melody]
+[Chorus]
 여섯 시다 가방 메라 옆자리도 형제다
 내일 일은 내일의 나 그 녀석한테 맡겨
 
-[Interlude - horns and guitar restate the Ode to Joy theme]
+[Interlude]
 
-[Final Chorus - sung to the Ode to Joy melody]
+[Final Chorus]
 여섯 시다 불을 꺼라 부장님도 형제다
 내일 일은 내일의 나 그 녀석한테 맡겨
 
