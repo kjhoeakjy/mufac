@@ -1,0 +1,50 @@
+name: 유튜브 업로드
+run-name: "유튜브 업로드 ${{ inputs.slug }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "곡 폴더 이름 (예: 261030-1)"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: upload-${{ inputs.slug }}
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install PyYAML google-api-python-client google-auth
+      - name: 영상 받기
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SLUG: ${{ inputs.slug }}
+        run: gh release download "song-$SLUG" -D "songs/$SLUG/out" --clobber
+      - name: 올리기
+        env:
+          SLUG: ${{ inputs.slug }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: python -m mufac publish "$SLUG"
+      - name: 결과 저장
+        if: always()
+        env:
+          SLUG: ${{ inputs.slug }}
+        run: |
+          git config user.name "mufac"
+          git config user.email "mufac@users.noreply.github.com"
+          git add "songs/$SLUG/song.yaml" "songs/$SLUG/README.md"
+          git diff --cached --quiet || git commit -m "유튜브 업로드: $SLUG"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done

@@ -83,7 +83,7 @@ SCHEMA = {
 }
 
 
-def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "",
+def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "", style: str = "",
                avoid: list[str] | None = None) -> dict:
     asks = []
     if hook:
@@ -91,11 +91,13 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
     else:
         asks.append("후렴 후보 5개를 만들고, 그중 가장 많은 사람을 움직일 하나를 골라 가사를 써라.")
     if idea:
-        asks.append(f"요즘 내 생각이나 상황: {idea}")
+        asks.append(f"이 키워드나 상황으로 만들어라: {idea}")
     if theme and theme != "자동":
         asks.append(f"주제는 {theme}.")
     if vocal and vocal != "자동":
         asks.append(f"보컬은 {vocal}.")
+    if style:
+        asks.append(f"곡 스타일 요청: {style}\nSuno 스타일 문구에 이 요청을 반영하고, 가사의 호흡도 그 스타일에 맞춰라.")
     if avoid:
         asks.append("이미 만든 곡의 후렴이다. 겹치지 않게 해라:\n" + "\n".join(f"- {a}" for a in avoid))
 

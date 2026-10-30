@@ -1,5 +1,5 @@
 # 활동명. 영상 설명과 자막 첫 화면에 들어갑니다.
-artist: ""
+artist: "연주왕김연주"
 
 # 유튜브 제목 형식. {title}, {artist} 사용 가능.
 youtube_title: "{title} - {artist}"

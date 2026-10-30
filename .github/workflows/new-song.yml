@@ -1,10 +1,11 @@
 name: 새 곡
+run-name: "새 곡 ${{ inputs.req }}"
 
 on:
   workflow_dispatch:
     inputs:
       idea:
-        description: "요즘 생각이나 상황 (비워도 됨)"
+        description: "키워드나 상황 (비우면 알아서)"
         required: false
         default: ""
       hook:
@@ -16,6 +17,14 @@ on:
         type: choice
         options: [자동, 사랑, 어른, 아픔]
         default: 자동
+      style:
+        description: "곡 스타일 (예: 어쿠스틱, 남자 보컬, 밴드 사운드)"
+        required: false
+        default: ""
+      req:
+        description: "대시보드 요청 번호 (비워도 됨)"
+        required: false
+        default: ""
       vocal:
         description: "보컬"
         type: choice
@@ -52,7 +61,9 @@ jobs:
           HOOK: ${{ inputs.hook }}
           THEME: ${{ inputs.theme }}
           VOCAL: ${{ inputs.vocal }}
-        run: python -m mufac new --idea "$IDEA" --hook "$HOOK" --theme "$THEME" --vocal "$VOCAL"
+          STYLE: ${{ inputs.style }}
+          REQ: ${{ inputs.req }}
+        run: python -m mufac new --idea "$IDEA" --hook "$HOOK" --theme "$THEME" --vocal "$VOCAL" --style "$STYLE" --req "$REQ"
       - name: 저장
         env:
           SLUG: ${{ steps.song.outputs.slug }}

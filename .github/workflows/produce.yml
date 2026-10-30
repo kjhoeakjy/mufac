@@ -1,4 +1,5 @@
 name: 영상 만들기
+run-name: "영상 만들기 ${{ inputs.slug || github.event.head_commit.message }}"
 
 on:
   push:
@@ -13,10 +14,6 @@ on:
       slug:
         description: "곡 폴더 이름 (예: 261030-1)"
         required: true
-      upload:
-        description: "유튜브에 올리기"
-        type: boolean
-        default: true
 
 permissions:
   contents: write
@@ -55,25 +52,26 @@ jobs:
           path: ~/.cache/huggingface
           key: whisper-${{ hashFiles('config.yaml') }}
           restore-keys: whisper-
-      - name: 영상 만들고 올리기
+      - name: 영상 만들기
         env:
           SLUGS: ${{ steps.pick.outputs.slugs }}
-          UPLOAD: ${{ github.event_name == 'push' || inputs.upload }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
-          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
-          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: for s in $SLUGS; do python -m mufac produce "$s"; done
+      - name: 영상 보관(Release)
+        env:
+          SLUGS: ${{ steps.pick.outputs.slugs }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           for s in $SLUGS; do
-            if [ "$UPLOAD" = "true" ]; then python -m mufac produce "$s" --upload; else python -m mufac produce "$s"; fi
-            mkdir -p dist/$s && cp songs/$s/out/main.mp4 songs/$s/out/short.mp4 songs/$s/out/thumb.jpg dist/$s/ 2>/dev/null || true
+            files="songs/$s/out/main.mp4 songs/$s/out/thumb.jpg"
+            [ -f "songs/$s/out/short.mp4" ] && files="$files songs/$s/out/short.mp4"
+            if gh release view "song-$s" >/dev/null 2>&1; then
+              gh release upload "song-$s" $files --clobber
+            else
+              gh release create "song-$s" $files --title "$s" --notes "mufac 영상" --latest=false
+            fi
           done
-      - uses: actions/upload-artifact@v4
-        with:
-          name: videos
-          path: dist/
-          retention-days: 30
       - name: 결과 저장
         env:
           SLUGS: ${{ steps.pick.outputs.slugs }}
@@ -83,4 +81,3 @@ jobs:
           for s in $SLUGS; do git add "songs/$s/song.yaml" "songs/$s/README.md" "songs/$s/timing.lrc" songs/$s/photo*.jpg 2>/dev/null || true; done
           git diff --cached --quiet || git commit -m "영상 완료: $SLUGS"
           for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
-          for s in $SLUGS; do echo "### [$s](https://github.com/${{ github.repository }}/tree/main/songs/$s)" >> "$GITHUB_STEP_SUMMARY"; done

@@ -2,7 +2,8 @@
 
   python -m mufac new [--hook 문장] [--idea 생각] [--theme 사랑|어른|아픔] [--vocal 여성|남성|듀엣]
   python -m mufac photo <slug> [--pick N]
-  python -m mufac produce <slug> [--upload] [--no-short]
+  python -m mufac produce <slug> [--no-short]
+  python -m mufac publish <slug>
 """
 
 from __future__ import annotations
@@ -68,7 +69,7 @@ def cmd_new(a) -> None:
     from .write import write_song
 
     avoid = [x.meta.get("hook", "") for x in songmod.all_songs()][-40:]
-    data = write_song(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, avoid=avoid)
+    data = write_song(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style, avoid=avoid)
     s = Song(songmod.new_slug())
     pick = data["candidates"][data["chosen"]]
     s.meta = {
@@ -77,6 +78,7 @@ def cmd_new(a) -> None:
         "theme": pick["theme"],
         "story": pick["story"],
         "created": dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M"),
+        "request": {k: v for k, v in {"id": a.req, "idea": a.idea, "style": a.style}.items() if v},
         "style": data["style"],
         "exclude": data["exclude"],
         "photo_query": data["photo_query"],
@@ -110,7 +112,6 @@ def cmd_photo(a) -> None:
 
 
 def cmd_produce(a) -> None:
-    from . import youtube
     from .align import short_window, timings
     from .render import prepare, render_main, render_short, thumbnail, write_ass_main, write_ass_short
 
@@ -131,43 +132,56 @@ def cmd_produce(a) -> None:
     print("가사 위치 찾는 중", flush=True)
     rows = timings(s, cfg.get("whisper_model", "medium"))
     src = prepare(s)
-    thumb = thumbnail(s, artist)
+    thumbnail(s, artist)
 
     ass = s.out / "main.ass"
     write_ass_main(s, rows, ass, artist)
     print("본편 영상 만드는 중", flush=True)
-    main = render_main(s, src, ass)
+    render_main(s, src, ass)
 
-    short = None
     if not a.no_short:
         start, end = short_window(s, rows, float(cfg.get("short_seconds", 40)))
         ass_s = s.out / "short.ass"
         write_ass_short(s, rows, ass_s, artist, start, end)
         print(f"쇼츠 만드는 중 ({start:.1f}s~{end:.1f}s)", flush=True)
-        short = render_short(s, src, ass_s, start, end)
+        render_short(s, src, ass_s, start, end)
         s.meta["short_window"] = [round(start, 2), round(end, 2)]
 
-    if a.upload:
-        if not youtube.ready():
-            print("유튜브 키가 없어 업로드는 건너뜁니다.", flush=True)
-        else:
-            yt = s.meta.setdefault("youtube", {})
-            title = cfg["youtube_title"].format(title=s.meta["title"], artist=artist).strip(" -")
-            tags = s.meta.get("tags") or []
-            if not yt.get("main"):
-                print("유튜브 본편 업로드", flush=True)
-                yt["main"] = youtube.upload(main, title=title, desc=youtube.description(s, artist),
-                                            tags=tags, privacy=cfg["privacy"], thumb=thumb)
-                s.save()
-            if short and not yt.get("short"):
-                print("유튜브 쇼츠 업로드", flush=True)
-                yt["short"] = youtube.upload(short, title=f"{s.meta['title']} #shorts",
-                                             desc=youtube.description(s, artist, main_id=yt.get("main")),
-                                             tags=tags, privacy=cfg["privacy"])
     s.meta["produced"] = dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M")
     s.save()
     write_readme(s)
     print("완료", s.out, flush=True)
+
+
+def cmd_publish(a) -> None:
+    """out/에 있는 영상(main.mp4, short.mp4, thumb.jpg)을 유튜브에 올린다."""
+    from . import youtube
+
+    cfg = songmod.config()
+    artist = cfg.get("artist", "")
+    s = Song(a.slug)
+    main, short, thumb = s.out / "main.mp4", s.out / "short.mp4", s.out / "thumb.jpg"
+    if not main.exists():
+        sys.exit(f"{s.slug}: 영상이 없습니다. 먼저 영상을 만들어 주세요.")
+    if not youtube.ready():
+        sys.exit("유튜브 키가 없습니다. SETUP.md를 보세요.")
+    yt = s.meta.setdefault("youtube", {})
+    title = cfg["youtube_title"].format(title=s.meta["title"], artist=artist).strip(" -")
+    tags = s.meta.get("tags") or []
+    if not yt.get("main"):
+        print("유튜브 본편 업로드", flush=True)
+        yt["main"] = youtube.upload(main, title=title, desc=youtube.description(s, artist),
+                                    tags=tags, privacy=cfg["privacy"], thumb=thumb)
+        s.save()
+    if short.exists() and not yt.get("short"):
+        print("유튜브 쇼츠 업로드", flush=True)
+        yt["short"] = youtube.upload(short, title=f"{s.meta['title']} #shorts",
+                                     desc=youtube.description(s, artist, main_id=yt.get("main")),
+                                     tags=tags, privacy=cfg["privacy"])
+    s.meta["uploaded"] = dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M")
+    s.save()
+    write_readme(s)
+    print("완료", yt, flush=True)
 
 
 def cmd_check(a) -> None:
@@ -194,6 +208,8 @@ def main() -> None:
     n.add_argument("--idea", default="")
     n.add_argument("--theme", default="")
     n.add_argument("--vocal", default="")
+    n.add_argument("--style", default="")
+    n.add_argument("--req", default="", help="대시보드가 붙이는 요청 번호")
     n.set_defaults(func=cmd_new)
 
     ph = sub.add_parser("photo", help="사진 다시 만들기")
@@ -202,11 +218,14 @@ def main() -> None:
     ph.add_argument("--prompt", default="")
     ph.set_defaults(func=cmd_photo)
 
-    pr = sub.add_parser("produce", help="영상 만들고 업로드")
+    pr = sub.add_parser("produce", help="자막 영상과 썸네일 만들기")
     pr.add_argument("slug")
-    pr.add_argument("--upload", action="store_true")
     pr.add_argument("--no-short", action="store_true")
     pr.set_defaults(func=cmd_produce)
+
+    pu = sub.add_parser("publish", help="만든 영상을 유튜브에 올리기")
+    pu.add_argument("slug")
+    pu.set_defaults(func=cmd_publish)
 
     c = sub.add_parser("check", help="유튜브 연결 확인")
     c.set_defaults(func=cmd_check)
