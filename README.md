@@ -59,4 +59,7 @@ docs/studio/             대시보드 (GitHub Pages)
 
 업로드가 `invalid_grant: Token has been expired or revoked`로 실패하면 refresh token이 만료된 것이다.
 Google Cloud 콘솔의 OAuth 동의 화면 게시 상태가 "테스트"면 토큰이 7일마다 끊기므로 "프로덕션"으로 바꾼다.
+브랜딩을 저장해도 "앱 게시" 버튼이 안 켜지면(2026-10 새 콘솔 버그) 브랜딩의 앱 도메인 세 칸에
+홈페이지 `https://kjhoeakjy.github.io/mufac/`, 개인정보처리방침 `.../mufac/privacy.html`, 서비스 약관 `.../mufac/terms.html`을 넣고
+승인된 도메인에 `kjhoeakjy.github.io`를 추가한 뒤 저장한다.
 그다음 내 컴퓨터에서 `python tools/yt_token.py`를 실행해 새 토큰을 받고, 저장소 Secrets의 `YT_REFRESH_TOKEN`을 바꾼다.
