@@ -134,6 +134,7 @@ def cmd_new(a) -> None:
         "title_kind": data.get("title_kind", ""),
         "tempo": data.get("tempo", ""),
         "arc": data.get("arc", ""),
+        "line_plan": data.get("line_plan", ""),
         "why": data.get("why", ""),
         "share_line": data.get("share_line", ""),
         "youtube_meta": {
