@@ -104,7 +104,7 @@ def learn_all(names: list[str] | None = None, *, force: bool = False) -> list[Pa
     return out
 
 
-def profiles_text(limit_chars: int = 14000) -> str:
+def profiles_text(limit_chars: int = 24000) -> str:
     """곡을 쓸 때 프롬프트에 붙일 프로필 묶음. 레퍼런스 순서대로, 너무 길면 뒤를 자른다."""
     parts = []
     for name in references():
