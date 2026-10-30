@@ -89,21 +89,49 @@ def _preview(s: Song) -> dict:
     return youtube.preview(s, songmod.config())
 
 
+def _work_dir():
+    from pathlib import Path
+    d = Path(os.environ.get("MUFAC_WORK", ".mufac-work"))
+    d.mkdir(exist_ok=True)
+    return d
+
+
 def cmd_new(a) -> None:
+    """--stage all(기본) | plan | write | finish.
+    Actions에서는 세 단계를 따로 실행해 진행률을 보여 준다. 단계 사이 상태는 .mufac-work/에 JSON으로 둔다."""
+    import json
     import time
     from concurrent.futures import ThreadPoolExecutor
 
     from .photo import fetch
-    from .write import safe_polish, took, write_song
+    from .write import compose, prepare, safe_polish, took
 
+    stage = a.stage or "all"
+    wd = _work_dir()
     t_all = time.time()
-    done = songmod.all_songs()
-    avoid = [x.meta.get("hook", "") for x in done][-40:]
-    avoid_styles = [x.meta.get("style", "") for x in done][-12:]
-    used_classics = [(x.meta.get("classic") or {}).get("id", "") for x in done][-8:]
-    data = write_song(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style,
-                      classic=a.classic, avoid=avoid, avoid_styles=avoid_styles,
-                      used_classics=[u for u in used_classics if u], do_polish=False)
+
+    if stage in ("all", "plan"):
+        done = songmod.all_songs()
+        avoid = [x.meta.get("hook", "") for x in done][-40:]
+        avoid_styles = [x.meta.get("style", "") for x in done][-12:]
+        used_classics = [(x.meta.get("classic") or {}).get("id", "") for x in done][-8:]
+        work = prepare(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style,
+                       classic=a.classic, avoid=avoid, avoid_styles=avoid_styles,
+                       used_classics=[u for u in used_classics if u])
+        work["request"] = {k: v for k, v in {"id": a.req, "idea": a.idea, "style": a.style, "classic": a.classic}.items() if v}
+        (wd / "plan.json").write_text(json.dumps(work, ensure_ascii=False), encoding="utf-8")
+        if stage == "plan":
+            return
+
+    if stage in ("all", "write"):
+        work = json.loads((wd / "plan.json").read_text(encoding="utf-8"))
+        data = compose(work)
+        data["request"] = work.get("request", {})
+        (wd / "song.json").write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        if stage == "write":
+            return
+
+    data = json.loads((wd / "song.json").read_text(encoding="utf-8"))
     s = Song(songmod.new_slug())
     pick = data["candidates"][data["chosen"]]
     s.meta = {
@@ -112,7 +140,7 @@ def cmd_new(a) -> None:
         "theme": pick["theme"],
         "story": pick["story"],
         "created": dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M"),
-        "request": {k: v for k, v in {"id": a.req, "idea": a.idea, "style": a.style, "classic": a.classic}.items() if v},
+        "request": data.get("request", {}),
         "style": data["style"],
         "exclude": data["exclude"],
         "photo_query": data["photo_query"],
@@ -173,7 +201,7 @@ def cmd_new(a) -> None:
     s.meta["youtube_preview"] = _preview(s)
     s.save()
     write_readme(s)
-    took("전체", t_all)
+    took("마무리" if stage == "finish" else "전체", t_all)
     print(s.slug)
     _output("slug", s.slug)
     _output("title", s.meta["title"])
@@ -303,6 +331,8 @@ def main() -> None:
     n.add_argument("--style", default="")
     n.add_argument("--classic", default="auto", help="auto, none, 또는 클래식 곡 id")
     n.add_argument("--req", default="", help="대시보드가 붙이는 요청 번호")
+    n.add_argument("--stage", default="all", choices=["all", "plan", "write", "finish"],
+                   help="단계별 실행 (Actions가 진행률을 보여 주려고 셋으로 나눠 부른다)")
     n.set_defaults(func=cmd_new)
 
     ph = sub.add_parser("photo", help="사진 다시 만들기")

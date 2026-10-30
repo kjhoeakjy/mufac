@@ -3,3 +3,4 @@ __pycache__/
 songs/*/out/
 .venv/
 .env
+.mufac-work/

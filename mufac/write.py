@@ -354,11 +354,11 @@ def research(brief: str) -> str:
     return ""
 
 
-def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "", style: str = "",
-               classic: str = "", avoid: list[str] | None = None, avoid_styles: list[str] | None = None,
-               used_classics: list[str] | None = None, do_polish: bool = True) -> dict:
-    """classic: '' 없음, 'auto' 의미로 고르기, 또는 classical.LIBRARY의 id.
-    do_polish=False면 검수(polish)를 건너뛰고 호출한 쪽이 나중에 돌린다(다른 일과 동시에 하려고)."""
+def prepare(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "", style: str = "",
+            classic: str = "", avoid: list[str] | None = None, avoid_styles: list[str] | None = None,
+            used_classics: list[str] | None = None) -> dict:
+    """1단계: 요청문을 만들고, 원곡 고르기와 레퍼런스 조사를 동시에 한다.
+    classic: '' 없음, 'auto' 의미로 고르기, 또는 카탈로그의 곡 id. 결과는 JSON으로 저장할 수 있는 dict."""
     asks = []
     if hook:
         asks.append(f"후렴 문장은 이것으로 정했다: \"{hook}\". 후보 첫 번째에 넣고 그걸로 가사를 써라.")
@@ -398,13 +398,19 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
     if piece:
         brief += (f"\n\n[멜로디 곡]\n이 노래는 {piece['name']}({piece['composer']}, {piece['year']}) 선율 위에 쓴다. "
                   f"고른 이유: {reason}")
+    return {"brief": brief, "piece_id": piece["id"] if piece else "", "reason": reason, "notes": notes}
 
+
+def compose(work: dict) -> dict:
+    """2단계: 가사·스타일·유튜브 글을 쓴다(가장 깊은 생각). 검수는 하지 않는다."""
+    piece = classical.get(work["piece_id"]) if work.get("piece_id") else None
+    notes = work.get("notes", "")
     parts = []
     if notes:
         parts.append(f"[레퍼런스 조사 노트]\n{notes}")
     if piece:
         parts.append(f"[멜로디 곡 자료]\n{piece['story'].strip()}\n\n{classical.lyric_plan(piece['id'])}")
-    parts.append(f"[요청]\n{brief}")
+    parts.append(f"[요청]\n{work['brief']}")
     content = "\n\n".join(parts)
     t0 = time.time()
     with anthropic.Anthropic().beta.messages.stream(
@@ -418,11 +424,18 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
     text = next(b.text for b in response.content if b.type == "text")
     data = json.loads(text)
     data["chosen"] = max(0, min(int(data.get("chosen", 0)), len(data["candidates"]) - 1))
-    if do_polish:
-        data = safe_polish(data, piece["id"] if piece else "")
     data["research"] = notes
     if piece:
         data["classic"] = {"id": piece["id"], "name": piece["name"], "composer": piece["composer"],
-                           "year": piece["year"], "reason": reason, "note": data.get("classic_note", ""),
+                           "year": piece["year"], "reason": work.get("reason", ""), "note": data.get("classic_note", ""),
                            "instrument": data.get("theme_instrument", "piano")}
+    return data
+
+
+def write_song(*, do_polish: bool = True, **kw) -> dict:
+    """prepare → compose (→ polish) 를 한 번에."""
+    work = prepare(**kw)
+    data = compose(work)
+    if do_polish:
+        data = safe_polish(data, work["piece_id"])
     return data

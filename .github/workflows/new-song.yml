@@ -1,5 +1,5 @@
 name: 새 곡
-run-name: "새 곡 ${{ inputs.req }}"
+run-name: "새 곡 ${{ inputs.req }} ${{ inputs.idea || '자동' }}"
 
 on:
   workflow_dispatch:
@@ -49,6 +49,17 @@ jobs:
   new:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      IDEA: ${{ inputs.idea }}
+      HOOK: ${{ inputs.hook }}
+      THEME: ${{ inputs.theme }}
+      VOCAL: ${{ inputs.vocal }}
+      STYLE: ${{ inputs.style }}
+      REQ: ${{ inputs.req }}
+      CLASSIC: ${{ inputs.classic || 'auto' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -56,19 +67,13 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install anthropic requests PyYAML Pillow numpy mido imageio-ffmpeg
-      - id: song
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          IDEA: ${{ inputs.idea }}
-          HOOK: ${{ inputs.hook }}
-          THEME: ${{ inputs.theme }}
-          VOCAL: ${{ inputs.vocal }}
-          STYLE: ${{ inputs.style }}
-          REQ: ${{ inputs.req }}
-          CLASSIC: ${{ inputs.classic || 'auto' }}
-        run: python -m mufac new --idea "$IDEA" --hook "$HOOK" --theme "$THEME" --vocal "$VOCAL" --style "$STYLE" --req "$REQ" --classic "$CLASSIC"
+      - name: 원곡 고르기 · 조사
+        run: python -m mufac new --stage plan --idea "$IDEA" --hook "$HOOK" --theme "$THEME" --vocal "$VOCAL" --style "$STYLE" --req "$REQ" --classic "$CLASSIC"
+      - name: 작사
+        run: python -m mufac new --stage write
+      - name: 검수 · 사진 · 멜로디
+        id: song
+        run: python -m mufac new --stage finish
       - name: 저장
         env:
           SLUG: ${{ steps.song.outputs.slug }}
