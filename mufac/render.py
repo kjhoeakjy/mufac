@@ -97,8 +97,6 @@ def _style(name, font, size, align, margin_v, *, bold=-1, shadow=2, margin_lr=12
 
 def write_ass_main(song: Song, rows: list[dict], path: Path, artist: str) -> None:
     title = song.meta.get("title", "")
-    cl = song.meta.get("classic") or {}
-    origin = f"원곡 {cl['name']} · {cl['composer']}" if cl else ""
     lines = [_ass_header(1920, 1080, [
         _style("Lyric", "Gowun Batang", 64, 2, 110),
         _style("Title", "Gowun Batang", 96, 5, 0, spacing=2),
@@ -109,8 +107,6 @@ def write_ass_main(song: Song, rows: list[dict], path: Path, artist: str) -> Non
     lines.append(f"Dialogue: 0,{_ts(0.6)},{_ts(card_end)},Title,,0,0,0,,{{\\fad(900,700)\\pos(960,500)}}{_esc(title)}")
     if artist:
         lines.append(f"Dialogue: 0,{_ts(1.0)},{_ts(card_end)},Artist,,0,0,0,,{{\\fad(900,700)\\pos(960,600)}}{_esc(artist)}")
-    if origin:
-        lines.append(f"Dialogue: 0,{_ts(1.4)},{_ts(card_end)},Artist,,0,0,0,,{{\\fad(900,700)\\pos(960,660)\\fs30}}{_esc(origin)}")
     for r in rows:
         lines.append(f"Dialogue: 0,{_ts(r['start'] - 0.15)},{_ts(r['end'])},Lyric,,0,0,0,,"
                      f"{{\\fad(220,320)}}{_esc(r['text'])}")

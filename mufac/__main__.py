@@ -50,11 +50,6 @@ def write_readme(s: Song) -> None:
             lines.append(f"- 쇼츠 https://youtube.com/shorts/{yt['short']}")
         lines += ["- 비공개로 올라갑니다. [YouTube Studio](https://studio.youtube.com)에서 공개로 바꾸세요.", ""]
 
-    cl = m.get("classic") or {}
-    if cl:
-        lines += [f"## 원곡: {cl['name']}", "",
-                  f"{cl['composer']}, {cl['year']}{' · ' + cl['en'] if cl.get('en') else ''}. {cl.get('reason', '')}", "",
-                  "원곡은 Style 문구와 가사의 구간 태그로 Suno에 지시한다(음원은 올리지 않는다).", ""]
     lines += ["## 1. Suno에 붙여넣기", "",
               "[Suno](https://suno.com/create)에서 Custom 모드를 켜고 아래를 칸마다 붙여넣는다. 곡 이미지는 cover.jpg.", ""]
     lines += [
@@ -105,13 +100,10 @@ def cmd_new(a) -> None:
         done = songmod.all_songs()
         avoid = [x.meta.get("hook", "") for x in done][-40:]
         avoid_styles = [x.meta.get("style", "") for x in done][-12:]
-        used_classics = [(x.meta.get("classic") or {}).get("id", "") for x in done][-8:]
         work = prepare(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style,
-                       classic=a.classic, avoid=avoid, avoid_styles=avoid_styles,
-                       used_classics=[u for u in used_classics if u],
-                       title=a.title, content=a.content, genre=a.genre)
+                       avoid=avoid, avoid_styles=avoid_styles, title=a.title, content=a.content, genre=a.genre)
         work["request"] = {k: v for k, v in {"id": a.req, "title": a.title, "idea": a.idea, "content": a.content,
-                                             "genre": a.genre, "style": a.style, "classic": a.classic}.items() if v and v != "자동"}
+                                             "genre": a.genre, "style": a.style}.items() if v and v != "자동"}
         (wd / "plan.json").write_text(json.dumps(work, ensure_ascii=False), encoding="utf-8")
         if stage == "plan":
             return
@@ -156,9 +148,6 @@ def cmd_new(a) -> None:
         "lyrics_draft": data.get("lyrics_draft", ""),
         "polish": data.get("polish", []),
     }
-    classic = data.get("classic")
-    if classic:
-        s.meta["classic"] = classic
     s.save()
     if data.get("research"):
         (s.dir / "research.md").write_text(f"# 레퍼런스 조사\n\n{data['research']}\n", encoding="utf-8")
@@ -173,7 +162,7 @@ def cmd_new(a) -> None:
             print(f"사진을 못 가져왔습니다: {e}", file=sys.stderr)
 
     with ThreadPoolExecutor(max_workers=2) as pool:
-        f_polish = pool.submit(safe_polish, data, classic["id"] if classic else "", (data.get("request") or {}).get("title", ""))
+        f_polish = pool.submit(safe_polish, data, (data.get("request") or {}).get("title", ""))
         pool.submit(photo)
         data = f_polish.result()
     for k in ("title", "lyrics", "lyrics_draft", "polish", "share_line"):
@@ -343,7 +332,6 @@ def main() -> None:
     n.add_argument("--theme", default="")
     n.add_argument("--vocal", default="")
     n.add_argument("--style", default="")
-    n.add_argument("--classic", default="auto", help="auto, none, 또는 클래식 곡 id")
     n.add_argument("--req", default="", help="대시보드가 붙이는 요청 번호")
     n.add_argument("--title", default="", help="제목을 직접 정하려면")
     n.add_argument("--content", default="", help="노래에 담을 내용")

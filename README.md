@@ -1,15 +1,14 @@
 # mufac
 
-클래식 멜로디 위에 쓴 요즘 노래. Suno로 만든 곡을 유튜브 영상까지 만드는 개인용 공장.
+Suno로 만든 노래를 유튜브 영상까지 만드는 개인용 공장.
 사람은 Suno에서 곡을 듣고 고르기만 하고, 나머지는 GitHub Actions가 한다.
 
 대시보드: https://kjhoeakjy.github.io/mufac/studio/
 
 ## 하루 흐름
 
-1. **새 곡** — 대시보드에서 제목, 키워드, 원하는 내용, 장르, 곡 스타일, 클래식 원곡을 적거나 고르고 만들기. 비운 칸은 알아서 채운다. 매일 아침 8시에도 한 곡씩 준비된다.
-   Claude가 비슷한 정서의 히트곡을 조사하고, 노래의 사연에 이어지는 클래식 원곡을 고른 뒤, 가사, Suno 스타일, 사진을 만들어 `songs/<날짜-번호>/`에 저장한다.
-   원곡은 음원으로 올리지 않는다(Suno가 유명 곡 음원을 기존 음반으로 판정해 막는다). 대신 Style 문구와 가사의 구간 태그에 원곡의 영어 제목과 나오는 자리를 적어 전주·후렴·간주에서 원곡 선율이 나오게 한다.
+1. **새 곡** — 대시보드에서 제목, 키워드, 원하는 내용, 장르, 곡 스타일을 적거나 고르고 만들기. 비운 칸은 알아서 채운다. 매일 아침 8시에도 한 곡씩 준비된다.
+   Claude가 비슷한 정서의 히트곡을 조사한 뒤 가사, Suno 스타일, 사진을 만들어 `songs/<날짜-번호>/`에 저장한다.
 2. **Suno** — [Suno](https://suno.com/create)에서 Custom 모드를 켜고 대시보드의 Style, Exclude, Title, Lyrics를 붙여넣는다. 곡 이미지는 `cover.jpg`.
 3. **고르기** — 나온 곡 중 하나를 MP3로 받아 대시보드의 곡 칸에 놓는다.
 4. **자동** — 영상 만들기가 시작된다. 가사 위치를 음성 인식으로 찾고 본편(16:9), 쇼츠(9:16), 썸네일을 만든다.
@@ -24,14 +23,6 @@
   새 곡을 쓸 때 그 원리를 읽는다. 표현은 베끼지 않는다.
 - 존댓말 어미("-해요", "-거예요")를 줄마다 반복하지 않는다. 반말, 끊긴 문장, 입말이 기본.
 
-## 클래식 원곡
-
-- `assets/classical/catalog.yaml`에 작곡가 사망 1955년 이전, 작곡 1930년 이전인 곡만 둔다(규칙은 `mufac/classical.py`).
-  둘 중 하나라도 어긋나면 자동으로 빠진다.
-- 악보 MIDI는 공개 악보 저장소 [Mutopia](https://www.mutopiaproject.org)에서 [클래식 악보 수집](../../actions/workflows/collect.yml)으로 받아 `assets/classical/midi/`에 둔다.
-  후렴 가사의 줄 수와 음절 수를 원곡 선율에 맞추는 데 쓴다.
-- 악보가 없는 곡은 목록에만 있고 고를 수 없다. 곡을 더 넣으려면 카탈로그에 배경 이야기와 Mutopia 폴더를 적고 수집을 실행한다.
-
 ## 고치고 싶을 때
 
 | 하고 싶은 것 | 방법 |
@@ -39,8 +30,8 @@
 | 자막 타이밍 수정 | 곡 폴더의 `timing.lrc`에서 시간을 고치고 영상 만들기를 곡 이름으로 다시 실행 |
 | 사진 바꾸기 | `photo.jpg`(가로), `photo_v.jpg`(세로), `cover.jpg`(정사각)를 덮어쓰고 다시 실행 |
 | 가사 수정 | `song.yaml`의 `lyrics`를 고치고 `timing.lrc`를 지운 뒤 다시 실행 |
-| 원곡 직접 고르기 | 대시보드의 클래식 선택, 또는 새 곡 실행의 `classic`에 곡 id |
-| 제목 바꾸기 | 대시보드 곡 상단의 제목 수정 (유튜브 제목·설명도 함께 바뀜) |
+| 제목·가사 바꾸기 | 대시보드 곡 상단의 제목·가사 수정 (유튜브 글이 다시 만들어짐) |
+| 유튜브 글 바꾸기 | 대시보드 유튜브 칸의 글 수정 (업로드에 그대로 쓰임) |
 | 레퍼런스 밴드 바꾸기 | `config.yaml`의 `lyric_reference`를 고치고 레퍼런스 학습 실행 |
 | 활동명, 제목 형식, 공개 범위 | `config.yaml` |
 
@@ -53,10 +44,8 @@
 ```
 config.yaml              활동명, 공개 범위, 레퍼런스, 사진 방식
 songs/<slug>/            곡 하나: song.yaml, README.md, research.md, photo*.jpg, cover.jpg, 노래 파일, timing.lrc
-assets/classical/        catalog.yaml(원곡 목록과 배경), midi/(수집한 악보)
 assets/lyrics/           레퍼런스 밴드별 노랫말 프로필
 assets/fonts/            자막 글꼴 (고운바탕, Noto Sans KR, SIL Open Font License)
-mufac/                   코드 (write: 가사, learn: 레퍼런스, classical·midi: 원곡, photo: 사진, align: 자막, render: 영상, youtube: 업로드)
-tools/                   악보 수집 스크립트
+mufac/                   코드 (write: 가사, learn: 레퍼런스, photo: 사진, align: 자막, render: 영상, youtube: 업로드)
 docs/studio/             대시보드 (GitHub Pages)
 ```

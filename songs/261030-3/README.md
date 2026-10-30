@@ -6,7 +6,7 @@
 
 ## 이렇게 쓴 이유
 
-'꿈 깨'라는 말은 거의 모든 사람이 들어 봤고, 그 말에 '버리긴 뭘 버려'로 받아치는 순간 각자 서랍 속 물건이 하나씩 떠오르기 때문에 가장 넓다. 쇼팽이 즉흥 환상곡을 서랍에 넣고 태워 달라고 했지만 결국 세상에 나와 가장 사랑받은 곡이 됐다는 사실이 '태우긴 또 뭘 태워'라는 한 줄과 속으로 이어진다. 크라잉넛처럼 외칠 수 있는 한 덩이 말을 제목과 후렴에 두고, 잔나비처럼 후렴 직전에 '머리는 좀 빠졌지만'으로 자기를 낮춘 뒤 터뜨렸다. 터치드처럼 마지막 후렴은 두 줄만 바꿔 서랍 속에 넣어 두던 사람이 꺼내 트는 사람으로 바뀌게 했다. 제목은 후렴 문장 그대로 반말 반박으로 두어, 조사한 곡들에서 가장 많았던 반말 문장 제목 형태를 따랐다.
+'꿈 깨'라는 말은 거의 모든 사람이 들어 봤고, 그 말에 '버리긴 뭘 버려'로 받아치는 순간 각자 서랍 속 물건이 하나씩 떠오르기 때문에 가장 넓다.크라잉넛처럼 외칠 수 있는 한 덩이 말을 제목과 후렴에 두고, 잔나비처럼 후렴 직전에 '머리는 좀 빠졌지만'으로 자기를 낮춘 뒤 터뜨렸다. 터치드처럼 마지막 후렴은 두 줄만 바꿔 서랍 속에 넣어 두던 사람이 꺼내 트는 사람으로 바뀌게 했다. 제목은 후렴 문장 그대로 반말 반박으로 두어, 조사한 곡들에서 가장 많았던 반말 문장 제목 형태를 따랐다.
 
 참고한 곡
 
@@ -17,19 +17,13 @@
 
 조사 전체는 [research.md](research.md).
 
-## 원곡: 즉흥 환상곡
-
-프레데리크 쇼팽, 1834 · Chopin's Fantaisie-Impromptu. 주제어가 '꿈'이고 장르는 락이라, 꿈을 서랍 속에 숨겨 두었다가 터뜨리는 태도가 필요하다. 쇼팽이 1834년 스물네 살에 쓴 이 곡은 생전에 출판하지 않았고 태워 달라고 유언했지만, 친구 폰타나가 1855년에 출판해 가장 많이 사랑받는 곡이 되었다. 서랍에 넣어 둔 꿈이 결국 세상으로 나온다는 이야기가 락의 반항적인 에너지와 정확히 맞는다. 중간의 느린 선율은 1917년 「I'm Always Chasing Rainbows」가 되었고, 그 노래의 가사가 곧 꿈을 쫓는다는 내용이어서 '꿈'이라는 키워드와 직접 이어진다. 빠른 16분음표의 질주로 시작하는 첫 소절은 많은 사람이 단번에 알아듣고, 앞서 쓴 환희의 송가나 터키 행진곡과도 겹치지 않는다. 긴 후렴 여덟 줄은 락의 고조되는 구조에 잘 맞는다.
-
-원곡은 Style 문구와 가사의 구간 태그로 Suno에 지시한다(음원은 올리지 않는다).
-
 ## 1. Suno에 붙여넣기
 
 [Suno](https://suno.com/create)에서 Custom 모드를 켜고 아래를 칸마다 붙여넣는다. 곡 이미지는 cover.jpg.
 
 **Style**
 ```text
-korean rock, distorted twin guitars, powerful drums, intro electric guitar shreds Chopin's Fantaisie-Impromptu theme, chorus vocal melody interpolates Chopin's Fantaisie-Impromptu, interlude guitar solo restates the theme, verses original, 150 bpm, raspy male vocal, shout-along chorus
+korean rock, distorted twin guitars, powerful drums, fast electric guitar riff intro, interlude guitar solo, 150 bpm, raspy male vocal, shout-along chorus
 ```
 
 **Exclude styles**
@@ -44,7 +38,7 @@ brass, strings, accordion, organ, trot, ska, ballad, lo-fi, autotune, rap, engli
 
 **Lyrics**
 ```text
-[Intro - distorted electric guitar plays the Chopin Fantaisie-Impromptu theme, fast and getting louder]
+[Intro]
 
 [Verse 1]
 그거 아직 갖고 있냐고
@@ -52,7 +46,7 @@ brass, strings, accordion, organ, trot, ska, ballad, lo-fi, autotune, rap, engli
 공책 한 권 기타 한 대
 줄은 두 개 끊어졌고
 
-[Chorus - sung to the Fantaisie-Impromptu melody]
+[Chorus]
 버리긴 뭘 버려 서랍에 넣어 둔 거야
 꿈 깨라는데 나는 아직 잠도 안 잤어
 먼지는 좀 꼈어도 그거 아직 내 거야
@@ -68,7 +62,7 @@ brass, strings, accordion, organ, trot, ska, ballad, lo-fi, autotune, rap, engli
 통장은 늘 바닥이고
 머리는 좀 빠졌지만
 
-[Chorus - sung to the Fantaisie-Impromptu melody]
+[Chorus]
 버리긴 뭘 버려 서랍에 넣어 둔 거야
 꿈 깨라는데 나는 아직 잠도 안 잤어
 먼지는 좀 꼈어도 그거 아직 내 거야
@@ -78,9 +72,9 @@ brass, strings, accordion, organ, trot, ska, ballad, lo-fi, autotune, rap, engli
 되든 말든 몰라 아 몰라 일단 해 볼래
 버리긴 뭘 버려 버리긴 뭘 버려 워어
 
-[Interlude - electric guitar solo on the Fantaisie-Impromptu melody, drums go double time]
+[Interlude]
 
-[Final Chorus - sung to the Fantaisie-Impromptu melody, crowd shouts along]
+[Final Chorus]
 버리긴 뭘 버려 서랍에 넣어 둔 거야
 꿈 깨라는데 나는 아직 잠도 안 잤어
 먼지 좀 털고 오늘 밤엔 꺼내 볼 거야
@@ -90,7 +84,7 @@ brass, strings, accordion, organ, trot, ska, ballad, lo-fi, autotune, rap, engli
 되든 말든 몰라 아 몰라 일단 해 볼래
 버리긴 뭘 버려 버리긴 뭘 버려 워어
 
-[Outro - guitar plays the Fantaisie-Impromptu theme once more, hard stop]
+[Outro]
 ```
 
 ## 2. 곡 올리기

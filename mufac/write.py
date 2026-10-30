@@ -15,10 +15,9 @@ from pathlib import Path
 
 import anthropic
 
-from . import classical
 
 MODEL = os.environ.get("MUFAC_MODEL", "claude-opus-5-5")  # 작사·검수: 가장 좋은 모델
-FAST_MODEL = os.environ.get("MUFAC_FAST_MODEL", "claude-sonnet-5-5")  # 원곡 고르기·조사: 넓게 보는 일이라 빠른 모델
+FAST_MODEL = os.environ.get("MUFAC_FAST_MODEL", "claude-sonnet-5-5")  # 조사·유튜브 글: 넓게 보는 일이라 빠른 모델
 KST = dt.timezone(dt.timedelta(hours=9))
 BETAS = ["server-side-fallback-2026-07-01"]
 
@@ -27,7 +26,7 @@ RESEARCH = """\
 
 웹 검색으로 다음을 찾아라.
 1. 이번 곡과 태도가 비슷하면서 음원차트에 오래 머문 한국 노래 6~10곡(밴드, 인디, 록, 펑크, 팝). 발라드만 모으지 않는다.
-   떼창이 나오는 곡, 축제와 운동회에서 트는 곡, 클래식 선율을 가져다 쓴 가요(예가 있으면)를 꼭 포함한다.
+   떼창이 나오는 곡, 축제와 운동회에서 트는 곡을 꼭 포함한다.
 2. 최근 몇 달 사이 멜론·유튜브 뮤직 차트와 쇼츠에서 공감으로 뜬 곡 3~5곡. AI로 만든 곡이 있으면 포함.
 
 곡마다 짧게 정리:
@@ -41,8 +40,6 @@ RESEARCH = """\
 3. 감성 레퍼런스({ref}): 아래에 [레퍼런스 작사 프로필]이 붙어 있으면 그것을 읽고, 이번 곡의 정서와 가장 가까운 팀 두셋을 골라
    그 팀의 최근 곡이나 이번 주제와 닿는 곡만 짧게 더 찾는다. 프로필이 없으면 대표곡 4~6곡의 말투, 낱말, 반복과 리듬을 조사해 원리를 정리한다.
 
-4. 클래식 멜로디 위에 쓰는 곡이면 그 원곡의 배경도 검색한다: 작곡 시기와 상황, 헌정 대상, 작곡가가 그때 겪던 일, 초연과 그 뒤의 쓰임,
-   사람들이 이 곡을 어떤 자리에서 듣는지. 노래 가사와 설명란에 쓸 수 있는 확인된 사실만 정리한다.
 
 마지막에 "이번 곡에 가져갈 원칙" 6~8개와, 조사한 곡들의 제목 형태와 줄 끝 말투의 분포를 두세 줄로 쓴다. 구조와 원리만 가져오고 표현은 베끼지 않는다.
 가사 전문이나 긴 구절은 인용하지 않는다. 한국어로 쓴다.
@@ -51,7 +48,7 @@ RESEARCH = """\
 SYSTEM = """\
 너는 밴드 음악을 만드는 한국 대중가요 작사가이자 프로듀서다. 결과물은 Suno(AI 음악 생성기)에 그대로 붙여넣어 노래가 되고,
 유튜브 본편과 쇼츠로 올라간다. 목표는 많은 사람이 따라 부르고 저장하고 공유하는 곡이다.
-소리는 오케스트라와 밴드가 같이 연주하는 것처럼 풍성하고, 가사는 사람이 쓴 것처럼 읽히고, 클래식 원곡이 누가 들어도 들린다.
+소리는 오케스트라와 밴드가 같이 연주하는 것처럼 풍성하고, 가사는 사람이 쓴 것처럼 읽힌다.
 
 주제는 사랑, 어른, 아픔 중 하나다. 셋 다 신나게도, 담담하게도, 웃기게도 쓸 수 있다.
 - 사랑: 좋아 죽겠는 밤, 헤어지고 더 잘 사는 나, 연락할까 말까, 오래된 연인의 권태와 농담, 짝사랑의 허세
@@ -120,20 +117,6 @@ title_kind에 고른 형태를 적고, why에 왜 그 형태인지 쓴다.
 - 구간 태그는 한 줄에 따로. 코러스 메아리는 괄호로 따로 한 줄에 쓴다. 예: (아 몰라)
 - 레퍼런스 곡의 표현을 그대로 쓰지 않는다. 원리만 가져온다.
 
-[클래식 멜로디 모드]
-원곡이 정해진 경우 아래 "멜로디 곡 자료"가 붙는다. 클래식은 숨기지 않고 티 나게 쓴다:
-전주에서 원곡 주제가 크게 연주되고, 후렴은 원곡 주제 선율로 부르며, 간주에서 다시 원곡 주제가 나온다. 절은 새 선율과 자유로운 가사다.
-Suno에 음원은 올리지 않는다. 원곡을 알아듣게 만드는 것은 오직 Style 문구와 가사의 구간 태그다. 그래서:
-- Style에 원곡의 널리 쓰이는 영어 제목과 작곡가를 반드시 넣는다(예: Beethoven's Ode to Joy, Pachelbel's Canon in D, Debussy's Clair de Lune, Dvořák's New World Symphony Largo).
-  "intro quotes <영어 제목> melody on <악기>, chorus vocal melody interpolates <영어 제목>, interlude restates the theme, verses original" 식으로 어디서 어떻게 나오는지 적는다.
-- 가사의 [Intro], [Interlude], [Outro] 태그에는 짧은 영어 지시를 붙인다. 예: [Intro - brass section plays the Ode to Joy theme], [Interlude - guitar solo on the Ode to Joy melody], [Outro - theme fades]. [Chorus] 태그는 [Chorus - sung to the Ode to Joy melody]처럼 쓴다. 태그 안의 영어는 노래로 불리지 않는다.
-- classic_en에 그 영어 제목(작곡가 포함, 예: Beethoven's Ode to Joy)을 적는다.
-- 가사는 자료의 가사 계획(구간 순서, 줄 수, 후렴의 줄마다 음절 수)을 따른다. [Pre-Chorus], [Bridge]는 쓰지 않는다.
-- 후렴이 원곡 선율이므로 후렴 가사가 곡의 중심이다. 제목과 외칠 말은 후렴에 둔다. 후렴 가사의 호흡(긴 음, 쉼)이 선율과 맞아야 한다.
-- 노래의 태도와 원곡의 배경이 속으로 이어져야 한다. why에 그 연결을 한두 문장으로 쓴다. 억지로 슬픈 사연을 끌어오지 않는다. 원곡이 밝으면 밝게 쓴다.
-- classic_note: 유튜브 설명란에 넣을 원곡 이야기 3~4문장. 원곡의 배경 사실 한두 개와 이 노래가 그 위에 선 이유. 담담하게, 과장 없이.
-- theme_instrument(piano, guitar, strings, bell)는 전주·간주에서 원곡 주제를 맡을 악기 계열이다. 곡마다 다르게 고르고 Style에도 같은 악기를 적는다.
-
 [Suno 스타일]
 - 영어, 쉼표 구분, 300자 이내. korean을 꼭 넣는다.
 - 장르 요청이 있으면 그 장르가 먼저다. 장르마다 그 장르답게 만드는 요소를 넣는다:
@@ -141,9 +124,8 @@ Suno에 음원은 올리지 않는다. 원곡을 알아듣게 만드는 것은 �
   발라드(korean ballad, 피아노와 현악, 조용히 시작해 후렴에서 터짐, 감정 과잉 없이), 락(korean rock, 디스토션 기타 리프, 힘 있는 드럼), OST(drama OST, 현악 오케스트라와 피아노, 영화적 전개),
   팝(korean pop, 신스와 깔끔한 비트, 귀에 남는 훅), 힙합(korean hip hop, 붐뱁이나 트랩 비트, 랩 벌스에 노래 후렴), 포크(korean folk, 어쿠스틱 기타와 하모니카), 재즈(korean jazz pop, 스윙 리듬, 피아노 트리오와 혼), 시티팝(korean city pop, 펑키 베이스, 신스 브라스), 댄스(korean dance pop, 120~128 bpm 네 박 킥), 펑크(korean punk rock, 170 bpm 이상, 세 코드, 떼창).
 - 장르가 "자동"이면 곡마다 다르게 고른다. 기본 소리는 오케스트라 밴드: 드럼, 베이스, 기타, 피아노 위에 현악과 브라스가 같이 울리는 풍성한 편곡. 작은 편성은 요청이 있을 때만. 이전 곡 스타일과 겹치지 않게 한다.
-  예: korean orchestral rock, full band with string section and brass, driving drums, electric guitar riff quoting Beethoven's Ode to Joy, big singalong chorus, 128 bpm, male vocal
-- 원곡 주제를 맡을 구체적 악기를 적는다(일렉 기타 리프, 브라스 섹션, 현악 유니즌, 신스 리드, 합창, 휘파람, 아코디언 등).
-- 클래식 모드면 위 [클래식 멜로디 모드]대로 원곡의 영어 제목과 나오는 자리를 적는다. 음원 업로드를 전제한 말("uploaded audio")은 쓰지 않는다.
+  예: korean orchestral rock, full band with string section and brass, driving drums, electric guitar riff, big singalong chorus, 128 bpm, male vocal
+- 훅을 맡을 구체적 악기를 적는다(일렉 기타 리프, 브라스 섹션, 현악 유니즌, 신스 리드, 합창, 휘파람, 아코디언 등).
 - 빠르기, 전개(조용히 시작해 터지는지, 처음부터 달리는지), 보컬(성별, 음색, 떼창 여부)을 적는다.
 - exclude는 제외 스타일 칸. 예: lo-fi, solo piano ballad, rap, autotune, english lyrics
 
@@ -154,11 +136,11 @@ Suno에 음원은 올리지 않는다. 원곡을 알아듣게 만드는 것은 �
 [유튜브]
 - situation: 제목 뒤에 붙일 듣는 상황 문구. 사람들이 검색하는 말로 10~20자. 예: 월요일 아침 출근길 노래, 기분 좋을 때 듣는 노래
 - shorts_title: 쇼츠 제목. 한 줄, 30자 이내. #shorts는 붙이지 않는다.
-- yt_intro: 설명란 첫 두 줄. 검색 결과에 보이는 부분이라 곡의 태도와 원곡 이름이 바로 읽혀야 한다.
+- yt_intro: 설명란 첫 두 줄. 검색 결과에 보이는 부분이라 곡의 태도가 바로 읽혀야 한다.
 - comment_prompt: 설명란 끝에서 댓글을 부르는 한 줄. 질문이 아니어도 된다.
 - hashtags: 정확히 15개, # 없이, 띄어쓰기 없이. 앞의 3개가 제목 위에 보이니 가장 넓게 검색되는 말로.
-  곡 제목, 장르(밴드음악, 인디록 등 실제 장르), 상황(출근길노래, 드라이브노래), 기분(신나는노래, 위로노래), 플레이리스트형(노동요, 감성플리), 원곡 이름, 클래식리메이크.
-- tags: 검색 키워드 25~35개. 한국어 위주에 영어 몇 개(korean rock, classical crossover). 다른 가수 이름은 넣지 않는다(유튜브 스팸 정책).
+  곡 제목, 장르(밴드음악, 인디록 등 실제 장르), 상황(출근길노래, 드라이브노래), 기분(신나는노래, 위로노래), 플레이리스트형(노동요, 감성플리).
+- tags: 검색 키워드 25~35개. 한국어 위주에 영어 몇 개(korean rock, korean band). 다른 가수 이름은 넣지 않는다(유튜브 스팸 정책).
 """
 
 SCHEMA = {
@@ -194,10 +176,6 @@ SCHEMA = {
         "comment_prompt": {"type": "string"},
         "hashtags": {"type": "array", "items": {"type": "string"}},
         "tags": {"type": "array", "items": {"type": "string"}},
-        "classic_note": {"type": "string", "description": "클래식 멜로디 모드가 아니면 빈 문자열"},
-        "classic_en": {"type": "string", "description": "원곡의 널리 쓰이는 영어 제목(작곡가 포함). 클래식 모드가 아니면 빈 문자열"},
-        "theme_instrument": {"type": "string", "enum": ["piano", "guitar", "strings", "bell"],
-                             "description": "전주·간주에서 원곡 주제를 맡을 악기 계열. 클래식 모드가 아니면 piano"},
         "references": {
             "type": "array",
             "description": "참고한 곡",
@@ -215,7 +193,7 @@ SCHEMA = {
     },
     "required": ["candidates", "chosen", "why", "title", "title_kind", "lyrics", "share_line", "style", "exclude",
                  "photo_query", "image_prompt", "situation", "shorts_title", "yt_intro", "comment_prompt",
-                 "hashtags", "tags", "classic_note", "classic_en", "theme_instrument", "references"],
+                 "hashtags", "tags", "references"],
     "additionalProperties": False,
 }
 
@@ -261,7 +239,7 @@ REVIEW = """\
 담백하게. 더 짧게, 더 쉽게, 덜 설명하게. 사람이 중얼거리거나 외치는 말만 남긴다.
 
 지킬 것
-- 구간 태그와 구간 순서는 그대로 둔다. [Chorus]와 [Final Chorus]의 줄 수와 줄마다 음절 수는 바꾸지 않는다(원곡 선율에 얹히는 자리다). 음절 수를 지키면서 낱말만 바꾼다.
+- 구간 태그와 구간 순서는 그대로 둔다. [Chorus]와 [Final Chorus]의 줄 수는 바꾸지 않고, 줄의 길이도 크게 바꾸지 않는다(같은 선율 자리다).
 - 절의 줄은 지우거나 줄여도 된다. 두 절의 줄 수는 같게 유지한다.
 - 제목이 점검표에 걸리면 바꾼다. 바꾸지 않아도 되면 그대로 둔다.
 - 새로 쓰는 줄도 아래 점검표를 통과해야 한다. 고친 뒤 다시 한 번 점검한다.
@@ -271,7 +249,7 @@ JSON만 답한다: {"lyrics": "<고친 가사 전문>", "title": "<제목>", "sh
 """
 
 
-def polish(data: dict, plan: str = "", fixed_title: str = "") -> dict:
+def polish(data: dict, fixed_title: str = "") -> dict:
     """쓴 가사를 점검표로 한 번 더 걸러 담백하게 고친다. fixed_title이 있으면 제목은 건드리지 않는다."""
     schema = {"type": "object",
               "properties": {"lyrics": {"type": "string"}, "title": {"type": "string"}, "share_line": {"type": "string"},
@@ -281,8 +259,6 @@ def polish(data: dict, plan: str = "", fixed_title: str = "") -> dict:
     content = f"[제목]\n{data['title']}\n\n[가사]\n{data['lyrics']}"
     if fixed_title:
         content += "\n\n[제목은 사용자가 정한 것이라 바꾸지 않는다]"
-    if plan:
-        content += f"\n\n[후렴 음절 계획]\n{plan}"
     t0 = time.time()
     with anthropic.Anthropic().beta.messages.stream(
         model=MODEL, max_tokens=12000, system=system, betas=BETAS, fallbacks="default",
@@ -321,9 +297,7 @@ def refresh_meta(meta: dict) -> dict:
     yt = SYSTEM[SYSTEM.index("[유튜브]"):]
     system = ("너는 유튜브 채널 편집자다. 아래 노래의 제목과 가사가 확정됐다. 그에 맞는 유튜브 글을 쓴다. "
               "담백하게, 과장과 감탄사 없이, 사람이 쓴 말로. '-해요/-거예요' 어미는 쓰지 않는다. JSON만 답한다.\n\n" + yt)
-    cl = meta.get("classic") or {}
     content = (f"[제목]\n{meta.get('title', '')}\n\n[가사]\n{meta.get('lyrics', '')}\n\n[Suno 스타일]\n{meta.get('style', '')}"
-               + (f"\n\n[원곡]\n{cl.get('name')} · {cl.get('composer')} ({cl.get('year')})" if cl else "")
                + f"\n\n[이전 값(참고만)]\n{json.dumps(meta.get('youtube_meta') or {}, ensure_ascii=False)}")
     t0 = time.time()
     with anthropic.Anthropic().beta.messages.stream(
@@ -337,43 +311,13 @@ def refresh_meta(meta: dict) -> dict:
     return json.loads(next(b.text for b in response.content if b.type == "text"))
 
 
-def safe_polish(data: dict, piece_id: str = "", fixed_title: str = "") -> dict:
+def safe_polish(data: dict, fixed_title: str = "") -> dict:
     """검수가 실패해도 초고는 남긴다."""
     try:
-        return polish(data, classical.lyric_plan(piece_id) if piece_id else "", fixed_title)
+        return polish(data, fixed_title)
     except (anthropic.APIError, RuntimeError) as e:
         print(f"가사 검수를 건너뜁니다: {e}", flush=True)
         return data
-
-
-CHOOSE = """\
-너는 음악학자이자 프로듀서다. 새로 쓸 노래에 가장 잘 맞는 클래식 원곡을 하나 고른다. 모두 저작권이 끝난 곡이다.
-기준은 둘이다. 첫째, 원곡의 배경(누구를 위해, 어떤 시기에, 무엇을 바라며 썼는지)과 이 노래의 태도가 속으로 이어질 것.
-둘째, 첫 소절에 많은 사람이 "아, 이 곡" 하고 알아들을 것. 후렴에서 그 선율을 그대로 부르므로 알아듣는 힘이 곧 곡의 힘이다.
-슬픈 사연을 억지로 끌어오지 않는다. 노래가 신나면 밝고 힘 있는 원곡을 고른다. 같은 원곡을 자꾸 고르지 않는다.
-JSON만 답한다: {"id": "<곡 id>", "reason": "<왜 이 곡인지 4~6문장, 원곡 배경의 구체적 사실을 들어서>"}
-"""
-
-
-def choose_classic(brief: str, used: list[str] | None = None) -> dict:
-    """used: 최근 곡들이 쓴 원곡 id. 겹치지 않게 한다."""
-    client = anthropic.Anthropic()
-    if used:
-        names = [p["name"] for p in classical.catalog() if p["id"] in used]
-        brief += "\n\n[최근에 이미 쓴 원곡 — 이번에는 고르지 않는다]\n" + ", ".join(names)
-    schema = {"type": "object", "properties": {"id": {"type": "string", "enum": [p["id"] for p in classical.catalog()]},
-                                                 "reason": {"type": "string"}},
-              "required": ["id", "reason"], "additionalProperties": False}
-    t0 = time.time()
-    with client.beta.messages.stream(
-        model=FAST_MODEL, max_tokens=8000, system=CHOOSE, betas=BETAS, fallbacks="default",
-        output_config={"effort": "medium", "format": {"type": "json_schema", "schema": schema}},
-        messages=[{"role": "user", "content": f"[노래 사연]\n{brief}\n\n[고를 수 있는 원곡]\n{classical.catalogue()}"}],
-    ) as stream:
-        response = stream.get_final_message()
-    _check(response)
-    took("원곡 고르기", t0)
-    return json.loads(next(b.text for b in response.content if b.type == "text"))
 
 
 def research(brief: str) -> str:
@@ -402,10 +346,9 @@ def research(brief: str) -> str:
 
 
 def prepare(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "", style: str = "",
-            classic: str = "", avoid: list[str] | None = None, avoid_styles: list[str] | None = None,
-            used_classics: list[str] | None = None, title: str = "", content: str = "", genre: str = "") -> dict:
-    """1단계: 요청문을 만들고, 원곡 고르기와 레퍼런스 조사를 동시에 한다.
-    classic: '' 없음, 'auto' 의미로 고르기, 또는 카탈로그의 곡 id. 결과는 JSON으로 저장할 수 있는 dict."""
+            avoid: list[str] | None = None, avoid_styles: list[str] | None = None,
+            title: str = "", content: str = "", genre: str = "") -> dict:
+    """1단계: 요청문을 만들고 레퍼런스를 조사한다. 결과는 JSON으로 저장할 수 있는 dict."""
     asks = []
     if hook:
         asks.append(f"후렴 문장은 이것으로 정했다: \"{hook}\". 후보 첫 번째에 넣고 그걸로 가사를 써라.")
@@ -431,38 +374,20 @@ def prepare(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "",
         asks.append("이미 만든 곡의 스타일이다. 장르와 악기가 겹치지 않게 해라:\n" + "\n".join(f"- {a}" for a in avoid_styles))
     brief = "\n\n".join(asks)
 
-    # 원곡 고르기와 레퍼런스 조사는 서로 기다릴 필요가 없어 동시에 한다
-    piece, reason = None, ""
-    if classic and classic not in ("auto", "none"):
-        piece, reason = classical.get(classic), "직접 고른 원곡"
-    research_brief = brief + ("\n\n[멜로디 곡]\n이 노래는 저작권이 끝난 클래식 선율을 전주·후렴·간주에 그대로 쓴다."
-                              if classic and classic != "none" else "")
-    with ThreadPoolExecutor(max_workers=2) as pool:
-        f_notes = pool.submit(research, research_brief)
-        f_pick = pool.submit(choose_classic, brief, used_classics) if classic == "auto" else None
-        if f_pick:
-            pick = f_pick.result()
-            piece, reason = classical.get(pick["id"]), pick["reason"]
-        notes = ""
-        try:
-            notes = f_notes.result()
-        except (anthropic.APIError, RuntimeError) as e:
-            print(f"레퍼런스 조사를 건너뜁니다: {e}", flush=True)
-    if piece:
-        brief += (f"\n\n[멜로디 곡]\n이 노래는 {piece['name']}({piece['composer']}, {piece['year']}) 선율 위에 쓴다. "
-                  f"고른 이유: {reason}")
-    return {"brief": brief, "piece_id": piece["id"] if piece else "", "reason": reason, "notes": notes, "title": title}
+    notes = ""
+    try:
+        notes = research(brief)
+    except (anthropic.APIError, RuntimeError) as e:
+        print(f"레퍼런스 조사를 건너뜁니다: {e}", flush=True)
+    return {"brief": brief, "notes": notes, "title": title}
 
 
 def compose(work: dict) -> dict:
     """2단계: 가사·스타일·유튜브 글을 쓴다(가장 깊은 생각). 검수는 하지 않는다."""
-    piece = classical.get(work["piece_id"]) if work.get("piece_id") else None
     notes = work.get("notes", "")
     parts = []
     if notes:
         parts.append(f"[레퍼런스 조사 노트]\n{notes}")
-    if piece:
-        parts.append(f"[멜로디 곡 자료]\n{piece['story'].strip()}\n\n{classical.lyric_plan(piece['id'])}")
     parts.append(f"[요청]\n{work['brief']}")
     content = "\n\n".join(parts)
     t0 = time.time()
@@ -480,10 +405,6 @@ def compose(work: dict) -> dict:
     if work.get("title"):
         data["title"], data["title_kind"] = work["title"], "지정"
     data["research"] = notes
-    if piece:
-        data["classic"] = {"id": piece["id"], "name": piece["name"], "composer": piece["composer"],
-                           "year": piece["year"], "en": data.get("classic_en", ""), "reason": work.get("reason", ""),
-                           "note": data.get("classic_note", ""), "instrument": data.get("theme_instrument", "piano")}
     return data
 
 
@@ -492,5 +413,5 @@ def write_song(*, do_polish: bool = True, **kw) -> dict:
     work = prepare(**kw)
     data = compose(work)
     if do_polish:
-        data = safe_polish(data, work["piece_id"], work.get("title", ""))
+        data = safe_polish(data, work.get("title", ""))
     return data

@@ -5,13 +5,18 @@ story: 하루 종일 시계만 보던 모든 직장인이 퇴근 시간이 되�
 created: 2026-10-30 12:30
 request:
   id: mvueskza
-  classic: none
-style: korean ska punk, brass and strings, upstroke guitar and horn section, driving drums, 168 bpm, bright male vocal, gang chorus, big singalong hook
+style: korean ska punk, brass and strings, upstroke guitar and horn section, driving
+  drums, 168 bpm, bright male vocal, gang chorus, big singalong hook
 exclude: lo-fi, solo piano ballad, rap, autotune, english lyrics, slow tempo
 photo_query: office workers leaving sunset
-image_prompt: Office workers with bags spilling out of a glass building onto a wide city sidewalk at golden hour, warm orange sunlight and long shadows, seen from behind, cheerful and bright. No text, no signs, no frontal faces.
+image_prompt: Office workers with bags spilling out of a glass building onto a wide
+  city sidewalk at golden hour, warm orange sunlight and long shadows, seen from behind,
+  cheerful and bright. No text, no signs, no frontal faces.
 title_kind: 짧은 명사구
-why: 다섯 후보 가운데 퇴근 시간은 직업과 나이를 가리지 않고 거의 모든 사람이 매일 겪는 기쁨이라 가장 넓게 따라 부를 수 있다. 퇴근하는 순간에는 얄미운 옆자리도 형제가 된다고 우긴다. 슬픈 사연 없이 밝게 썼다. 크라잉넛처럼 외칠 수 있는 한 덩이 말로 후렴을 짜고, 술탄 오브 더 디스코처럼 마지막 후렴에서 '부장님도 형제다'로 거창한 형제애를 초라한 사무실로 떨어뜨렸다. 제목은 단어처럼 짧은 명사구 '여섯 시'로 골랐다. 조사한 히트곡에서 명사 제목이 가장 많았고, 부르는 순간 각자의 퇴근 시간이 떠오른다.
+why: 다섯 후보 가운데 퇴근 시간은 직업과 나이를 가리지 않고 거의 모든 사람이 매일 겪는 기쁨이라 가장 넓게 따라 부를 수 있다. 퇴근하는 순간에는
+  얄미운 옆자리도 형제가 된다고 우긴다. 슬픈 사연 없이 밝게 썼다. 크라잉넛처럼 외칠 수 있는 한 덩이 말로 후렴을 짜고, 술탄 오브 더 디스코처럼
+  마지막 후렴에서 '부장님도 형제다'로 거창한 형제애를 초라한 사무실로 떨어뜨렸다. 제목은 단어처럼 짧은 명사구 '여섯 시'로 골랐다. 조사한 히트곡에서
+  명사 제목이 가장 많았고, 부르는 순간 각자의 퇴근 시간이 떠오른다.
 share_line: 내일 일은 내일의 나 그 녀석한테 맡겨
 youtube_meta:
   situation: 금요일 퇴근길 신나는 노래
@@ -91,36 +96,58 @@ candidates:
   theme: 사랑
   story: 서로 지겹다고 투덜대면서도 매일 붙어 다니는 오래된 연인이 주고받는 농담
 chosen: 0
-lyrics: |
-  [Intro]
+lyrics: '[Intro]
+
 
   [Verse 1]
+
   오늘 한 일 물어보지 마
+
   메일 하나 보내고 점심
+
   시계 바늘 고장 났나 봐
+
   오 분 남았어 아 몰라
 
+
   [Chorus]
+
   여섯 시다 가방 메라 옆자리도 형제다
+
   내일 일은 내일의 나 그 녀석한테 맡겨
+
 
   [Verse 2]
+
   월급날은 아직 멀었어
+
   그래도 한 잔은 되잖아
+
   지갑은 얇고 목청은 커
+
   이 동네 다 내 편이야
 
+
   [Chorus]
+
   여섯 시다 가방 메라 옆자리도 형제다
+
   내일 일은 내일의 나 그 녀석한테 맡겨
+
 
   [Interlude]
 
+
   [Final Chorus]
+
   여섯 시다 불을 꺼라 부장님도 형제다
+
   내일 일은 내일의 나 그 녀석한테 맡겨
 
+
   [Outro]
+
+  '
 lyrics_draft: '[Intro]
 
 
@@ -172,8 +199,10 @@ lyrics_draft: '[Intro]
 
   [Outro]'
 polish:
-- '월급은 아직 멀었다며 → 월급날은 아직 멀었어: ''-다며''는 누구 말을 옮기는지 흐릿하다. 내 입으로 툭 던지는 말로 바꿨다. 음절 수(9)는 그대로다.'
-- '나머지 줄은 그대로 둠: 이미 짧은 입말이다. 자조(''아 몰라'', ''지갑은 얇고 목청은 커'')와 능청(''그 녀석한테 맡겨'', ''부장님도 형제다'')이 살아 있어 점검표에 걸리지 않는다. 후렴 음절 수(15/15)도 ±1 안에 든다.'
+- '월급은 아직 멀었다며 → 월급날은 아직 멀었어: ''-다며''는 누구 말을 옮기는지 흐릿하다. 내 입으로 툭 던지는 말로 바꿨다. 음절 수(9)는
+  그대로다.'
+- '나머지 줄은 그대로 둠: 이미 짧은 입말이다. 자조(''아 몰라'', ''지갑은 얇고 목청은 커'')와 능청(''그 녀석한테 맡겨'', ''부장님도
+  형제다'')이 살아 있어 점검표에 걸리지 않는다. 후렴 음절 수(15/15)도 ±1 안에 든다.'
 - '제목 그대로 둠: 주제를 설명하지 않는 짧은 명사다.'
 youtube_preview:
   title: 여섯 시 - 연주왕김연주 | 금요일 퇴근길 신나는 노래
@@ -230,7 +259,8 @@ youtube_preview:
     이 곡은 AI 음악 생성 도구로 만들었습니다.
 
 
-    #퇴근길노래 #신나는노래 #직장인노래 #여섯시 #밴드음악 #스카펑크 #금요일노래 #노동요 #퇴근송 #불금 #직장인공감 #떼창 #출근길노래 #밴드노래 #떼창노래'
+    #퇴근길노래 #신나는노래 #직장인노래 #여섯시 #밴드음악 #스카펑크 #금요일노래 #노동요 #퇴근송 #불금 #직장인공감 #떼창 #출근길노래 #밴드노래
+    #떼창노래'
   tags:
   - 여섯 시
   - 연주왕김연주

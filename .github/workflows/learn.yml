@@ -30,7 +30,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - run: pip install anthropic PyYAML numpy mido
+      - run: pip install anthropic PyYAML
       - name: 학습
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}

@@ -62,9 +62,6 @@ def fit_tags(tags: list[str], limit: int = 480) -> list[str]:
 def hashtags(meta: dict, artist: str) -> list[str]:
     """설명란 해시태그. 유튜브는 15개를 넘으면 전부 무시하므로 15개까지만."""
     raw = list((meta.get("youtube_meta") or {}).get("hashtags") or [])
-    cl = meta.get("classic") or {}
-    if cl:
-        raw = raw[:10] + [cl.get("name", ""), "클래식리메이크", "클래식팝", "클래식"] + raw[10:]
     raw += [meta.get("title", ""), artist, "노래추천", "신곡"]
     out = []
     for t in raw:
@@ -82,10 +79,6 @@ def description(song: Song, artist: str, *, main_id: str | None = None, short: b
         parts.append(f"전체 노래 ▶ https://youtu.be/{main_id}")
     if not short:
         parts.append(f"{m.get('title', '')}\n\n{song.plain_lyrics()}")
-    cl = m.get("classic") or {}
-    if cl:
-        parts.append(f"원곡 이야기\n{cl.get('note', '')}".strip() +
-                     f"\n원곡 {cl.get('name')} · {cl.get('composer')} ({cl.get('year')}), 저작권이 소멸된 곡입니다.")
     if ym.get("comment_prompt"):
         parts.append(ym["comment_prompt"])
     credit = []
