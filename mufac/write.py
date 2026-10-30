@@ -290,8 +290,12 @@ JSON만 답한다: {"id": "<곡 id>", "reason": "<왜 이 곡인지 4~6문장, �
 """
 
 
-def choose_classic(brief: str) -> dict:
+def choose_classic(brief: str, used: list[str] | None = None) -> dict:
+    """used: 최근 곡들이 쓴 원곡 id. 겹치지 않게 한다."""
     client = anthropic.Anthropic()
+    if used:
+        names = [p["name"] for p in classical.catalog() if p["id"] in used]
+        brief += "\n\n[최근에 이미 쓴 원곡 — 이번에는 고르지 않는다]\n" + ", ".join(names)
     schema = {"type": "object", "properties": {"id": {"type": "string", "enum": [p["id"] for p in classical.catalog()]},
                                                  "reason": {"type": "string"}},
               "required": ["id", "reason"], "additionalProperties": False}
@@ -329,7 +333,8 @@ def research(brief: str) -> str:
 
 
 def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "", style: str = "",
-               classic: str = "", avoid: list[str] | None = None, avoid_styles: list[str] | None = None) -> dict:
+               classic: str = "", avoid: list[str] | None = None, avoid_styles: list[str] | None = None,
+               used_classics: list[str] | None = None) -> dict:
     """classic: '' 없음, 'auto' 의미로 고르기, 또는 classical.LIBRARY의 id."""
     asks = []
     if hook:
@@ -352,7 +357,7 @@ def write_song(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = 
 
     piece, reason = None, ""
     if classic == "auto":
-        pick = choose_classic(brief)
+        pick = choose_classic(brief, used_classics)
         piece, reason = classical.get(pick["id"]), pick["reason"]
     elif classic and classic != "none":
         piece = classical.get(classic)

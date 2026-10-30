@@ -96,8 +96,10 @@ def cmd_new(a) -> None:
     done = songmod.all_songs()
     avoid = [x.meta.get("hook", "") for x in done][-40:]
     avoid_styles = [x.meta.get("style", "") for x in done][-12:]
+    used_classics = [(x.meta.get("classic") or {}).get("id", "") for x in done][-8:]
     data = write_song(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style,
-                      classic=a.classic, avoid=avoid, avoid_styles=avoid_styles)
+                      classic=a.classic, avoid=avoid, avoid_styles=avoid_styles,
+                      used_classics=[u for u in used_classics if u])
     s = Song(songmod.new_slug())
     pick = data["candidates"][data["chosen"]]
     s.meta = {
