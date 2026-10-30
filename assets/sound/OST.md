@@ -1,0 +1,12 @@
+# OST (korean drama OST ballad)
+- 기준: 64~84 bpm, 4/4 또는 6/8, 장조와 단조를 오가는 영화적 진행, 마지막 후렴 전 반음 또는 온음 전조 가능. 4분 안팎.
+- 리듬: 1절 없음, 2절부터 soft kick과 string-section 리듬, 마지막 후렴에 timpani 롤과 crash 한 번.
+- 베이스: 더블베이스 또는 round bass가 2절부터, 뿌리음 길게.
+- 화성: 피아노가 시작하고 현악 오케스트라가 코드를 넓힌다. 후렴에서 서스펜션(sus4→3) 해결이 감정의 포인트.
+- 멜로디: 절은 낮고 느리게, 프리코러스는 같은 음을 반복하다 끝에서 상승, 후렴은 넓은 음역의 긴 음(long sustained notes)으로. 마지막 후렴 전조 뒤 최고음.
+- 보컬: 맑고 힘 있는 톤, 비브라토는 긴 음 끝에만, 후렴에 와이드 더블링, 브릿지 단독.
+- 편성: grand piano, 현악 오케스트라(1st·2nd violin, viola, cello), 플루트 또는 오보에 한 줄, 하프, 팀파니, 가벼운 드럼.
+- 공간: 큰 홀, 현은 넓게, 보컬은 가깝고 약간 젖게. cinematic.
+- 전개: Intro 피아노와 첼로 → V1 피아노 → Pre 현 패드 → Ch1 현 선율, 드럼 없음 → V2 소프트 킥, 하프 → Ch2 full strings → Bridge 피아노와 목소리, 오보에 → (전조) Final Ch 팀파니·전체 현·하모니 → Outro 현이 길게 남고 피아노 한 음.
+- 피할 것: 일렉 기타, 신스, 트랩, 과한 벨팅, 급한 템포.
+- Suno 문구: korean drama ost ballad, slow 72 bpm, grand piano intro with cello, full string orchestra enters at the second chorus, oboe under the bridge, harp arpeggios in verse 2, soft kick and timpani in the final chorus, clear powerful female vocal (또는 male tenor), long sustained chorus notes, key change before the final chorus, wide vocal doubling, concert hall reverb, cinematic and tender.

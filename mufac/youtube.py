@@ -60,16 +60,26 @@ def fit_tags(tags: list[str], limit: int = 480) -> list[str]:
     return out
 
 
+GENERIC_HASHTAGS = ["음악", "노래", "감성", "신곡", "노래추천", "플레이리스트", "가사", "kpop", "music", "koreanmusic"]
+
+
+def _genre_word(meta: dict) -> str:
+    g = ((meta.get("request") or {}).get("genre") or "").strip()
+    return "" if g in ("", "자동") else g
+
+
 def hashtags(meta: dict, artist: str) -> list[str]:
-    """설명란 해시태그. 앞의 3개가 제목 위에 보인다. 많으면 광고처럼 보이니 6개까지만."""
-    raw = list((meta.get("youtube_meta") or {}).get("hashtags") or [])
-    raw += [meta.get("title", ""), artist]
+    """설명란 해시태그 15개. 유튜브는 15개를 넘으면 전부 무시하므로 딱 15개까지.
+    곡별 태그 → 장르 → 제목·채널 → 넓은 기본 태그(음악, 노래, 감성) 순으로 채운다. 앞의 3개가 제목 위에 보인다."""
+    own = list((meta.get("youtube_meta") or {}).get("hashtags") or [])
+    # 앞 3개는 곡이 고른 넓은 말, 그다음 장르와 기본 태그 넷, 나머지 곡 태그, 제목·채널, 남은 기본 태그
+    raw = own[:3] + [_genre_word(meta)] + GENERIC_HASHTAGS[:3] + own[3:] + [meta.get("title", ""), artist] + GENERIC_HASHTAGS[3:]
     out = []
     for t in raw:
         t = "".join(ch for ch in (t or "") if ch.isalnum() or ch == "_")
         if t and t not in out:
             out.append(t)
-    return out[:6]
+    return out[:15]
 
 
 def description(song: Song, artist: str, *, main_id: str | None = None, short: bool = False) -> str:
@@ -104,7 +114,8 @@ def preview(song: Song, cfg: dict) -> dict:
         # 쇼츠 제목은 후렴 문장 그대로(사용자 지정)
         "shorts_title": f"{(m.get('hook') or ym.get('shorts_title') or m['title']).strip()} #shorts"[:100],
         "description": description(song, artist),
-        "tags": fit_tags([m["title"], artist, *(m.get("tags") or [])]),
+        "tags": fit_tags([m["title"], artist, *(m.get("tags") or []), _genre_word(m), "음악", "노래", "감성", "신곡", "노래 추천",
+                          "플레이리스트", "가사", "kpop", "korean music", "k-pop"]),
         "hashtags": hashtags(m, artist),
         "playlists": playlist_names(cfg, m),
         "privacy": cfg.get("privacy", "private"),
