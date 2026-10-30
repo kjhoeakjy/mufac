@@ -140,8 +140,6 @@ def cmd_new(a) -> None:
         "youtube_meta": {
             "situation": data.get("situation", ""),
             "shorts_title": data.get("shorts_title", ""),
-            "intro": data.get("yt_intro", ""),
-            "comment_prompt": data.get("comment_prompt", ""),
             "hashtags": data.get("hashtags", []),
         },
         "tags": data["tags"],
@@ -191,8 +189,7 @@ def cmd_refresh(a) -> None:
     try:
         new = refresh_meta(m)
         ym = m.setdefault("youtube_meta", {})
-        for k_src, k_dst in (("situation", "situation"), ("shorts_title", "shorts_title"), ("yt_intro", "intro"),
-                             ("comment_prompt", "comment_prompt"), ("hashtags", "hashtags")):
+        for k_src, k_dst in (("situation", "situation"), ("shorts_title", "shorts_title"), ("hashtags", "hashtags")):
             ym[k_dst] = new[k_src]
         m["tags"], m["story"] = new["tags"], new["story"]
         if new["share_line"].strip() and new["share_line"].strip() in m.get("lyrics", ""):

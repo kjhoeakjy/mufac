@@ -61,43 +61,36 @@ def fit_tags(tags: list[str], limit: int = 480) -> list[str]:
 
 
 def hashtags(meta: dict, artist: str) -> list[str]:
-    """설명란 해시태그. 유튜브는 15개를 넘으면 전부 무시하므로 15개까지만."""
+    """설명란 해시태그. 앞의 3개가 제목 위에 보인다. 많으면 광고처럼 보이니 6개까지만."""
     raw = list((meta.get("youtube_meta") or {}).get("hashtags") or [])
-    raw += [meta.get("title", ""), artist, "노래추천", "신곡"]
+    raw += [meta.get("title", ""), artist]
     out = []
     for t in raw:
         t = "".join(ch for ch in (t or "") if ch.isalnum() or ch == "_")
         if t and t not in out:
             out.append(t)
-    return out[:15]
+    return out[:6]
 
 
 def description(song: Song, artist: str, *, main_id: str | None = None, short: bool = False) -> str:
+    """설명란. 가사, 만든 사람, 저작권, 해시태그만 적는다."""
     m = song.meta
-    ym = m.get("youtube_meta") or {}
-    parts = [ym.get("intro") or m.get("hook", "")]
+    parts = []
     if main_id:
-        parts.append(f"전체 노래 ▶ https://youtu.be/{main_id}")
+        parts.append(f"전체 노래 https://youtu.be/{main_id}")
     if not short:
-        parts.append(f"{m.get('title', '')}\n\n{song.plain_lyrics()}")
-    if ym.get("comment_prompt"):
-        parts.append(ym["comment_prompt"])
+        parts.append(song.plain_lyrics())
     credit = []
     if artist:
-        credit.append(f"작사·작곡 기획·제작 {artist}")
-    credit.append("음악 생성 Suno (유료 플랜, 상업적 이용 권리 보유)")
+        credit.append(f"노래·가사 {artist}")
     photo = m.get("photo") or {}
     if photo.get("source") == "pexels":
-        credit.append(f"사진 {photo.get('photographer')} (Pexels)")
-    elif photo.get("source") == "openai":
-        credit.append("이미지 AI 생성")
-    credit.append("이 곡은 AI 음악 생성 도구로 만들었습니다.")
-    parts.append("\n".join(credit))
+        credit.append(f"음악 생성 Suno, 사진 {photo.get('photographer')} (Pexels)")
+    else:
+        credit.append("음악·이미지 AI 생성 (Suno)")
     year = str(m.get("created", ""))[:4] or _dt.date.today().strftime("%Y")
-    owner = artist or "채널 운영자"
-    parts.append(f"© {year} {owner}. All rights reserved.\n"
-                 f"이 영상의 노래, 가사, 영상은 {owner}의 창작물이며 모든 권리는 {owner}에게 있습니다. "
-                 "무단 복제, 재업로드, 2차 배포를 금지합니다.")
+    credit.append(f"© {year} {artist or '채널 운영자'}. 무단 복제·재업로드 금지.")
+    parts.append("\n".join(credit))
     parts.append(" ".join("#" + t for t in hashtags(m, artist)))
     return "\n\n".join(p for p in parts if p).strip()[:4900]
 

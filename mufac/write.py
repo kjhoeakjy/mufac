@@ -215,10 +215,9 @@ Suno Custom의 Style 칸에 그대로 붙여 넣는 영어 글이다. 짧은 문
 [유튜브]
 - situation: 제목 뒤에 붙일 듣는 상황 문구. 사람들이 검색하는 말로 10~20자. 예: 월요일 아침 출근길 노래, 잠 안 오는 밤에 듣는 노래
 - shorts_title: 후렴 문장(hook)을 그대로 적는다. #shorts는 붙이지 않는다.
-- yt_intro: 설명란 첫 두 줄. 검색 결과에 보이는 부분이라 곡의 태도가 바로 읽혀야 한다.
-- comment_prompt: 설명란 끝에서 댓글을 부르는 한 줄. 질문이 아니어도 된다.
-- hashtags: 정확히 15개, # 없이, 띄어쓰기 없이. 앞의 3개가 제목 위에 보이니 가장 넓게 검색되는 말로.
-  곡 제목, 장르(발라드, 인디록 등 실제 장르), 상황(출근길노래, 드라이브노래), 기분(위로노래, 새벽감성), 플레이리스트형(감성플리, 노동요).
+- 설명란에는 가사, 만든 사람, 저작권, 해시태그만 들어간다. 소개 글이나 댓글 유도 문장은 쓰지 않는다.
+- hashtags: 6개, # 없이, 띄어쓰기 없이. 앞의 3개가 제목 위에 보이니 가장 넓게 검색되는 말부터.
+  상황(출근길노래, 드라이브노래), 기분(위로노래, 새벽감성), 장르(발라드, 인디록 등 실제 장르), 플레이리스트형(감성플리, 노동요).
 - tags: 검색 키워드 25~35개. 한국어 위주에 영어 몇 개(korean ballad, korean indie). 다른 가수 이름은 넣지 않는다(유튜브 스팸 정책).
 """
 
@@ -254,8 +253,6 @@ SCHEMA = {
         "image_prompt": {"type": "string"},
         "situation": {"type": "string"},
         "shorts_title": {"type": "string"},
-        "yt_intro": {"type": "string"},
-        "comment_prompt": {"type": "string"},
         "hashtags": {"type": "array", "items": {"type": "string"}},
         "tags": {"type": "array", "items": {"type": "string"}},
         "references": {
@@ -274,7 +271,7 @@ SCHEMA = {
         },
     },
     "required": ["candidates", "chosen", "why", "title", "title_kind", "tempo", "arc", "line_plan", "lyrics", "share_line", "style", "exclude",
-                 "photo_query", "image_prompt", "situation", "shorts_title", "yt_intro", "comment_prompt",
+                 "photo_query", "image_prompt", "situation", "shorts_title",
                  "hashtags", "tags", "references"],
     "additionalProperties": False,
 }
@@ -387,12 +384,11 @@ def polish(data: dict, fixed_title: str = "") -> dict:
 META_SCHEMA = {
     "type": "object",
     "properties": {
-        "situation": {"type": "string"}, "shorts_title": {"type": "string"}, "yt_intro": {"type": "string"},
-        "comment_prompt": {"type": "string"}, "share_line": {"type": "string", "description": "가사 안에 그대로 있는 한 줄"},
+        "situation": {"type": "string"}, "shorts_title": {"type": "string"}, "share_line": {"type": "string", "description": "가사 안에 그대로 있는 한 줄"},
         "hashtags": {"type": "array", "items": {"type": "string"}}, "tags": {"type": "array", "items": {"type": "string"}},
         "story": {"type": "string", "description": "누가 어떤 상황에서 부르는지 한 문장"},
     },
-    "required": ["situation", "shorts_title", "yt_intro", "comment_prompt", "share_line", "hashtags", "tags", "story"],
+    "required": ["situation", "shorts_title", "share_line", "hashtags", "tags", "story"],
     "additionalProperties": False,
 }
 
