@@ -116,7 +116,7 @@ def lyric_plan(path: Path, name: str, seconds: float = MAX_SECONDS) -> str:
              f"- 멜로디 프레이즈 {len(counts)}개, 순서대로 음 수: {' / '.join(map(str, counts))}",
              f"- [Verse 1]은 프레이즈 1~{half}, [Chorus]는 프레이즈 {half + 1}~{len(counts)}에 얹는다. 줄 하나가 프레이즈 하나, 줄의 음절 수는 그 프레이즈의 음 수(±1).",
              "- [Verse 2]와 [Final Chorus]는 같은 프레이즈가 되풀이되므로 같은 줄 수와 음절 수로 쓴다. [Bridge]는 [Verse]의 앞 절반 길이로. [Pre-Chorus], [Intro], [Outro]는 쓰지 않는다.",
-             "- 긴 음 자리에는 '아', '요', '오'처럼 열린 모음을 둔다."]
+             "- 긴 음 자리에는 '아', '어', '오'처럼 열린 모음(아, 어, 오)을 둔다."]
     return "\n".join(lines)
 
 

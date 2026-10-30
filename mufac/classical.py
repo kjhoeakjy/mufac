@@ -508,7 +508,7 @@ def lyric_plan_hand(piece_id: str) -> str:
     role_ko = {"verse": "[Verse 1], [Verse 2]", "chorus": "[Chorus], [Final Chorus]", "bridge": "[Bridge]"}
     for role, (key, counts) in seen.items():
         lines.append(f"- {role_ko[role]}: 주제 {key}, 줄 {len(counts)}개, 줄마다 음절 수 {' / '.join(map(str, counts))} (±1까지 허용)")
-    lines.append("- 긴 음이 있는 자리에는 '아', '요', '오'처럼 열린 모음을 둔다. 음 수보다 음절이 적으면 한 음절을 두 음에 걸쳐 불러도 되지만 가능하면 맞춘다.")
+    lines.append("- 긴 음이 있는 자리에는 '아', '어', '오'처럼 열린 모음(아, 어, 오)을 둔다. 음 수보다 음절이 적으면 한 음절을 두 음에 걸쳐 불러도 되지만 가능하면 맞춘다.")
     lines.append("- 쉼표(r) 자리는 숨 쉬는 곳이라 음절을 넣지 않는다. [Pre-Chorus]와 [Intro], [Outro]는 쓰지 않는다.")
     return "\n".join(lines)
 
