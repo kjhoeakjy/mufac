@@ -120,8 +120,12 @@ def cmd_produce(a) -> None:
     if not s.audio_path():
         sys.exit(f"{s.slug}: 노래 파일이 없습니다. mp3를 폴더에 올려주세요.")
     if not s.photo_path.exists():
-        from .photo import fetch
-        fetch(s)
+        from .photo import _gradient, fetch
+        try:
+            fetch(s)
+        except Exception as e:  # 사진 키가 막혀도 영상은 만든다
+            print(f"사진을 못 가져와 단색 배경으로 만듭니다: {e}", flush=True)
+            s.meta["photo"] = _gradient(s)
         s.save()
 
     print("가사 위치 찾는 중", flush=True)
