@@ -1,0 +1,156 @@
+title: 보호자 칸에 내 이름을 써요
+hook: 보호자 칸에 내 이름을 써요
+theme: 어른
+story: 아빠 입원 수속 날, 접수대에서 처음으로 보호자 칸에 자기 이름을 쓰는 삼사십 대 자식이 부르는 노래.
+created: 2026-10-30 10:15
+request:
+  id: t1
+  idea: 아빠
+style: korean acoustic ballad, soft piano, fingerpicked acoustic guitar, warm male vocal, conversational chest voice, 76 bpm, band joins 2nd chorus, swells at final chorus
+exclude: rap, autotune, english lyrics, edm, heavy drums, female vocal
+photo_query: hospital form pen hand
+image_prompt: Late afternoon light through a hospital window falls on a clipboard with a blank paper form and a ballpoint pen, an older man's hand resting on a white blanket beside it. Shot on 35mm film with soft grain, muted warm tones, no readable text and no faces.
+title_kind: 후렴 문장
+why: 가족사진의 명함 사진이나 신호등의 노란불처럼, 서류 한 칸이라는 사소한 사물 하나가 역할이 바뀌는 순간 전체를 끌고 가기 때문에 골랐습니다. 가정통신문에서는 내 이름이 위 칸, 아빠 이름이 아래 칸이었고 병원 서류에서는 그 자리가 뒤집힙니다. 이 구조를 '자리가 바뀌었어요'라는 한 줄로 놓아두고 설명은 하지 않았습니다. 제목은 질문이나 고백 자체가 이야기인 경우라서 후렴 문장을 그대로 썼습니다. '보호자'라는 단어는 후렴마다 나오기 때문에 단어 하나 제목의 규칙과 맞지 않았고, 문장 제목이 쇼츠 자막과 검색에서도 바로 읽힙니다. 아빠의 '괜찮다'를 내가 되받는 반전은 나는 반딧불에서, 조언하지 않고 누워 쉬게 하는 태도는 마음의 숲에서 원리로 가져왔습니다. 잔나비처럼 쉬운 낱말과 다듬지 않은 문장으로 쓰고, 브릿지에서 '칸이 이렇게 넓었었나요'라는 질문으로 아빠가 채우던 칸의 크기를 처음 실감하게 했습니다.
+share_line: 아빠랑 나 자리가 바뀌었어요
+youtube_meta:
+  situation: 아빠 생각날 때 듣는 노래
+  shorts_title: 보호자 칸에 처음 내 이름을 쓴 날
+  intro: '어릴 땐 보호자 칸에 늘 아빠 이름이 있었습니다.
+
+    아빠가 입원하던 날, 그 칸에 처음 내 이름을 썼습니다.'
+  comment_prompt: 여러분은 언제 처음 보호자 칸에 이름을 써 봤나요?
+  hashtags:
+  - 아빠노래
+  - 감성발라드
+  - 위로노래
+  - 보호자칸에내이름을써요
+  - 아빠
+  - 발라드
+  - 부모님노래
+  - 가족노래
+  - 새벽감성
+  - 감성플리
+  - 공감노래
+  - 한국발라드
+  - 신곡
+  - 아버지
+  - 효도
+tags:
+- 아빠
+- 아빠 노래
+- 아버지 노래
+- 보호자 칸에 내 이름을 써요
+- 보호자
+- 감성 발라드
+- 위로 노래
+- 부모님 노래
+- 가족 노래
+- 아빠 생각날 때 듣는 노래
+- 아빠 병원
+- 아빠 입원
+- 부모님 병원
+- 효도 노래
+- 어른 노래
+- 새벽 감성
+- 퇴근길 노래
+- 공감 노래
+- 가사 좋은 노래
+- 한국 발라드
+- 어쿠스틱 발라드
+- 감성 플리
+- 울컥하는 노래
+- 가정통신문
+- 아빠의 괜찮다
+- 신곡 발라드
+- AI 음악
+- korean ballad
+- korean acoustic song
+- song for dad
+- emotional korean song
+references:
+- title: 가족사진
+  artist: 김진호
+  takeaway: 명함 사진 같은 구체적인 사물 하나로 시작해, 담담하게 쌓다가 마지막에 터뜨린다.
+- title: 나는 반딧불
+  artist: 황가람
+  takeaway: 스스로를 낮추는 말을 뒤집어 위로로 바꾸듯, 아빠의 '괜찮다'를 내가 되받아 말하게 한다.
+- title: 신호등
+  artist: 이무진
+  takeaway: 노란불처럼 일상의 사물 하나에 어른이 되는 순간 전체를 담는다.
+- title: 꿈꾸던 어른이 되었나요?
+  artist: 머무르
+  takeaway: 괜찮은 척하는 마음을 꺼내 놓고, 후렴에서 듣는 사람이 자기 이야기를 대답하게 만든다.
+- title: 마음의 숲
+  artist: 조선힙합
+  takeaway: 뭔가 더 하라고 조언하지 않고, 그냥 쉬라고 다독이는 말이 사오십 대까지 닿는다.
+- title: 뜨거운 여름밤은 가고 남은 건 볼품없지만
+  artist: 잔나비
+  takeaway: 다듬지 않은 쉬운 문장과 끝을 열어 두는 말투가 듣는 사람의 기억을 불러낸다.
+candidates:
+- hook: 보호자 칸에 내 이름을 써요
+  theme: 어른
+  story: 아빠 입원 수속 날, 접수대에서 처음으로 보호자 칸에 자기 이름을 쓰는 삼사십 대 자식이 부르는 노래.
+- hook: 아빠 차 조수석 아직 내 자리야
+  theme: 어른
+  story: 독립한 지 몇 년 만에 아빠 차를 탔는데, 조수석 시트가 학생 때 맞춰 둔 그대로인 걸 알게 된 딸이 부르는 노래.
+- hook: 그 전화 왜 그냥 끊었을까요
+  theme: 아픔
+  story: 바쁘다며 짧게 끊은 아빠의 마지막 전화를 몇 년째 마음에 품고 사는 자식이 부르는 노래.
+- hook: 아빠 구두가 작아 보여요
+  theme: 어른
+  story: 명절에 본가 현관에서 아빠 구두 옆에 자기 구두를 벗어 두다가, 아빠 구두가 더 작아 보인 날 부르는 노래.
+- hook: 이번엔 내가 정류장에 있을게요
+  theme: 사랑
+  story: 야자 끝나면 늘 버스 정류장에 서 있던 아빠를 떠올리며, 이제 아빠 퇴근을 마중 나가고 싶은 자식이 부르는 노래.
+chosen: 0
+lyrics: |
+  [Intro]
+
+  [Verse 1]
+  가정통신문 맨 아래 칸
+  아빠 글씨는 늘 칸을 넘었죠
+  뒷장까지 꾹 배어 있었죠
+
+  [Pre-Chorus]
+  접수대 앞에 서서
+  펜을 몇 번 쥐었다 놔요
+
+  [Chorus]
+  보호자 칸에 내 이름을 써요
+  아빠랑 나 자리가 바뀌었어요
+  괜찮다는 말은 이제 내가 할게요
+  아빠는 그냥 누워 있어요
+
+  [Verse 2]
+  환자복 소매 한 뼘 남아
+  두 번을 접어서 올려 드렸죠
+  누워서도 내 출근을 묻죠
+
+  [Pre-Chorus]
+  아빤 괜찮다 그 말
+  이번엔 안 속을 거예요
+
+  [Chorus]
+  보호자 칸에 내 이름을 써요
+  아빠랑 나 자리가 바뀌었어요
+  괜찮다는 말은 이제 내가 할게요
+  아빠는 그냥 누워 있어요
+  (내가 여기 있을게요)
+
+  [Bridge]
+  내 글씨는 자꾸 작아져요
+  칸이 이렇게 넓었었나요
+  그래서 꾹꾹 눌러 써요
+  뒷장까지 남도록요
+
+  [Final Chorus]
+  보호자 칸에 내 이름을 써요
+  아빠랑 나 자리가 바뀌었어요
+  퇴원하는 날 그 종이에도
+  내 이름 쓰고 같이 가요
+  (같이 집에 가요)
+
+  [Outro]
+  보호자 칸에 내 이름을 써요
+  아빠 이름 바로 밑에요
