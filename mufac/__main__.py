@@ -127,6 +127,7 @@ def cmd_new(a) -> None:
         "story": pick["story"],
         "created": dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M"),
         "request": data.get("request", {}),
+        "sound_plan": data.get("sound_plan", ""),
         "style": data["style"],
         "exclude": data["exclude"],
         "photo_query": data["photo_query"],

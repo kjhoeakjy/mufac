@@ -51,6 +51,7 @@ config.yaml              활동명, 공개 범위, 레퍼런스, 사진 방식
 songs/<slug>/            곡 하나: song.yaml, README.md, research.md, photo*.jpg, cover.jpg, 노래 파일, timing.lrc
 assets/lyrics/           레퍼런스 밴드별 노랫말 프로필
 assets/fonts/            자막 글꼴 (Pretendard, SIL Open Font License)
+assets/sound/            장르별 사운드 설계도(리듬·베이스·화성·멜로디 윤곽·보컬·공간·전개). 작사 때 Suno 스타일과 구간 태그의 기준
 mufac/                   코드 (write: 가사, learn: 레퍼런스, photo: 사진, align: 자막, render: 영상, youtube: 업로드)
 docs/studio/             대시보드 (GitHub Pages)
 ```

@@ -33,6 +33,7 @@ RESEARCH = """\
 - 제목 / 가수 / 발매 연도
 - 후렴의 핵심 문장(10자 이내로만 인용)
 - 먹힌 이유: 태도와 화자, 후렴이 나오는 시점, 반복 구조, 템포(bpm 대략)와 편곡의 크기, 보컬 톤
+- 소리: 드럼·베이스의 질감, 화성 악기, 후렴 멜로디의 모양(도약·최고음 자리·긴 음), 구간마다 들어오고 빠지는 악기, 공간감. 이 장르 명곡들이 공통으로 가진 편곡 습관 두세 가지
 - 기승전결: 2절에서 무엇이 바뀌는지, 브릿지에서 무엇을 처음 말하는지, 마지막 후렴이 처음 후렴과 어떻게 다른지, 곡 길이
 - 댓글이나 기사에서 사람들이 공감한 지점
 - 말투: 줄 끝이 어떻게 끝나는지(반말 -어/-지/-네, 명사로 끊김, 존댓말), 문장이 끊기는 방식, 한 줄의 길이
@@ -188,13 +189,19 @@ title_kind에 고른 형태를 적고, why에 왜 그 형태인지 쓴다.
 - 코러스 메아리는 괄호로 따로 한 줄에 쓴다.
 - 레퍼런스 곡의 표현을 그대로 쓰지 않는다. 원리만 가져온다.
 
+[소리 설계]
+가사가 끝나면 소리를 설계한다. sound_plan에 한국어로 한 문단: 조성 느낌과 빠르기, 리듬 섹션의 소리, 베이스의 역할, 화성 악기, 멜로디 윤곽(절·프리코러스·후렴·마지막 후렴), 보컬 톤과 처리, 공간·질감, 구간별 들어오고 빠지는 악기, 끝내는 법.
+아래 [장르 사운드 설계도]의 해당 장르를 기준으로 하되 요청·주제·가사의 감정에 맞게 고른다. 설계도에 없는 장르나 섞임은 [소리 설계 공통]의 원칙으로 설계한다.
+설계한 내용이 style과 구간 태그에 그대로 들어가야 한다. 설계도의 "Suno 문구"는 낱말 창고다. 곡에 맞는 것만 고르고 그대로 베껴 쓰지 않는다.
+
 [Suno 스타일]
-Suno Custom의 Style 칸에 그대로 붙여 넣는 영어 글이다. 짧은 문장과 쉼표 구절을 섞어 400~700자. 순서는 다음과 같다.
+Suno Custom의 Style 칸에 그대로 붙여 넣는 영어 글이다. 짧은 문장과 쉼표 구절을 섞어 500~900자(한도 1000자). sound_plan을 영어로 옮긴 것이어야 한다. 순서는 다음과 같다.
 1. 장르와 빠르기: 맨 앞 장르가 가장 세게 먹힌다. 요청 장르가 있으면 그 장르를 첫 단어로. 장르는 둘까지만 섞고 주된 장르가 앞. 연대 표시(90s, 2000s)를 하나 넣으면 소리가 또렷해진다. bpm은 대략값.
 2. 보컬: 사람을 소개하듯 쓴다. 성별, 음역(baritone, mezzo), 질감(warm, clean, slightly raspy, breathy), 박자 앞뒤(behind the beat). 성숙하고 진심인 톤이 기본이다. 가사 언어를 반드시 적는다: 기본은 "sung in Korean, korean lyrics", 영어 곡이면 "sung in English", 섞이면 "korean lyrics with an english hook"(안 적으면 엉뚱한 언어로 부르는 일이 있다).
-3. 악기: 각 악기에 역할과 등장 시점을 준다. 예: piano carries verse 1, strings enter at the second chorus, electric guitar only from the bridge.
+3. 악기: 각 악기에 역할과 등장 시점을 준다. 예: piano carries verse 1, strings enter at the second chorus, electric guitar only from the bridge. 드럼은 소리까지(live drums in a room, brushed, tight programmed, fat late snare), 베이스는 종류와 역할까지(round fingered bass on roots, melodic picked bass, slap bass with octaves).
+   멜로디 윤곽을 적는다: narrow conversational verse melody, rising pre-chorus on a repeated note, chorus opens with an upward leap, long held note on the last word of the hook, octave-up final chorus.
 4. 전개: 기승전결을 소리로 적는다. 예: sparse first verse, full band from the second chorus, drops to voice and piano at the bridge, biggest and widest at the final chorus, short outro. Suno가 구조를 따르게 하는 가장 확실한 방법이다.
-5. 녹음과 공간, 그리고 맨 끝에 기분 두세 단어. 예: live band in a room, natural reverb, warm and unhurried.
+5. 녹음과 공간과 질감(small room, concert hall, wide stereo, close dry vocal, doubled chorus vocals, tape warmth, vinyl crackle), 효과음은 장르에 맞을 때 하나까지(rain under the intro), 맨 끝에 기분 두세 단어.
 - 장르별 요소와 빠르기:
   발라드(korean ballad, 62~76 bpm, 피아노와 현악, 조용히 시작해 마지막 후렴에서 가장 커짐, 감정 과잉 없이), 인디밴드(korean indie rock, 92~118 bpm, 기타 둘·베이스·드럼, 꾸밈없는 톤),
   락(korean rock, 112~148 bpm, 디스토션 기타 리프, 힘 있는 드럼, 브릿지에서 한 번 내려앉음), OST(drama OST, 64~84 bpm, 현악 오케스트라와 피아노, 영화적 전개),
@@ -211,7 +218,8 @@ Suno Custom의 Style 칸에 그대로 붙여 넣는 영어 글이다. 짧은 문
 - 구간 태그는 대괄호로 한 줄에 따로, 구간 사이에 빈 줄. 오타가 나면 그대로 불러 버리니 영어 철자를 정확히.
 - 순서는 [길이와 구조]의 고정 구조를 따른다. 마지막 줄은 반드시 [End].
 - [Intro]는 가사 없이 태그만(연주 구간). 절은 번호를 붙인다. 후렴은 글자를 똑같이 반복해야 같은 멜로디로 돌아온다. [Bridge]와 [Outro]는 한 번씩.
-- 구간에 전개 지시를 붙인다. 콜론 뒤에 두세 단어: [Verse 1: sparse, piano only], [Chorus: full band], [Bridge: quiet, voice and piano], [Final Chorus: biggest, strings and choir]. 보컬 성별·음색 같은 전체 설정은 가사가 아니라 style에 쓴다.
+- 모든 구간에 전개 지시를 붙인다. 콜론 뒤에 그 구간에서 바뀌는 것만 두세 마디, sound_plan과 같게: [Verse 1: piano and voice only], [Pre-Chorus: drums enter, building], [Chorus: full band, doubled vocals], [Verse 2: bass and side-stick added], [Bridge: strip to bass and voice], [Final Chorus: strings, octave up, biggest], [Outro: piano alone, slows down].
+  보조 태그는 곡에 하나둘만: [Instrumental Break], [Guitar Solo], [Piano Solo], [Saxophone Solo], [Build], [Breakdown], [Fade Out]. 보컬 성별·음색 같은 전체 설정은 가사가 아니라 style에 쓴다.
 - 코러스 메아리는 괄호로 따로 한 줄, 한 줄에 하나. 대문자 강조는 마지막 후렴 한 줄까지만.
 - 가사가 짧으면 곡도 짧아진다. 전체 3분 30초 이상이 되게 줄 수를 지킨다.
 
@@ -255,7 +263,8 @@ SCHEMA = {
         "line_plan": {"type": "string", "description": "가사를 쓰기 전 줄 계획. 절·프리코러스·브릿지의 줄마다 '역할(사실/전환/관찰) + 그 줄이 말할 것 한 토막'. 역할이 없는 줄은 계획에 넣지 않는다."},
         "lyrics": {"type": "string", "description": "line_plan대로 쓴 전체 가사(구간 태그 포함). 28~42줄(태그 제외)."},
         "share_line": {"type": "string", "description": "쇼츠용 공유하고 싶은 가사 한 줄(가사 안에 있는 그대로)"},
-        "style": {"type": "string"},
+        "sound_plan": {"type": "string", "description": "소리 설계 한 문단(한국어): 조성·빠르기, 리듬, 베이스, 화성 악기, 멜로디 윤곽, 보컬, 공간·질감, 구간별 편곡 변화, 끝내는 법."},
+        "style": {"type": "string", "description": "sound_plan을 영어로 옮긴 Suno Style, 500~900자."},
         "exclude": {"type": "string"},
         "photo_query": {"type": "string"},
         "image_prompt": {"type": "string"},
@@ -278,7 +287,7 @@ SCHEMA = {
             },
         },
     },
-    "required": ["candidates", "chosen", "why", "title", "title_kind", "tempo", "arc", "line_plan", "lyrics", "share_line", "style", "exclude",
+    "required": ["candidates", "chosen", "why", "title", "title_kind", "tempo", "arc", "line_plan", "lyrics", "share_line", "sound_plan", "style", "exclude",
                  "photo_query", "image_prompt", "situation", "shorts_title",
                  "hashtags", "tags", "references"],
     "additionalProperties": False,
@@ -314,8 +323,28 @@ def _checklist() -> str:
     return _read(CHECKLIST)
 
 
-def _system(base: str) -> str:
-    """시스템 프롬프트에 레퍼런스 이름, 작사 프로필, AI 티 점검표를 붙인다."""
+SOUND_DIR = Path(__file__).resolve().parent.parent / "assets" / "sound"
+
+
+def _sound(genre: str = "") -> str:
+    """장르 사운드 설계도. 장르가 정해졌으면 그 장르만, 자동이면 전부."""
+    if not SOUND_DIR.exists():
+        return ""
+    common = _read(SOUND_DIR / "_공통.md")
+    files = sorted(p for p in SOUND_DIR.glob("*.md") if not p.name.startswith("_"))
+    if genre and genre != "자동":
+        files = [p for p in files if p.stem == genre] or files
+    sheets = "\n\n".join(_read(p) for p in files)
+    out = ""
+    if common:
+        out += "\n\n[소리 설계 공통]\n" + common
+    if sheets:
+        out += "\n\n[장르 사운드 설계도]\n" + sheets
+    return out
+
+
+def _system(base: str, genre: str = "") -> str:
+    """시스템 프롬프트에 레퍼런스 이름, 작사 프로필, 후렴 원칙, 소리 설계도, AI 티 점검표를 붙인다."""
     from .learn import profiles_text
     text = base.replace("{ref}", _ref())
     profiles = profiles_text()
@@ -324,6 +353,8 @@ def _system(base: str) -> str:
     hooks = _read(HOOKS)
     if hooks:
         text += "\n\n[후렴과 반복]\n" + hooks
+    if base is SYSTEM:
+        text += _sound(genre)
     check = _checklist()
     if check:
         text += "\n\n[AI 티 점검표]\n" + check
@@ -493,7 +524,7 @@ def prepare(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "",
         notes = research(brief)
     except (anthropic.APIError, RuntimeError) as e:
         print(f"레퍼런스 조사를 건너뜁니다: {e}", flush=True)
-    return {"brief": brief, "notes": notes, "title": title}
+    return {"brief": brief, "notes": notes, "title": title, "genre": genre}
 
 
 def compose(work: dict) -> dict:
@@ -506,7 +537,7 @@ def compose(work: dict) -> dict:
     content = "\n\n".join(parts)
     t0 = time.time()
     with anthropic.Anthropic().beta.messages.stream(
-        model=MODEL, max_tokens=32000, system=_system(SYSTEM), betas=BETAS, fallbacks="default",
+        model=MODEL, max_tokens=32000, system=_system(SYSTEM, work.get("genre", "")), betas=BETAS, fallbacks="default",
         output_config={"effort": "high", "format": {"type": "json_schema", "schema": SCHEMA}},
         messages=[{"role": "user", "content": content}],
     ) as stream:
