@@ -1,10 +1,10 @@
-"""곡 분위기에 맞는 사진을 구한다.
+"""곡 분위기에 맞는 배경 그림(일러스트)을 구한다.
 
-photo.jpg   가로 사진(본편 영상, 썸네일)
-photo_v.jpg 세로 사진(쇼츠). 없으면 가로 사진 가운데를 잘라 쓴다.
-cover.jpg   정사각 커버(Suno 곡 이미지). 없으면 가로 사진 가운데를 잘라 만든다.
+photo.jpg   가로 그림(본편 영상, 썸네일)
+photo_v.jpg 세로 그림(쇼츠). 없으면 가로 그림 가운데를 잘라 쓴다.
+cover.jpg   정사각 커버(Suno 곡 이미지). 없으면 가로 그림 가운데를 잘라 만든다.
 
-OpenAI 이미지(기본) → Pexels 실제 사진 → 둘 다 없으면 색 그라데이션 순서로 시도한다.
+OpenAI 이미지(기본, 일러스트) → Pexels 실제 사진 → 둘 다 없으면 색 그라데이션 순서로 시도한다.
 """
 
 from __future__ import annotations
@@ -24,15 +24,16 @@ from .song import Song, config
 
 MIN_WIDTH = 2400
 LOOK = (
-    "Shot on 35mm film, natural light, shallow depth of field, soft grain, realistic colors that follow the mood of the scene, "
-    "like a still from a Korean film. "
-    "No text, no letters, no signs with writing, no watermark, no people facing the camera."
+    "Modern editorial illustration, flat shapes with soft textured shading and subtle grain, a restrained palette of four or five colors "
+    "that follows the mood of the scene, clean composition with generous empty space in the lower third so lyrics can sit over it. "
+    "Not photorealistic, not 3D render, not anime. "
+    "No text, no letters, no signs with writing, no watermark, no faces looking at the viewer."
 )
 
 
 def fetch(song: Song, *, pick: int | None = None) -> dict:
     query = song.meta.get("photo_query") or "city night window rain"
-    scene = song.meta.get("image_prompt") or f"Photograph of {query}."
+    scene = song.meta.get("image_prompt") or f"Illustration of {query}."
     source = config().get("photo_source", "openai")
     has_openai, has_pexels = bool(os.environ.get("OPENAI_API_KEY")), bool(os.environ.get("PEXELS_API_KEY"))
     if source == "openai" and has_openai:

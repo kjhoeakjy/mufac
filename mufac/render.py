@@ -1,8 +1,8 @@
-"""사진 + 노래 + 가사 자막으로 영상을 만든다.
+"""배경 그림 한 장 + 노래 + 가사 자막으로 영상을 만든다.
 
-- main.mp4  1920x1080, 곡 전체. 사진이 아주 천천히 확대·축소되고 가사가 한 줄씩 뜬다.
-- short.mp4 1080x1920, 후렴 구간. 위에 제목, 가운데 아래 가사.
-- thumb.jpg 1280x720 유튜브 썸네일.
+- main.mp4  1920x1080, 곡 전체. 배경은 움직이지 않고, 처음에 제목이 가운데 떴다가 가사가 한 줄씩 바뀐다.
+- short.mp4 1080x1920, 후렴 구간. 같은 배경, 처음에 제목이 가운데 잠깐, 이어서 가사.
+- thumb.jpg 1280x720 유튜브 썸네일. 같은 배경 가운데에 제목.
 """
 
 from __future__ import annotations
@@ -16,10 +16,11 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from .align import duration
 from .song import FONTS, Song
 
-SERIF = FONTS / "GowunBatang-Bold.ttf"
-SANS = FONTS / "NotoSansKR-Medium.ttf"
+# 글꼴은 Pretendard(SIL OFL). 자막(ASS)에서는 글꼴 이름으로, 썸네일(PIL)에서는 파일로 쓴다
+TITLE_FONT, TITLE_FILE = "Pretendard", FONTS / "Pretendard-Bold.otf"
+LYRIC_FONT = "Pretendard SemiBold"
+SMALL_FONT, SMALL_FILE = "Pretendard Medium", FONTS / "Pretendard-Medium.otf"
 FPS = 30
-ZOOM_PERIOD = 48  # 초. 확대됐다가 돌아오는 한 주기
 
 
 # ---------------------------------------------------------------- 이미지 준비
@@ -54,12 +55,12 @@ def prepare(song: Song) -> dict[str, Path]:
         "land_shade": song.out / "shade_land.png",
         "port_shade": song.out / "shade_port.png",
     }
-    # 확대·축소가 부드럽도록 출력의 2배 크기로 준비
-    _cover(photo, 3840, 2160).save(paths["land"], quality=92)
+    # 배경은 움직이지 않으므로 출력 크기 그대로 준비
+    _cover(photo, 1920, 1080).save(paths["land"], quality=94)
     vertical = Image.open(song.photo_v_path).convert("RGB") if song.photo_v_path.exists() else photo
-    _cover(vertical, 2160, 3840).save(paths["port"], quality=92)
-    _shade(1920, 1080, bottom=0.72, top=0.0, vignette=0.45).save(paths["land_shade"])
-    _shade(1080, 1920, bottom=0.55, top=0.55, vignette=0.4).save(paths["port_shade"])
+    _cover(vertical, 1080, 1920).save(paths["port"], quality=94)
+    _shade(1920, 1080, bottom=0.55, top=0.0, vignette=0.3).save(paths["land_shade"])
+    _shade(1080, 1920, bottom=0.45, top=0.0, vignette=0.3).save(paths["port_shade"])
     return paths
 
 
@@ -90,23 +91,25 @@ def _ass_header(w: int, h: int, styles: list[str]) -> str:
     ])
 
 
-def _style(name, font, size, align, margin_v, *, bold=-1, shadow=2, margin_lr=120, color="&H00FFFFFF", spacing=1):
-    return (f"Style: {name},{font},{size},{color},&H00FFFFFF,&H00000000,&H96000000,"
+def _style(name, font, size, align, margin_v, *, bold=0, shadow=1, margin_lr=120, color="&H00FFFFFF", spacing=0):
+    # 외곽선 없이 옅은 그림자만. 두꺼운 테두리가 촌스러움의 주범이다
+    return (f"Style: {name},{font},{size},{color},&H00FFFFFF,&H00000000,&H78000000,"
             f"{bold},0,0,0,100,100,{spacing},0,1,0,{shadow},{align},{margin_lr},{margin_lr},{margin_v},1")
 
 
 def write_ass_main(song: Song, rows: list[dict], path: Path, artist: str) -> None:
     title = song.meta.get("title", "")
     lines = [_ass_header(1920, 1080, [
-        _style("Lyric", "Gowun Batang", 64, 2, 110),
-        _style("Title", "Gowun Batang", 96, 5, 0, spacing=2),
-        _style("Artist", "Noto Sans KR Medium", 38, 5, 0, bold=0, color="&H00D8D8D8", spacing=3),
+        _style("Lyric", LYRIC_FONT, 62, 2, 110),
+        _style("Title", TITLE_FONT, 108, 5, 0, bold=-1, spacing=1),
+        _style("Artist", SMALL_FONT, 36, 5, 0, color="&H00E6E6E6", spacing=2),
     ])]
     first = rows[0]["start"] if rows else 8.0
     card_end = max(4.0, min(8.0, first - 0.3))
-    lines.append(f"Dialogue: 0,{_ts(0.6)},{_ts(card_end)},Title,,0,0,0,,{{\\fad(900,700)\\pos(960,500)}}{_esc(title)}")
+    # 제목은 같은 배경 한가운데
+    lines.append(f"Dialogue: 0,{_ts(0.6)},{_ts(card_end)},Title,,0,0,0,,{{\\fad(900,700)\\pos(960,{520 if artist else 540})}}{_esc(title)}")
     if artist:
-        lines.append(f"Dialogue: 0,{_ts(1.0)},{_ts(card_end)},Artist,,0,0,0,,{{\\fad(900,700)\\pos(960,600)}}{_esc(artist)}")
+        lines.append(f"Dialogue: 0,{_ts(1.0)},{_ts(card_end)},Artist,,0,0,0,,{{\\fad(900,700)\\pos(960,620)}}{_esc(artist)}")
     for r in rows:
         lines.append(f"Dialogue: 0,{_ts(r['start'] - 0.15)},{_ts(r['end'])},Lyric,,0,0,0,,"
                      f"{{\\fad(220,320)}}{_esc(r['text'])}")
@@ -116,14 +119,15 @@ def write_ass_main(song: Song, rows: list[dict], path: Path, artist: str) -> Non
 def write_ass_short(song: Song, rows: list[dict], path: Path, artist: str, start: float, end: float) -> None:
     title = song.meta.get("title", "")
     lines = [_ass_header(1080, 1920, [
-        _style("Lyric", "Gowun Batang", 76, 5, 0, margin_lr=90),
-        _style("Title", "Gowun Batang", 70, 8, 250, margin_lr=90, spacing=2),
-        _style("Artist", "Noto Sans KR Medium", 34, 8, 350, bold=0, color="&H00D8D8D8", spacing=3),
+        _style("Lyric", LYRIC_FONT, 72, 5, 0, margin_lr=90),
+        _style("Title", TITLE_FONT, 92, 5, 0, bold=-1, margin_lr=90, spacing=1),
+        _style("Artist", SMALL_FONT, 34, 5, 0, color="&H00E6E6E6", spacing=2),
     ])]
     span = end - start
-    lines.append(f"Dialogue: 0,{_ts(0)},{_ts(span)},Title,,0,0,0,,{{\\fad(600,0)}}{_esc(title)}")
+    # 제목은 처음 2.5초 동안 가운데, 그다음 가사가 이어진다
+    lines.append(f"Dialogue: 0,{_ts(0)},{_ts(2.5)},Title,,0,0,0,,{{\\fad(400,500)\\pos(540,{880 if artist else 900})}}{_esc(title)}")
     if artist:
-        lines.append(f"Dialogue: 0,{_ts(0)},{_ts(span)},Artist,,0,0,0,,{{\\fad(600,0)}}{_esc(artist)}")
+        lines.append(f"Dialogue: 0,{_ts(0)},{_ts(2.5)},Artist,,0,0,0,,{{\\fad(400,500)\\pos(540,960)}}{_esc(artist)}")
     for r in rows:
         a, b = r["start"] - start, r["end"] - start
         if b <= 0 or a >= span:
@@ -134,13 +138,6 @@ def write_ass_short(song: Song, rows: list[dict], path: Path, artist: str, start
 
 
 # ---------------------------------------------------------------- ffmpeg
-
-def _zoom(size: str, frames_offset: int = 0) -> str:
-    # 1.0배에서 시작해 1.06배까지 아주 천천히 다가갔다가 돌아온다
-    on = f"(on+{frames_offset})"
-    return (f"zoompan=z='1.03-0.03*cos(2*PI*{on}/({FPS}*{ZOOM_PERIOD}))'"
-            f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={size}:fps={FPS}")
-
 
 def _run(cmd: list[str]) -> None:
     print("+", " ".join(cmd[:6]), "...", flush=True)
@@ -157,7 +154,7 @@ def render_main(song: Song, src: dict[str, Path], ass: Path) -> Path:
     audio = song.audio_path()
     total = duration(audio)
     out = song.out / "main.mp4"
-    graph = (f"[0:v]{_zoom('1920x1080')},format=rgba[bg];"
+    graph = (f"[0:v]format=rgba[bg];"
              f"[bg][1:v]overlay=0:0,{_subs(ass)},"
              f"fade=t=in:st=0:d=1.5,fade=t=out:st={max(0, total - 2.5):.2f}:d=2.5,format=yuv420p[v]")
     _run([
@@ -178,7 +175,7 @@ def render_short(song: Song, src: dict[str, Path], ass: Path, start: float, end:
     audio = song.audio_path()
     span = end - start
     out = song.out / "short.mp4"
-    graph = (f"[0:v]{_zoom('1080x1920', int(start * FPS))},format=rgba[bg];"
+    graph = (f"[0:v]format=rgba[bg];"
              f"[bg][1:v]overlay=0:0,{_subs(ass)},"
              f"fade=t=in:st=0:d=0.6,fade=t=out:st={max(0, span - 1.5):.2f}:d=1.5,format=yuv420p[v];"
              f"[2:a]afade=t=in:st=0:d=0.8,afade=t=out:st={max(0, span - 2):.2f}:d=2[a]")
@@ -209,20 +206,24 @@ def _fit_font(draw, text, path, max_w, start):
 
 
 def thumbnail(song: Song, artist: str) -> Path:
+    """영상 첫 화면과 같은 구성: 배경 그림 가운데에 제목."""
     img = _cover(Image.open(song.photo_path).convert("RGB"), 1280, 720)
-    img = Image.alpha_composite(img.convert("RGBA"), _shade(1280, 720, bottom=0.85, top=0.0, vignette=0.5))
+    img = Image.alpha_composite(img.convert("RGBA"), _shade(1280, 720, bottom=0.35, top=0.0, vignette=0.55))
     draw = ImageDraw.Draw(img)
     title = song.meta.get("title", "")
-    font = _fit_font(draw, title, SERIF, 1280 - 160, 104)
+    font = _fit_font(draw, title, TITLE_FILE, 1280 - 160, 120)
+    small = ImageFont.truetype(str(SMALL_FILE), 32)
+    tw = draw.textlength(title, font=font)
+    x, y = (1280 - tw) / 2, 360 - font.size * 0.62 - (24 if artist else 0)
     shadow = Image.new("RGBA", img.size, (0, 0, 0, 0))
     sd = ImageDraw.Draw(shadow)
-    y = 720 - 90 - font.size - (56 if artist else 0)
-    sd.text((82, y + 4), title, font=font, fill=(0, 0, 0, 170))
-    img = Image.alpha_composite(img, shadow.filter(ImageFilter.GaussianBlur(8)))
+    sd.text((x + 2, y + 5), title, font=font, fill=(0, 0, 0, 150))
+    img = Image.alpha_composite(img, shadow.filter(ImageFilter.GaussianBlur(10)))
     draw = ImageDraw.Draw(img)
-    draw.text((80, y), title, font=font, fill=(255, 255, 255, 255))
+    draw.text((x, y), title, font=font, fill=(255, 255, 255, 255))
     if artist:
-        draw.text((84, y + font.size + 26), artist, font=ImageFont.truetype(str(SANS), 34), fill=(225, 225, 225, 255))
+        aw = draw.textlength(artist, font=small)
+        draw.text(((1280 - aw) / 2, y + font.size + 30), artist, font=small, fill=(232, 232, 232, 255))
     out = song.out / "thumb.jpg"
     img.convert("RGB").save(out, quality=92)
     return out
