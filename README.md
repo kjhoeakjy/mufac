@@ -56,6 +56,11 @@ mufac/                   코드 (write: 가사, learn: 레퍼런스, photo: 사�
 docs/studio/             대시보드 (GitHub Pages)
 ```
 
+## 수정 지시
+
+곡 화면의 "수정 지시" 칸에 고칠 방향을 적으면(예: 후렴 더 짧게, 2절은 혼잣말로, 템포 느리게) Actions "다시 쓰기"가 가사·소리 설계·Suno 스타일·제목을 지시대로 고친다.
+지시와 무관한 줄은 그대로 둔다. 가사가 바뀌면 자막 타이밍을 지우니 영상은 다시 만들어야 한다. 바꾼 내역은 song.yaml의 revisions에 남는다.
+
 ## 유튜브 토큰이 끊길 때
 
 업로드가 `invalid_grant: Token has been expired or revoked`로 실패하면 refresh token이 만료된 것이다.

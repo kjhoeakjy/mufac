@@ -207,6 +207,51 @@ def cmd_refresh(a) -> None:
     print(s.slug)
 
 
+def cmd_revise(a) -> None:
+    """대시보드의 수정 지시대로 가사·소리·제목을 고치고, 유튜브 글과 미리보기를 다시 만든다."""
+    from .write import revise, refresh_meta
+
+    s = Song(a.slug)
+    m = s.meta
+    note = (a.note or "").strip()
+    if not note:
+        sys.exit("수정 지시가 비어 있습니다.")
+    out = revise(m, note)
+    if out.get("lyrics", "").count("[") < 3:
+        sys.exit("다시 쓴 가사가 올바르지 않아 반영하지 않았습니다.")
+    before = {k: m.get(k, "") for k in ("title", "lyrics", "style", "exclude", "sound_plan", "hook", "arc", "share_line", "image_prompt")}
+    lyrics_changed = out["lyrics"].strip() != (m.get("lyrics") or "").strip()
+    for k in ("title", "lyrics", "style", "exclude", "sound_plan", "hook", "arc", "share_line", "image_prompt"):
+        if out.get(k, "").strip():
+            m[k] = out[k].strip()
+    m.setdefault("revisions", []).append({
+        "at": dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M"), "note": note,
+        "plan": out.get("plan", ""), "changes": out.get("changes", []),
+        "before": {k: v for k, v in before.items() if v != m.get(k, "")},
+    })
+    if lyrics_changed or before["title"] != m["title"]:
+        try:
+            new = refresh_meta(m)
+            ym = m.setdefault("youtube_meta", {})
+            for k in ("situation", "shorts_title", "hashtags"):
+                ym[k] = new[k]
+            m["tags"], m["story"] = new["tags"], new["story"]
+            if new["share_line"].strip() and new["share_line"].strip() in m.get("lyrics", ""):
+                m["share_line"] = new["share_line"].strip()
+        except Exception as e:
+            print(f"유튜브 글을 다시 쓰지 못했습니다: {e}", file=sys.stderr)
+    if lyrics_changed and s.timing_path.exists():
+        s.timing_path.unlink()
+        print("가사가 바뀌어 자막 타이밍을 지웠습니다. 영상은 다시 만들어야 합니다.", flush=True)
+    m["youtube_preview"] = _preview(s)
+    m["youtube_preview_edited"] = False
+    s.save()
+    write_readme(s)
+    for c in out.get("changes", []):
+        print(f"- {c}")
+    print(s.slug)
+
+
 def cmd_photo(a) -> None:
     from .photo import fetch
 
@@ -364,6 +409,11 @@ def main() -> None:
     rf.add_argument("slug")
     rf.add_argument("--lyrics-changed", action="store_true", help="가사가 바뀌었으면 자막 타이밍을 지운다")
     rf.set_defaults(func=cmd_refresh)
+
+    rv = sub.add_parser("revise", help="수정 지시대로 가사·소리·제목 다시 쓰기")
+    rv.add_argument("slug")
+    rv.add_argument("--note", default="", help="수정 지시(한국어)")
+    rv.set_defaults(func=cmd_revise)
 
     ph = sub.add_parser("photo", help="사진 다시 만들기")
     ph.add_argument("slug")

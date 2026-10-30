@@ -456,6 +456,59 @@ def refresh_meta(meta: dict) -> dict:
     return json.loads(next(b.text for b in response.content if b.type == "text"))
 
 
+REVISE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "plan": {"type": "string", "description": "지시를 어떻게 반영할지 두세 문장. 무엇을 바꾸고 무엇을 그대로 두는지."},
+        "title": {"type": "string"},
+        "hook": {"type": "string"},
+        "arc": {"type": "string"},
+        "lyrics": {"type": "string", "description": "구간 태그 포함 전체 가사. 지시와 무관한 줄은 글자 그대로 둔다."},
+        "share_line": {"type": "string"},
+        "sound_plan": {"type": "string"},
+        "style": {"type": "string"},
+        "exclude": {"type": "string"},
+        "image_prompt": {"type": "string"},
+        "changes": {"type": "array", "items": {"type": "string"}, "description": "바꾼 점을 한 줄씩, 한국어."},
+    },
+    "required": ["plan", "title", "hook", "arc", "lyrics", "share_line", "sound_plan", "style", "exclude", "image_prompt", "changes"],
+    "additionalProperties": False,
+}
+
+REVISE_NOTE = """
+[수정 지시 모드]
+이미 만든 곡을 사용자의 지시대로 고친다. 새로 쓰는 것이 아니다.
+- 지시가 건드리는 부분만 바꾸고, 나머지 줄은 글자 하나 바꾸지 않는다. 지시가 "전체"를 말하면 전체를 다시 쓴다.
+- 지시가 가사에 관한 것이면 style·sound_plan은 그대로 두고, 소리에 관한 것이면 가사는 그대로 둔다. 둘 다 말하면 둘 다 고친다.
+- 지시가 위 규칙과 부딪히면 지시가 우선이다. 다만 후렴 글자 반복, 구간 태그 형식, [End]는 지킨다.
+- 바꾼 뒤에도 줄 끝 분포·줄 길이·존재 이유 규칙을 지킨다. 바꾼 줄이 주변 줄과 음절 수가 맞아야 한다.
+- 제목은 지시가 제목을 말할 때만 바꾼다. image_prompt는 가사 장면이 바뀌었을 때만 바꾼다.
+- changes에 바꾼 점을 사람이 읽을 한 줄씩 적는다.
+"""
+
+
+def revise(meta: dict, note: str) -> dict:
+    """사용자의 수정 지시대로 가사·소리·제목을 고친다."""
+    genre = (meta.get("request") or {}).get("genre", "")
+    system = _system(SYSTEM, genre) + "\n" + REVISE_NOTE
+    content = (f"[수정 지시]\n{note.strip()}\n\n[제목]\n{meta.get('title', '')}\n\n[후렴 문장]\n{meta.get('hook', '')}\n\n"
+               f"[기승전결]\n{meta.get('arc', '')}\n\n[가사]\n{meta.get('lyrics', '')}\n\n[소리 설계]\n{meta.get('sound_plan', '')}\n\n"
+               f"[Suno 스타일]\n{meta.get('style', '')}\n\n[Exclude]\n{meta.get('exclude', '')}\n\n[이미지 프롬프트]\n{meta.get('image_prompt', '')}")
+    req = meta.get("request") or {}
+    if any(req.get(k) for k in ("content", "idea", "style", "genre")):
+        content += "\n\n[처음 요청]\n" + json.dumps({k: v for k, v in req.items() if v}, ensure_ascii=False)
+    t0 = time.time()
+    with anthropic.Anthropic().beta.messages.stream(
+        model=MODEL, max_tokens=24000, system=system, betas=BETAS, fallbacks="default",
+        output_config={"effort": "high", "format": {"type": "json_schema", "schema": REVISE_SCHEMA}},
+        messages=[{"role": "user", "content": content}],
+    ) as stream:
+        response = stream.get_final_message()
+    _check(response)
+    took("다시 쓰기", t0)
+    return json.loads(next(b.text for b in response.content if b.type == "text"))
+
+
 def safe_polish(data: dict, fixed_title: str = "") -> dict:
     """검수가 실패해도 초고는 남긴다."""
     try:

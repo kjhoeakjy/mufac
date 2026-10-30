@@ -38,6 +38,8 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;ma
 .editor textarea{min-height:360px;line-height:1.6;resize:vertical;margin-top:8px}
 .editor .row{display:flex;gap:8px;margin-top:10px;align-items:center}
 .editor .row .note{margin:0 0 0 auto}
+.editor textarea.short{min-height:64px;margin-top:0}
+.rev{margin-top:10px;font-size:14px;color:var(--muted)}.rev summary{cursor:pointer}.rev ul{margin:6px 0 0;padding-left:18px}
 .editor label.flabel{margin-top:10px;display:block}
 .editor textarea.short{min-height:90px}
 .make select{appearance:none;-webkit-appearance:none;padding-right:30px;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:right 15px top 50%,right 10px top 50%;background-size:5px 5px;background-repeat:no-repeat;text-overflow:ellipsis}
@@ -276,6 +278,7 @@ async function loadRuns() {
 const STAGE_SETS = {
   "새 곡": { prep: [0, 8, 30], stages: [["조사", 8, 30, 50], ["작사", 30, 85, 150], ["검수", 85, 97, 45], ["저장", 97, 100, 5]] },
   "영상 만들기": { prep: [0, 12, 95], stages: [["가사 위치", 12, 45, 170], ["본편", 45, 82, 110], ["쇼츠", 82, 94, 40], ["영상 보관", 94, 98, 6], ["결과 저장", 98, 100, 5]] },
+  "다시 쓰기": { prep: [0, 8, 30], stages: [["다시 쓰기", 8, 92, 150], ["저장", 92, 100, 5]] },
 };
 function progressOf(run) {
   const set = STAGE_SETS[wf(run)] || STAGE_SETS["새 곡"];
@@ -314,12 +317,14 @@ function runFor(slug, workflow) {
 }
 const active = (r) => r && r.status !== "completed";
 // 실행의 name은 run-name(예: "새 곡 abc 제목")이라 워크플로 파일로 어떤 작업인지 가린다
-const WORKFLOWS = { "new-song.yml": "새 곡", "produce.yml": "영상 만들기", "upload.yml": "유튜브 업로드", "refresh.yml": "글 갱신" };
+const WORKFLOWS = { "new-song.yml": "새 곡", "produce.yml": "영상 만들기", "upload.yml": "유튜브 업로드", "refresh.yml": "글 갱신", "revise.yml": "다시 쓰기" };
 const wf = (r) => WORKFLOWS[(r?.path || "").split("/").pop()] || r?.name;
 
 // ---------------------------------------------------------------- 상태
 function status(s) {
   const prod = runFor(s.slug, "영상 만들기"), up = runFor(s.slug, "유튜브 업로드");
+  const rev = runFor(s.slug, "다시 쓰기");
+  if (active(rev)) { const pr = progressOf(rev); return ["run", `다시 쓰는 중 ${Math.round(pr.pct)}%`]; }
   if (active(runFor(s.slug, "글 갱신"))) return ["run", "글 갱신 중"];
   if (active(up)) return ["run", "업로드 중"];
   if (s.meta?.youtube?.main) return ["done", "업로드 완료"];
@@ -454,6 +459,15 @@ function renderDetail() {
         <div class="row"><button class="btn primary" type="submit">저장</button><button class="ghost" type="button" id="editCancel">취소</button>
         <p class="note">저장하면 유튜브 제목·설명·해시태그를 다시 씁니다${s.release ? ". 가사를 바꾸면 영상도 다시 만들어야 합니다" : ""}</p></div>
       </form></section>` : ""}
+    <section class="step"><h2>수정 지시 <span>가사·소리·제목을 지시대로 다시 씁니다</span></h2>
+      ${(() => { const r = runFor(s.slug, "다시 쓰기"); const last = (m.revisions || []).slice(-1)[0];
+        if (active(r)) { const pr = progressOf(r), pct = Math.round(pr.pct); return `<div class="state"><span class="dot run"></span>${esc(last?.note || "다시 쓰는 중")} · ${pct}%<div class="bar"><i style="width:${pct}%"></i></div></div>`; }
+        return `<form class="editor" id="revForm">
+          <textarea id="revNote" class="short" placeholder="예: 후렴을 더 짧게. 2절은 혼잣말로. 템포를 느리게 하고 피아노만으로 시작" aria-label="수정 지시"></textarea>
+          <div class="row"><button class="btn primary" type="submit">지시대로 다시 쓰기</button>
+          <p class="note">${r?.conclusion === "failure" ? `이전 다시 쓰기 실패 · <a href="${r.html_url}" target="_blank" rel="noopener">실행 기록</a>` : (s.release ? "가사가 바뀌면 영상도 다시 만들어야 합니다" : "")}</p></div>
+        </form>${last ? `<details class="rev"><summary>지난 수정 · ${esc(last.at)} · ${esc(last.note)}</summary><ul>${(last.changes || []).map(c => `<li>${esc(c)}</li>`).join("")}</ul></details>` : ""}`; })()}
+    </section>
     <section class="step"><h2>SUNO <span>Custom · ${cover ? `<a href="${cover}" download>곡 이미지</a> · ` : ""}<a href="https://suno.com/create" target="_blank" rel="noopener">Suno</a> · v5 · Weirdness 낮게 · Style Influence 높게</span></h2>
       ${field("Lyrics", (m.lyrics || "").trim(), "lyrics")}
       ${field("Styles", m.style || "")}
@@ -492,6 +506,14 @@ function renderDetail() {
     e.submitter.disabled = true;
     try { await saveYoutube(s, pv); editYt = null; toast("유튜브 글 저장"); await loadSongs(); render(); }
     catch (err) { toast("저장 실패: " + err.message); e.submitter.disabled = false; }
+  };
+  if ($("revForm")) $("revForm").onsubmit = async e => {
+    e.preventDefault();
+    const note = $("revNote").value.trim();
+    if (!note) { $("revNote").focus(); return; }
+    e.submitter.disabled = true;
+    try { await dispatch("revise.yml", { slug: s.slug, note }); toast("지시대로 다시 쓰는 중"); setTimeout(refresh, 4000); poll(5000); }
+    catch (err) { toast("시작 실패: " + err.message); e.submitter.disabled = false; }
   };
   if ($("edit")) $("edit").onclick = () => { editSlug = s.slug; renderDetail(); $("editTitle").focus(); };
   if ($("editCancel")) $("editCancel").onclick = () => { editSlug = null; renderDetail(); };

@@ -1,0 +1,46 @@
+name: 다시 쓰기
+run-name: "다시 쓰기 ${{ inputs.slug }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "곡 폴더 이름 (예: 261030-1)"
+        required: true
+      note:
+        description: "수정 지시"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-write
+  cancel-in-progress: false
+
+jobs:
+  revise:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install anthropic PyYAML
+      - name: 다시 쓰기
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SLUG: ${{ inputs.slug }}
+          NOTE: ${{ inputs.note }}
+        run: python -m mufac revise "$SLUG" --note "$NOTE"
+      - name: 저장
+        env:
+          SLUG: ${{ inputs.slug }}
+        run: |
+          git config user.name "mufac"
+          git config user.email "mufac@users.noreply.github.com"
+          git add -A "songs/$SLUG"
+          git diff --cached --quiet || git commit -m "다시 쓰기: $SLUG"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
