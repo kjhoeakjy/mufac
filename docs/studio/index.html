@@ -504,14 +504,18 @@ function b64enc(str) {
 
 // 제목·가사 수정: song.yaml을 바꿔 올리고, 글 갱신 실행으로 유튜브 제목·설명·해시태그를 다시 쓰게 한다
 async function saveEdit(s, title, lyrics) {
-  const m = JSON.parse(JSON.stringify(s.meta)), old = m.title || "";
+  // 저장 직전에 최신 파일을 다시 읽어 그 위에 고친다(그 사이 다른 갱신이 있었어도 충돌하지 않게)
+  const path = `/contents/songs/${encodeURIComponent(s.slug)}/song.yaml`;
+  const cur = await gh(`${path}?ref=${BRANCH}&t=${Date.now()}`);
+  const m = (cur && jsyaml.load(b64utf8(cur.content))) || JSON.parse(JSON.stringify(s.meta));
+  const old = m.title || "";
   const lyricsChanged = lyrics.trim() !== (m.lyrics || "").trim();
   m.title = title; m.lyrics = lyrics.trim() + "\n";
   const pv = m.youtube_preview;
   if (pv && old && old !== title)  // 갱신이 끝나기 전까지 보일 임시 값
     for (const k of ["title", "shorts_title", "description"]) if (typeof pv[k] === "string") pv[k] = pv[k].split(old).join(title);
-  await gh(`/contents/songs/${encodeURIComponent(s.slug)}/song.yaml`, { method: "PUT",
-    body: JSON.stringify({ message: `수정: ${title}`, content: b64enc(jsyaml.dump(m, { lineWidth: -1, noRefs: true })), sha: s.files["song.yaml"], branch: BRANCH }) });
+  await gh(path, { method: "PUT",
+    body: JSON.stringify({ message: `수정: ${title}`, content: b64enc(jsyaml.dump(m, { lineWidth: -1, noRefs: true })), sha: cur ? cur.sha : s.files["song.yaml"], branch: BRANCH }) });
   await dispatch("refresh.yml", { slug: s.slug, lyrics_changed: String(lyricsChanged) });
   return lyricsChanged;
 }
