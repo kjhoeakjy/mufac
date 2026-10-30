@@ -245,6 +245,8 @@ async function loadSongs() {
   const relMap = {};
   for (const r of rels) if (r.tag_name.startsWith("song-")) relMap[r.tag_name.slice(5)] = r;
   for (const s of list) s.release = relMap[s.slug] || null;
+  for (const slug of Object.keys(relMap))
+    if (!bySlug[slug]) deleteRelease(relMap[slug], slug).catch(() => {});
   list.sort((a, b) => b.slug.localeCompare(a.slug, "en", { numeric: true }));
   songs = list;
   for (const p of [...pending]) {
@@ -443,7 +445,7 @@ function renderDetail() {
 
   el.innerHTML = `
     <div class="head ${cover ? "" : "nocover"}">${cover ? `<img class="cover" src="${cover}" alt="">` : ""}
-      <div><h1>${esc(m.title)}${editSlug === s.slug ? "" : `<button class="ghost fix" id="edit">제목·가사 수정</button>`}</h1>
+      <div><h1>${esc(m.title)}${editSlug === s.slug ? "" : `<button class="ghost fix" id="edit">제목·가사 수정</button><button class="ghost fix" id="del">삭제</button>`}</h1>
       <p>${esc(m.story || "")}</p></div></div>
     ${editSlug === s.slug ? `<section class="step"><h2>수정</h2>
       <form class="editor" id="editForm">
@@ -474,6 +476,7 @@ function renderDetail() {
   drop.ondrop = e => { e.preventDefault(); drop.classList.remove("over"); const f = e.dataTransfer.files[0]; if (f) uploadAudio(s, f); };
   if ($("publish")) $("publish").onclick = () => publish(s);
   if ($("reprod")) $("reprod").onclick = () => reproduce(s);
+  if ($("del")) $("del").onclick = () => deleteSong(s);
   if ($("ytEdit")) $("ytEdit").onclick = () => { editYt = s.slug; renderDetail(); $("ytTitle").focus(); };
   if ($("ytCancel")) $("ytCancel").onclick = () => { editYt = null; renderDetail(); };
   if ($("ytAuto")) $("ytAuto").onclick = async () => {
@@ -626,6 +629,35 @@ async function publish(s) {
   $("publish").disabled = true;
   try { await dispatch("upload.yml", { slug: s.slug }); toast("유튜브 업로드 시작"); setTimeout(refresh, 4000); poll(5000); }
   catch (e) { toast("시작 실패: " + e.message); $("publish").disabled = false; }
+}
+
+async function deleteRelease(rel, slug) {
+  await gh(`/releases/${rel.id}`, { method: "DELETE" });
+  await gh(`/git/refs/tags/song-${slug}`, { method: "DELETE" });
+}
+
+// 곡 삭제: 폴더의 모든 파일을 한 커밋으로 지우고, 영상(Release)도 지운다. 유튜브에 올린 영상은 남는다
+async function deleteSong(s) {
+  const yt = s.meta.youtube || {};
+  const extra = yt.main ? "\n유튜브에 올린 영상은 남으니 YouTube Studio에서 따로 지워야 합니다." : "";
+  if (!confirm(`'${s.meta.title || s.slug}'을(를) 삭제할까요? 가사, 그림, 노래 파일, 영상이 모두 지워집니다.${extra}`)) return;
+  $("del").disabled = true;
+  try {
+    const head = await gh(`/git/ref/heads/${BRANCH}`);
+    const commit = await gh(`/git/commits/${head.object.sha}`);
+    const tree = await gh(`/git/trees`, { method: "POST", body: JSON.stringify({
+      base_tree: commit.tree.sha,
+      tree: Object.keys(s.files).map(f => ({ path: `songs/${s.slug}/${f}`, mode: "100644", type: "blob", sha: null })),
+    }) });
+    const made = await gh(`/git/commits`, { method: "POST", body: JSON.stringify({ message: `삭제: ${s.slug}`, tree: tree.sha, parents: [head.object.sha] }) });
+    await gh(`/git/refs/heads/${BRANCH}`, { method: "PATCH", body: JSON.stringify({ sha: made.sha }) });
+    if (s.release) await deleteRelease(s.release, s.slug);
+    songs = songs.filter(x => x.slug !== s.slug);
+    if (selected === s.slug) { selected = null; store.set("mufac.selected", null); }
+    toast(`삭제: ${s.meta.title || s.slug}`);
+    render();
+    setTimeout(refresh, 3000);
+  } catch (e) { toast("삭제 실패: " + e.message); if ($("del")) $("del").disabled = false; }
 }
 
 async function reproduce(s) {
