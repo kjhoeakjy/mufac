@@ -1,7 +1,7 @@
 title: 윤회
 hook: 또 나야 윤회
 theme: 사랑
-story: 다르게 살겠다고 다짐하고도 어제와 같은 자리에서 또 넘어지는 사람이, 불을 끄지 못하는 밤에 부르는 노래.
+story: 다르게 살겠다고 다짐했는데 오늘도 같은 자리에서 넘어진 사람이, 웃으면서 자기 자신에게 부르는 노래.
 created: 2026-10-30 17:30
 request:
   id: mvupi11x
@@ -10,9 +10,9 @@ request:
   content: 불교 사상을 넣고 싶어 인연, 윤회, 열반 등등
   genre: 락
   style: 시끄러운 부분이랑 조용한 부분의 대비가 확 났으면 좋겠어.
-sound_plan: 단조에 가끔 장조로 풀리는 씁쓸한 색, 66bpm 안팎의 느린 곡이다. 웅장함은 크기가 아니라 첼로의 깊이에서 나오게 하고, 조용함과 커짐의 대비는 남기되 끝까지 소리치지 않는다. 인트로는 절 종소리 한 번과 독주 첼로로 연다. 1절은 첼로와 펠트 피아노만 두고, 멜로디는 좁은 음역에서 말하듯 간다. 프리코러스는 저음 현이 같은 음을 반복하며 차오르고 말렛으로 친 탐이 낮게 밀어 준다. 후렴에서 첼로 섹션이 대선율을 잡고 피아노 화음, 브러시 스네어의 느린 라이브 드럼이 들어온다. 첫 음에서 위로 도약하고 '윤회'의 마지막 모음을 길게 끈다. 2절은 다시 첼로와 목소리로 내려가고 업라이트 베이스가 피치카토로 뿌리를 짚는다. 두 번째 후렴은 저음 현이 더해지고 옥타브 아래 백킹이 받친다. 브릿지 앞에 첼로 독주 간주를 두고, 브릿지는 하프타임으로 떨어져 첼로 하나와 속삭이듯 말하는 목소리만 남는다. '놓기 싫어' 뒤에 잠깐 정적. 마지막 후렴이 가장 넓다. 첼로를 겹겹이 쌓고 저음 현과 옥타브 위 하모니를 더하되 절제한다. 아웃트로는 독주 첼로가 한 음을 길게 붙들고 그 위에 한 줄, 종소리로 닫는다. 보컬은 허스키한 흉성의 여성 알토다. 절에서는 가깝고 담담하게, 후렴에서는 열되 외치지 않는다. 공간은 자연스러운 홀 울림이고, 질감은 따뜻한 어쿠스틱이다.
-style: 'Korean cinematic ballad with slow chamber rock, around 66 bpm, minor key with a bittersweet major turn. Female alto lead, warm husky chest voice, close and calm in the verses, opening up but never shouting in the chorus, mature and sincere, sung in Korean, korean lyrics. One temple bell opens the song. Solo cello and soft felt piano carry verse 1, narrow conversational melody. Pre-chorus: low strings swell on a repeated rising note, soft mallet toms. Chorus: cello section plays the countermelody, piano chords, slow live drums with brushed snare, upward leap on the first word, long held last note. Verse 2 back to cello and voice, pizzicato upright bass. Cello solo before the bridge. Bridge strips to one cello and near-whispered voice. Final chorus fullest, layered cellos, low strings, octave-up harmony, still restrained. Outro: solo cello holds one note, bell. Natural hall reverb, elegant. Meditative, aching, graceful.'
-exclude: distorted guitar, choir, autotune
+sound_plan: 단조 리프가 후렴에서 밝은 장조로 확 풀리는 신나는 얼터너티브 록, 138bpm 안팎으로 몸이 들썩이게 달린다. 인트로는 절 종소리 한 번이 울리고 곧바로 메인 기타 리프와 밴드 전체가 터지며 연다. 리듬은 룸 마이크를 살린 펀치감 있는 라이브 드럼이다. 킥은 단단하고 스네어는 두툼하게, 절에서는 하이햇을 닫아 통통 튀게, 후렴에서는 크래시와 라이드로 활짝 연다. 베이스는 피크로 리프와 같은 음을 8분음으로 몰아붙이고, 브릿지에서는 혼자 남아 박을 지킨다. 화성은 좌우 디스토션 리듬 기타 두 대가 맡는다. 절은 팜뮤트로 조이고 후렴은 기타 벽으로 쏟아진다. 2절부터 리드 기타 모티프가 보컬 끝을 받아친다. 멜로디는 절에서 리듬이 또렷한 짧은 프레이즈로 장난스럽게 가고, 프리코러스에서 탐 필과 함께 같은 음을 밀며 오른다. 후렴은 첫 음에서 위로 도약하고 '윤회'를 길게 뻗는다. 마지막 후렴은 옥타브 위 하모니로 가장 크다. 보컬은 살짝 거친 결의 여성 알토다. 절은 리드미컬하게, 후렴은 시원하게 뻗고, 후렴 더블링과 옥타브 아래 백킹이 붙는다. 두 번째 후렴 뒤에 8마디 기타 솔로로 한 번 더 달린다. 브릿지에서 갑자기 하프타임으로 떨어져 베이스와 속삭이는 목소리만 남는다. 이게 곡에서 가장 큰 대비다. '놓기 싫어' 뒤에 반 박 정적을 두고 마지막 후렴이 폭발한다. 끝은 밴드가 한 번에 딱 끊기고, 종소리 한 번 위에 아웃트로 한 줄이 얹혀 닫힌다. 공간은 한 방에서 같이 치는 라이브 밴드고, 보컬은 앞에 둔다.
+style: 'Korean rock, 2000s alternative rock, driving 138 bpm, upbeat and bouncy, minor-key riff that lifts into a bright major chorus. Female alto lead, slightly raspy chest voice, rhythmic and playful in verses, open and soaring in the chorus, sung in Korean, korean lyrics. One temple bell, then the main guitar riff kicks in with the full band. Palm-muted verses, tight hi-hat, picked bass locked to the riff. Pre-chorus builds with tom fills on a rising repeated note. Chorus: wall of two distorted guitars left and right, open crash, upward leap on the first word, long held note on the hook, doubled vocal with low octave backing. Lead guitar motif answers the vocal from verse 2. 8-bar guitar solo. Bridge drops hard to half-time, bass and near-whispered voice only. Final chorus explodes, octave-up harmony, biggest. Hard stop ending. Live band in a room, punchy drums with room mics. Fun, energetic, cathartic.'
+exclude: autotune, orchestral strings, metal screaming
 photo_query: woman alley night streetlight
 image_prompt: A woman in a plain grey coat seen from the side, standing under a cherry tree in an old temple courtyard at dusk, fallen petals on the stone path. A small bronze bell hangs from the eave and a lit paper lantern glows beside her. Muted ink-blue and warm lantern light, quiet and aching mood.
 title_kind: 지정
@@ -25,57 +25,58 @@ youtube_meta:
   situation: 같은 실수 반복하는 날 듣는 노래
   shorts_title: 또 나야 윤회 돌고 돌아 이 자리
   hashtags:
-  - 발라드
-  - 감성노래
-  - 새벽감성
-  - 위로노래
-  - 감성플리
-  - 잔잔한노래
-  - 첼로
-  - 시네마틱
-  - 밤에듣는노래
-  - 혼자듣는노래
+  - 락
+  - 밴드음악
+  - 신나는노래
+  - 출근길노래
+  - 드라이브노래
+  - 락노래
+  - 얼터너티브락
+  - 직장인노래
+  - 한국락
+  - 스트레스해소
+  - 노동요
   - 윤회
-  - 자기성찰
 tags:
 - 음악
 - 노래
 - 감성
-- 발라드
+- 락
+- 락노래
+- 한국 락
+- 밴드
+- 밴드 음악
+- 밴드 노래
 - 플레이리스트
 - 노래 추천
-- 신곡
-- 감성 노래
-- 잔잔한 노래
-- 위로 노래
-- 새벽 감성
-- 밤에 듣는 노래
-- 혼자 듣기 좋은 노래
-- 감성 플레이리스트
-- 발라드 추천
-- 여자 보컬
-- 알토 보컬
-- 첼로 발라드
-- 첼로 음악
-- 챔버 록
-- 시네마틱 발라드
+- 신나는 노래
+- 신나는 노래 추천
+- 드라이브 노래
+- 드라이브 플레이리스트
+- 출근길 노래
+- 퇴근길 노래
+- 직장인 노래
+- 노동요
+- 스트레스 해소 노래
+- 기분 전환 노래
+- 2000년대 락
+- 얼터너티브 락
+- 기타 솔로
+- 여성 보컬
+- 허스키 보컬
 - 윤회
-- 윤회 노래
 - 같은 실수 반복
-- 후회하는 밤
-- 다짐하고 또 무너지는 날
-- 자기 전에 듣는 노래
-- 불 켜고 잠드는 밤
-- 내려놓고 싶을 때
-- 마음 정리하고 싶을 때
-- 명상 같은 노래
-- 차분해지는 노래
-- korean ballad
-- korean indie
+- 또 나야
+- 자기 성찰
+- 다짐
+- 작심삼일
+- 후회하는 노래
+- korean rock
+- korean alternative rock
+- korean band
 - kpop
-- korean cinematic ballad
-- cello ballad
-- korean female vocal
+- korean playlist
+- rock playlist
 references:
 - title: Stay
   artist: 넬
@@ -110,9 +111,9 @@ candidates:
   story: 말 못 하고 보낸 사람에게 다음에 또 보자고 속으로만 인사하는 노래다.
 chosen: 0
 lyrics: |
-  [Intro: one temple bell, solo cello]
+  [Intro: one temple bell, then main guitar riff with full band]
 
-  [Verse 1: solo cello and soft piano, close voice]
+  [Verse 1: palm-muted guitar, tight hi-hat, picked bass]
   씻고 나온 거울 속에
   어제 두고 온 얼굴
   다르게 살겠다던 말은
@@ -120,19 +121,19 @@ lyrics: |
   같은 말에 화를 내고
   넘어진 데서 또 넘어져
 
-  [Pre-Chorus: low strings swell, soft mallet toms]
+  [Pre-Chorus: tom fills, rising, building]
   이번엔 다를 거라고
   신발 끈을 고쳐 매고
   문을 열면
 
-  [Chorus: cello section and piano, brushed drums, doubled vocal]
+  [Chorus: wall of guitars, open crash, doubled vocals]
   또 나야 윤회
   돌고 돌아 이 자리
   또 나야 윤회
   이번 생도 나야
   또 나야 윤회
 
-  [Verse 2: back to cello and voice, pizzicato upright bass]
+  [Verse 2: palm-muted again, lead guitar motif answers the vocal]
   작년에 꽃 진 그 자리에
   올해는 다른 꽃잎
   내가 붙든 사람들은
@@ -140,28 +141,28 @@ lyrics: |
   반가운 줄도 모르고
   처음인 듯 내미는 손
 
-  [Pre-Chorus: low strings swell, soft mallet toms]
+  [Pre-Chorus: tom fills, rising, building]
   이번엔 다를 거라고
   신발 끈을 고쳐 매고
   문을 열면
 
-  [Chorus: fuller strings, low octave backing]
+  [Chorus: wall of guitars, low octave backing]
   또 나야 윤회
   돌고 돌아 이 자리
   또 나야 윤회
   이번 생도 나야
   또 나야 윤회
 
-  [Instrumental Break: cello solo]
+  [Guitar Solo: 8 bars, full band driving]
 
-  [Bridge: half-time, one cello and near-whispered voice]
+  [Bridge: sudden drop, half-time, bass and near-whispered voice only]
   불을 끄면 끝이라는데
   불 켜 놓고 잠드는 밤
   바퀴를 돌린 건 하늘 말고
   쥐고 놓지 못한 이 손
   놓기 싫어
 
-  [Final Chorus: layered cellos, low strings, octave-up harmony, fullest]
+  [Final Chorus: full band explodes, octave-up harmony, biggest]
   또 나야 윤회
   돌고 돌아 이 자리
   또 나야 윤회
@@ -169,7 +170,7 @@ lyrics: |
   또 나야 윤회
   또 나야 윤회
 
-  [Outro: solo cello holds one note, bell]
+  [Outro: hard stop, one bell rings]
   불은 내일 끌게
 
   [End]
@@ -395,66 +396,67 @@ youtube_preview:
     © 2026 연주왕김연주. 무단 복제·재업로드 금지.
 
 
-    #발라드 #감성노래 #새벽감성 #락 #음악 #노래 #감성 #위로노래 #감성플리 #잔잔한노래 #첼로 #시네마틱 #밤에듣는노래 #혼자듣는노래 #윤회'
+    #락 #밴드음악 #신나는노래 #음악 #노래 #감성 #출근길노래 #드라이브노래 #락노래 #얼터너티브락 #직장인노래 #한국락 #스트레스해소 #노동요 #윤회'
   tags:
   - 윤회
   - 연주왕김연주
   - 음악
   - 노래
   - 감성
-  - 발라드
+  - 락
+  - 락노래
+  - 한국 락
+  - 밴드
+  - 밴드 음악
+  - 밴드 노래
   - 플레이리스트
   - 노래 추천
-  - 신곡
-  - 감성 노래
-  - 잔잔한 노래
-  - 위로 노래
-  - 새벽 감성
-  - 밤에 듣는 노래
-  - 혼자 듣기 좋은 노래
-  - 감성 플레이리스트
-  - 발라드 추천
-  - 여자 보컬
-  - 알토 보컬
-  - 첼로 발라드
-  - 첼로 음악
-  - 챔버 록
-  - 시네마틱 발라드
-  - 윤회 노래
+  - 신나는 노래
+  - 신나는 노래 추천
+  - 드라이브 노래
+  - 드라이브 플레이리스트
+  - 출근길 노래
+  - 퇴근길 노래
+  - 직장인 노래
+  - 노동요
+  - 스트레스 해소 노래
+  - 기분 전환 노래
+  - 2000년대 락
+  - 얼터너티브 락
+  - 기타 솔로
+  - 여성 보컬
+  - 허스키 보컬
   - 같은 실수 반복
-  - 후회하는 밤
-  - 다짐하고 또 무너지는 날
-  - 자기 전에 듣는 노래
-  - 불 켜고 잠드는 밤
-  - 내려놓고 싶을 때
-  - 마음 정리하고 싶을 때
-  - 명상 같은 노래
-  - 차분해지는 노래
-  - korean ballad
-  - korean indie
+  - 또 나야
+  - 자기 성찰
+  - 다짐
+  - 작심삼일
+  - 후회하는 노래
+  - korean rock
+  - korean alternative rock
+  - korean band
   - kpop
-  - korean cinematic ballad
-  - cello ballad
-  - korean female vocal
-  - 락
+  - korean playlist
+  - rock playlist
+  - 신곡
   - 가사
   - korean music
   - k-pop
   hashtags:
-  - 발라드
-  - 감성노래
-  - 새벽감성
   - 락
+  - 밴드음악
+  - 신나는노래
   - 음악
   - 노래
   - 감성
-  - 위로노래
-  - 감성플리
-  - 잔잔한노래
-  - 첼로
-  - 시네마틱
-  - 밤에듣는노래
-  - 혼자듣는노래
+  - 출근길노래
+  - 드라이브노래
+  - 락노래
+  - 얼터너티브락
+  - 직장인노래
+  - 한국락
+  - 스트레스해소
+  - 노동요
   - 윤회
   playlists:
   - 연주왕김연주 노래
@@ -597,4 +599,137 @@ revisions:
     arc: '화법: 혼잣말(속으로 너를 부르는 말). 기: 지운 번호를 손끝이 외우고, 같은 골목에서 모르는 척 기다리는 나. 감정은 아직 말하지 않는다. 승: 끊었다고 돌아서면 또 그 자리라는 한 문장, ''또 너야 윤회''와 ''이번 생도 너야''. 전: 2절은 상대가 바뀐다. 새로 만난 사람의 웃음 끝에서 또 너를 보고, 인연이라는 말이 겁난다. 브릿지에서 처음으로 인정한다. 불을 끄면 끝이라는데 불을 켜 놓고 자는 건 나였고, 바퀴를 돌린 건 너가 아니라 놓지 못한 내 손이었다. 그리고 ''보고 싶어''. 결: 마지막 후렴의 ''이번 생도 너야''가 ''다음 생도 너야''로 바뀌어 체념이 고집이 된다. 아웃트로는 ''불은 내일 끌게'' 한 줄이다.'
     share_line: 이번 생도 너야
     image_prompt: A young woman in a dark coat seen from behind, standing at the end of a narrow Korean alley at night under one streetlight, a phone held loosely at her side. A small bronze bell hangs from an old roof eave nearby. Cool blue and warm amber light, restless and quiet mood.
+- at: 2026-10-30 17:42
+  note: 신나는 분위기여야 함
+  plan: 원래 요청(락, 시끄러움과 조용함의 확 나는 대비)에 맞춰 66bpm 첼로 발라드를 138bpm 안팎의 신나는 얼터너티브 록으로 바꾼다. 소리에 관한 지시라서 가사 줄과 제목, 훅, 기승전결은 글자 그대로 둔다. 구간 태그, sound_plan, style, exclude만 새 편곡에 맞게 다시 쓴다.
+  changes:
+  - 장르를 66bpm 시네마틱 발라드에서 처음 요청대로 138bpm 안팎의 신나는 얼터너티브 록으로 바꿨다.
+  - 첼로·피아노·브러시 편성을 빼고 디스토션 기타 두 대, 피크 베이스, 룸 마이크 라이브 드럼으로 바꿨다.
+  - 절은 팜뮤트로 조이고 후렴은 기타 벽으로 열어 시끄러움과 조용함의 대비를 키웠다.
+  - 브릿지는 베이스와 속삭이는 목소리만 남는 하프타임 낙차로 바꿔 곡에서 가장 큰 대비 자리로 만들었다.
+  - 첼로 독주 간주를 8마디 기타 솔로로 바꾸고, 2절부터 리드 기타가 보컬 끝을 받아치게 했다.
+  - 보컬은 여성 알토를 유지하되 살짝 거친 결로, 절은 리드미컬하게, 후렴은 시원하게 뻗게 바꿨다.
+  - 인트로는 종소리 뒤에 바로 리프가 터지게, 아웃트로는 밴드가 딱 끊기고 종소리 하나로 닫게 했다.
+  - 모든 구간 태그를 새 편곡에 맞게 고쳤고, 가사 줄은 한 글자도 바꾸지 않았다.
+  - exclude에서 distorted guitar와 choir를 빼고 autotune, orchestral strings, metal screaming으로 바꿨다.
+  before:
+    lyrics: '[Intro: one temple bell, solo cello]
+
+
+      [Verse 1: solo cello and soft piano, close voice]
+
+      씻고 나온 거울 속에
+
+      어제 두고 온 얼굴
+
+      다르게 살겠다던 말은
+
+      베개 밑에 그대로
+
+      같은 말에 화를 내고
+
+      넘어진 데서 또 넘어져
+
+
+      [Pre-Chorus: low strings swell, soft mallet toms]
+
+      이번엔 다를 거라고
+
+      신발 끈을 고쳐 매고
+
+      문을 열면
+
+
+      [Chorus: cello section and piano, brushed drums, doubled vocal]
+
+      또 나야 윤회
+
+      돌고 돌아 이 자리
+
+      또 나야 윤회
+
+      이번 생도 나야
+
+      또 나야 윤회
+
+
+      [Verse 2: back to cello and voice, pizzicato upright bass]
+
+      작년에 꽃 진 그 자리에
+
+      올해는 다른 꽃잎
+
+      내가 붙든 사람들은
+
+      다른 얼굴로 다시 와
+
+      반가운 줄도 모르고
+
+      처음인 듯 내미는 손
+
+
+      [Pre-Chorus: low strings swell, soft mallet toms]
+
+      이번엔 다를 거라고
+
+      신발 끈을 고쳐 매고
+
+      문을 열면
+
+
+      [Chorus: fuller strings, low octave backing]
+
+      또 나야 윤회
+
+      돌고 돌아 이 자리
+
+      또 나야 윤회
+
+      이번 생도 나야
+
+      또 나야 윤회
+
+
+      [Instrumental Break: cello solo]
+
+
+      [Bridge: half-time, one cello and near-whispered voice]
+
+      불을 끄면 끝이라는데
+
+      불 켜 놓고 잠드는 밤
+
+      바퀴를 돌린 건 하늘 말고
+
+      쥐고 놓지 못한 이 손
+
+      놓기 싫어
+
+
+      [Final Chorus: layered cellos, low strings, octave-up harmony, fullest]
+
+      또 나야 윤회
+
+      돌고 돌아 이 자리
+
+      또 나야 윤회
+
+      손만 펴면 되는데
+
+      또 나야 윤회
+
+      또 나야 윤회
+
+
+      [Outro: solo cello holds one note, bell]
+
+      불은 내일 끌게
+
+
+      [End]
+
+      '
+    style: 'Korean cinematic ballad with slow chamber rock, around 66 bpm, minor key with a bittersweet major turn. Female alto lead, warm husky chest voice, close and calm in the verses, opening up but never shouting in the chorus, mature and sincere, sung in Korean, korean lyrics. One temple bell opens the song. Solo cello and soft felt piano carry verse 1, narrow conversational melody. Pre-chorus: low strings swell on a repeated rising note, soft mallet toms. Chorus: cello section plays the countermelody, piano chords, slow live drums with brushed snare, upward leap on the first word, long held last note. Verse 2 back to cello and voice, pizzicato upright bass. Cello solo before the bridge. Bridge strips to one cello and near-whispered voice. Final chorus fullest, layered cellos, low strings, octave-up harmony, still restrained. Outro: solo cello holds one note, bell. Natural hall reverb, elegant. Meditative, aching, graceful.'
+    exclude: distorted guitar, choir, autotune
+    sound_plan: 단조에 가끔 장조로 풀리는 씁쓸한 색, 66bpm 안팎의 느린 곡이다. 웅장함은 크기가 아니라 첼로의 깊이에서 나오게 하고, 조용함과 커짐의 대비는 남기되 끝까지 소리치지 않는다. 인트로는 절 종소리 한 번과 독주 첼로로 연다. 1절은 첼로와 펠트 피아노만 두고, 멜로디는 좁은 음역에서 말하듯 간다. 프리코러스는 저음 현이 같은 음을 반복하며 차오르고 말렛으로 친 탐이 낮게 밀어 준다. 후렴에서 첼로 섹션이 대선율을 잡고 피아노 화음, 브러시 스네어의 느린 라이브 드럼이 들어온다. 첫 음에서 위로 도약하고 '윤회'의 마지막 모음을 길게 끈다. 2절은 다시 첼로와 목소리로 내려가고 업라이트 베이스가 피치카토로 뿌리를 짚는다. 두 번째 후렴은 저음 현이 더해지고 옥타브 아래 백킹이 받친다. 브릿지 앞에 첼로 독주 간주를 두고, 브릿지는 하프타임으로 떨어져 첼로 하나와 속삭이듯 말하는 목소리만 남는다. '놓기 싫어' 뒤에 잠깐 정적. 마지막 후렴이 가장 넓다. 첼로를 겹겹이 쌓고 저음 현과 옥타브 위 하모니를 더하되 절제한다. 아웃트로는 독주 첼로가 한 음을 길게 붙들고 그 위에 한 줄, 종소리로 닫는다. 보컬은 허스키한 흉성의 여성 알토다. 절에서는 가깝고 담담하게, 후렴에서는 열되 외치지 않는다. 공간은 자연스러운 홀 울림이고, 질감은 따뜻한 어쿠스틱이다.
 youtube_preview_edited: false

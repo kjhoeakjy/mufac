@@ -4,7 +4,7 @@
 
 > 또 나야 윤회
 
-사랑 · 다르게 살겠다고 다짐하고도 어제와 같은 자리에서 또 넘어지는 사람이, 불을 끄지 못하는 밤에 부르는 노래.
+사랑 · 다르게 살겠다고 다짐했는데 오늘도 같은 자리에서 넘어진 사람이, 웃으면서 자기 자신에게 부르는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -26,12 +26,12 @@
 
 **Style**
 ```text
-Korean cinematic ballad with slow chamber rock, around 66 bpm, minor key with a bittersweet major turn. Female alto lead, warm husky chest voice, close and calm in the verses, opening up but never shouting in the chorus, mature and sincere, sung in Korean, korean lyrics. One temple bell opens the song. Solo cello and soft felt piano carry verse 1, narrow conversational melody. Pre-chorus: low strings swell on a repeated rising note, soft mallet toms. Chorus: cello section plays the countermelody, piano chords, slow live drums with brushed snare, upward leap on the first word, long held last note. Verse 2 back to cello and voice, pizzicato upright bass. Cello solo before the bridge. Bridge strips to one cello and near-whispered voice. Final chorus fullest, layered cellos, low strings, octave-up harmony, still restrained. Outro: solo cello holds one note, bell. Natural hall reverb, elegant. Meditative, aching, graceful.
+Korean rock, 2000s alternative rock, driving 138 bpm, upbeat and bouncy, minor-key riff that lifts into a bright major chorus. Female alto lead, slightly raspy chest voice, rhythmic and playful in verses, open and soaring in the chorus, sung in Korean, korean lyrics. One temple bell, then the main guitar riff kicks in with the full band. Palm-muted verses, tight hi-hat, picked bass locked to the riff. Pre-chorus builds with tom fills on a rising repeated note. Chorus: wall of two distorted guitars left and right, open crash, upward leap on the first word, long held note on the hook, doubled vocal with low octave backing. Lead guitar motif answers the vocal from verse 2. 8-bar guitar solo. Bridge drops hard to half-time, bass and near-whispered voice only. Final chorus explodes, octave-up harmony, biggest. Hard stop ending. Live band in a room, punchy drums with room mics. Fun, energetic, cathartic.
 ```
 
 **Exclude styles**
 ```text
-distorted guitar, choir, autotune
+autotune, orchestral strings, metal screaming
 ```
 
 **Title**
@@ -41,9 +41,9 @@ distorted guitar, choir, autotune
 
 **Lyrics**
 ```text
-[Intro: one temple bell, solo cello]
+[Intro: one temple bell, then main guitar riff with full band]
 
-[Verse 1: solo cello and soft piano, close voice]
+[Verse 1: palm-muted guitar, tight hi-hat, picked bass]
 씻고 나온 거울 속에
 어제 두고 온 얼굴
 다르게 살겠다던 말은
@@ -51,19 +51,19 @@ distorted guitar, choir, autotune
 같은 말에 화를 내고
 넘어진 데서 또 넘어져
 
-[Pre-Chorus: low strings swell, soft mallet toms]
+[Pre-Chorus: tom fills, rising, building]
 이번엔 다를 거라고
 신발 끈을 고쳐 매고
 문을 열면
 
-[Chorus: cello section and piano, brushed drums, doubled vocal]
+[Chorus: wall of guitars, open crash, doubled vocals]
 또 나야 윤회
 돌고 돌아 이 자리
 또 나야 윤회
 이번 생도 나야
 또 나야 윤회
 
-[Verse 2: back to cello and voice, pizzicato upright bass]
+[Verse 2: palm-muted again, lead guitar motif answers the vocal]
 작년에 꽃 진 그 자리에
 올해는 다른 꽃잎
 내가 붙든 사람들은
@@ -71,28 +71,28 @@ distorted guitar, choir, autotune
 반가운 줄도 모르고
 처음인 듯 내미는 손
 
-[Pre-Chorus: low strings swell, soft mallet toms]
+[Pre-Chorus: tom fills, rising, building]
 이번엔 다를 거라고
 신발 끈을 고쳐 매고
 문을 열면
 
-[Chorus: fuller strings, low octave backing]
+[Chorus: wall of guitars, low octave backing]
 또 나야 윤회
 돌고 돌아 이 자리
 또 나야 윤회
 이번 생도 나야
 또 나야 윤회
 
-[Instrumental Break: cello solo]
+[Guitar Solo: 8 bars, full band driving]
 
-[Bridge: half-time, one cello and near-whispered voice]
+[Bridge: sudden drop, half-time, bass and near-whispered voice only]
 불을 끄면 끝이라는데
 불 켜 놓고 잠드는 밤
 바퀴를 돌린 건 하늘 말고
 쥐고 놓지 못한 이 손
 놓기 싫어
 
-[Final Chorus: layered cellos, low strings, octave-up harmony, fullest]
+[Final Chorus: full band explodes, octave-up harmony, biggest]
 또 나야 윤회
 돌고 돌아 이 자리
 또 나야 윤회
@@ -100,7 +100,7 @@ distorted guitar, choir, autotune
 또 나야 윤회
 또 나야 윤회
 
-[Outro: solo cello holds one note, bell]
+[Outro: hard stop, one bell rings]
 불은 내일 끌게
 
 [End]
