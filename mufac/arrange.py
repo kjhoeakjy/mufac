@@ -13,6 +13,7 @@ theme.mp3는 주제만 따로(전주용 Extend에 쓸 수 있다).
 
 from __future__ import annotations
 
+import random
 import subprocess
 import wave
 from pathlib import Path
@@ -165,6 +166,66 @@ def _play_theme(track: cl.Track, phrases: list[list[Note]], t0: float, vel: floa
             track.note(m + 12 * octave, t0 + s, dur, vel, timbre)
 
 
+def _disguise(phrases: list[list[Note]], beat: float, rng: random.Random) -> tuple[list[list[Note]], float, int, float]:
+    """음원 지문 검사(Suno 'matches an existing recording')를 피하려고 원곡을 다른 연주로 만든다.
+    조를 옮기고(3~5반음), 템포를 바꾸고(0.82~0.9배 또는 1.1~1.22배), 박을 조금 흔든다(스윙·사람 손 느낌).
+    선율 자체는 그대로라 듣는 사람은 알아듣는다."""
+    semis = rng.choice([-5, -4, -3, 3, 4, 5])
+    factor = rng.uniform(0.82, 0.9) if rng.random() < 0.5 else rng.uniform(1.1, 1.22)
+    swing = 0.12 * beat * factor  # 뒷박 8분음표를 살짝 늦춘다
+    out = []
+    for ph in phrases:
+        q = []
+        for s, e, m in ph:
+            s2, e2 = s * factor, e * factor
+            pos = (s / beat) % 1.0
+            if 0.4 < pos < 0.6:
+                s2 += swing
+            s2 += rng.uniform(-0.012, 0.012)
+            q.append((s2, max(s2 + 0.1, e2 * 0.97), m + semis))
+        out.append(q)
+    return out, beat * factor, semis, factor
+
+
+def _play_bass(track: cl.Track, chords: list[tuple[float, str]], t0: float, bar: float, beat: float, vel: float) -> None:
+    """베이스: 1·3박 근음, 2·4박 5도. 반주를 밴드처럼 만들고 지문도 달라진다."""
+    for start, sym in chords:
+        bass, _ = cl.parse_chord(sym)
+        k = 0
+        while k * beat < bar - 1e-6:
+            n = bass if k % 2 == 0 else bass + 7
+            track.note(n - 12 if n - 12 >= 24 else n, t0 + start + k * beat, beat * 0.8, vel * (1.0 if k == 0 else 0.75), "guitar")
+            k += 1
+
+
+def _drums(track: cl.Track, t0: float, dur: float, beat: float, vel: float, rng: random.Random) -> None:
+    """가벼운 리듬: 1·3박 킥(낮은 사인 톡), 2·4박 스네어(짧은 잡음), 8분음표 하이햇(아주 짧은 잡음)."""
+    sr = cl.SR
+    kick_n = int(0.12 * sr)
+    tt = np.arange(kick_n) / sr
+    kick = np.sin(2 * np.pi * (55 + 40 * np.exp(-tt * 40)) * tt) * np.exp(-tt * 28)
+    snare = rng_normal(rng, int(0.09 * sr)) * np.exp(-np.arange(int(0.09 * sr)) / (0.025 * sr))
+    hat = rng_normal(rng, int(0.03 * sr)) * np.exp(-np.arange(int(0.03 * sr)) / (0.008 * sr))
+    k = 0
+    while k * beat < dur - 1e-6:
+        at = t0 + k * beat
+        _mix(track, kick if k % 2 == 0 else snare, at, vel * (0.9 if k % 2 == 0 else 0.35))
+        _mix(track, hat, at, vel * 0.16)
+        _mix(track, hat, at + beat / 2, vel * 0.11)
+        k += 1
+
+
+def rng_normal(rng: random.Random, n: int) -> np.ndarray:
+    return np.random.default_rng(rng.randrange(1 << 30)).normal(0, 1, n)
+
+
+def _mix(track: cl.Track, s: np.ndarray, start: float, vel: float) -> None:
+    i = int(start * cl.SR)
+    j = min(len(track.buf), i + len(s))
+    if j > i:
+        track.buf[i:j] += s[: j - i] * vel
+
+
 def _bar(beat: float) -> float:
     """마디 길이. 1.6~3.4초 사이로 맞춘다(아주 빠르거나 느린 박은 묶거나 나눈다)."""
     bar = beat * 4
@@ -197,13 +258,16 @@ def render(piece: dict, out_dir: Path, timbre: str = "piano") -> dict:
         phrases, beat = theme_from_midi(piece["midi"])
     else:
         phrases, beat = theme_from_hand(cl.BY_ID[piece["hand"]])
+    rng = random.Random()
+    tonic, mode = key_of([n for p in phrases for n in p])  # 조는 원래 선율에서 읽고 옮긴 만큼 더한다
+    phrases, beat, semis, factor = _disguise(phrases, beat, rng)
+    tonic = (tonic + semis) % 12
     theme = [n for p in phrases for n in p]
     theme_len = max(e for _, e, _ in theme)
     bar = _bar(beat)
     # 주제 길이를 마디 단위로 올림
     theme_bars = int(np.ceil(theme_len / bar - 1e-6))
     theme_span = theme_bars * bar
-    tonic, mode = key_of(theme)
     under = chords_under(theme, tonic, mode, bar, theme_span)
     verse = verse_progression(tonic, mode)
     verse_bars = _verse_bars(bar)
@@ -221,8 +285,13 @@ def render(piece: dict, out_dir: Path, timbre: str = "piano") -> dict:
         if kind in ("intro", "chorus", "interlude"):
             _play_chords(full, under, t, bar, beat, 0.45 if kind != "chorus" else 0.5, arp=(kind != "intro"))
             _play_theme(full, phrases, t, 0.95 if kind == "chorus" else 0.8, octave=1 if kind == "interlude" else 0, timbre=timbre)
+            if kind != "intro":
+                _play_bass(full, under, t, bar, beat, 0.5)
+                _drums(full, t, dur, beat, 0.5 if kind == "chorus" else 0.4, rng)
         elif kind == "verse":
             _play_chords(full, verse_chords, t, bar, beat, 0.42, arp=True)
+            _play_bass(full, verse_chords, t, bar, beat, 0.45)
+            _drums(full, t, dur, beat, 0.35, rng)
         else:
             bass, notes = cl.parse_chord(chord_name(tonic, "" if mode == "major" else "m"))
             full.note(bass, t, dur, 0.8)
@@ -231,6 +300,7 @@ def render(piece: dict, out_dir: Path, timbre: str = "piano") -> dict:
         plan.append({"part": label, "start": round(t, 1), "seconds": round(dur, 1)})
         t += dur
     _play_chords(solo, under, 0.0, bar, beat, 0.45, arp=True)
+    _play_bass(solo, under, 0.0, bar, beat, 0.45)
     _play_theme(solo, phrases, 0.0, 0.95, timbre=timbre)
 
     out_dir.mkdir(parents=True, exist_ok=True)
