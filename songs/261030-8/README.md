@@ -4,7 +4,7 @@
 
 > 또 나야 윤회
 
-사랑 · 다르게 살겠다고 다짐했는데 오늘도 같은 자리에서 넘어진 사람이, 웃으면서 자기 자신에게 부르는 노래.
+사랑 · 다르게 살겠다고 다짐하고도 어제와 같은 자리에서 또 넘어진 사람이, 웃으면서 인정하고 속을 털어내려고 부르는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -68,7 +68,7 @@ autotune, orchestral strings, metal screaming
 올해는 다른 꽃잎
 내가 붙든 사람들은
 다른 얼굴로 다시 와
-반가운 줄도 모르고
+어디서 본 얼굴인데
 처음인 듯 내미는 손
 
 [Pre-Chorus: tom fills, rising, building]
@@ -90,7 +90,7 @@ autotune, orchestral strings, metal screaming
 불 켜 놓고 잠드는 밤
 바퀴를 돌린 건 하늘 말고
 쥐고 놓지 못한 이 손
-놓기 싫어
+알면서 돌려
 
 [Final Chorus: full band explodes, octave-up harmony, biggest]
 또 나야 윤회
