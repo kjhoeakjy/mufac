@@ -106,7 +106,9 @@ def cmd_new(a) -> None:
         avoid = [x.meta.get("hook", "") for x in done][-40:]
         avoid_styles = [x.meta.get("style", "") for x in done][-12:]
         work = prepare(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style,
-                       avoid=avoid, avoid_styles=avoid_styles, title=a.title, content=a.content, genre=a.genre)
+                       avoid=avoid, avoid_styles=avoid_styles, title=a.title, content=a.content, genre=a.genre,
+                       avoid_words=songmod.habit_words(done), prev_speech=songmod.speech_styles(done)[-6:],
+                       polite_turn=songmod.polite_turn(done, a.genre))
         work["request"] = {k: v for k, v in {"id": a.req, "title": a.title, "idea": a.idea, "content": a.content,
                                              "genre": a.genre, "style": a.style}.items() if v and v != "자동"}
         (wd / "plan.json").write_text(json.dumps(work, ensure_ascii=False), encoding="utf-8")
