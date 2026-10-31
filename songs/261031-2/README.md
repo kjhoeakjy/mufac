@@ -4,7 +4,7 @@
 
 > 아직 어린걸
 
-어른 · 다 큰 척 하루를 넘기지만 아직 불 켜 놓고 자는 사람이 잠들기 전 혼자 중얼거린다.
+어른 · 나이 오십이 넘어서도 불을 켜 놓고 자는 남자가 어른인 척 하루를 버티다가, 사실은 아직 어리다고 혼잣말처럼 털어놓는 밤에 부르는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -25,12 +25,12 @@
 
 **Style**
 ```text
-Korean indie rock, slow dreamy 2010s indie band sound, gentle 6/8 sway around 66 bpm, warm major key with a bittersweet minor turn. Male tenor, soft and airy, half-whispered verses, light falsetto on the hook, plain and unforced, slightly behind the beat, mature and sincere, sung in Korean, korean lyrics. Clean chorus-tinged electric guitar arpeggios carry verse 1 over round picked bass on roots and brushed live drums. Rhodes and a volume-swell second guitar enter at the pre-chorus on a rising repeated note. Chorus opens with an upward leap, ride cymbal, wide ringing guitars, melodic bass, long held falsetto note on the hook, soft doubled vocal. Glockenspiel doubles the guitar from verse 2. Lead guitar answers the vocal in a short break. Bridge drops to Rhodes and almost spoken voice, rubato. Final chorus warmest and widest, third harmony, drums open up. Outro on one guitar, slowing to a single chord. Small room, spring reverb, tape warmth, loose human feel. Dreamy, tender, wry.
+Korean indie rock, 2010s dreamy indie band sound, gentle 6/8 sway around 66 bpm, warm major key with a bittersweet minor turn. Male baritone in his fifties, low, weathered, slightly husky, murmured almost spoken verses, close dry vocal, behind the beat, sung in Korean, korean lyrics. Clean electric guitar arpeggios carry verse 1 over round picked bass and brushed live drums. Rhodes and a volume-swell guitar enter at the pre-chorus, rising. Chorus blooms: ride cymbal, wide ringing guitars, warm organ pad, cello and soft strings, stacked backing harmonies, long held low note on the hook. Glockenspiel from verse 2, strings fuller at the second chorus. Lead guitar answers the vocal in a short break. Bridge drops to Rhodes and spoken voice, rubato. Final chorus richest and widest, full strings, layered harmonies, drums open up. Outro on one guitar, slowing to a single chord. Small room, spring reverb, tape warmth. Dreamy, tender, weathered.
 ```
 
 **Exclude styles**
 ```text
-autotune, synth lead, trap hi-hats
+autotune, falsetto, synth lead
 ```
 
 **Title**
@@ -40,9 +40,9 @@ autotune, synth lead, trap hi-hats
 
 **Lyrics**
 ```text
-[Intro: clean chorus guitar arpeggio, soft glockenspiel]
+[Intro: clean guitar arpeggio, soft glockenspiel]
 
-[Verse 1: one clean guitar, round bass on roots, brushed drums, half-whispered]
+[Verse 1: one clean guitar, round bass on roots, brushed drums, low murmured vocal]
 불 켜 놓고 자는 밤
 이불은 목까지
 아직 시험 꿈을 꿔
@@ -56,14 +56,14 @@ autotune, synth lead, trap hi-hats
 어른이 되면
 다 알 줄 알았는데
 
-[Chorus: ride cymbal, wide ringing guitars, falsetto on the hook]
+[Chorus: ride cymbal, warm organ pad, cello joins, soft backing harmonies]
 아직 어린걸
 아무도 모르게
 아직 어린걸
 불 하나 켜 두고
 아직 어린걸
 
-[Verse 2: glockenspiel doubles the guitar, melodic bass]
+[Verse 2: glockenspiel doubles the guitar, melodic bass, murmured]
 큰소리치던 부장도
 혼자 탄 엘리베이터
 한숨부터 쉬지
@@ -77,7 +77,7 @@ autotune, synth lead, trap hi-hats
 다들 아는 얼굴로
 하루를 버티는데
 
-[Chorus: ride cymbal, wide ringing guitars, soft doubled vocal]
+[Chorus: strings and organ fuller, stacked harmonies, wide guitars]
 아직 어린걸
 아무도 모르게
 아직 어린걸
@@ -86,14 +86,14 @@ autotune, synth lead, trap hi-hats
 
 [Instrumental Break: lead guitar answers the vocal melody]
 
-[Bridge: drop to rhodes and voice, almost spoken, rubato]
+[Bridge: drop to rhodes and voice, spoken, rubato]
 사실은 나
 지금도 무서워
 현관 앞에 선 아침
 그래도 나가
 문은 열어 두고
 
-[Final Chorus: full band, third harmony, drums open up, warmest]
+[Final Chorus: full band, full strings, layered harmonies, richest]
 아직 어린걸
 아무도 모르게
 아직 어린걸

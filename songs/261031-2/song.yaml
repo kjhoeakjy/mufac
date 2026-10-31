@@ -1,7 +1,7 @@
 title: 어린
 hook: 아직 어린걸
 theme: 어른
-story: 다 큰 척 하루를 넘기지만 아직 불 켜 놓고 자는 사람이 잠들기 전 혼자 중얼거린다.
+story: 나이 오십이 넘어서도 불을 켜 놓고 자는 남자가 어른인 척 하루를 버티다가, 사실은 아직 어리다고 혼잣말처럼 털어놓는 밤에 부르는 노래.
 created: 2026-10-31 16:37
 request:
   id: mvw343pa
@@ -9,9 +9,9 @@ request:
   content: 어른, 어린이에 관한 노래
   genre: 인디밴드
   style: 몽환적인, 느린
-sound_plan: 장조의 따뜻함에 프리코러스에서 단조로 살짝 꺾이는 화성으로 간다. 빠르기는 66bpm 안팎의 느린 6/8 흔들림이다. 드럼은 작은 방에서 친 라이브 드럼으로, 절에서는 브러시와 낮은 플로어탐만 쓰고 후렴에서 라이드로 넘어간다. 베이스는 피크로 친 둥근 소리로, 절에서는 뿌리음을 지키고 후렴에서는 경과음으로 천천히 움직인다. 화성은 코러스 이펙트를 건 깨끗한 일렉 기타 아르페지오가 중심이고, 프리코러스부터 볼륨 스웰 기타와 로즈가 들어온다. 2절에서는 글로켄슈필이 기타 선율을 겹쳐 꿈결 같은 질감을 더한다. 멜로디는 절에서 좁은 음역으로 말하듯 가고, 프리코러스에서 같은 음을 되풀이하며 밀어 올린다. 후렴 첫 음에서 위로 도약하고, 훅 끝 '걸'을 가성으로 길게 끈다. 보컬은 부드럽고 숨이 섞인 남성 테너로, 절은 반쯤 속삭이고 박자보다 조금 늦게 얹는다. 비브라토는 적게 쓰고, 후렴에만 가볍게 더블링한다. 2절이 끝나면 리드 기타가 보컬 선율을 되받는 짧은 간주가 나온다. 브릿지에서는 드럼과 기타가 빠지고 로즈와 거의 말하는 목소리만 남아 템포가 흔들린다. 마지막 후렴은 밴드가 모두 들어오고 3도 위 하모니가 더해져 가장 넓고 따뜻해진다. 아웃트로는 기타 하나와 글로켄슈필이 느려지다가 한 화음에서 끝난다. 공간은 작은 방에 스프링 리버브와 테이프 질감을 더하고, 사람 손으로 친 느슨한 박자를 살린다.
-style: Korean indie rock, slow dreamy 2010s indie band sound, gentle 6/8 sway around 66 bpm, warm major key with a bittersweet minor turn. Male tenor, soft and airy, half-whispered verses, light falsetto on the hook, plain and unforced, slightly behind the beat, mature and sincere, sung in Korean, korean lyrics. Clean chorus-tinged electric guitar arpeggios carry verse 1 over round picked bass on roots and brushed live drums. Rhodes and a volume-swell second guitar enter at the pre-chorus on a rising repeated note. Chorus opens with an upward leap, ride cymbal, wide ringing guitars, melodic bass, long held falsetto note on the hook, soft doubled vocal. Glockenspiel doubles the guitar from verse 2. Lead guitar answers the vocal in a short break. Bridge drops to Rhodes and almost spoken voice, rubato. Final chorus warmest and widest, third harmony, drums open up. Outro on one guitar, slowing to a single chord. Small room, spring reverb, tape warmth, loose human feel. Dreamy, tender, wry.
-exclude: autotune, synth lead, trap hi-hats
+sound_plan: 장조의 따뜻함에 프리코러스에서 단조로 살짝 꺾이는 화성으로 간다. 빠르기는 66bpm 안팎의 느린 6/8 흔들림이다. 보컬은 오십 대쯤의 남성 바리톤이다. 낮고 조금 쉰 듯한 결로, 노래한다기보다 혼잣말을 읊조리듯 말에 가깝게 부르고, 박자보다 조금 늦게 얹는다. 가성과 비브라토는 쓰지 않고, 마이크 가까이에서 건조하게 잡는다. 후렴에서도 목소리를 키우지 않고 훅 끝 '걸'을 낮은 음으로 길게 끈다. 드럼은 작은 방에서 친 라이브 드럼으로, 절에서는 브러시와 낮은 플로어탐만 쓰고 후렴에서 라이드로 넘어간다. 베이스는 피크로 친 둥근 소리로, 절에서는 뿌리음을 지키고 후렴에서는 경과음으로 천천히 움직인다. 화성은 깨끗한 일렉 기타 아르페지오가 중심이고, 프리코러스부터 볼륨 스웰 기타와 로즈가 들어온다. 후렴은 회차마다 두꺼워진다. 첫 후렴에서는 따뜻한 오르간 패드와 첼로 한 대가 바닥을 받치고 뒤에서 작은 화음이 깔린다. 2절에서는 글로켄슈필이 기타 선율을 겹친다. 둘째 후렴에서는 현이 넓어지고 화음이 여러 겹으로 쌓인다. 2절이 끝나면 리드 기타가 보컬 선율을 되받는 짧은 간주가 나온다. 브릿지에서는 드럼과 기타가 빠지고, 로즈와 말하는 목소리만 남아 템포가 흔들린다. 마지막 후렴은 밴드와 현 전체, 겹겹의 화음이 들어와 곡에서 가장 풍부하고 넓다. 그 위에서도 리드 목소리는 낮게 읊조리는 결을 지킨다. 아웃트로는 기타 하나와 글로켄슈필이 느려지다가 한 화음에서 끝난다. 공간은 작은 방에 스프링 리버브와 테이프 질감을 더한다.
+style: 'Korean indie rock, 2010s dreamy indie band sound, gentle 6/8 sway around 66 bpm, warm major key with a bittersweet minor turn. Male baritone in his fifties, low, weathered, slightly husky, murmured almost spoken verses, close dry vocal, behind the beat, sung in Korean, korean lyrics. Clean electric guitar arpeggios carry verse 1 over round picked bass and brushed live drums. Rhodes and a volume-swell guitar enter at the pre-chorus, rising. Chorus blooms: ride cymbal, wide ringing guitars, warm organ pad, cello and soft strings, stacked backing harmonies, long held low note on the hook. Glockenspiel from verse 2, strings fuller at the second chorus. Lead guitar answers the vocal in a short break. Bridge drops to Rhodes and spoken voice, rubato. Final chorus richest and widest, full strings, layered harmonies, drums open up. Outro on one guitar, slowing to a single chord. Small room, spring reverb, tape warmth. Dreamy, tender, weathered.'
+exclude: autotune, falsetto, synth lead
 photo_query: man loosened tie lamp night
 image_prompt: A young man in a white shirt and loosened tie sits on the edge of a bed at night, seen from the side, a small bedside lamp left on. A child's glow-in-the-dark star sticker on the wall above him. Soft blue and warm amber tones, hazy, quiet, tender mood.
 title_kind: 지정
@@ -19,7 +19,7 @@ tempo: 느림
 arc: '화법: 혼잣말(2절에서 ''너''에게 한 줄 건넴). 기: 불 켜 놓고 자는 밤, 시험 꿈, 거울 속 낯선 아저씨처럼 겉은 어른이고 속은 그대로인 나를 감정 없이 사물로만 보여 준다. 승: 어른이 되면 다 알 줄 알았다는 기대가 무너지고, 후렴 ''아직 어린걸''을 아무도 모르게 혼자 읊조린다. 전: 2절에서는 부장, 친구, 너처럼 남들도 똑같다는 것이 보인다. 브릿지에서 처음으로 ''지금도 무서워''라고 직접 말하고, 그래도 문을 열어 두고 나가는 것이 어른이라는 것을 행동으로만 보여 준다. 결: 마지막 후렴의 ''불 하나 켜 두고''가 ''네 불도 켜 둘게''로 바뀌어, 무서워서 켜던 불이 누군가를 위해 켜 두는 불이 된다. 아웃트로 ''내일 또 크자''로 열어 둔 채 끝낸다.'
 line_plan: '[Verse 1] 1 사실: 불 켜 놓고 자는 밤 / 2 관찰: 다 큰 몸의 이불 / 3 관찰: 아직 꾸는 시험 꿈 / 4 사실: 빈 답안지 / 5 전환: 아침의 넥타이 / 6 관찰: 거울 속 낯선 아저씨(자조) / 7 리프레인: 키만 컸지 뭐. [Pre-Chorus] 8 사실: 어른이 되면 / 9 전환: 다 알 줄 알았는데(열린 끝). [Chorus] 10 훅 / 11 받침: 아무도 모르게 / 12 훅 / 13 받침: 불 하나 켜 두고 / 14 훅. [Verse 2] 15 사실: 큰소리치던 부장 / 16 관찰: 혼자 타는 엘리베이터 / 17 사실: 장난감 가게 앞 / 18 관찰: 오래 서 있던 친구 / 19 전환: 너도 알잖아 / 20 사실: 전화 받기 전 / 21 관찰: 목소리 고르는 거 / 22 리프레인: 키만 컸지 뭐. [Pre-Chorus] 23 관찰: 다들 아는 얼굴 / 24 전환: 오늘을 넘기는데(열린 끝). [Chorus] 25 훅 / 26 / 27 훅 / 28 / 29 훅. [Bridge] 30 전환: 사실은 나 / 31 진심: 지금도 무서워(감정어 한 번) / 32 사실: 현관 앞의 아침 / 33 전환: 그래도 나가 / 34 사실: 문은 열어 두고. [Final Chorus] 35 훅 / 36 받침 / 37 훅 / 38 바뀐 줄: 네 불도 켜 둘게 / 39 훅 / 40 메아리 훅. [Outro] 41 잘 자 / 42 내일 또 크자. 훅이 들어가는 줄은 10, 12, 14, 25, 27, 29, 35, 37, 39, 40으로 총 10번이다.'
 why: '''아직 어린걸''은 다섯 음절이고 ''ㄹ'' 받침으로 끝나서 길게 늘여 부르기 좋다. 무엇보다 어른이라면 거의 누구나 속으로 해 본 말이라 가장 넓게 닿는다. 자우림의 ''~줄 알았어'' 원리로 프리코러스에서 과거의 기대를 세우고, 절은 명사에서 끊어 몽환적인 느린 호흡을 만들었다. 잔나비처럼 고백 직전에 ''키만 컸지 뭐''로 자기를 한 번 낮추고, 한로로처럼 마지막 후렴은 한 줄만 바꿔(''불 하나 켜 두고''를 ''네 불도 켜 둘게''로) 나를 지키던 말을 남을 지키는 말로 돌렸다. 제목은 정해진 ''어린'' 그대로 쓰고, 형태는 단어 하나로 분류했다. 훅 안에 이 낱말이 그대로 들어가 매 후렴마다 제목이 불린다.'
-share_line: 키만 컸지 뭐
+share_line: 아직 어린걸 / 아무도 모르게
 youtube_meta:
   situation: 어른 되기 힘든 밤에 듣는 노래
   shorts_title: 아직 어린걸
@@ -42,37 +42,41 @@ tags:
 - 감성
 - 인디
 - 인디음악
+- 인디락
 - 인디밴드
 - 밴드음악
 - 플레이리스트
 - 노래 추천
 - 감성노래
-- 몽환적인 노래
-- 느린 노래
-- 새벽감성
+- 감성 플레이리스트
 - 위로노래
+- 위로가 되는 노래
+- 새벽감성
+- 새벽에 듣는 노래
 - 잠 안 오는 밤
 - 자기 전에 듣는 노래
-- 퇴근길 노래
-- 어른
-- 어린이
-- 어른이 된다는 것
-- 아직 어린
-- 직장인 노래
-- 서른 즈음
-- 혼자 듣는 노래
 - 밤에 듣는 노래
-- 감성 플리
-- 인디 추천
-- 새벽 노래
+- 퇴근길 노래
+- 출근길 노래
+- 어른이 되는 것
+- 어른 노래
+- 어른 되기 힘든 밤
+- 어른이 된다는 것
+- 직장인 노래
+- 직장인 공감
+- 아저씨 감성
+- 중년 감성
+- 남자 보컬
+- 저음 보컬
+- 몽환적인 노래
 - 잔잔한 노래
+- 한국 인디 추천
 - 신곡
-- 어린
 - korean indie
 - korean indie rock
-- dream pop
-- kpop
 - korean ballad
+- kpop
+- k-indie
 references:
 - title: 스물다섯, 스물하나
   artist: 자우림
@@ -104,9 +108,9 @@ candidates:
   story: 친구들과 늦게까지 놀며 잠깐 열 살로 돌아간 밤을 밝게 부르는 노래.
 chosen: 0
 lyrics: |
-  [Intro: clean chorus guitar arpeggio, soft glockenspiel]
+  [Intro: clean guitar arpeggio, soft glockenspiel]
 
-  [Verse 1: one clean guitar, round bass on roots, brushed drums, half-whispered]
+  [Verse 1: one clean guitar, round bass on roots, brushed drums, low murmured vocal]
   불 켜 놓고 자는 밤
   이불은 목까지
   아직 시험 꿈을 꿔
@@ -120,14 +124,14 @@ lyrics: |
   어른이 되면
   다 알 줄 알았는데
 
-  [Chorus: ride cymbal, wide ringing guitars, falsetto on the hook]
+  [Chorus: ride cymbal, warm organ pad, cello joins, soft backing harmonies]
   아직 어린걸
   아무도 모르게
   아직 어린걸
   불 하나 켜 두고
   아직 어린걸
 
-  [Verse 2: glockenspiel doubles the guitar, melodic bass]
+  [Verse 2: glockenspiel doubles the guitar, melodic bass, murmured]
   큰소리치던 부장도
   혼자 탄 엘리베이터
   한숨부터 쉬지
@@ -141,7 +145,7 @@ lyrics: |
   다들 아는 얼굴로
   하루를 버티는데
 
-  [Chorus: ride cymbal, wide ringing guitars, soft doubled vocal]
+  [Chorus: strings and organ fuller, stacked harmonies, wide guitars]
   아직 어린걸
   아무도 모르게
   아직 어린걸
@@ -150,14 +154,14 @@ lyrics: |
 
   [Instrumental Break: lead guitar answers the vocal melody]
 
-  [Bridge: drop to rhodes and voice, almost spoken, rubato]
+  [Bridge: drop to rhodes and voice, spoken, rubato]
   사실은 나
   지금도 무서워
   현관 앞에 선 아침
   그래도 나가
   문은 열어 두고
 
-  [Final Chorus: full band, third harmony, drums open up, warmest]
+  [Final Chorus: full band, full strings, layered harmonies, richest]
   아직 어린걸
   아무도 모르게
   아직 어린걸
@@ -415,36 +419,41 @@ youtube_preview:
   - 감성
   - 인디
   - 인디음악
+  - 인디락
   - 인디밴드
   - 밴드음악
   - 플레이리스트
   - 노래 추천
   - 감성노래
-  - 몽환적인 노래
-  - 느린 노래
-  - 새벽감성
+  - 감성 플레이리스트
   - 위로노래
+  - 위로가 되는 노래
+  - 새벽감성
+  - 새벽에 듣는 노래
   - 잠 안 오는 밤
   - 자기 전에 듣는 노래
-  - 퇴근길 노래
-  - 어른
-  - 어린이
-  - 어른이 된다는 것
-  - 아직 어린
-  - 직장인 노래
-  - 서른 즈음
-  - 혼자 듣는 노래
   - 밤에 듣는 노래
-  - 감성 플리
-  - 인디 추천
-  - 새벽 노래
+  - 퇴근길 노래
+  - 출근길 노래
+  - 어른이 되는 것
+  - 어른 노래
+  - 어른 되기 힘든 밤
+  - 어른이 된다는 것
+  - 직장인 노래
+  - 직장인 공감
+  - 아저씨 감성
+  - 중년 감성
+  - 남자 보컬
+  - 저음 보컬
+  - 몽환적인 노래
   - 잔잔한 노래
+  - 한국 인디 추천
   - 신곡
   - korean indie
   - korean indie rock
-  - dream pop
-  - kpop
   - korean ballad
+  - kpop
+  - k-indie
   - 가사
   - korean music
   - k-pop
@@ -468,3 +477,144 @@ youtube_preview:
   - 연주왕김연주 노래
   - 어른이 된 우리에게
   privacy: private
+revisions:
+- at: 2026-10-31 16:41
+  note: 좀 나이든 사람의 목소리로 읊조리듯이 했으면 좋겠어. 음악도 후렴에서 더 풍부했으면 좋겠어
+  plan: 보컬과 후렴 편곡에 관한 지시이므로 sound_plan, style, exclude, 구간 태그의 소리 지시만 고친다. 보컬은 오십 대 남성 바리톤이 낮게 읊조리듯 부르는 쪽으로 바꾸고 가성은 뺀다. 후렴에는 오르간 패드, 첼로와 현, 겹친 화음을 더해 회차마다 점점 풍부해지게 한다. 가사 본문, 제목, 훅, arc, 이미지 프롬프트는 글자 그대로 둔다.
+  changes:
+  - 보컬을 숨 섞인 테너에서 오십 대쯤의 낮고 쉰 듯한 남성 바리톤으로 바꿨다.
+  - 절과 후렴 모두 노래하기보다 읊조리듯 말에 가깝게 부르도록 지시했다(murmured, almost spoken, close dry vocal).
+  - 훅의 가성을 빼고 낮은 음으로 길게 끄는 방식으로 바꿨으며, exclude에 falsetto를 넣었다.
+  - 첫 후렴에 오르간 패드, 첼로, 작은 백 화음을 더했다.
+  - 둘째 후렴은 현과 겹친 화음으로 한 단계 더 두껍게 했다.
+  - 마지막 후렴은 밴드, 현 전체, 겹겹의 화음으로 가장 풍부하게 했다.
+  - 위 변경에 맞춰 구간 태그의 소리 지시(Verse 1·2, Chorus, Bridge, Final Chorus)를 고쳤다. 가사 본문은 한 글자도 바꾸지 않았다.
+  - style을 새 보컬과 후렴 편성에 맞게 다시 썼고, 이에 따라 exclude의 trap hi-hats를 falsetto로 바꿨다.
+  before:
+    lyrics: '[Intro: clean chorus guitar arpeggio, soft glockenspiel]
+
+
+      [Verse 1: one clean guitar, round bass on roots, brushed drums, half-whispered]
+
+      불 켜 놓고 자는 밤
+
+      이불은 목까지
+
+      아직 시험 꿈을 꿔
+
+      빈 답안지
+
+      아침엔 넥타이
+
+      거울 속 아저씨
+
+      눈은 그대로
+
+      키만 컸지 뭐
+
+
+      [Pre-Chorus: rhodes and second guitar swell in, rising]
+
+      어른이 되면
+
+      다 알 줄 알았는데
+
+
+      [Chorus: ride cymbal, wide ringing guitars, falsetto on the hook]
+
+      아직 어린걸
+
+      아무도 모르게
+
+      아직 어린걸
+
+      불 하나 켜 두고
+
+      아직 어린걸
+
+
+      [Verse 2: glockenspiel doubles the guitar, melodic bass]
+
+      큰소리치던 부장도
+
+      혼자 탄 엘리베이터
+
+      한숨부터 쉬지
+
+      너도 알잖아
+
+      전화 받기 전에
+
+      목소리 고르는 거
+
+      나만 그런 거 아니지
+
+      키만 컸지 뭐
+
+
+      [Pre-Chorus: rhodes and second guitar swell in, rising]
+
+      다들 아는 얼굴로
+
+      하루를 버티는데
+
+
+      [Chorus: ride cymbal, wide ringing guitars, soft doubled vocal]
+
+      아직 어린걸
+
+      아무도 모르게
+
+      아직 어린걸
+
+      불 하나 켜 두고
+
+      아직 어린걸
+
+
+      [Instrumental Break: lead guitar answers the vocal melody]
+
+
+      [Bridge: drop to rhodes and voice, almost spoken, rubato]
+
+      사실은 나
+
+      지금도 무서워
+
+      현관 앞에 선 아침
+
+      그래도 나가
+
+      문은 열어 두고
+
+
+      [Final Chorus: full band, third harmony, drums open up, warmest]
+
+      아직 어린걸
+
+      아무도 모르게
+
+      아직 어린걸
+
+      네 불도 켜 둘게
+
+      아직 어린걸
+
+      (아직 어린걸)
+
+
+      [Outro: one guitar and glockenspiel, slowing down]
+
+      잘 자
+
+      내일 또 크자
+
+
+      [End]
+
+      '
+    style: Korean indie rock, slow dreamy 2010s indie band sound, gentle 6/8 sway around 66 bpm, warm major key with a bittersweet minor turn. Male tenor, soft and airy, half-whispered verses, light falsetto on the hook, plain and unforced, slightly behind the beat, mature and sincere, sung in Korean, korean lyrics. Clean chorus-tinged electric guitar arpeggios carry verse 1 over round picked bass on roots and brushed live drums. Rhodes and a volume-swell second guitar enter at the pre-chorus on a rising repeated note. Chorus opens with an upward leap, ride cymbal, wide ringing guitars, melodic bass, long held falsetto note on the hook, soft doubled vocal. Glockenspiel doubles the guitar from verse 2. Lead guitar answers the vocal in a short break. Bridge drops to Rhodes and almost spoken voice, rubato. Final chorus warmest and widest, third harmony, drums open up. Outro on one guitar, slowing to a single chord. Small room, spring reverb, tape warmth, loose human feel. Dreamy, tender, wry.
+    exclude: autotune, synth lead, trap hi-hats
+    sound_plan: 장조의 따뜻함에 프리코러스에서 단조로 살짝 꺾이는 화성으로 간다. 빠르기는 66bpm 안팎의 느린 6/8 흔들림이다. 드럼은 작은 방에서 친 라이브 드럼으로, 절에서는 브러시와 낮은 플로어탐만 쓰고 후렴에서 라이드로 넘어간다. 베이스는 피크로 친 둥근 소리로, 절에서는 뿌리음을 지키고 후렴에서는 경과음으로 천천히 움직인다. 화성은 코러스 이펙트를 건 깨끗한 일렉 기타 아르페지오가 중심이고, 프리코러스부터 볼륨 스웰 기타와 로즈가 들어온다. 2절에서는 글로켄슈필이 기타 선율을 겹쳐 꿈결 같은 질감을 더한다. 멜로디는 절에서 좁은 음역으로 말하듯 가고, 프리코러스에서 같은 음을 되풀이하며 밀어 올린다. 후렴 첫 음에서 위로 도약하고, 훅 끝 '걸'을 가성으로 길게 끈다. 보컬은 부드럽고 숨이 섞인 남성 테너로, 절은 반쯤 속삭이고 박자보다 조금 늦게 얹는다. 비브라토는 적게 쓰고, 후렴에만 가볍게 더블링한다. 2절이 끝나면 리드 기타가 보컬 선율을 되받는 짧은 간주가 나온다. 브릿지에서는 드럼과 기타가 빠지고 로즈와 거의 말하는 목소리만 남아 템포가 흔들린다. 마지막 후렴은 밴드가 모두 들어오고 3도 위 하모니가 더해져 가장 넓고 따뜻해진다. 아웃트로는 기타 하나와 글로켄슈필이 느려지다가 한 화음에서 끝난다. 공간은 작은 방에 스프링 리버브와 테이프 질감을 더하고, 사람 손으로 친 느슨한 박자를 살린다.
+    share_line: 키만 컸지 뭐
+youtube_preview_edited: false
