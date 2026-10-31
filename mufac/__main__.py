@@ -55,6 +55,8 @@ def write_readme(s: Song) -> None:
 
     lines += ["## 1. Suno에 붙여넣기", "",
               "[Suno](https://suno.com/create)에서 Custom 모드를 켜고 아래를 칸마다 붙여넣는다. 곡 이미지는 cover.jpg.", ""]
+    if m.get("instrumental"):
+        lines += ["연주곡이다. Suno에서 **Instrumental**을 켜고, Lyrics 칸에는 아래 구간 태그만 붙여넣는다.", ""]
     lines += [
         "**Style**", f"{fence}text", m.get("style", ""), fence, "",
         "**Exclude styles**", f"{fence}text", m.get("exclude", ""), fence, "",
@@ -129,6 +131,7 @@ def cmd_new(a) -> None:
         "story": pick["story"],
         "created": dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M"),
         "request": data.get("request", {}),
+        "instrumental": bool(data.get("instrumental")),
         "sound_plan": data.get("sound_plan", ""),
         "style": data["style"],
         "exclude": data["exclude"],
@@ -167,7 +170,10 @@ def cmd_new(a) -> None:
             print(f"사진을 못 가져왔습니다: {e}", file=sys.stderr)
 
     with ThreadPoolExecutor(max_workers=2) as pool:
-        f_polish = pool.submit(safe_polish, data, (data.get("request") or {}).get("title", ""))
+        if data.get("instrumental"):
+            f_polish = pool.submit(lambda: data)  # 연주곡은 가사 검수가 없다
+        else:
+            f_polish = pool.submit(safe_polish, data, (data.get("request") or {}).get("title", ""))
         pool.submit(photo)
         data = f_polish.result()
     for k in ("title", "lyrics", "lyrics_draft", "polish", "share_line"):

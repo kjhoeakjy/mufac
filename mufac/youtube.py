@@ -88,11 +88,11 @@ def description(song: Song, artist: str, *, main_id: str | None = None, short: b
     parts = []
     if main_id:
         parts.append(f"전체 노래 https://youtu.be/{main_id}")
-    if not short:
+    if not short and song.plain_lyrics():
         parts.append(song.plain_lyrics())
     credit = []
     if artist:
-        credit.append(f"노래·가사 {artist}")
+        credit.append(f"{'음악' if m.get('instrumental') else '노래·가사'} {artist}")
     photo = m.get("photo") or {}
     if photo.get("source") == "pexels":
         credit.append(f"음악 생성 Suno, 사진 {photo.get('photographer')} (Pexels)")

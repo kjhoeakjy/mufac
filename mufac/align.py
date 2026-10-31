@@ -40,6 +40,8 @@ def load_mono(path, sr: int = 16000) -> np.ndarray:
 def timings(song: Song, model_size: str = "medium") -> list[dict]:
     """[{section, text, start, end}] — 가사 줄마다 시간(초)."""
     lines = song.lyric_lines()
+    if not lines:  # 연주곡: 맞출 가사가 없다
+        return []
     if song.timing_path.exists():
         stamps = read_lrc(song.timing_path)
         if len(stamps) == len(lines):

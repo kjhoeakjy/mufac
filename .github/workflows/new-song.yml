@@ -39,7 +39,7 @@ on:
         required: false
         default: ""
       genre:
-        description: "장르 (자동, 트로트, 인디밴드, 발라드, 락, OST, 팝, 힙합, 포크, 재즈, 시티팝, 댄스, 펑크)"
+        description: "장르 (자동, 발라드, 록발라드, 팝, R&B, 어쿠스틱, 포크, 밴드, 인디밴드, 락, 펑크, 메탈, 힙합, 댄스, 일렉트로닉, 시티팝, 재즈, 블루스, 레게, OST, 트로트, 국악, 캐럴, 동요, 자장가, 무가사, 뉴에이지, 로파이)"
         required: false
         default: "자동"
   schedule:

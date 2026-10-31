@@ -99,8 +99,11 @@ def write_ass_main(song: Song, rows: list[dict], path: Path, artist: str) -> Non
         _style("Title", TITLE_FONT, 84, 5, 0, bold=-1, spacing=1),
         _style("Artist", SMALL_FONT, 36, 5, 0, color="&H00E6E6E6", spacing=2),
     ])]
-    first = rows[0]["start"] if rows else 8.0
-    card_end = max(4.0, min(8.0, first - 0.3))
+    if rows:
+        card_end = max(4.0, min(8.0, rows[0]["start"] - 0.3))
+    else:  # 연주곡: 제목을 끝까지 둔다
+        from .align import duration
+        card_end = duration(song.audio_path())
     # 제목은 같은 배경 한가운데
     lines.append(f"Dialogue: 0,{_ts(0.6)},{_ts(card_end)},Title,,0,0,0,,{{\\fad(900,700)\\pos(960,{520 if artist else 540})}}{_esc(title)}")
     if artist:
@@ -120,9 +123,10 @@ def write_ass_short(song: Song, rows: list[dict], path: Path, artist: str, start
     ])]
     span = end - start
     # 제목은 처음 2.5초 동안 가운데, 그다음 가사가 이어진다
-    lines.append(f"Dialogue: 0,{_ts(0)},{_ts(2.5)},Title,,0,0,0,,{{\\fad(400,500)\\pos(540,{880 if artist else 900})}}{_esc(title)}")
+    t_end = 2.5 if rows else span  # 연주곡은 제목을 끝까지
+    lines.append(f"Dialogue: 0,{_ts(0)},{_ts(t_end)},Title,,0,0,0,,{{\\fad(400,500)\\pos(540,{880 if artist else 900})}}{_esc(title)}")
     if artist:
-        lines.append(f"Dialogue: 0,{_ts(0)},{_ts(2.5)},Artist,,0,0,0,,{{\\fad(400,500)\\pos(540,960)}}{_esc(artist)}")
+        lines.append(f"Dialogue: 0,{_ts(0)},{_ts(t_end)},Artist,,0,0,0,,{{\\fad(400,500)\\pos(540,960)}}{_esc(artist)}")
     for r in rows:
         a, b = r["start"] - start, r["end"] - start
         if b <= 0 or a >= span:

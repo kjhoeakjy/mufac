@@ -148,8 +148,13 @@ video{width:100%;border-radius:3px;background:#000;display:block}
     <input id="title" placeholder="제목" autocomplete="off">
     <input id="kw" placeholder="키워드" autocomplete="off">
     <select id="genre" aria-label="장르">
-      <option value="자동">장르 자동</option><option>트로트</option><option>인디밴드</option><option>발라드</option><option>락</option>
-      <option>OST</option><option>팝</option><option>힙합</option><option>포크</option><option>재즈</option><option>시티팝</option><option>댄스</option><option>펑크</option>
+      <option value="자동">장르 자동</option>
+      <option>발라드</option><option>록발라드</option><option>팝</option><option>R&amp;B</option><option>어쿠스틱</option><option>포크</option>
+      <option>밴드</option><option>인디밴드</option><option>락</option><option>펑크</option><option>메탈</option>
+      <option>힙합</option><option>댄스</option><option>일렉트로닉</option><option>시티팝</option><option>재즈</option><option>블루스</option><option>레게</option>
+      <option>OST</option><option>트로트</option><option>국악</option><option>캐럴</option>
+      <option>동요</option><option>자장가</option>
+      <option>무가사</option><option>뉴에이지</option><option>로파이</option>
     </select>
     <button class="btn primary" id="make">만들기</button>
     <textarea id="content" placeholder="원하는 내용 (비우면 알아서)" rows="1"></textarea>
@@ -347,9 +352,11 @@ const raw = (s, name) => s.files[name] ? `${RAW}/songs/${encodeURIComponent(s.sl
 function esc(t) { return String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
 
 // 곡의 장르: 요청에 적은 장르가 있으면 그것, 없으면 Suno 스타일 문구의 첫 장르로 판정
-const GENRES = [["트로트", /trot/], ["발라드", /ballad/], ["OST", /\bost\b|soundtrack|cinematic/], ["시티팝", /city pop/], ["힙합", /hip.?hop|rap\b|trap\b|boom bap/],
-  ["재즈", /jazz|swing|bossa/], ["포크", /folk|acoustic/], ["펑크", /punk|ska/], ["댄스", /dance|edm|house|disco/], ["인디밴드", /indie|dream pop|shoegaze/],
-  ["락", /rock|metal|grunge/], ["팝", /pop|synth/]];
+const GENRES = [["로파이", /lo-?fi/], ["뉴에이지", /new age|solo piano/], ["무가사", /instrumental/], ["동요", /children|nursery|kids/], ["자장가", /lullaby/], ["캐럴", /christmas|carol/],
+  ["트로트", /trot/], ["국악", /traditional|gugak|gayageum|pansori|janggu/], ["록발라드", /rock ballad/], ["발라드", /ballad/], ["OST", /\bost\b|soundtrack|cinematic/],
+  ["시티팝", /city pop/], ["힙합", /hip.?hop|rap\b|trap\b|boom bap/], ["R&B", /r&b|rnb|neo soul/], ["재즈", /jazz|swing|bossa/], ["블루스", /blues/], ["레게", /reggae|dub\b/],
+  ["포크", /folk/], ["어쿠스틱", /acoustic/], ["펑크", /punk|ska/], ["메탈", /metal/], ["일렉트로닉", /synthwave|electronic|techno|future bass/], ["댄스", /dance|edm|house|disco/],
+  ["인디밴드", /indie|dream pop|shoegaze/], ["밴드", /band pop|pop rock/], ["락", /rock|grunge/], ["팝", /pop|synth/]];
 function genreOf(s) {
   const g = s.meta?.request?.genre;
   if (g && g !== "자동") return g;
@@ -479,6 +486,7 @@ function renderDetail() {
         </form>${last ? `<details class="rev"><summary>지난 수정 · ${esc(last.at)} · ${esc(last.note)}</summary><ul>${(last.changes || []).map(c => `<li>${esc(c)}</li>`).join("")}</ul></details>` : ""}`; })()}
     </section>
     <section class="step"><h2>SUNO <span>Custom · ${cover ? `<a href="${cover}" download>곡 이미지</a> · ` : ""}<a href="https://suno.com/create" target="_blank" rel="noopener">Suno</a> · v5 · Weirdness 낮게 · Style Influence 높게</span></h2>
+      ${m.instrumental ? `<p class="note">연주곡입니다. Suno에서 Instrumental을 켜고 Lyrics 칸에는 아래 구간 태그만 넣습니다.</p>` : ""}
       ${field("Lyrics", (m.lyrics || "").trim(), "lyrics")}
       ${field("Styles", m.style || "")}
       ${field("추가 옵션 · Exclude styles", m.exclude || "")}

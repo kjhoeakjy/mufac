@@ -1,0 +1,12 @@
+# R&B (korean r&b / neo soul)
+- 기준: 68~96 bpm, 4/4, 16분음 그루브, maj7·m9·add9 코드. 3분 20초~4분.
+- 리듬: 프로그래밍 드럼 또는 아주 타이트한 라이브 드럼, 킥 deep, 스네어 crisp하게 뒤로, 하이햇 16분음에 고스트 노트, 핑거스냅.
+- 베이스: 둥근 핑거 베이스 또는 신스 베이스가 킥과 맞물리고 후렴 끝에 슬라이드.
+- 화성: Rhodes 또는 일렉 피아노, clean 기타 뮤트 스트로크, 패드 멀리. 코드는 4개 이상, 2절에 대리 코드.
+- 멜로디: 절은 리듬 많은 짧은 구절(syncopated), 프리코러스 하강, 후렴은 긴 음과 작은 런(runs), 애드리브는 마지막 후렴에만. 가성 한 줄.
+- 보컬: 부드럽고 숨 섞인 톤(smooth, breathy), 스택 하모니(stacked harmonies) 후렴, 애드리브 절제, 랩 없음.
+- 편성: Rhodes, 기타, 베이스, 드럼, 패드, 핑거스냅.
+- 공간: 가깝고 따뜻하게, 보컬 dry 앞에, 하모니는 넓게 뒤에.
+- 전개: Intro Rhodes 코드·스냅 → V1 비트 반만 → Pre 하강 → Ch1 풀 비트·하모니 → V2 기타 추가 → Ch2 → Bridge 비트 빼고 Rhodes와 목소리, 가성 → Final Ch 애드리브·스택 하모니 → Outro 코드 루프 페이드.
+- 피할 것: 록 기타, 큰 리버브, 트랩 808 과다, 떼창, 오토튠 과다.
+- Suno 문구: korean r&b, neo soul, 84 bpm, deep kick and crisp snare behind the beat, 16th hi-hats with ghost notes, finger snaps, warm rhodes chords, muted clean guitar strokes, round fingered bass locked to the kick, smooth breathy female vocal (또는 male), stacked harmonies in the chorus, one falsetto line in the bridge, ad-libs only on the final chorus, close dry lead vocal, wide backing vocals, late night and sensual.

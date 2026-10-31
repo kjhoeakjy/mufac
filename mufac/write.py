@@ -221,9 +221,14 @@ Suno Custom의 Style 칸에 그대로 붙여 넣는 영어 글이다. 짧은 문
   락(korean rock, 112~148 bpm, 디스토션 기타 리프, 힘 있는 드럼, 브릿지에서 한 번 내려앉음), OST(drama OST, 64~84 bpm, 현악 오케스트라와 피아노, 영화적 전개),
   팝(korean pop, 96~118 bpm, 신스와 깔끔한 비트, 귀에 남는 훅), 힙합(korean hip hop, 85~96 bpm, 랩 벌스에 노래 후렴), 포크(korean folk, 78~100 bpm, 어쿠스틱 기타, 하모니카나 첼로 하나),
   재즈(korean jazz pop, 80~120 bpm, 피아노 트리오, 브러시 드럼), 시티팝(korean city pop, 98~114 bpm, 펑키 베이스, 신스 브라스, 80s), 댄스(korean dance pop, 118~128 bpm, 네 박 킥),
-  펑크(korean punk rock, 160 bpm 이상, 세 코드, 떼창), 트로트(요청 때만: korean trot, 꺾기 창법, 뽕짝 2박, 색소폰·아코디언·전자오르간).
+  펑크(korean punk rock, 160 bpm 이상, 세 코드, 떼창), 트로트(요청 때만: korean trot, 꺾기 창법, 뽕짝 2박, 색소폰·아코디언·전자오르간),
+  밴드(korean band pop rock, 100~135 bpm, 기타 리프·리드 기타가 후렴 멜로디 더블, 밝고 크게), 록발라드(korean rock ballad, 66~80 bpm, 피아노로 시작해 기타 솔로와 전조로 끝남),
+  R&B(korean r&b, 68~96 bpm, 16분음 그루브, Rhodes, 스택 하모니), 어쿠스틱(korean acoustic pop, 84~112 bpm, 기타 둘·카혼·손뼉), 일렉트로닉(synthwave·house, 100~128 bpm, 신스 베이스·드롭),
+  블루스(blues rock, 셔플, 12마디, 기타 대답), 레게(reggae pop, one drop, 베이스가 주인공), 국악(퓨전 국악, 장구·가야금·대금, 장단), 메탈(요청 때만, 더블 킥·하이게인), 캐럴(슬레이벨·글로켄·합창),
+  동요(아이 노래, 한 옥타브 안, 글로켄·손뼉·합창), 자장가(6/8, 뮤직박스·속삭임), 무가사·뉴에이지·로파이(가사 없음, 리드 악기가 노래).
 - 장르가 "자동"이면 요청 내용의 기분에서 템포를 정한다. 기본 분포는 열 곡 중 느린 곡 넷(60~85 bpm), 중간 넷(86~115), 빠른 곡 둘(116 이상).
-  [이전 곡]의 스타일을 보고 같은 템포대·장르가 이어지지 않게 한다. 장르는 발라드·인디·팝·락·포크·시티팝·OST를 돌아가며 고른다. 브라스 중심 편성, 스카, 트로트는 자동에서 고르지 않는다.
+  [이전 곡]의 스타일을 보고 같은 템포대·장르가 이어지지 않게 한다. 장르는 발라드·인디밴드·밴드·팝·락·포크·어쿠스틱·R&B·시티팝·OST를 돌아가며 고른다.
+  브라스 중심 편성, 스카, 트로트, 메탈, 동요, 자장가, 캐럴, 국악, 무가사는 자동에서 고르지 않는다(요청 때만).
 - 잘 먹히는 말: building intensity, dynamic arrangement, intimate verse, soaring final chorus, warm vocal, live drums. 안 먹히는 말: ethereal, lush, shimmering, crescendo, realistic, 믹싱 용어(sidechain, EQ).
 - 넣지 않는 것: 가수·밴드 이름, 노래 줄거리, 가사 내용, 부정문(no X). cheeky, shouts, call-and-response, gang vocals는 장르가 요구할 때만. 기분 단어로만 채우지 않는다.
 - exclude는 Exclude Styles 칸. 원하는 소리와 겹치는 구체적 요소 1~3개만(예: autotune, trap hi-hats, spoken intro). 길게 늘어놓으면 편곡이 흔들린다. style에서 요구한 것과 모순되면 안 된다.
@@ -340,6 +345,47 @@ def _checklist() -> str:
 SOUND_DIR = Path(__file__).resolve().parent.parent / "assets" / "sound"
 
 
+INSTRUMENTAL_GENRES = {"무가사", "뉴에이지", "로파이"}
+KIDS_GENRES = {"동요", "자장가", "캐럴"}
+AUTO_EXCLUDED = INSTRUMENTAL_GENRES | KIDS_GENRES | {"트로트", "메탈", "국악"}  # 자동 장르에서 고르지 않는 것
+
+
+def is_instrumental(genre: str) -> bool:
+    return (genre or "") in INSTRUMENTAL_GENRES
+
+
+MODE_INSTRUMENTAL = """\
+[무가사 모드] 이 곡은 가사가 없는 연주곡이다. 이 절은 위의 가사 규칙([길이와 구조], [후렴], [말투], [가사 설계], [짧게, 덜어내기])보다 앞선다.
+- lyrics에는 가사를 한 줄도 쓰지 않는다. 구간 태그와 콜론 지시만 쓴다. 예:
+  [Intro: solo piano, quiet, 8 bars]
+  [Theme A: piano states the main melody, upright bass enters]
+  [Theme B: strings join, melody goes higher]
+  [Theme A: fuller, brushed drums]
+  [Bridge: rhythm drops out, chords only, modulate up]
+  [Theme A: full arrangement, biggest]
+  [Outro: piano alone, ritardando, long last note]
+  [End]
+  태그는 8~12개. 각 태그의 콜론 뒤에 그 구간에서 바뀌는 악기와 멜로디의 모양을 적는다. 가사 줄, 허밍 "음~", 괄호 코러스는 넣지 않는다.
+- 노래는 리드 악기가 한다. sound_plan에 리드 악기 하나, 주제 선율(테마)의 모양(8마디, 어디서 오르고 어디서 가장 높고 어떻게 끝나는지), 테마가 돌아올 때마다 무엇이 더해지는지를 쓴다.
+- style은 "instrumental, <리드 악기> lead, <장르>"로 시작한다. 보컬 설명은 쓰지 않는다. exclude에 "vocals, singing"을 넣는다.
+- 제목은 연주곡답게 단어 하나나 짧은 명사구(예: 첫눈, 빈 교실, 돌아오는 길). hook과 share_line에는 제목을 그대로 적는다. candidates는 제목·분위기 후보 5개다(hook에 제목 후보, story에 어떤 장면의 음악인지).
+- arc와 line_plan은 가사 대신 테마의 전개(A-B-A-Bridge-A)를 적는다. tempo는 그대로 고른다.
+- situation은 듣는 상황(공부할 때 듣는 피아노, 잠들기 전 연주곡). shorts_title은 제목. hashtags·tags에 연주곡, 피아노, 공부음악, 수면음악, instrumental 같은 말을 넣는다.
+- image_prompt는 사람이 없어도 된다. 악기나 장소 한 장면이면 된다.
+"""
+
+MODE_KIDS = """\
+[동요·자장가·캐럴 모드] 이 곡은 아이와 가족이 부르는 노래다. 이 절은 위의 [말투](어른의 말), [가사의 결](자조·유머), [짧게, 덜어내기]의 줄 수 규칙, [길이와 구조]의 고정 구조보다 앞선다. [짧게, 덜어내기]의 짧은 줄 원칙과 [AI 티 점검표]의 닳은 감성어 금지는 그대로 지킨다.
+- 낱말은 초등학교 1~2학년이 다 아는 말만. 한자어·추상어(마음, 기억, 시간, 세상)는 쓰지 않는다. 눈에 보이고 손에 잡히는 것(동물, 탈것, 음식, 날씨, 몸)으로 쓴다.
+- 한 줄은 4~8음절, 7·5조(일곱 글자 다음 다섯 글자) 또는 4·4조의 리듬이 기본이다. 두 줄이 한 호흡. 의성어·의태어(쿵쿵, 살랑살랑, 반짝)를 곡에 둘셋 쓴다.
+- 반복이 많아야 한다. 후렴은 2~4줄에 같은 말을 두 번 이상, 뜻 없는 음절(랄랄라, 룰루) 허용. 1절과 2절은 같은 문장 틀에 낱말만 바꾼다.
+- 구조: [Intro] [Verse 1] [Chorus] [Verse 2] [Chorus] [Bridge] [Chorus] [Outro] [End]. 전체 14~24줄(태그 제외), 1분 40초~2분 40초. 자장가는 12~18줄이고 브릿지 대신 허밍 구간.
+- 줄 끝은 "-요", "-자", "-네", "-지", 명사 끝을 섞는다. 전곡 해요체도 좋다. 어른 노래의 어미 분포 규칙은 적용하지 않는다.
+- 교훈·설교(착하게 살자, 사랑은 소중해) 금지. 아이가 실제로 하는 행동과 궁금해하는 것(왜 달은 따라오지, 양말 한 짝은 어디 갔지)이 내용이다. 유치해 보여도 좋다. 오글거림은 아이 말에는 없다.
+- 시점은 아이 자신(나), 또는 아이에게 말하는 어른(자장가). 캐럴은 "우리"로, 겨울·눈·선물·집·따뜻한 음식 중 하나를 중심에.
+- 보컬·편성·전개는 해당 장르 설계도대로. style에 "children's song" 또는 "lullaby" 또는 "christmas"를 맨 앞에.
+"""
+
 def _sound(genre: str = "") -> str:
     """장르 사운드 설계도. 장르가 정해졌으면 그 장르만, 자동이면 전부."""
     if not SOUND_DIR.exists():
@@ -347,7 +393,10 @@ def _sound(genre: str = "") -> str:
     common = _read(SOUND_DIR / "_공통.md")
     files = sorted(p for p in SOUND_DIR.glob("*.md") if not p.name.startswith("_"))
     if genre and genre != "자동":
-        files = [p for p in files if p.stem == genre] or files
+        want = {genre} | ({"무가사"} if is_instrumental(genre) else set())
+        files = [p for p in files if p.stem in want] or files
+    else:  # 자동은 요청 때만 고르는 장르의 설계도를 빼서 프롬프트를 가볍게 한다
+        files = [p for p in files if p.stem not in AUTO_EXCLUDED]
     sheets = "\n\n".join(_read(p) for p in files)
     out = ""
     if common:
@@ -368,6 +417,10 @@ def _system(base: str, genre: str = "") -> str:
     if hooks:
         text += "\n\n[후렴과 반복]\n" + hooks
     if base is SYSTEM:
+        if is_instrumental(genre):
+            text += "\n\n" + MODE_INSTRUMENTAL
+        elif genre in KIDS_GENRES:
+            text += "\n\n" + MODE_KIDS
         text += _sound(genre)
     check = _checklist()
     if check:
@@ -575,7 +628,9 @@ def prepare(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "",
         asks.append(f"이 키워드나 상황으로 만들어라: {idea}")
     if content:
         asks.append(f"노래에 담을 내용(사용자가 적은 것):\n{content}")
-    if genre and genre != "자동":
+    if is_instrumental(genre):
+        asks.append(f"장르는 {genre}. 가사 없는 연주곡이다. 리드 악기와 주제 선율을 정하고 [무가사 모드]대로 써라.")
+    elif genre and genre != "자동":
         asks.append(f"장르는 {genre}. Suno 스타일 문구를 이 장르로 쓰고, 가사의 말투와 호흡도 이 장르답게 맞춰라.")
     if theme and theme != "자동":
         asks.append(f"주제는 {theme}.")
@@ -619,6 +674,13 @@ def compose(work: dict) -> dict:
     data["chosen"] = max(0, min(int(data.get("chosen", 0)), len(data["candidates"]) - 1))
     if work.get("title"):
         data["title"], data["title_kind"] = work["title"], "지정"
+    if is_instrumental(work.get("genre", "")):
+        # 태그만 남긴다. 모델이 가사 줄을 섞어 넣어도 연주곡으로 간다
+        data["lyrics"] = "\n".join(l for l in data["lyrics"].splitlines() if l.strip().startswith("["))
+        data["hook"] = data["share_line"] = data["title"]
+        if data.get("candidates"):
+            data["candidates"][data["chosen"]]["hook"] = data["title"]
+        data["instrumental"] = True
     data["research"] = notes
     return data
 
