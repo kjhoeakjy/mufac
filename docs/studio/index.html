@@ -125,6 +125,7 @@ video{width:100%;border-radius:3px;background:#000;display:block}
   .head{grid-template-columns:72px minmax(0,1fr)}
   .cover{width:72px;height:72px}
 }
+.flabel em{font-style:normal;color:#888;font-size:.85em}.flabel em.over{color:#c0392b;font-weight:600}
 </style>
 </head>
 <body>
@@ -395,8 +396,9 @@ function renderList() {
   el.querySelectorAll("details.grp").forEach(d => d.ontoggle = () => store.set("mufac.grp." + d.dataset.g, d.open ? "1" : "0"));
 }
 
-function field(label, value, cls = "") {
-  return `<div class="field"><div class="flabel"><span>${label}</span>
+function field(label, value, cls = "", limit = 0) {
+  const count = limit ? ` <em class="${value.length > limit ? "over" : ""}">${value.length}자</em>` : "";
+  return `<div class="field"><div class="flabel"><span>${label}${count}</span>
     <button class="copy" data-copy="${esc(value)}">복사</button></div>
     <div class="val ${cls}">${esc(value)}</div></div>`;
 }
@@ -488,7 +490,7 @@ function renderDetail() {
     <section class="step"><h2>SUNO <span>Custom · ${cover ? `<a href="${cover}" download>곡 이미지</a> · ` : ""}<a href="https://suno.com/create" target="_blank" rel="noopener">Suno</a> · v5 · Weirdness 낮게 · Style Influence 높게</span></h2>
       ${m.instrumental ? `<p class="note">연주곡입니다. Suno에서 Instrumental을 켜고 Lyrics 칸에는 아래 구간 태그만 넣습니다.</p>` : ""}
       ${field("Lyrics", (m.lyrics || "").trim(), "lyrics")}
-      ${field("Styles", m.style || "")}
+      ${field("Styles", m.style || "", "", 1000)}
       ${field("추가 옵션 · Exclude styles", m.exclude || "")}
       ${field("추가 옵션 · Title", m.title || "")}
     </section>

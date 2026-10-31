@@ -209,7 +209,7 @@ title_kind에 고른 형태를 적고, why에 왜 그 형태인지 쓴다.
 설계한 내용이 style과 구간 태그에 그대로 들어가야 한다. 설계도의 "Suno 문구"는 낱말 창고다. 곡에 맞는 것만 고르고 그대로 베껴 쓰지 않는다.
 
 [Suno 스타일]
-Suno Custom의 Style 칸에 그대로 붙여 넣는 영어 글이다. 짧은 문장과 쉼표 구절을 섞어 500~900자(한도 1000자). sound_plan을 영어로 옮긴 것이어야 한다. 순서는 다음과 같다.
+Suno Custom의 Style 칸에 그대로 붙여 넣는 영어 글이다. 짧은 문장과 쉼표 구절을 섞어 500~850자. 900자를 넘기지 않는다(Suno 한도 1000자, 넘으면 붙여 넣을 수 없다. 쓰고 나서 글자 수를 센다). sound_plan을 영어로 옮긴 것이어야 한다. 순서는 다음과 같다.
 1. 장르와 빠르기: 맨 앞 장르가 가장 세게 먹힌다. 요청 장르가 있으면 그 장르를 첫 단어로. 장르는 둘까지만 섞고 주된 장르가 앞. 연대 표시(90s, 2000s)를 하나 넣으면 소리가 또렷해진다. bpm은 대략값.
 2. 보컬: 사람을 소개하듯 쓴다. 성별, 음역(baritone, mezzo), 질감(warm, clean, slightly raspy, breathy), 박자 앞뒤(behind the beat). 성숙하고 진심인 톤이 기본이다. 가사 언어를 반드시 적는다: 기본은 "sung in Korean, korean lyrics", 영어 곡이면 "sung in English", 섞이면 "korean lyrics with an english hook"(안 적으면 엉뚱한 언어로 부르는 일이 있다).
 3. 악기: 각 악기에 역할과 등장 시점을 준다. 예: piano carries verse 1, strings enter at the second chorus, electric guitar only from the bridge. 드럼은 소리까지(live drums in a room, brushed, tight programmed, fat late snare), 베이스는 종류와 역할까지(round fingered bass on roots, melodic picked bass, slap bass with octaves).
@@ -283,7 +283,7 @@ SCHEMA = {
         "lyrics": {"type": "string", "description": "line_plan대로 쓴 전체 가사(구간 태그 포함). 28~42줄(태그 제외)."},
         "share_line": {"type": "string", "description": "쇼츠용 공유하고 싶은 가사 한 줄(가사 안에 있는 그대로)"},
         "sound_plan": {"type": "string", "description": "소리 설계 한 문단(한국어): 조성·빠르기, 리듬, 베이스, 화성 악기, 멜로디 윤곽, 보컬, 공간·질감, 구간별 편곡 변화, 끝내는 법."},
-        "style": {"type": "string", "description": "sound_plan을 영어로 옮긴 Suno Style, 500~900자."},
+        "style": {"type": "string", "description": "sound_plan을 영어로 옮긴 Suno Style, 500~850자. 900자 초과 금지."},
         "exclude": {"type": "string"},
         "photo_query": {"type": "string"},
         "image_prompt": {"type": "string"},
@@ -315,6 +315,23 @@ SCHEMA = {
 
 def took(label: str, t0: float) -> None:
     print(f"[{label}] {time.time() - t0:.0f}초", flush=True)
+
+
+STYLE_LIMIT = 1000  # Suno Style 칸 한도
+
+
+def fit_style(text: str, limit: int = STYLE_LIMIT) -> str:
+    """Suno Style 한도(1000자)를 넘으면 뒤에서부터 쉼표 구절 단위로 잘라 맞춘다. 앞쪽(장르·보컬·악기)이 더 중요하다."""
+    text = " ".join((text or "").split())
+    if len(text) <= limit:
+        return text
+    cut = text[: limit - 1]
+    for sep in (". ", ", ", "; ", " "):
+        i = cut.rfind(sep)
+        if i > limit * 0.6:
+            cut = cut[:i]
+            break
+    return cut.rstrip(" ,;") + "."
 
 
 def _check(response) -> None:
@@ -576,7 +593,10 @@ def revise(meta: dict, note: str) -> dict:
         response = stream.get_final_message()
     _check(response)
     took("다시 쓰기", t0)
-    return json.loads(next(b.text for b in response.content if b.type == "text"))
+    out = json.loads(next(b.text for b in response.content if b.type == "text"))
+    if out.get("style"):
+        out["style"] = fit_style(out["style"])
+    return out
 
 
 def safe_polish(data: dict, fixed_title: str = "") -> dict:
@@ -674,6 +694,7 @@ def compose(work: dict) -> dict:
     data["chosen"] = max(0, min(int(data.get("chosen", 0)), len(data["candidates"]) - 1))
     if work.get("title"):
         data["title"], data["title_kind"] = work["title"], "지정"
+    data["style"] = fit_style(data.get("style", ""))
     if is_instrumental(work.get("genre", "")):
         # 태그만 남긴다. 모델이 가사 줄을 섞어 넣어도 연주곡으로 간다
         data["lyrics"] = "\n".join(l for l in data["lyrics"].splitlines() if l.strip().startswith("["))
