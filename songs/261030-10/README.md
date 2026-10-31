@@ -4,7 +4,7 @@
 
 > 어른인 척 해
 
-어른 · 모르는 말에도 고개부터 끄덕이는 사람이 혼자 중얼거리는 노래다. 그러다 어릴 때 올려다본 어른들도 사실은 척하고 있었다는 걸 알게 된다.
+어른 · 사회생활 중에 모르는 말에도 고개를 끄덕이며 어른인 척 버틴 사람이 하루 끝에 속마음을 털어놓는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -24,7 +24,7 @@
 
 **Style**
 ```text
-Korean jazz pop, hard-swinging bebop small group, medium-up swing around 112 bpm, minor key opening into a bittersweet major chorus. Male baritone, warm, slightly husky, close to the mic, behind the beat, mature and sincere, sung in Korean, korean lyrics. Fat chewy upright bass up front, walking lines with ghost notes, slides, double stops, chromatic fills. Verse 1 whisper-quiet: bass, brushes, voice. Pre-chorus adds sparse piano comping. Chorus explodes: loud ride, punchy piano, sax and muted trumpet stabs answer the vocal, upward leap, long held note on the hook. Verse 2 drops back to quiet, busier bass fills. After chorus two: fast bebop piano solo, sax solo, trading fours, stop-time hits. Bridge near silence, bass and almost spoken voice, rubato. Final chorus loudest, shout horns, octave up. Sudden stop, final piano tension chord. Small jazz club, tape warmth. Wry, tender.
+Korean jazz pop, hard-swinging bebop quintet, medium-up swing around 112 bpm, minor verses, bittersweet major chorus, tritone-sub reharmonization. Male baritone, warm, slightly husky, close-miked, behind the beat, sung in Korean, korean lyrics. Fat chewy upright bass up front, walking with ghost notes, slides, double stops. Intro: bass solo. Verses whisper-quiet: bass, brushes, voice. Chorus explodes: loud ride, block-chord piano, tenor sax and muted trumpet stabs. Long instrumental stretches: sax and bass trade after chorus one; after chorus two a fast bebop piano solo, tenor sax solo with altissimo, double-time feel, trading fours, stop-time hits. Bridge near silence, bass and voice, rubato. Final chorus a half step up, shout horn soli, busiest bass. Bass solo tag, final piano tension chord. Small jazz club, tape warmth. Virtuosic, wry, tender.
 ```
 
 **Exclude styles**
@@ -39,15 +39,13 @@ autotune, synth pads, scat singing
 
 **Lyrics**
 ```text
-[Intro: upright bass alone, slow walking line]
+[Intro: unaccompanied upright bass solo, double stops, slides]
 
 [Verse 1: bass, brushes and voice only, whisper-quiet]
 모르는 말 앞에서
 먼저 끄덕이는 고개
-얼굴은 다 아는 얼굴
 책상 밑으로는
 다리가 떨리는데
-이런 건 금방 늘어
 들키지 않을 만큼만
 
 [Pre-Chorus: sparse piano comping enters, brushes build]
@@ -62,11 +60,11 @@ autotune, synth pads, scat singing
 아픈 건 집에 가서
 어른인 척 해
 
+[Instrumental Break: tenor sax and upright bass trade phrases, piano comps]
+
 [Verse 2: drops back to quiet, busier bass fills]
 열한 살 내 눈에
-올려다보던 그 어른들
-뭐든 다 아는 줄 알았던
-그 넓은 등도
+올려다보던 그 등도
 책상 밑에서는
 다리가 떨렸을까
 들키지 않을 만큼만
@@ -83,21 +81,24 @@ autotune, synth pads, scat singing
 아픈 건 집에 가서
 어른인 척 해
 
-[Instrumental Break: bebop piano solo, tenor sax solo, trading fours, stop-time hits]
+[Piano Solo: fast bebop lines, block chords, double-time feel]
+
+[Saxophone Solo: tenor sax, altissimo cries, trading fours with drums, stop-time hits]
 
 [Bridge: near silence, upright bass and close voice, rubato]
 사실은 무서워
-아는 건 아직 하나도 없고
 그때 날 잡아 주던 손도
 떨고 있었다면
 나도 떨면서 잡을게
 
-[Final Chorus: loudest, shout horns, octave up]
+[Final Chorus: half step up, shout horns, busiest bass, loudest]
 어른인 척 해
 속은 아직 열한 살
 어른인 척 해
 누가 내 손 잡는 동안
 어른인 척 해
+
+[Bass Solo: upright bass alone, walking cadenza, double stops]
 
 [Outro: sudden stop, bass alone, final piano tension chord]
 들키지 않을 만큼만
