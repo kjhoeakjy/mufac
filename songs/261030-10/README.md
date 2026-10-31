@@ -4,7 +4,7 @@
 
 > 어른인 척 해
 
-어른 · 사회생활 중에 모르는 말에도 고개를 끄덕이며 어른인 척 버틴 사람이 하루 끝에 속마음을 털어놓는 노래.
+어른 · 회사에서 모르는 말에도 고개를 끄덕이며 어른인 척 버티다가, 집에 가는 길에 속으로는 아직 열한 살이라고 털어놓는 사람이 부르는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -24,12 +24,12 @@
 
 **Style**
 ```text
-Korean jazz pop, hard-swinging bebop quintet, medium-up swing around 112 bpm, minor verses, bittersweet major chorus, tritone-sub reharmonization. Male baritone, warm, slightly husky, close-miked, behind the beat, sung in Korean, korean lyrics. Fat chewy upright bass up front, walking with ghost notes, slides, double stops. Intro: bass solo. Verses whisper-quiet: bass, brushes, voice. Chorus explodes: loud ride, block-chord piano, tenor sax and muted trumpet stabs. Long instrumental stretches: sax and bass trade after chorus one; after chorus two a fast bebop piano solo, tenor sax solo with altissimo, double-time feel, trading fours, stop-time hits. Bridge near silence, bass and voice, rubato. Final chorus a half step up, shout horn soli, busiest bass. Bass solo tag, final piano tension chord. Small jazz club, tape warmth. Virtuosic, wry, tender.
+Korean jazz ballad, acoustic jazz combo, slow elastic tempo: rubato intro, slow brushed verses around 60 bpm, choruses lift into medium swing near 88 bpm, then settle back, free-time bridge, ritardando ending. Female alto, warm, slightly husky, close-miked, behind the beat, sung in Korean, korean lyrics. Fat chewy upright bass up front, ghost notes, slides, double stops, walks only in swing sections. Piano trio core, sparse voicings in verses, block chords in choruses. Muted trumpet answers the voice in verse 2. Brushes in verses, sticks on ride in choruses. Whisper-quiet verses, full swing choruses. Piano solo with double-time runs that slows down. Bridge voice and bass alone. Final chorus biggest, then bass cadenza and a held piano tension chord. Small jazz club, tape warmth. Tender, wry, late night.
 ```
 
 **Exclude styles**
 ```text
-autotune, synth pads, scat singing
+trot, saxophone, synth
 ```
 
 **Title**
@@ -39,68 +39,66 @@ autotune, synth pads, scat singing
 
 **Lyrics**
 ```text
-[Intro: unaccompanied upright bass solo, double stops, slides]
+[Intro: rubato piano and upright bass, free time]
 
-[Verse 1: bass, brushes and voice only, whisper-quiet]
+[Verse 1: slow ballad, bass, brushes and voice, whisper-quiet]
 모르는 말 앞에서
 먼저 끄덕이는 고개
 책상 밑으로는
 다리가 떨리는데
 들키지 않을 만큼만
 
-[Pre-Chorus: sparse piano comping enters, brushes build]
+[Pre-Chorus: sparse piano enters, slight push]
 낮춘 목소리 하나
 펴 둔 어깨 하나
 문 열고 나가면
 
-[Chorus: full band explodes, loud ride, horn stabs answer]
+[Chorus: lifts into medium swing, sticks on ride, block chords]
 어른인 척 해
 속은 아직 열한 살
 어른인 척 해
 아픈 건 집에 가서
 어른인 척 해
 
-[Instrumental Break: tenor sax and upright bass trade phrases, piano comps]
+[Instrumental Break: muted trumpet and bass trade, swing slows down]
 
-[Verse 2: drops back to quiet, busier bass fills]
+[Verse 2: back to slow ballad, muted trumpet answers the voice]
 열한 살 내 눈에
 올려다보던 그 등도
 책상 밑에서는
 다리가 떨렸을까
 들키지 않을 만큼만
 
-[Pre-Chorus: piano comping, drums build]
+[Pre-Chorus: piano comping, slight push]
 낮춘 목소리 하나
 펴 둔 어깨 하나
 문 열고 나가면
 
-[Chorus: full band explodes, loud ride, horn stabs answer]
+[Chorus: lifts into medium swing, sticks on ride, block chords]
 어른인 척 해
 속은 아직 열한 살
 어른인 척 해
 아픈 건 집에 가서
 어른인 척 해
 
-[Piano Solo: fast bebop lines, block chords, double-time feel]
+[Piano Solo: double-time runs, then ritardando]
 
-[Saxophone Solo: tenor sax, altissimo cries, trading fours with drums, stop-time hits]
-
-[Bridge: near silence, upright bass and close voice, rubato]
+[Bridge: free time, upright bass and close voice only]
 사실은 무서워
 그때 날 잡아 주던 손도
 떨고 있었다면
 나도 떨면서 잡을게
 
-[Final Chorus: half step up, shout horns, busiest bass, loudest]
+[Final Chorus: slow start, swings in, biggest]
 어른인 척 해
 속은 아직 열한 살
 어른인 척 해
 누가 내 손 잡는 동안
 어른인 척 해
 
-[Bass Solo: upright bass alone, walking cadenza, double stops]
+[Bass Solo: upright bass cadenza, rubato]
 
-[Outro: sudden stop, bass alone, final piano tension chord]
+[Outro: slow, held piano tension chord]
 들키지 않을 만큼만
 
 [End]

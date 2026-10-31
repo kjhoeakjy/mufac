@@ -1,7 +1,7 @@
 title: 어른
 hook: 어른인 척 해
 theme: 어른
-story: 사회생활 중에 모르는 말에도 고개를 끄덕이며 어른인 척 버틴 사람이 하루 끝에 속마음을 털어놓는 노래.
+story: 회사에서 모르는 말에도 고개를 끄덕이며 어른인 척 버티다가, 집에 가는 길에 속으로는 아직 열한 살이라고 털어놓는 사람이 부르는 노래.
 created: 2026-10-30 17:48
 request:
   id: mvuq7dfp
@@ -9,9 +9,9 @@ request:
   idea: 어른
   genre: 재즈
   style: 베이스 쫀득. 재즈 기교 엄청 많음. 조용한 부분이랑 소리 큰 부분 차이 크게 존재.
-sound_plan: 단조로 시작해 후렴에서 씁쓸한 장조로 열리는 미디엄업 스윙이다. 빠르기는 약 112bpm이고, 테너 색소폰·뮤트 트럼펫·피아노·업라이트 베이스·드럼으로 된 비밥 퀸텟 편성이다. 코드는 트라이톤 대리와 알터드 텐션으로 리하모니한다. 업라이트 베이스가 곡의 주인공이다. 굵고 쫀득한 톤으로 고스트 노트, 슬라이드, 더블스톱, 반음 경과음을 섞어 걷고, 믹스 맨 앞에 선다. 인트로는 반주 없는 베이스 솔로로 연다. 드럼은 절에서 브러시로 아주 작게 치고, 후렴에서는 스틱으로 바꿔 라이드를 크게 때린다. 피아노는 프리코러스에서 드문드문 컴핑하다가 후렴에서 블록 코드로 세게 찍는다. 혼은 후렴에서 보컬에 짧은 스탭으로 대답한다. 가사는 짧게 두고 연주 구간을 길게 늘린다. 첫 후렴 뒤에는 색소폰과 베이스가 프레이즈를 주고받는다. 두 번째 후렴 뒤에는 더블타임 필로 달리는 빠른 비밥 피아노 솔로가 나오고, 이어 알티시모로 치솟는 테너 솔로, 드럼과의 포바스 주고받기, 스톱타임 히트가 온다. 멜로디는 절에서 좁은 음역으로 박자 뒤에 늦게 붙어 말하듯 가고, 프리코러스는 같은 음을 되풀이하며 밀어 올린다. 후렴 첫 음은 위로 도약하고, 훅 끝 '해'는 길게 끈다. 보컬은 따뜻하고 약간 허스키한 남성 바리톤이고, 마이크 가까이에서 거의 드라이하게 부른다. 브릿지는 거의 정적에 베이스와 목소리만 남기고 루바토로 늘인다. 마지막 후렴은 반음 전조해 혼 섹션 샤우트 솔리와 함께 가장 크게 가고, 베이스가 가장 바쁘게 움직인다. 그 뒤 베이스 혼자 카덴차처럼 걷다가 갑자기 멈춘다. 마지막 한 줄 뒤에는 피아노 텐션 코드 하나로 닫는다. 공간은 작은 재즈 클럽의 라이브 룸에 테이프 질감이다.
-style: 'Korean jazz pop, hard-swinging bebop quintet, medium-up swing around 112 bpm, minor verses, bittersweet major chorus, tritone-sub reharmonization. Male baritone, warm, slightly husky, close-miked, behind the beat, sung in Korean, korean lyrics. Fat chewy upright bass up front, walking with ghost notes, slides, double stops. Intro: bass solo. Verses whisper-quiet: bass, brushes, voice. Chorus explodes: loud ride, block-chord piano, tenor sax and muted trumpet stabs. Long instrumental stretches: sax and bass trade after chorus one; after chorus two a fast bebop piano solo, tenor sax solo with altissimo, double-time feel, trading fours, stop-time hits. Bridge near silence, bass and voice, rubato. Final chorus a half step up, shout horn soli, busiest bass. Bass solo tag, final piano tension chord. Small jazz club, tape warmth. Virtuosic, wry, tender.'
-exclude: autotune, synth pads, scat singing
+sound_plan: 단조의 절과 씁쓸한 장조의 후렴을 오가는 느린 재즈 발라드다. 템프는 한자리에 머물지 않는다. 인트로는 박 없이 피아노와 업라이트 베이스가 루바토로 열고, 절은 60bpm 안팎의 느린 브러시 발라드다. 후렴에서는 88bpm 근처의 미디엄 스윙으로 풀리고, 끝나면 다시 느려진다. 편성은 피아노·업라이트 베이스·드럼 트리오에 뮤트 트럼펫 하나를 더한 어쿠스틱 재즈 콤보다. 색소폰, 반음 전조, 혼 샤우트처럼 트로트로 들릴 수 있는 요소는 쓰지 않는다. 업라이트 베이스가 주인공이다. 굵고 쫀득한 톤에 고스트 노트, 슬라이드, 더블스톱을 섞고, 믹스 앞에 둔다. 느린 구간에서는 긴 음으로 받치고, 스윙 구간에서만 걷는다. 드럼은 절에서 브러시로 속삭이듯 치고, 후렴에서는 스틱으로 라이드를 탄다. 피아노는 절에서 드문드문 루틀리스 보이싱을 짚고, 후렴에서 블록 코드로 받친다. 2절에서는 뮤트 트럼펫이 보컬 사이사이에 대답한다. 첫 후렴 뒤 간주는 트럼펫과 베이스가 프레이즈를 주고받다가 다시 느려진다. 두 번째 후렴 뒤 피아노 솔로는 더블타임 런으로 달렸다가 리타르단도로 내려앉는다. 멜로디는 절에서 좁은 음역으로 박자 뒤에 붙어 말하듯 가고, 프리코러스는 같은 음을 되풀이하며 살짝 밀어 올린다. 후렴 첫 음은 위로 도약하고, 훅 끝의 '해'는 길게 끈다. 보컬은 따뜻하고 약간 허스키한 여성 알토로, 마이크 가까이에서 거의 드라이하게 부르며 블루노트로 살짝 꺾는다. 브릿지는 박 없이 베이스와 목소리만 남는다. 마지막 후렴은 같은 키에서 느리게 시작해 스윙으로 들어가며 가장 크게 간다. 이어 베이스가 혼자 루바토 카덴차를 하고, 마지막 한 줄 뒤에는 피아노 텐션 코드를 길게 끌어 닫는다. 조용한 곳과 큰 곳의 차이는 크게 둔다. 공간은 작은 재즈 클럽에 테이프 질감이다.
+style: 'Korean jazz ballad, acoustic jazz combo, slow elastic tempo: rubato intro, slow brushed verses around 60 bpm, choruses lift into medium swing near 88 bpm, then settle back, free-time bridge, ritardando ending. Female alto, warm, slightly husky, close-miked, behind the beat, sung in Korean, korean lyrics. Fat chewy upright bass up front, ghost notes, slides, double stops, walks only in swing sections. Piano trio core, sparse voicings in verses, block chords in choruses. Muted trumpet answers the voice in verse 2. Brushes in verses, sticks on ride in choruses. Whisper-quiet verses, full swing choruses. Piano solo with double-time runs that slows down. Bridge voice and bass alone. Final chorus biggest, then bass cadenza and a held piano tension chord. Small jazz club, tape warmth. Tender, wry, late night.'
+exclude: trot, saxophone, synth
 photo_query: man loosened tie jazz bar
 image_prompt: A man in a loosened tie sits alone at the edge of a small jazz club stage, seen in side profile, an upright bass leaning against the wall behind him. Warm amber lamp light, a half-empty glass on a small round table. Deep blue and amber tones, quiet, wry late-night mood.
 title_kind: 지정
@@ -21,7 +21,7 @@ line_plan: '[Verse 1] 1 사실: 모르는 말 앞(장면 하나) / 2 관찰: 먼
 why: '''어른인 척 해''는 누구나 어제 한 번은 한 일이라서 설명 없이 바로 자기 얘기로 받힌다. 끝이 모음이라 스윙 위에서 늘여 부르기 좋고, 정해진 제목 ''어른''이 후렴 첫머리에 그대로 선다. 1절은 지금의 나, 2절은 어릴 때 올려다본 어른들로 시점을 바꿨다. 같은 훅이 처음에는 자조로 들리고, 마지막 후렴에서는 누군가를 위해 버티는 말로 바뀐다. 자우림의 ''~줄 알았던'' 과거 기대를 현재와 부딪히는 원리와 잔나비의 ''고백 직전에 자기를 낮추는 줄'' 원리를 가져왔고, 마지막 후렴은 한로로처럼 한 줄만 바꿔 결론을 냈다. 제목은 요청대로 ''어른''을 한 글자도 바꾸지 않은 단어 하나다.'
 share_line: 어른인 척 해 / 속은 아직 열한 살
 youtube_meta:
-  situation: 어른인 척 지친 하루 끝에 듣는 노래
+  situation: 어른인 척 지친 퇴근길에 듣는 노래
   shorts_title: 어른인 척 해
   hashtags:
   - 재즈
@@ -33,7 +33,7 @@ youtube_meta:
   - 직장인노래
   - 감성플리
   - 밤에듣는노래
-  - 재즈팝
+  - 재즈발라드
   - 어른
   - 어른인척
 tags:
@@ -41,42 +41,42 @@ tags:
 - 노래
 - 감성
 - 재즈
-- 재즈팝
+- 재즈 발라드
 - 플레이리스트
 - 노래 추천
-- 신곡
-- 감성노래
-- 위로노래
-- 퇴근길노래
-- 퇴근길 노래 추천
-- 출근길노래
-- 직장인노래
-- 직장인 공감 노래
-- 사회생활 노래
+- 감성 노래
+- 위로 노래
+- 퇴근길 노래
+- 퇴근길 플레이리스트
+- 직장인 노래
+- 직장인 공감
 - 어른 노래
 - 어른인 척
-- 어른인 척 해
+- 어른이 되는 것
+- 어른 아이
 - 열한 살
-- 어른이 된다는 것
-- 밤에 듣는 노래
 - 새벽 감성
-- 지친 하루 노래
+- 밤에 듣는 노래
+- 잠 안 오는 밤
 - 재즈 플레이리스트
-- 재즈 노래 추천
-- 스윙 재즈
-- 비밥
-- 색소폰 솔로
-- 콘트라베이스
-- 재즈 클럽
-- 남자 보컬
+- 재즈 감성
+- 여자 재즈 보컬
+- 재즈 신곡
 - 한국 재즈
-- korean jazz
-- korean jazz pop
+- 스윙 재즈
+- 업라이트 베이스
+- 피아노 트리오
+- 혼자 있는 밤
+- 지친 하루
+- 하루 끝 노래
+- 위로가 필요할 때
 - korean ballad
+- korean jazz
+- korean jazz ballad
+- korean indie
 - kpop
-- bebop
-- swing jazz
-- jazz playlist
+- jazz ballad
+- late night jazz
 references:
 - title: 스물다섯, 스물하나
   artist: 자우림
@@ -105,68 +105,66 @@ candidates:
   story: 하고 싶은 말을 삼키고 '어른이라서' 웃고 마는 오래된 친구 둘이 늦은 밤 나누는 말이다.
 chosen: 0
 lyrics: |
-  [Intro: unaccompanied upright bass solo, double stops, slides]
+  [Intro: rubato piano and upright bass, free time]
 
-  [Verse 1: bass, brushes and voice only, whisper-quiet]
+  [Verse 1: slow ballad, bass, brushes and voice, whisper-quiet]
   모르는 말 앞에서
   먼저 끄덕이는 고개
   책상 밑으로는
   다리가 떨리는데
   들키지 않을 만큼만
 
-  [Pre-Chorus: sparse piano comping enters, brushes build]
+  [Pre-Chorus: sparse piano enters, slight push]
   낮춘 목소리 하나
   펴 둔 어깨 하나
   문 열고 나가면
 
-  [Chorus: full band explodes, loud ride, horn stabs answer]
+  [Chorus: lifts into medium swing, sticks on ride, block chords]
   어른인 척 해
   속은 아직 열한 살
   어른인 척 해
   아픈 건 집에 가서
   어른인 척 해
 
-  [Instrumental Break: tenor sax and upright bass trade phrases, piano comps]
+  [Instrumental Break: muted trumpet and bass trade, swing slows down]
 
-  [Verse 2: drops back to quiet, busier bass fills]
+  [Verse 2: back to slow ballad, muted trumpet answers the voice]
   열한 살 내 눈에
   올려다보던 그 등도
   책상 밑에서는
   다리가 떨렸을까
   들키지 않을 만큼만
 
-  [Pre-Chorus: piano comping, drums build]
+  [Pre-Chorus: piano comping, slight push]
   낮춘 목소리 하나
   펴 둔 어깨 하나
   문 열고 나가면
 
-  [Chorus: full band explodes, loud ride, horn stabs answer]
+  [Chorus: lifts into medium swing, sticks on ride, block chords]
   어른인 척 해
   속은 아직 열한 살
   어른인 척 해
   아픈 건 집에 가서
   어른인 척 해
 
-  [Piano Solo: fast bebop lines, block chords, double-time feel]
+  [Piano Solo: double-time runs, then ritardando]
 
-  [Saxophone Solo: tenor sax, altissimo cries, trading fours with drums, stop-time hits]
-
-  [Bridge: near silence, upright bass and close voice, rubato]
+  [Bridge: free time, upright bass and close voice only]
   사실은 무서워
   그때 날 잡아 주던 손도
   떨고 있었다면
   나도 떨면서 잡을게
 
-  [Final Chorus: half step up, shout horns, busiest bass, loudest]
+  [Final Chorus: slow start, swings in, biggest]
   어른인 척 해
   속은 아직 열한 살
   어른인 척 해
   누가 내 손 잡는 동안
   어른인 척 해
 
-  [Bass Solo: upright bass alone, walking cadenza, double stops]
+  [Bass Solo: upright bass cadenza, rubato]
 
-  [Outro: sudden stop, bass alone, final piano tension chord]
+  [Outro: slow, held piano tension chord]
   들키지 않을 만큼만
 
   [End]
@@ -297,7 +295,7 @@ photo:
   model: gpt-image-2.5-flare
   prompt: A man in a loosened tie sits alone at the edge of a small jazz club stage, seen in side profile, an upright bass leaning against the wall behind him. Warm amber lamp light, a half-empty glass on a small round table. Deep blue and amber tones, quiet, wry late-night mood.
 youtube_preview:
-  title: 어른 - 연주왕김연주 | 어른인 척 지친 하루 끝에 듣는 노래
+  title: 어른 - 연주왕김연주 | 어른인 척 지친 퇴근길에 듣는 노래
   shorts_title: '어른인 척 해 #shorts'
   description: '모르는 말 앞에서
 
@@ -387,7 +385,7 @@ youtube_preview:
     © 2026 연주왕김연주. 무단 복제·재업로드 금지.
 
 
-    #재즈 #감성노래 #퇴근길노래 #음악 #노래 #감성 #재즈플리 #새벽감성 #위로노래 #직장인노래 #감성플리 #밤에듣는노래 #재즈팝 #어른 #어른인척'
+    #재즈 #감성노래 #퇴근길노래 #음악 #노래 #감성 #재즈플리 #새벽감성 #위로노래 #직장인노래 #감성플리 #밤에듣는노래 #재즈발라드 #어른 #어른인척'
   tags:
   - 어른
   - 연주왕김연주
@@ -395,42 +393,43 @@ youtube_preview:
   - 노래
   - 감성
   - 재즈
-  - 재즈팝
+  - 재즈 발라드
   - 플레이리스트
   - 노래 추천
-  - 신곡
-  - 감성노래
-  - 위로노래
-  - 퇴근길노래
-  - 퇴근길 노래 추천
-  - 출근길노래
-  - 직장인노래
-  - 직장인 공감 노래
-  - 사회생활 노래
+  - 감성 노래
+  - 위로 노래
+  - 퇴근길 노래
+  - 퇴근길 플레이리스트
+  - 직장인 노래
+  - 직장인 공감
   - 어른 노래
   - 어른인 척
-  - 어른인 척 해
+  - 어른이 되는 것
+  - 어른 아이
   - 열한 살
-  - 어른이 된다는 것
-  - 밤에 듣는 노래
   - 새벽 감성
-  - 지친 하루 노래
+  - 밤에 듣는 노래
+  - 잠 안 오는 밤
   - 재즈 플레이리스트
-  - 재즈 노래 추천
-  - 스윙 재즈
-  - 비밥
-  - 색소폰 솔로
-  - 콘트라베이스
-  - 재즈 클럽
-  - 남자 보컬
+  - 재즈 감성
+  - 여자 재즈 보컬
+  - 재즈 신곡
   - 한국 재즈
-  - korean jazz
-  - korean jazz pop
+  - 스윙 재즈
+  - 업라이트 베이스
+  - 피아노 트리오
+  - 혼자 있는 밤
+  - 지친 하루
+  - 하루 끝 노래
+  - 위로가 필요할 때
   - korean ballad
+  - korean jazz
+  - korean jazz ballad
+  - korean indie
   - kpop
-  - bebop
-  - swing jazz
-  - jazz playlist
+  - jazz ballad
+  - late night jazz
+  - 신곡
   - 가사
   - korean music
   - k-pop
@@ -447,7 +446,7 @@ youtube_preview:
   - 직장인노래
   - 감성플리
   - 밤에듣는노래
-  - 재즈팝
+  - 재즈발라드
   - 어른
   - 어른인척
   playlists:
@@ -591,4 +590,140 @@ revisions:
     style: 'Korean jazz pop, hard-swinging bebop small group, medium-up swing around 112 bpm, minor key opening into a bittersweet major chorus. Male baritone, warm, slightly husky, close to the mic, behind the beat, mature and sincere, sung in Korean, korean lyrics. Fat chewy upright bass up front, walking lines with ghost notes, slides, double stops, chromatic fills. Verse 1 whisper-quiet: bass, brushes, voice. Pre-chorus adds sparse piano comping. Chorus explodes: loud ride, punchy piano, sax and muted trumpet stabs answer the vocal, upward leap, long held note on the hook. Verse 2 drops back to quiet, busier bass fills. After chorus two: fast bebop piano solo, sax solo, trading fours, stop-time hits. Bridge near silence, bass and almost spoken voice, rubato. Final chorus loudest, shout horns, octave up. Sudden stop, final piano tension chord. Small jazz club, tape warmth. Wry, tender.'
     sound_plan: 단조로 시작하고, 후렴에서 씁쓸한 장조로 살짝 열리는 미디엄업 스윙이다. 빠르기는 약 112bpm. 업라이트 베이스가 곡의 주인공이다. 굵고 쫀득한 톤으로 고스트 노트, 슬라이드, 더블스톱, 반음 경과음을 섞어 걸으며 믹스 맨 앞에 선다. 드럼은 절에서는 스네어 위 브러시로 아주 작게 치고, 후렴에서는 스틱으로 바꿔 라이드 심벌을 크게 때린다. 피아노는 프리코러스에서 알터드 코드로 드문드문 컴핑하며 들어오고, 후렴에서는 세게 찍는다. 테너 색소폰과 뮤트 트럼펫은 후렴에서 보컬에 짧은 혼 스탭으로 대답한다. 멜로디는 절에서 좁은 음역으로 말하듯 박자 뒤에 늦게 붙고, 프리코러스는 같은 음을 되풀이하며 밀어 올린다. 후렴 첫 음은 위로 도약하고, 훅 끝 '해'는 길게 끈다. 마지막 후렴은 한 옥타브 올린다. 보컬은 따뜻하고 약간 허스키한 남성 바리톤으로, 마이크 가까이에서 거의 드라이하게 부른다. 공간은 작은 재즈 클럽의 라이브 룸에 테이프 질감을 얹는다. 전개는 조용함과 큼의 낙차를 크게 잡는다. 인트로는 베이스 혼자 걷는다. 1절은 베이스·브러시·목소리만으로 속삭이듯 간다. 첫 후렴에서 밴드 전체가 터지고, 2절에서 다시 작아지되 베이스 필이 더 바빠진다. 두 번째 후렴 뒤에는 기교 구간을 둔다. 빠른 비밥 피아노 솔로, 색소폰 솔로, 드럼과 네 마디씩 주고받기, 스톱타임 히트가 이어진다. 브릿지는 거의 정적에 베이스와 말하듯 하는 목소리만 남기고 루바토로 늘인다. 마지막 후렴은 혼 섹션 샤우트와 함께 가장 크고, 베이스와 드럼이 가장 바쁘게 움직인다. 끝은 갑자기 멈춘다. 베이스가 홀로 남고, 마지막 한 줄 뒤에 피아노 텐션 코드 하나로 닫는다.
     share_line: 속은 아직 열한 살
+- at: 2026-10-31 17:08
+  note: 더 느리고 트로트 느낌 없이 속도 중간에 계속 바뀌는 진짜 재즈였으면 좋겠음. 여자 목소리
+  plan: 가사는 한 글자도 바꾸지 않고, 소리만 고칩니다. 112bpm 하드 스윙을 60bpm 안팎의 느린 재즈 발라드로 늦추고, 후렴에서만 미디엄 스윙으로 풀렸다가 다시 느려지도록 템포를 계속 움직입니다. 트로트처럼 들릴 수 있는 테너 색소폰 울부짖음, 반음 전조, 혼 샤우트는 빼고, 피아노 트리오와 뮤트 트럼펫 중심의 어쿠스틱 재즈로 바꿉니다. 보컬은 여성 알토로 바꾸고 구간 태그의 전개 지시를 새 설계에 맞춥니다.
+  changes:
+  - 가사 글자와 제목, 후렴, 기승전결은 그대로 두었습니다.
+  - 112bpm 하드 스윙을 60bpm 안팎의 느린 재즈 발라드로 늦췄습니다.
+  - 템포가 계속 움직이게 했습니다. 인트로는 루바토, 절은 느리게, 후렴은 88bpm 근처 스윙, 브릿지는 박 없이, 끝은 리타르단도입니다.
+  - 트로트처럼 들릴 수 있는 요소를 뺐습니다. 테너 색소폰 솔로와 알티시모, 혼 스탭과 샤우트, 마지막 후렴의 반음 전조가 해당합니다.
+  - 색소폰 솔로 구간을 없애고, 첫 간주는 뮤트 트럼펫과 베이스가 주고받도록 바꿨습니다.
+  - 피아노 솔로는 더블타임으로 달렸다가 다시 느려지도록 했습니다.
+  - 보컬을 남성 바리톤에서 따뜻하고 약간 허스키한 여성 알토로 바꿨습니다.
+  - 쫀득한 업라이트 베이스와 조용한 곳과 큰 곳의 큰 차이는 처음 요청대로 유지했습니다.
+  - 구간 태그의 전개 지시를 새 템포와 편성에 맞게 고쳤습니다.
+  - style을 새 설계에 맞게 다시 썼습니다.
+  - exclude를 trot, saxophone, synth로 바꿨습니다.
+  before:
+    lyrics: '[Intro: unaccompanied upright bass solo, double stops, slides]
+
+
+      [Verse 1: bass, brushes and voice only, whisper-quiet]
+
+      모르는 말 앞에서
+
+      먼저 끄덕이는 고개
+
+      책상 밑으로는
+
+      다리가 떨리는데
+
+      들키지 않을 만큼만
+
+
+      [Pre-Chorus: sparse piano comping enters, brushes build]
+
+      낮춘 목소리 하나
+
+      펴 둔 어깨 하나
+
+      문 열고 나가면
+
+
+      [Chorus: full band explodes, loud ride, horn stabs answer]
+
+      어른인 척 해
+
+      속은 아직 열한 살
+
+      어른인 척 해
+
+      아픈 건 집에 가서
+
+      어른인 척 해
+
+
+      [Instrumental Break: tenor sax and upright bass trade phrases, piano comps]
+
+
+      [Verse 2: drops back to quiet, busier bass fills]
+
+      열한 살 내 눈에
+
+      올려다보던 그 등도
+
+      책상 밑에서는
+
+      다리가 떨렸을까
+
+      들키지 않을 만큼만
+
+
+      [Pre-Chorus: piano comping, drums build]
+
+      낮춘 목소리 하나
+
+      펴 둔 어깨 하나
+
+      문 열고 나가면
+
+
+      [Chorus: full band explodes, loud ride, horn stabs answer]
+
+      어른인 척 해
+
+      속은 아직 열한 살
+
+      어른인 척 해
+
+      아픈 건 집에 가서
+
+      어른인 척 해
+
+
+      [Piano Solo: fast bebop lines, block chords, double-time feel]
+
+
+      [Saxophone Solo: tenor sax, altissimo cries, trading fours with drums, stop-time hits]
+
+
+      [Bridge: near silence, upright bass and close voice, rubato]
+
+      사실은 무서워
+
+      그때 날 잡아 주던 손도
+
+      떨고 있었다면
+
+      나도 떨면서 잡을게
+
+
+      [Final Chorus: half step up, shout horns, busiest bass, loudest]
+
+      어른인 척 해
+
+      속은 아직 열한 살
+
+      어른인 척 해
+
+      누가 내 손 잡는 동안
+
+      어른인 척 해
+
+
+      [Bass Solo: upright bass alone, walking cadenza, double stops]
+
+
+      [Outro: sudden stop, bass alone, final piano tension chord]
+
+      들키지 않을 만큼만
+
+
+      [End]
+
+      '
+    style: 'Korean jazz pop, hard-swinging bebop quintet, medium-up swing around 112 bpm, minor verses, bittersweet major chorus, tritone-sub reharmonization. Male baritone, warm, slightly husky, close-miked, behind the beat, sung in Korean, korean lyrics. Fat chewy upright bass up front, walking with ghost notes, slides, double stops. Intro: bass solo. Verses whisper-quiet: bass, brushes, voice. Chorus explodes: loud ride, block-chord piano, tenor sax and muted trumpet stabs. Long instrumental stretches: sax and bass trade after chorus one; after chorus two a fast bebop piano solo, tenor sax solo with altissimo, double-time feel, trading fours, stop-time hits. Bridge near silence, bass and voice, rubato. Final chorus a half step up, shout horn soli, busiest bass. Bass solo tag, final piano tension chord. Small jazz club, tape warmth. Virtuosic, wry, tender.'
+    exclude: autotune, synth pads, scat singing
+    sound_plan: 단조로 시작해 후렴에서 씁쓸한 장조로 열리는 미디엄업 스윙이다. 빠르기는 약 112bpm이고, 테너 색소폰·뮤트 트럼펫·피아노·업라이트 베이스·드럼으로 된 비밥 퀸텟 편성이다. 코드는 트라이톤 대리와 알터드 텐션으로 리하모니한다. 업라이트 베이스가 곡의 주인공이다. 굵고 쫀득한 톤으로 고스트 노트, 슬라이드, 더블스톱, 반음 경과음을 섞어 걷고, 믹스 맨 앞에 선다. 인트로는 반주 없는 베이스 솔로로 연다. 드럼은 절에서 브러시로 아주 작게 치고, 후렴에서는 스틱으로 바꿔 라이드를 크게 때린다. 피아노는 프리코러스에서 드문드문 컴핑하다가 후렴에서 블록 코드로 세게 찍는다. 혼은 후렴에서 보컬에 짧은 스탭으로 대답한다. 가사는 짧게 두고 연주 구간을 길게 늘린다. 첫 후렴 뒤에는 색소폰과 베이스가 프레이즈를 주고받는다. 두 번째 후렴 뒤에는 더블타임 필로 달리는 빠른 비밥 피아노 솔로가 나오고, 이어 알티시모로 치솟는 테너 솔로, 드럼과의 포바스 주고받기, 스톱타임 히트가 온다. 멜로디는 절에서 좁은 음역으로 박자 뒤에 늦게 붙어 말하듯 가고, 프리코러스는 같은 음을 되풀이하며 밀어 올린다. 후렴 첫 음은 위로 도약하고, 훅 끝 '해'는 길게 끈다. 보컬은 따뜻하고 약간 허스키한 남성 바리톤이고, 마이크 가까이에서 거의 드라이하게 부른다. 브릿지는 거의 정적에 베이스와 목소리만 남기고 루바토로 늘인다. 마지막 후렴은 반음 전조해 혼 섹션 샤우트 솔리와 함께 가장 크게 가고, 베이스가 가장 바쁘게 움직인다. 그 뒤 베이스 혼자 카덴차처럼 걷다가 갑자기 멈춘다. 마지막 한 줄 뒤에는 피아노 텐션 코드 하나로 닫는다. 공간은 작은 재즈 클럽의 라이브 룸에 테이프 질감이다.
 youtube_preview_edited: false
