@@ -1,0 +1,464 @@
+title: 멍멍!
+hook: 멍멍! 그거면 돼
+theme: 어른
+story: 아무도 수고했다 안 한 날, 문 앞에서 짖는 소리 하나로 하루를 덮는 사람이 강아지에게 부르는 노래.
+created: 2026-10-31 17:18
+request:
+  id: mvw4lvh4
+  title: 멍멍!
+  content: 가벼운 내용 귀여운 멍멍이
+  genre: 어쿠스틱
+instrumental: false
+sound_plan: 밝은 장조, 100bpm 안팎의 가볍게 튀는 4/4 어쿠스틱 팝. 리듬은 카혼이 중심이고 프리코러스에서 16분음으로 밀다가 후렴부터 손뼉, 2절부터 셰이커가 더해진다. 베이스는 둥근 어쿠스틱 베이스가 뿌리음을 지키며 경과음으로 조금씩 걷는다. 화성은 카포 끼운 스트럼 기타 하나로 시작해 프리코러스에서 핑거피킹 기타가 붙고, 후렴부터 피아노가 가볍게 받친다. 멜로디는 절에서 좁은 음역으로 말하듯 가고, 프리코러스는 같은 음을 되풀이하며 올라가 후렴 첫 음 '멍멍'에서 위로 뛴 뒤 '돼'를 길게 늘인다. 보컬은 맑고 가까운 남성 테너, 비브라토 적게 웃음기 있는 톤, 후렴은 더블링과 3도 하모니. 공간은 거실처럼 건조하고 따뜻하게, 기타 줄 소리가 들린다. 인트로는 기타 스트럼과 짧은 휘파람, 2후렴 뒤 휘파람 간주, 브릿지는 기타 한 대와 거의 말하는 목소리로 비우고, 마지막 후렴은 가장 꽉 차게 휘파람이 훅에 대답한다. 아웃트로는 기타 혼자 한 줄 부르고 밝은 스트럼 한 번으로 끝낸다.
+style: 'Korean acoustic pop, bouncy 2010s sound, around 100 bpm, bright major key. Male tenor vocal, light, clear and close, a smile in the tone, little vibrato, relaxed just behind the beat, mature and sincere, sung in Korean, korean lyrics. Strummed capo acoustic guitar opens with a short whistle motif. Verse 1: guitar and round acoustic bass on roots, narrow talky melody. Pre-chorus: cajon enters in sixteenths with a fingerpicked second guitar, rising on a repeated note. Chorus: handclaps, light piano, doubled vocal with third harmony, upward leap on the first word, long held last note of the hook. Verse 2 adds shaker and guitar fills answering the voice. Whistle break after chorus two. Bridge strips to one guitar and soft, almost spoken voice. Final chorus warmest and fullest, whistle answers the hook, ends on one bright strum. Living room sound, dry and warm, string noise audible. Sunny, playful, tender.'
+exclude: distorted electric guitar, synth pads, autotune
+photo_query: person hugging dog doorway
+image_prompt: A young office worker in a coat crouches at an apartment entryway at night, seen from the side, hugging a small fluffy dog wagging its whole body. A work bag lies on the floor beside slippers, warm yellow lamp light. Cozy cream and amber tones, cheerful and tender.
+title_kind: 지정
+tempo: 중간
+arc: '화법: 너에게 말하기(강아지에게). 기: 이름이 메일 끝에만 있던 하루, 문 너머 발톱 소리와 온몸이 꼬리인 너. 승: 묻지 않는 너 앞에서 ''멍멍! 그거면 돼'', 나머진 문밖에. 전: 2절은 아침으로 바뀌어 등 돌리고 삐친 너와 나가기 싫은 나, 브릿지에서 하루 종일 기다린 건 사실 나였다고 처음 인정하고 ''보고 싶었어''를 직접 말한다. 결: 마지막 후렴 넷째 줄 ''털 묻은 바지라도''가 ''나도 멍멍 해 줄게''로 바뀌어 반겨지던 내가 같이 반기는 쪽이 되고, 아웃트로는 ''산책 갈래'' 한마디.'
+line_plan: '[Verse 1] 1 사실: 오늘 내 이름은 / 2 관찰: 메일 끝에만 있던 하루 / 3 사실: 계단 다 오르기 전 / 4 관찰: 문 너머 발톱 소리 / 5 관찰: 바닥에 미끄러지는 / 6 관찰: 온몸이 꼬리인 애 / 7 전환: 열쇠도 아직인데 / 8 사실: 벌써 서 있는 너. [Pre-Chorus] 9 관찰: 뭘 했냐 안 묻는 너 / 10 관찰: 늦은 이유도 안 묻는 너 / 11 전환(열림): 문이 열리기만 하면. [Chorus] 12 훅 / 13 사실: 나머진 문밖에(공유 줄) / 14 훅 / 15 관찰: 털 묻은 바지라도 / 16 훅. [Verse 2] 17 사실(시점 전환-아침): 신발 신는 소리 / 18 관찰: 등 돌리고 눕는 애 / 19 사실: 금방 온다는 말 / 20 관찰: 안 먹히는 약속 / 21 사실: 닫히는 문틈 / 22 관찰: 한쪽 귀만 이쪽 / 23 전환: 나도 가기 싫은 마음. [Pre-Chorus] 24~26 1절과 같음. [Chorus] 27 훅 / 28 / 29 훅 / 30 / 31 훅. [Bridge] 32 전환: 하루 종일 기다린 건 / 33 전환: 너인 줄 알았던 것 / 34 관찰: 휴대폰 속 네 얼굴 / 35 인정: 실실 웃는 건 나 / 36 진심: 보고 싶었어. [Final Chorus] 37 훅 / 38 공유 줄 / 39 훅 / 40 변화: 나도 멍멍 해 줄게 / 41 훅. [Outro] 42 말 한마디: 산책 갈래. 훅 줄 번호: 12,14,16,27,29,31,37,39,41 (9번).'
+why: 집에 와서 반겨 주는 존재 하나면 하루가 정리되는 기분은 반려인이 아니어도 누구나 아는 것이라 0번이 가장 넓다. 제목 '멍멍!'을 그대로 훅 머리에 두고 '그거면 돼'를 붙여 모음으로 늘여 부를 수 있게 했고, 후렴은 한 문장 되풀이로만 짰다. 극동아시아타이거즈처럼 그리움을 하찮은 생활 사물(발톱 소리, 한쪽 귀)에서 꺼냈고, 한로로처럼 마지막 후렴에서 한 줄만 바꿔 결론을 냈다(털 묻은 바지라도 → 나도 멍멍 해 줄게). 브릿지에서 처음으로 '기다린 건 나'라는 진심과 '보고 싶었어'를 직접 말해, 같은 훅이 끝에서 다르게 들리게 했다. 제목은 지정이라 그대로 두었고 형태는 단어 하나다.
+share_line: 멍멍! 그거면 돼
+youtube_meta:
+  situation: 퇴근길 강아지 생각날 때 듣는 노래
+  shorts_title: 멍멍! 그거면 돼
+  hashtags:
+  - 어쿠스틱
+  - 힐링노래
+  - 퇴근길노래
+  - 강아지노래
+  - 귀여운노래
+  - 기분좋은노래
+  - 감성플리
+  - 반려견
+  - 멍멍이
+  - 댕댕이
+  - 어쿠스틱팝
+  - 반려동물
+tags:
+- 음악
+- 노래
+- 노래 추천
+- 플레이리스트
+- 감성
+- 어쿠스틱
+- 어쿠스틱 팝
+- 힐링 노래
+- 기분 좋은 노래
+- 퇴근길 노래
+- 퇴근길 플레이리스트
+- 강아지 노래
+- 반려견 노래
+- 귀여운 노래
+- 멍멍
+- 멍멍이
+- 댕댕이
+- 반려동물
+- 강아지
+- 집에 가는 길
+- 퇴근 후
+- 위로 노래
+- 밝은 노래
+- 산책 노래
+- 반려인
+- 강아지 키우는 사람
+- 직장인 노래
+- 저녁 노래
+- 감성 플리
+- 카혼
+- 휘파람
+- 신곡
+- korean acoustic
+- korean acoustic pop
+- kpop
+- dog song
+references:
+- title: 모기
+  artist: 극동아시아타이거즈
+  takeaway: 큰 감정을 하찮고 정확한 생활 장면(발톱 소리, 한쪽 귀)에서 꺼낸다.
+- title: 사랑하게 될 거야
+  artist: 한로로
+  takeaway: 후렴은 짧은 한 문장으로 되풀이하고 마지막 후렴에서 한 줄만 바꿔 결론을 낸다.
+- title: 스물다섯, 스물하나
+  artist: 자우림
+  takeaway: 명사와 관형형에서 줄을 끊고 서술어를 다음 줄로 넘겨 짧게 간다.
+candidates:
+- hook: 멍멍! 그거면 돼
+  theme: 어른
+  story: 아무도 수고했다 안 한 날, 문 앞에서 짖는 소리 하나로 하루를 덮는 사람이 강아지에게 부르는 노래.
+- hook: 멍멍! 나 왔어
+  theme: 사랑
+  story: 현관을 열며 강아지와 같은 말로 인사를 주고받는 사람이 중얼거리는 노래.
+- hook: 멍멍! 산책 가자
+  theme: 사랑
+  story: 주말 아침 줄을 꺼내기만 해도 날뛰는 강아지에게 같이 나가자고 부르는 밝은 노래.
+- hook: 멍멍! 다 알아
+  theme: 아픔
+  story: 울고 들어온 밤, 아무것도 묻지 않고 옆에 붙어 앉는 강아지에게 부르는 느린 노래.
+- hook: 멍멍! 금방 와
+  theme: 어른
+  story: 출근하는 아침마다 등 돌리고 삐친 강아지에게 미안해하며 나서는 사람의 노래.
+chosen: 0
+lyrics: |
+  [Intro: strummed acoustic guitar, short whistle motif]
+
+  [Verse 1: guitar and acoustic bass only, close voice]
+  오늘 내 이름은
+  메일 끝에만 있었어
+  계단 다 오르기 전에
+  문 너머 발톱 소리
+  바닥에 미끄러지는
+  온몸이 꼬리인 애
+  열쇠도 아직인데
+  벌써 거기 서 있지
+
+  [Pre-Chorus: cajon enters, second guitar, rising]
+  뭘 했냐고 안 묻고
+  늦은 건 잊은 얼굴
+  문이 열리기만 하면
+
+  [Chorus: handclaps, light piano, doubled vocals]
+  멍멍! 그거면 돼
+  나머진 다 문밖에
+  멍멍! 그거면 돼
+  털 묻은 바지라도
+  멍멍! 그거면 돼
+
+  [Verse 2: shaker added, guitar answers the voice]
+  신발 신는 소리에
+  등 돌리고 눕는 애
+  금방 온다는 말은
+  오늘도 안 먹히네
+  닫히는 문틈으로
+  한쪽 귀만 이쪽으로
+  나도 안 가고 싶어
+  닫힌 문에 한 말
+
+  [Pre-Chorus: cajon sixteenths, rising]
+  뭘 했냐고 안 묻고
+  늦은 건 잊은 얼굴
+  문이 열리기만 하면
+
+  [Chorus: handclaps, light piano, doubled vocals]
+  멍멍! 그거면 돼
+  나머진 다 문밖에
+  멍멍! 그거면 돼
+  털 묻은 바지라도
+  멍멍! 그거면 돼
+
+  [Instrumental Break: whistle and guitar]
+
+  [Bridge: one guitar and voice, soft, almost spoken]
+  하루 종일 기다린 건
+  너인 줄 알았는데
+  사진 속 네 얼굴에
+  실실 웃는 건 나
+  보고 싶었어
+
+  [Final Chorus: full band, third harmony, whistle answers the hook]
+  멍멍! 그거면 돼
+  나머진 다 문밖에
+  멍멍! 그거면 돼
+  나도 멍멍 해 줄게
+  멍멍! 그거면 돼
+
+  [Outro: guitar alone, last bright strum]
+  산책 갈래
+
+  [End]
+lyrics_draft: '[Intro: strummed acoustic guitar, short whistle motif]
+
+
+  [Verse 1: guitar and acoustic bass only, close voice]
+
+  오늘 내 이름은
+
+  메일 끝에만 있었어
+
+  계단 다 오르기 전에
+
+  문 너머 발톱 소리
+
+  바닥에 미끄러지는
+
+  온몸이 꼬리인 애
+
+  열쇠도 아직인데
+
+  벌써 거기 서 있지
+
+
+  [Pre-Chorus: cajon enters, second guitar, rising]
+
+  뭘 했냐고 안 묻고
+
+  왜 늦었냐고도 안 묻고
+
+  문이 열리기만 하면
+
+
+  [Chorus: handclaps, light piano, doubled vocals]
+
+  멍멍! 그거면 돼
+
+  나머진 다 문밖에
+
+  멍멍! 그거면 돼
+
+  털 묻은 바지라도
+
+  멍멍! 그거면 돼
+
+
+  [Verse 2: shaker added, guitar answers the voice]
+
+  신발 신는 소리에
+
+  등 돌리고 눕는 애
+
+  금방 온다는 말은
+
+  오늘도 안 먹히네
+
+  닫히는 문틈으로
+
+  한쪽 귀만 이쪽으로
+
+  나도 안 가고 싶어
+
+
+  [Pre-Chorus: cajon sixteenths, rising]
+
+  뭘 했냐고 안 묻고
+
+  왜 늦었냐고도 안 묻고
+
+  문이 열리기만 하면
+
+
+  [Chorus: handclaps, light piano, doubled vocals]
+
+  멍멍! 그거면 돼
+
+  나머진 다 문밖에
+
+  멍멍! 그거면 돼
+
+  털 묻은 바지라도
+
+  멍멍! 그거면 돼
+
+
+  [Instrumental Break: whistle and guitar]
+
+
+  [Bridge: one guitar and voice, soft, almost spoken]
+
+  하루 종일 기다린 건
+
+  너인 줄 알았는데
+
+  휴대폰 속 네 얼굴에
+
+  실실 웃는 건 나
+
+  보고 싶었어
+
+
+  [Final Chorus: full band, third harmony, whistle answers the hook]
+
+  멍멍! 그거면 돼
+
+  나머진 다 문밖에
+
+  멍멍! 그거면 돼
+
+  나도 멍멍 해 줄게
+
+  멍멍! 그거면 돼
+
+
+  [Outro: guitar alone, last bright strum]
+
+  산책 갈래
+
+
+  [End]'
+polish:
+- '왜 늦었냐고도 안 묻고 → 늦은 건 잊은 얼굴: 앞 줄과 같은 ''안 묻고'' 틀의 되풀이였고 프리코러스 세 줄이 모두 연결어미로 이어져 산문이 됨. 명사로 끊고 개가 금방 잊는 얼굴이라는 관찰로 바꿈(두 프리코러스 모두 동일 적용)'
+- '2절 끝에 ''닫힌 문에 한 말'' 추가: 1절 8줄, 2절 7줄로 두 절의 줄 수가 달라서 맞춤. 앞 줄 ''나도 안 가고 싶어''를 개는 못 듣는 혼잣말로 만들어 새 정보를 줌'
+- '휴대폰 속 네 얼굴에 → 사진 속 네 얼굴에: 요즘 물건 표기를 덜고 음절을 줄여 더 쉽게 함'
+- '나머지 줄은 유지: 1절의 발톱 소리·온몸이 꼬리인 애, 2절의 등 돌리고 눕는 애·한쪽 귀처럼 ''맞아, 그거'' 싶은 관찰이 충분하고, 브릿지는 기다린 쪽이 나였다는 반전을, 마지막 후렴은 ''나도 멍멍 해 줄게'' 한 줄 변화를 이미 갖추고 있음. 제목은 사용자 지정이라 그대로 둠'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A young office worker in a coat crouches at an apartment entryway at night, seen from the side, hugging a small fluffy dog wagging its whole body. A work bag lies on the floor beside slippers, warm yellow lamp light. Cozy cream and amber tones, cheerful and tender.
+youtube_preview:
+  title: 멍멍! - 연주왕김연주 | 퇴근길 강아지 생각날 때 듣는 노래
+  shorts_title: '멍멍! 그거면 돼 #shorts'
+  description: '오늘 내 이름은
+
+    메일 끝에만 있었어
+
+    계단 다 오르기 전에
+
+    문 너머 발톱 소리
+
+    바닥에 미끄러지는
+
+    온몸이 꼬리인 애
+
+    열쇠도 아직인데
+
+    벌써 거기 서 있지
+
+
+    뭘 했냐고 안 묻고
+
+    늦은 건 잊은 얼굴
+
+    문이 열리기만 하면
+
+
+    멍멍! 그거면 돼
+
+    나머진 다 문밖에
+
+    멍멍! 그거면 돼
+
+    털 묻은 바지라도
+
+    멍멍! 그거면 돼
+
+
+    신발 신는 소리에
+
+    등 돌리고 눕는 애
+
+    금방 온다는 말은
+
+    오늘도 안 먹히네
+
+    닫히는 문틈으로
+
+    한쪽 귀만 이쪽으로
+
+    나도 안 가고 싶어
+
+    닫힌 문에 한 말
+
+
+    뭘 했냐고 안 묻고
+
+    늦은 건 잊은 얼굴
+
+    문이 열리기만 하면
+
+
+    멍멍! 그거면 돼
+
+    나머진 다 문밖에
+
+    멍멍! 그거면 돼
+
+    털 묻은 바지라도
+
+    멍멍! 그거면 돼
+
+
+    하루 종일 기다린 건
+
+    너인 줄 알았는데
+
+    사진 속 네 얼굴에
+
+    실실 웃는 건 나
+
+    보고 싶었어
+
+
+    멍멍! 그거면 돼
+
+    나머진 다 문밖에
+
+    멍멍! 그거면 돼
+
+    나도 멍멍 해 줄게
+
+    멍멍! 그거면 돼
+
+
+    산책 갈래
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #어쿠스틱 #힐링노래 #퇴근길노래 #음악 #노래 #감성 #강아지노래 #귀여운노래 #기분좋은노래 #감성플리 #반려견 #멍멍이 #댕댕이 #어쿠스틱팝 #반려동물'
+  tags:
+  - 멍멍!
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 노래 추천
+  - 플레이리스트
+  - 감성
+  - 어쿠스틱
+  - 어쿠스틱 팝
+  - 힐링 노래
+  - 기분 좋은 노래
+  - 퇴근길 노래
+  - 퇴근길 플레이리스트
+  - 강아지 노래
+  - 반려견 노래
+  - 귀여운 노래
+  - 멍멍
+  - 멍멍이
+  - 댕댕이
+  - 반려동물
+  - 강아지
+  - 집에 가는 길
+  - 퇴근 후
+  - 위로 노래
+  - 밝은 노래
+  - 산책 노래
+  - 반려인
+  - 강아지 키우는 사람
+  - 직장인 노래
+  - 저녁 노래
+  - 감성 플리
+  - 카혼
+  - 휘파람
+  - 신곡
+  - korean acoustic
+  - korean acoustic pop
+  - kpop
+  - dog song
+  - 가사
+  - korean music
+  - k-pop
+  hashtags:
+  - 어쿠스틱
+  - 힐링노래
+  - 퇴근길노래
+  - 음악
+  - 노래
+  - 감성
+  - 강아지노래
+  - 귀여운노래
+  - 기분좋은노래
+  - 감성플리
+  - 반려견
+  - 멍멍이
+  - 댕댕이
+  - 어쿠스틱팝
+  - 반려동물
+  playlists:
+  - 연주왕김연주 노래
+  - 어른이 된 우리에게
+  privacy: private
