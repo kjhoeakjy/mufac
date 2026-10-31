@@ -199,6 +199,7 @@ let runs = [];
 let selected = store.get("mufac.selected");
 let editSlug = null;     // 제목·가사 수정 중인 곡
 let editYt = null;       // 유튜브 글 수정 중인 곡
+let detailSlug = null;   // 지금 상세 화면에 그려진 곡 (다시 그릴 때 입력 중인 글을 지키려고 기억)
 const yamlCache = new Map();
 
 // ---------------------------------------------------------------- GitHub
@@ -448,6 +449,15 @@ function renderDetail() {
       ${up?.conclusion === "failure" ? `<p class="note err">이전 업로드 실패 · <a href="${up.html_url}" target="_blank" rel="noopener">실행 기록</a></p>` : ""}`;
   }
 
+  // 화면을 다시 그려도 쓰던 글(수정 지시, 제목·가사, 유튜브 글)과 커서는 남긴다. 다른 곡으로 옮기면 비운다
+  const keep = {}; let focusId = null, selA = 0, selB = 0;
+  if (detailSlug === s.slug) {
+    for (const f of el.querySelectorAll("input, textarea")) if (f.id) keep[f.id] = f.value;
+    const a = document.activeElement;
+    if (a && a.id && el.contains(a)) { focusId = a.id; selA = a.selectionStart ?? 0; selB = a.selectionEnd ?? 0; }
+  }
+  detailSlug = s.slug;
+
   el.innerHTML = `
     <div class="head ${cover ? "" : "nocover"}">${cover ? `<img class="cover" src="${cover}" alt="">` : ""}
       <div><h1>${esc(m.title)}${editSlug === s.slug ? "" : `<button class="ghost fix" id="edit">제목·가사 수정</button><button class="ghost fix" id="del">삭제</button>`}</h1>
@@ -488,6 +498,8 @@ function renderDetail() {
   drop.ondragover = e => { e.preventDefault(); drop.classList.add("over"); };
   drop.ondragleave = () => drop.classList.remove("over");
   drop.ondrop = e => { e.preventDefault(); drop.classList.remove("over"); const f = e.dataTransfer.files[0]; if (f) uploadAudio(s, f); };
+  for (const [id, v] of Object.entries(keep)) { const f = $(id); if (f && f.value !== v) f.value = v; }
+  if (focusId && $(focusId)) { const f = $(focusId); f.focus({ preventScroll: true }); try { f.setSelectionRange(selA, selB); } catch {} }
   if ($("publish")) $("publish").onclick = () => publish(s);
   if ($("reprod")) $("reprod").onclick = () => reproduce(s);
   if ($("del")) $("del").onclick = () => deleteSong(s);
