@@ -4,7 +4,7 @@
 
 > 깎여도 바위
 
-어른 · 무릎이 먼저 늙고 모난 데가 다 닳은 중년이 그래도 제자리를 지키는 자기 자신에게 중얼거린다.
+어른 · 계단 앞에서 숨부터 고르는 오십 대 남자가, 깎이고 작아져도 그 자리를 지키겠다고 퇴근길에 부르는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -25,12 +25,12 @@
 
 **Style**
 ```text
-Korean rock, 90s heartland alternative rock, steady 96 bpm, slow-building, major key with a bittersweet minor turn in the pre-chorus. Male baritone in his fifties, gravelly and worn, murmured almost spoken verses close to the mic, behind the beat, opening into a full raspy chest voice in the chorus, mature and sincere, sung in Korean, korean lyrics. Verse 1: clean tremolo guitar, soft picked bass on roots, low kick only. Pre-chorus: rising repeated note, toms, Hammond organ swell. Chorus: two distorted guitars left and right, fat snare, open crash, upward leap on the first word, long held last word of the hook, doubled vocal. Verse 2 adds piano and a lead guitar motif answering the voice. 8-bar melodic guitar solo after chorus two. Bridge drops to half-time, bass and near-spoken voice. Final chorus biggest and widest: layered guitars, organ, piano, stacked harmonies, octave-up backing. Outro on one clean guitar, last line alone. Live band in a big room, room mics, tape warmth. Weathered, steady, tender.
+Korean rock, 90s heartland alternative rock, steady 96 bpm, slow-building, major key with a bittersweet minor turn in the pre-chorus. Male baritone in his fifties, clean and smooth, clear warm tone, well-controlled, close dry vocal, murmured almost spoken verses behind the beat, opening into a clear full chest voice in the chorus without rasp, mature and sincere, sung in Korean, korean lyrics. Intro near silence, a few soft clean guitar notes. Verse 1: voice almost alone over a faint clean guitar, no drums. Pre-chorus: picked bass on roots and low kick enter, rising repeated note, toms, Hammond organ swell. Chorus: two distorted guitars left and right, fat snare, open crash, upward leap on the first word, long held last word of the hook, doubled vocal. Verse 2 adds piano and a lead guitar motif answering the voice. 8-bar melodic guitar solo after chorus two. Bridge drops to half-time, bass and near-spoken voice. Final chorus biggest and widest: layered guitars, organ, piano, stacked harmonies, octave-up backing. Outro on one clean guitar, last line alone. Live band in a big room, tape warmth. Steady, tender, clear.
 ```
 
 **Exclude styles**
 ```text
-autotune, gang vocals, synth pop beat
+autotune, gang vocals, raspy vocals
 ```
 
 **Title**
@@ -40,18 +40,18 @@ autotune, gang vocals, synth pop beat
 
 **Lyrics**
 ```text
-[Intro: one clean guitar with tremolo]
+[Intro: near silence, a few soft clean guitar notes]
 
-[Verse 1: clean guitar and soft bass, murmured voice]
+[Verse 1: voice almost alone, faint clean guitar, close and clear]
 계단 앞에서
-무릎이 먼저 알아
+숨부터 골라
 거울 속 정수리
 모난 데 많던 나
 다 어디 갔을까
 둥글어졌다는 말
 칭찬인지 몰라
 
-[Pre-Chorus: toms and organ swell, rising]
+[Pre-Chorus: bass and low kick enter, toms and organ swell, rising]
 바람 불면 바람대로
 비 오면 비대로
 모서리를 내주는데
@@ -72,7 +72,7 @@ autotune, gang vocals, synth pop beat
 기대기 좋은 등
 그거 하난 늘었네
 
-[Pre-Chorus: toms and organ swell, rising]
+[Pre-Chorus: bass and low kick enter, toms and organ swell, rising]
 바람 불면 바람대로
 비 오면 비대로
 모서리를 내주는데

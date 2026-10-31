@@ -1,7 +1,7 @@
 title: 바위
 hook: 깎여도 바위
 theme: 어른
-story: 무릎이 먼저 늙고 모난 데가 다 닳은 중년이 그래도 제자리를 지키는 자기 자신에게 중얼거린다.
+story: 계단 앞에서 숨부터 고르는 오십 대 남자가, 깎이고 작아져도 그 자리를 지키겠다고 퇴근길에 부르는 노래.
 created: 2026-10-31 16:53
 request:
   id: mvw3pag4
@@ -9,15 +9,15 @@ request:
   genre: 락
   style: 중년 목소리, 처음에는 잔잔하게 읊조리다가 나중에 엄청 풍성해짐
 instrumental: false
-sound_plan: 장조 바탕에 프리코러스에서 단조로 한 번 꺾이는 씁쓸한 밝음, 96bpm 안팎의 꾸준한 중간 템포 락. 인트로는 트레몰로 걸린 클린 기타 하나. 1절은 클린 기타 아르페지오와 뿌리음만 짚는 피크 베이스, 킥만 낮게 깔고 오십대 남자 바리톤이 마이크 가까이서 박자 뒤로 말하듯 읊조린다. 프리코러스는 같은 음을 되풀이하며 올라가고 탐과 해먼드 오르간이 부풀어 오른다. 후렴은 첫 음절에서 위로 도약하고, 좌우 디스토션 기타 두 대와 굵은 스네어, 열린 크래시, 8분음으로 리프에 붙은 베이스가 한꺼번에 들어오며 '바위'를 길게 끈다. 2절은 다시 조용해지되 피아노와 보컬에 대답하는 리드 기타 모티프가 더해진다. 둘째 후렴 뒤 선율적인 기타 솔로 8마디. 브릿지는 하프타임으로 내려앉아 베이스와 거의 말하는 목소리만 남는다. 마지막 후렴은 가장 크고 넓게, 기타 여러 겹과 오르간, 피아노, 쌓인 하모니와 옥타브 위 백킹 보컬이 들어와 가장 풍성해진다. 아웃트로는 클린 기타 하나로 줄고 마지막 줄을 목소리 혼자 부르며 끝낸다. 큰 방에서 한 번에 연주한 라이브 밴드, 룸 마이크, 테이프의 따뜻한 질감.
-style: 'Korean rock, 90s heartland alternative rock, steady 96 bpm, slow-building, major key with a bittersweet minor turn in the pre-chorus. Male baritone in his fifties, gravelly and worn, murmured almost spoken verses close to the mic, behind the beat, opening into a full raspy chest voice in the chorus, mature and sincere, sung in Korean, korean lyrics. Verse 1: clean tremolo guitar, soft picked bass on roots, low kick only. Pre-chorus: rising repeated note, toms, Hammond organ swell. Chorus: two distorted guitars left and right, fat snare, open crash, upward leap on the first word, long held last word of the hook, doubled vocal. Verse 2 adds piano and a lead guitar motif answering the voice. 8-bar melodic guitar solo after chorus two. Bridge drops to half-time, bass and near-spoken voice. Final chorus biggest and widest: layered guitars, organ, piano, stacked harmonies, octave-up backing. Outro on one clean guitar, last line alone. Live band in a big room, room mics, tape warmth. Weathered,
-  steady, tender.'
-exclude: autotune, gang vocals, synth pop beat
+sound_plan: 장조 바탕에 프리코러스에서 단조로 한 번 꺾이는 씁쓸한 밝음, 96bpm 안팎의 꾸준한 중간 템포 락. 인트로는 거의 정적에 가깝게, 이펙트 없는 클린 기타 몇 음만 멀리서 울린다. 1절은 목소리가 거의 혼자다. 클린 기타가 아주 작게 받치고 베이스와 드럼은 아직 없다. 오십대 남자 바리톤이 마이크 가까이서 박자 뒤로 말하듯 읊조리는데, 거친 결 없이 맑고 단정한 중년 목소리다. 프리코러스에서 비로소 뿌리음을 짚는 피크 베이스와 낮은 킥이 들어오고, 같은 음을 되풀이하며 올라가는 선율 아래 탐과 해먼드 오르간이 부풀어 오른다. 후렴은 첫 음절에서 위로 도약하고, 좌우 디스토션 기타 두 대와 굵은 스네어, 열린 크래시, 8분음으로 리프에 붙은 베이스가 한꺼번에 들어온다. 보컬은 긁지 않고 깨끗한 흉성으로 크게 열어 '바위'를 길게 끈다. 2절은 다시 조용해지되 피아노와 보컬에 대답하는 리드 기타 모티프가 더해진다. 둘째 후렴 뒤 선율적인 기타 솔로 8마디. 브릿지는 하프타임으로 내려앉아 베이스와 거의 말하는 목소리만 남는다. 마지막 후렴은 가장 크고 넓게, 기타 여러 겹과 오르간, 피아노, 쌓인 하모니와 옥타브 위 백킹 보컬이 들어와 가장 풍성해진다. 아웃트로는 클린 기타 하나로 줄고 마지막 줄을 목소리 혼자 부르며 끝낸다. 큰 방에서 한 번에 연주한 라이브 밴드, 룸 마이크, 테이프의 따뜻한 질감. 보컬은 앞에 가깝고 깨끗하게.
+style: 'Korean rock, 90s heartland alternative rock, steady 96 bpm, slow-building, major key with a bittersweet minor turn in the pre-chorus. Male baritone in his fifties, clean and smooth, clear warm tone, well-controlled, close dry vocal, murmured almost spoken verses behind the beat, opening into a clear full chest voice in the chorus without rasp, mature and sincere, sung in Korean, korean lyrics. Intro near silence, a few soft clean guitar notes. Verse 1: voice almost alone over a faint clean guitar, no drums. Pre-chorus: picked bass on roots and low kick enter, rising repeated note, toms, Hammond organ swell. Chorus: two distorted guitars left and right, fat snare, open crash, upward leap on the first word, long held last word of the hook, doubled vocal. Verse 2 adds piano and a lead guitar motif answering the voice. 8-bar melodic guitar solo after chorus two. Bridge drops to half-time, bass and near-spoken voice. Final chorus biggest and widest: layered guitars, organ, piano, stacked
+  harmonies, octave-up backing. Outro on one clean guitar, last line alone. Live band in a big room, tape warmth. Steady, tender, clear.'
+exclude: autotune, gang vocals, raspy vocals
 photo_query: man sitting on rock dawn
 image_prompt: A middle-aged man in a worn work jacket sits on a large weathered boulder beside a hillside path at dawn, seen from behind. A paper coffee cup rests beside him, faint city lights below. Cool blue-gray sky with a thin warm orange edge, quiet and steady mood.
 title_kind: 단어 하나
 tempo: 중간
-arc: '화법: 혼잣말(닳아 가는 자신에게 중얼거림). 기: 계단 앞 무릎, 거울 속 정수리, 둥글어졌다는 말—감정 없이 닳은 몸만 보여 준다. 승: 바람대로 비대로 모서리를 내주다가 ''깎여도 바위''로 떨어진다. 전: 2절은 누군가 말없이 등에 기대고 가는 쪽으로 시점이 바뀌고(기대기 좋은 등), 브릿지에서 처음으로 ''사실은 무서워, 작아지는 게''를 말한다. 결: 마지막 후렴 둘째 줄이 ''작아져도 바위'', 넷째 줄이 ''무서워도 여기''로 바뀌고, 아웃트로에서 다 내주던 모서리 하나를 남겨 두겠다고 우긴다.'
+arc: '화법: 혼잣말(닳아 가는 자신에게 중얼거림). 기: 계단 앞에서 숨부터 고르는 몸, 거울 속 정수리, 둥글어졌다는 말. 감정 없이 닳은 몸만 보여 준다. 승: 바람대로 비대로 모서리를 내주다가 ''깎여도 바위''로 떨어진다. 전: 2절은 누군가 말없이 등에 기대고 가는 쪽으로 시점이 바뀌고(기대기 좋은 등), 브릿지에서 처음으로 ''사실은 무서워, 작아지는 게''를 말한다. 결: 마지막 후렴 둘째 줄이 ''작아져도 바위'', 넷째 줄이 ''무서워도 여기''로 바뀌고, 아웃트로에서 다 내주던 모서리 하나를 남겨 두겠다고 우긴다.'
 line_plan: '[Verse 1] 1 사실: 계단 앞 / 2 관찰: 무릎이 먼저 앎 / 3 관찰: 거울 속 정수리(명사) / 4 사실: 모난 데 많던 나 / 5 전환: 다 어디 갔나 / 6 관찰: 둥글어졌다는 말 / 7 전환: 칭찬인지 모름. [Pre-Chorus] 8 사실: 바람대로 / 9 사실: 비대로 / 10 전환: 모서리를 내주는데(열린 끝). [Chorus] 11 훅 / 12 관찰: 젖어도 그 자리 / 13 훅 / 14 전환: 아무도 몰라도 / 15 훅. [Verse 2] 16 새 사실: 누가 와서 기댐 / 17 관찰: 말도 없이 / 18 관찰: 커피 한 잔 길이 / 19 사실: 등에 남는 무게 / 20 전환(감정 직접): 싫지가 않아 / 21 관찰: 기대기 좋은 등 / 22 전환(자조 하나): 그거 하난 늘었네. [Pre-Chorus] 23~25 반복. [Chorus] 26 훅 / 27 / 28 훅 / 29 / 30 훅. [Bridge] 31 전환: 사실은 무서워(유일한 직접 고백) / 32 사실: 작아지는 게 / 33 관찰: 굴러가고 싶던 밤 / 34 이미지: 산 아래 불빛 / 35 전환: 그 밤에도 여기. [Final Chorus] 36 훅 / 37 바뀜: 작아져도 바위 / 38 훅 / 39 바뀜: 무서워도 여기 / 40 훅. [Outro] 41 메아리 훅 / 42 전환: 모서리 하나는 남겨 둘게. 훅 줄 번호: 11, 13, 15, 26, 28, 30, 36, 38, 40, 41 → 10번(37 ''작아져도 바위'' 포함 시 바위 11번).'
 why: '''깎여도 바위''는 다섯 음절이고 모음으로 끝나 후렴 끝에서 길게 끌 수 있다. 무릎, 정수리, 둥글어졌다는 말처럼 누구나 겪는 닳음 위에 놓이니 중년이 아니어도 자기 회사, 자기 자리를 넣어 부를 수 있다. 제목은 크라잉넛처럼 외칠 수 있는 한 덩이 말로 하되 단어 하나 ''바위''로 두어 각자의 기억이 떠오르게 했다. 터치드처럼 마지막 후렴에서 받침 줄만 바꿔(''젖어도 그 자리''→''작아져도 바위'', ''아무도 몰라도''→''무서워도 여기'') 화자의 변화를 보여 주고, 자우림처럼 명사로 끊고 서술어를 덜어 냈다. 브릿지에서 처음으로 ''무서워''를 직접 말하고, 프리코러스의 ''모서리를 내주는데''가 아웃트로의 ''모서리 하나는 남겨 둘게''로 뒤집히게 설계했다.'
 share_line: 모서리 하나는 남겨 둘게
@@ -40,40 +40,42 @@ youtube_meta:
 tags:
 - 음악
 - 노래
-- 노래 추천
-- 플레이리스트
 - 감성
 - 락
-- 한국 락
-- 밴드
-- 밴드 음악
-- 위로 노래
-- 힐링 노래
-- 퇴근길 노래
-- 출근길 노래
-- 새벽 감성
-- 감성 플리
-- 중년 노래
-- 어른 노래
+- 락노래
+- 한국락
+- 밴드음악
+- 플레이리스트
+- 노래 추천
+- 신곡
+- 위로노래
+- 위로되는 노래
+- 퇴근길노래
+- 퇴근길 노래 추천
+- 출근길노래
+- 새벽감성
+- 감성플리
+- 중년노래
+- 중년 감성
+- 오십대
 - 버티는 노래
-- 직장인 노래
-- 아저씨 노래
-- 남자 보컬
-- 바리톤
-- 잔잔하게 시작하는 노래
-- 웅장한 노래
-- 기타 솔로
+- 지친 하루
+- 지친 날 듣는 노래
+- 혼자 듣는 노래
+- 드라이브노래
+- 90년대 락
 - 얼터너티브 락
 - 하트랜드 락
 - 바위
 - 깎여도 바위
-- 무릎
-- 작아지는 나
-- 제자리
+- 나이 드는 것
+- 기대기 좋은 등
 - korean rock
 - korean band
-- korean indie
-- kpop rock
+- korean alternative rock
+- korean ballad
+- kpop
+- heartland rock
 - healing song
 references:
 - title: 좋지 아니한가
@@ -106,18 +108,18 @@ candidates:
   story: 늦은 밤 친구들 사이에서 이제는 기대는 쪽이 아니라 기대 주는 쪽이 된 사람의 밝은 노래다.
 chosen: 0
 lyrics: |
-  [Intro: one clean guitar with tremolo]
+  [Intro: near silence, a few soft clean guitar notes]
 
-  [Verse 1: clean guitar and soft bass, murmured voice]
+  [Verse 1: voice almost alone, faint clean guitar, close and clear]
   계단 앞에서
-  무릎이 먼저 알아
+  숨부터 골라
   거울 속 정수리
   모난 데 많던 나
   다 어디 갔을까
   둥글어졌다는 말
   칭찬인지 몰라
 
-  [Pre-Chorus: toms and organ swell, rising]
+  [Pre-Chorus: bass and low kick enter, toms and organ swell, rising]
   바람 불면 바람대로
   비 오면 비대로
   모서리를 내주는데
@@ -138,7 +140,7 @@ lyrics: |
   기대기 좋은 등
   그거 하난 늘었네
 
-  [Pre-Chorus: toms and organ swell, rising]
+  [Pre-Chorus: bass and low kick enter, toms and organ swell, rising]
   바람 불면 바람대로
   비 오면 비대로
   모서리를 내주는데
@@ -302,7 +304,7 @@ youtube_preview:
   shorts_title: '깎여도 바위 #shorts'
   description: '계단 앞에서
 
-    무릎이 먼저 알아
+    숨부터 골라
 
     거울 속 정수리
 
@@ -406,43 +408,43 @@ youtube_preview:
   - 연주왕김연주
   - 음악
   - 노래
-  - 노래 추천
-  - 플레이리스트
   - 감성
   - 락
-  - 한국 락
-  - 밴드
-  - 밴드 음악
-  - 위로 노래
-  - 힐링 노래
-  - 퇴근길 노래
-  - 출근길 노래
-  - 새벽 감성
-  - 감성 플리
-  - 중년 노래
-  - 어른 노래
+  - 락노래
+  - 한국락
+  - 밴드음악
+  - 플레이리스트
+  - 노래 추천
+  - 신곡
+  - 위로노래
+  - 위로되는 노래
+  - 퇴근길노래
+  - 퇴근길 노래 추천
+  - 출근길노래
+  - 새벽감성
+  - 감성플리
+  - 중년노래
+  - 중년 감성
+  - 오십대
   - 버티는 노래
-  - 직장인 노래
-  - 아저씨 노래
-  - 남자 보컬
-  - 바리톤
-  - 잔잔하게 시작하는 노래
-  - 웅장한 노래
-  - 기타 솔로
+  - 지친 하루
+  - 지친 날 듣는 노래
+  - 혼자 듣는 노래
+  - 드라이브노래
+  - 90년대 락
   - 얼터너티브 락
   - 하트랜드 락
   - 깎여도 바위
-  - 무릎
-  - 작아지는 나
-  - 제자리
+  - 나이 드는 것
+  - 기대기 좋은 등
   - korean rock
   - korean band
-  - korean indie
-  - kpop rock
-  - healing song
-  - 신곡
-  - 가사
+  - korean alternative rock
+  - korean ballad
   - kpop
+  - heartland rock
+  - healing song
+  - 가사
   - korean music
   - k-pop
   hashtags:
@@ -465,3 +467,142 @@ youtube_preview:
   - 연주왕김연주 노래
   - 어른이 된 우리에게
   privacy: private
+revisions:
+- at: 2026-10-31 16:58
+  note: 목소리가 너무 걸걸해 내가 원한건 깔끔한 중년 목소리야. 무릎이 먼저 안다는 가사는 좀 유치한듯. 시작부분은 더 클린했으면 좋겠어 악기 거의 안 느껴지게
+  plan: 보컬은 걸걸한 톤을 빼고 깔끔하고 맑은 중년 바리톤으로 바꿔 style·sound_plan·exclude에 반영한다. 1절 둘째 줄 '무릎이 먼저 알아'는 '숨부터 골라'로 바꾼다. 인트로와 1절은 악기를 거의 빼고 목소리 중심으로 비우며, 베이스와 킥은 프리코러스에서 들어오게 한다. 나머지 가사, 후렴, 구조, 제목, 이미지는 그대로 둔다.
+  changes:
+  - 보컬을 걸걸하고 거친 톤에서 깔끔하고 맑은 오십대 바리톤으로 바꿨고, 후렴에서도 긁지 않는 깨끗한 흉성으로 열리게 했다.
+  - Exclude에서 synth pop beat를 빼고 raspy vocals를 넣어 걸걸한 목소리가 나오지 않게 막았다.
+  - 1절 둘째 줄 '무릎이 먼저 알아'를 '숨부터 골라'로 바꿨다.
+  - 인트로를 트레몰로 기타에서 거의 정적에 가까운 클린 기타 몇 음으로 비웠다.
+  - 1절은 베이스와 킥을 빼고 목소리가 거의 혼자 가도록 바꿨으며, 베이스와 킥은 프리코러스에서 처음 들어오게 했다.
+  - arc의 '계단 앞 무릎'을 바뀐 가사에 맞춰 '계단 앞에서 숨부터 고르는 몸'으로 고쳤다.
+  before:
+    lyrics: '[Intro: one clean guitar with tremolo]
+
+
+      [Verse 1: clean guitar and soft bass, murmured voice]
+
+      계단 앞에서
+
+      무릎이 먼저 알아
+
+      거울 속 정수리
+
+      모난 데 많던 나
+
+      다 어디 갔을까
+
+      둥글어졌다는 말
+
+      칭찬인지 몰라
+
+
+      [Pre-Chorus: toms and organ swell, rising]
+
+      바람 불면 바람대로
+
+      비 오면 비대로
+
+      모서리를 내주는데
+
+
+      [Chorus: two distorted guitars, open crash, doubled vocal]
+
+      깎여도 바위
+
+      젖어도 그 자리
+
+      깎여도 바위
+
+      아무도 몰라도
+
+      깎여도 바위
+
+
+      [Verse 2: back to quiet, piano and lead guitar answers]
+
+      네가 와서 기대
+
+      말도 없이
+
+      커피 한 잔 길이
+
+      가고 나도 남는 무게
+
+      싫지가 않아
+
+      기대기 좋은 등
+
+      그거 하난 늘었네
+
+
+      [Pre-Chorus: toms and organ swell, rising]
+
+      바람 불면 바람대로
+
+      비 오면 비대로
+
+      모서리를 내주는데
+
+
+      [Chorus: two distorted guitars, open crash, doubled vocal]
+
+      깎여도 바위
+
+      젖어도 그 자리
+
+      깎여도 바위
+
+      아무도 몰라도
+
+      깎여도 바위
+
+
+      [Guitar Solo]
+
+
+      [Bridge: half-time, bass and near-spoken voice]
+
+      사실은 무서워
+
+      작아지는 게
+
+      굴러가고 싶던 밤
+
+      산 아래 불빛
+
+      그 밤에도 여기
+
+
+      [Final Chorus: everything in, organ and piano, stacked harmonies, biggest]
+
+      깎여도 바위
+
+      작아져도 바위
+
+      깎여도 바위
+
+      무서워도 여기
+
+      깎여도 바위
+
+
+      [Outro: one clean guitar, last line alone]
+
+      (깎여도 바위)
+
+      모서리 하나는 남겨 둘게
+
+
+      [End]
+
+      '
+    style: 'Korean rock, 90s heartland alternative rock, steady 96 bpm, slow-building, major key with a bittersweet minor turn in the pre-chorus. Male baritone in his fifties, gravelly and worn, murmured almost spoken verses close to the mic, behind the beat, opening into a full raspy chest voice in the chorus, mature and sincere, sung in Korean, korean lyrics. Verse 1: clean tremolo guitar, soft picked bass on roots, low kick only. Pre-chorus: rising repeated note, toms, Hammond organ swell. Chorus: two distorted guitars left and right, fat snare, open crash, upward leap on the first word, long held last word of the hook, doubled vocal. Verse 2 adds piano and a lead guitar motif answering the voice. 8-bar melodic guitar solo after chorus two. Bridge drops to half-time, bass and near-spoken voice. Final chorus biggest and widest: layered guitars, organ, piano, stacked harmonies, octave-up backing. Outro on one clean guitar, last line alone. Live band in a big room, room mics, tape warmth.
+      Weathered, steady, tender.'
+    exclude: autotune, gang vocals, synth pop beat
+    sound_plan: 장조 바탕에 프리코러스에서 단조로 한 번 꺾이는 씁쓸한 밝음, 96bpm 안팎의 꾸준한 중간 템포 락. 인트로는 트레몰로 걸린 클린 기타 하나. 1절은 클린 기타 아르페지오와 뿌리음만 짚는 피크 베이스, 킥만 낮게 깔고 오십대 남자 바리톤이 마이크 가까이서 박자 뒤로 말하듯 읊조린다. 프리코러스는 같은 음을 되풀이하며 올라가고 탐과 해먼드 오르간이 부풀어 오른다. 후렴은 첫 음절에서 위로 도약하고, 좌우 디스토션 기타 두 대와 굵은 스네어, 열린 크래시, 8분음으로 리프에 붙은 베이스가 한꺼번에 들어오며 '바위'를 길게 끈다. 2절은 다시 조용해지되 피아노와 보컬에 대답하는 리드 기타 모티프가 더해진다. 둘째 후렴 뒤 선율적인 기타 솔로 8마디. 브릿지는 하프타임으로 내려앉아 베이스와 거의 말하는 목소리만 남는다. 마지막 후렴은 가장 크고 넓게, 기타 여러 겹과 오르간, 피아노, 쌓인 하모니와 옥타브 위 백킹 보컬이 들어와 가장 풍성해진다. 아웃트로는 클린 기타 하나로 줄고 마지막 줄을 목소리 혼자 부르며 끝낸다. 큰 방에서 한 번에 연주한 라이브 밴드, 룸 마이크, 테이프의 따뜻한 질감.
+    arc: '화법: 혼잣말(닳아 가는 자신에게 중얼거림). 기: 계단 앞 무릎, 거울 속 정수리, 둥글어졌다는 말—감정 없이 닳은 몸만 보여 준다. 승: 바람대로 비대로 모서리를 내주다가 ''깎여도 바위''로 떨어진다. 전: 2절은 누군가 말없이 등에 기대고 가는 쪽으로 시점이 바뀌고(기대기 좋은 등), 브릿지에서 처음으로 ''사실은 무서워, 작아지는 게''를 말한다. 결: 마지막 후렴 둘째 줄이 ''작아져도 바위'', 넷째 줄이 ''무서워도 여기''로 바뀌고, 아웃트로에서 다 내주던 모서리 하나를 남겨 두겠다고 우긴다.'
+    share_line: 모서리 하나는 남겨 둘게
+youtube_preview_edited: false
