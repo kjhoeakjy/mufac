@@ -117,7 +117,7 @@ def write_ass_main(song: Song, rows: list[dict], path: Path, artist: str) -> Non
 def write_ass_short(song: Song, rows: list[dict], path: Path, artist: str, start: float, end: float) -> None:
     title = song.meta.get("title", "")
     lines = [_ass_header(1080, 1920, [
-        _style("Lyric", LYRIC_FONT, 72, 5, 0, margin_lr=90),
+        _style("Lyric", LYRIC_FONT, 54, 5, 0, margin_lr=100),
         _style("Title", TITLE_FONT, 72, 5, 0, bold=-1, margin_lr=90, spacing=1),
         _style("Artist", SMALL_FONT, 34, 5, 0, color="&H00E6E6E6", spacing=2),
     ])]
