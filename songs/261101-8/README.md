@@ -4,7 +4,7 @@
 
 > 나는 연주야
 
-사랑 · 처음 만난 자리에서 이름을 말하고, 소주 한잔으로 낯선 사이를 넘어 보자고 밝게 청하는 노래
+사랑 · 처음 만난 사람들 사이에서 이름부터 또렷하게 건네고, 소주 한 잔에 합주를 청하는 베이스 치는 사람이 부르는 자기소개 노래.
 
 ## 이렇게 쓴 이유
 
@@ -24,12 +24,12 @@
 
 **Style**
 ```text
-Korean band pop rock, bright 2010s, upbeat 126 bpm, major key, short minor turn at the bridge. Female mezzo, plain clear voice, light natural tone, little vibrato, close dry verses, sincere, sung in Korean, korean lyrics. Intro: bright guitar riff, drum fill brings the band in. Verse 1: one crunchy guitar, driving picked bass, eighth-note hi-hat, short talky melody. Pre-chorus: tom build, rising repeated note. Chorus: full band, wide crunchy guitars, crash, upward leap on the first word, long held last word, lead guitar doubles the hook, doubled vocal. Verse 2 adds synth pad and guitar answers. Guitar solo after chorus two. Bridge: half-time, arpeggio guitar and voice. Final chorus: key change, third harmony, gang vocal on the last line. Outro: riff twice, hard stop. Live hall, bright. Friendly, cheerful.
+Korean band pop rock, laid-back 2010s indie band sound, mid-tempo 96 bpm, straight eighth-note groove, warm major key, brief minor turn at the bridge. Bass-driven song: melodic picked electric bass riff opens alone and returns between vocal lines, bass fills answer the voice, bass walks up in the pre-chorus, bass riff break after chorus two. Female mezzo, plain clear unadorned voice, little vibrato, close dry vocal, sung in Korean, korean lyrics. Live drums in a small room, punchy kick, crisp snare, steady hi-hat. One clean crunchy rhythm guitar, light lead guitar only in choruses. Chorus: full band, upward leap on the first word, long held last word, doubled vocal, third harmony from chorus two. Bridge: half-time, bass and voice only. Final chorus: fuller, same key, bass loudest. Outro: bass riff twice, hard stop. Warm, honest, easygoing.
 ```
 
 **Exclude styles**
 ```text
-autotune, synth pop beat, trap hi-hats
+trot, polka beat, autotune
 ```
 
 **Title**
@@ -39,53 +39,58 @@ autotune, synth pop beat, trap hi-hats
 
 **Lyrics**
 ```text
-[Intro: bright guitar riff, drum fill brings the band in]
+[Intro: solo bass riff, then drums and guitar join]
 
-[Verse 1: one crunchy guitar, picked bass, eighth-note hi-hat]
+[Verse 1: bass riff leads, hi-hat, one clean guitar]
 처음 보는데 낯설지 않아
 긴 말은 나중에
 이 밤에 만난 우리
 이름이면 충분해
 
-[Pre-Chorus: tom build, rising]
+[Pre-Chorus: tom build, bass walks up]
 첫인사는 늘 서툰데
 이것만은 또렷하게
 
-[Chorus: full band, lead guitar doubles the hook, doubled vocals]
+[Chorus: full band, bass riff between lines, doubled vocals]
 나는 연주야
-한잔하자 너랑 나
+나는 소주를 좋아해
+베이스 치는 것도 좋아해
+나랑 술 먹고 합주할래
 나는 연주야
-만나서 반가워
 
-[Verse 2: synth pad added, guitar answers the voice]
+[Verse 2: bass fills answer the voice]
 궁금한 네 이름
 들으면 꼭 외울게
 모르는 사람끼리
 이름이면 충분해
 
-[Pre-Chorus: tom build, rising]
+[Pre-Chorus: tom build, bass walks up]
 첫인사는 늘 서툰데
 이것만은 또렷하게
 
-[Chorus: full band, third harmony]
+[Chorus: full band, bass riff between lines, third harmony]
 나는 연주야
-한잔하자 너랑 나
+나는 소주를 좋아해
+베이스 치는 것도 좋아해
+나랑 술 먹고 합주할래
 나는 연주야
-만나서 반가워
 
-[Guitar Solo]
+[Bass Solo]
 
-[Bridge: half-time, arpeggio guitar and voice]
+[Bridge: half-time, bass and voice only]
 낯선 사람으로
 헤어지기 싫어
 
-[Final Chorus: key change up, biggest, gang vocal on the last line]
+[Final Chorus: full band, bass riff louder, third harmony]
 나는 연주야
-한잔하자 너랑 나
-나는 연주야
+나는 소주를 좋아해
+베이스 치는 것도 좋아해
+나랑 술 먹고 합주할래
 이제 이름 불러 줘
 
-[Outro: riff twice, hard stop]
+[Outro: bass riff twice, hard stop]
+만나서 반가워
+나는 연주야
 
 [End]
 ```
