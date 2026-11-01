@@ -77,9 +77,11 @@ jobs:
         run: |
           for s in $SLUGS; do
             files="songs/$s/out/main.mp4 songs/$s/out/thumb.jpg"
-            [ -f "songs/$s/out/short.mp4" ] && files="$files songs/$s/out/short.mp4"
+            for f in songs/$s/out/short*.mp4; do [ -f "$f" ] && files="$files $f"; done
             if gh release view "song-$s" >/dev/null 2>&1; then
               gh release upload "song-$s" $files --clobber
+              # 예전 쇼츠 한 개짜리 파일은 지운다
+              gh release delete-asset "song-$s" short.mp4 -y 2>/dev/null || true
             else
               gh release create "song-$s" $files --title "$s" --notes "mufac 영상" --latest=false
             fi
@@ -90,7 +92,8 @@ jobs:
         run: |
           git config user.name "mufac"
           git config user.email "mufac@users.noreply.github.com"
-          for s in $SLUGS; do git add "songs/$s/song.yaml" "songs/$s/README.md" "songs/$s/timing.lrc" songs/$s/photo*.jpg "songs/$s/cover.jpg" 2>/dev/null || true; done
+          # 없는 파일이 하나라도 섞이면 git add 전체가 실패하므로 있는 것만 하나씩
+          for s in $SLUGS; do for f in song.yaml README.md timing.lrc cover.jpg photo.jpg photo_v.jpg photo_v2.jpg photo_v3.jpg photo_v4.jpg; do [ -f "songs/$s/$f" ] && git add "songs/$s/$f"; done; done
           git diff --cached --quiet || git commit -m "영상 완료: $SLUGS"
           pushed=0
           for i in 1 2 3 4 5; do

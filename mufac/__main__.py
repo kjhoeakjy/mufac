@@ -19,6 +19,8 @@ import sys
 from . import song as songmod
 from .song import Song
 
+SHORT_KINDS = ("도입", "후렴", "브릿지", "엔딩")
+
 REPO = os.environ.get("GITHUB_REPOSITORY", "kjhoeakjy/mufac")
 KST = dt.timezone(dt.timedelta(hours=9))
 
@@ -49,8 +51,8 @@ def write_readme(s: Song) -> None:
         lines += ["## 유튜브", ""]
         if yt.get("main"):
             lines.append(f"- 본편 https://youtu.be/{yt['main']}")
-        if yt.get("short"):
-            lines.append(f"- 쇼츠 https://youtube.com/shorts/{yt['short']}")
+        for i, vid in enumerate(yt.get("shorts") or ([yt["short"]] if yt.get("short") else [])):
+            lines.append(f"- 쇼츠 {SHORT_KINDS[i] if i < len(SHORT_KINDS) else i + 1} https://youtube.com/shorts/{vid}")
         lines += ["- 비공개로 올라갑니다. [YouTube Studio](https://studio.youtube.com)에서 공개로 바꾸세요.", ""]
 
     lines += ["## 1. Suno에 붙여넣기", "",
@@ -139,6 +141,7 @@ def cmd_new(a) -> None:
         "exclude": data["exclude"],
         "photo_query": data["photo_query"],
         "image_prompt": data["image_prompt"],
+        "short_scenes": data.get("short_scenes", []),
         "title_kind": data.get("title_kind", ""),
         "tempo": data.get("tempo", ""),
         "arc": data.get("arc", ""),
@@ -284,7 +287,8 @@ def cmd_photo(a) -> None:
     s = Song(a.slug)
     if a.prompt:
         s.meta["image_prompt"] = a.prompt
-    fetch(s, pick=a.pick)
+        s.meta.pop("short_scenes", None)  # 장면이 바뀌면 쇼츠 그림도 새 장면에서 다시
+    fetch(s, pick=a.pick, shorts=True)
     s.save()
     write_readme(s)
 
@@ -292,7 +296,7 @@ def cmd_photo(a) -> None:
 def cmd_produce(a) -> None:
     """--stage all(기본) | align(가사 위치) | video(썸네일·본편) | short(쇼츠·저장).
     워크플로가 단계를 나눠 돌리면 대시보드가 단계별 진행률을 보여 준다."""
-    from .align import short_window, timings
+    from .align import short_windows, timings
     from .render import prepare, render_main, render_short, thumbnail, write_ass_main, write_ass_short
 
     cfg = songmod.config()
@@ -303,15 +307,19 @@ def cmd_produce(a) -> None:
         sys.exit(f"{s.slug}: 노래 파일이 없습니다. mp3를 폴더에 올려주세요.")
     def ensure_photo() -> None:
         """배경 그림이 없거나 크레딧이 없어 단색으로 때운 것이면 다시 그린다(다시 제작 때 일러스트로 바뀌도록)."""
-        if s.photo_path.exists() and (s.meta.get("photo") or {}).get("source") != "gradient":
-            return
-        from .photo import _gradient, fetch
-        try:
-            print("배경 그림 만드는 중", flush=True)
-            fetch(s)
-        except Exception as e:  # 그림 키가 막혀도 영상은 만든다
-            print(f"그림을 못 가져와 단색 배경으로 만듭니다: {e}", flush=True)
-            s.meta["photo"] = _gradient(s)
+        from .photo import _gradient, fetch, fetch_shorts
+        if not (s.photo_path.exists() and (s.meta.get("photo") or {}).get("source") != "gradient"):
+            try:
+                print("배경 그림 만드는 중", flush=True)
+                fetch(s)
+            except Exception as e:  # 그림 키가 막혀도 영상은 만든다
+                print(f"그림을 못 가져와 단색 배경으로 만듭니다: {e}", flush=True)
+                s.meta["photo"] = _gradient(s)
+        if (s.meta.get("photo") or {}).get("source") == "openai" and not a.no_short:
+            try:  # 쇼츠 네 개가 서로 다른 그림을 쓰도록 세로 그림 세 장을 더 그린다(없는 것만)
+                fetch_shorts(s, only_missing=True)
+            except Exception as e:
+                print(f"쇼츠 그림을 더 그리지 못해 같은 그림을 씁니다: {e}", flush=True)
 
     # 그림 생성(외부 API 대기)과 음성 인식(CPU)은 서로 기다릴 필요가 없어 동시에 돌린다
     print("가사 위치 찾는 중", flush=True)
@@ -336,12 +344,15 @@ def cmd_produce(a) -> None:
             return
 
     if not a.no_short:
-        start, end = short_window(s, rows, float(cfg.get("short_seconds", 40)))
-        ass_s = s.out / "short.ass"
-        write_ass_short(s, rows, ass_s, artist, start, end)
-        print(f"쇼츠 만드는 중 ({start:.1f}s~{end:.1f}s)", flush=True)
-        render_short(s, src, ass_s, start, end)
-        s.meta["short_window"] = [round(start, 2), round(end, 2)]
+        wins = short_windows(s, rows, float(cfg.get("short_seconds", 30)))
+        for i, (w, port) in enumerate(zip(wins, src["ports"]), 1):
+            ass_s = s.out / f"short{i}.ass"
+            write_ass_short(s, rows, ass_s, artist, w["start"], w["end"])
+            print(f"쇼츠 {i} {w['kind']} 만드는 중 ({w['start']:.1f}s~{w['end']:.1f}s)", flush=True)
+            render_short(s, src, ass_s, w["start"], w["end"], out=s.out / f"short{i}.mp4", port=port)
+        (s.out / "short.mp4").unlink(missing_ok=True)
+        s.meta["short_windows"] = wins
+        s.meta.pop("short_window", None)
 
     s.meta["produced"] = dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M")
     s.meta["youtube_preview"] = _preview(s)
@@ -351,13 +362,15 @@ def cmd_produce(a) -> None:
 
 
 def cmd_publish(a) -> None:
-    """out/에 있는 영상(main.mp4, short.mp4, thumb.jpg)을 유튜브에 올린다."""
+    """out/에 있는 영상(main.mp4, short1~4.mp4, thumb.jpg)을 유튜브에 올린다.
+    쇼츠는 공개 범위가 public이면 하루 간격으로 예약 공개한다(매일 한 편씩 올라가는 채널이 되도록)."""
     from . import youtube
 
     cfg = songmod.config()
     artist = cfg.get("artist", "")
     s = Song(a.slug)
-    main, short, thumb = s.out / "main.mp4", s.out / "short.mp4", s.out / "thumb.jpg"
+    main, thumb = s.out / "main.mp4", s.out / "thumb.jpg"
+    shorts = [p for p in [s.out / f"short{i}.mp4" for i in range(1, 5)] if p.exists()] or [p for p in [s.out / "short.mp4"] if p.exists()]
     if not main.exists():
         sys.exit(f"{s.slug}: 영상이 없습니다. 먼저 영상을 만들어 주세요.")
     if not youtube.ready():
@@ -381,11 +394,21 @@ def cmd_publish(a) -> None:
                 youtube.add_to_playlist(yt["main"], name, cfg["privacy"])
             except Exception as e:  # 재생목록은 실패해도 업로드는 유지
                 print(f"  재생목록 '{name}' 추가 실패: {e}", flush=True)
-    if short.exists() and not yt.get("short"):
-        print("유튜브 쇼츠 업로드:", pv["shorts_title"], flush=True)
-        yt["short"] = youtube.upload(short, title=pv["shorts_title"],
-                                     desc=youtube.description(s, artist, main_id=yt.get("main"), short=True),
-                                     tags=tags, privacy=cfg["privacy"])
+    titles = pv.get("shorts_titles") or youtube.shorts_titles(s)  # 예전 미리보기에는 넷이 없다
+    ids = list(yt.get("shorts") or ([yt["short"]] if yt.get("short") else []))
+    short_tags = youtube.fit_tags(["shorts", "쇼츠", *tags])
+    for i, path in enumerate(shorts):
+        if i < len(ids) and ids[i]:
+            continue
+        title = titles[i] if i < len(titles) and titles[i] else pv["shorts_title"]
+        when = youtube.publish_at(cfg, i) if cfg["privacy"] == "public" else None
+        print(f"유튜브 쇼츠 {i + 1} 업로드: {title}" + (f" (예약 {when})" if when else ""), flush=True)
+        vid = youtube.upload(path, title=title, desc=youtube.description(s, artist, main_id=yt.get("main"), short=True),
+                             tags=short_tags, privacy=cfg["privacy"], publish_at=when)
+        ids[i:i + 1] = [vid]
+        yt["shorts"] = ids
+        yt["short"] = ids[0]
+        s.save()
     s.meta["uploaded"] = dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M")
     s.save()
     write_readme(s)
@@ -453,7 +476,7 @@ def main() -> None:
 
     pr = sub.add_parser("produce", help="자막 영상과 썸네일 만들기")
     pr.add_argument("slug")
-    pr.add_argument("--no-short", action="store_true")
+    pr.add_argument("--no-short", action="store_true", help="쇼츠 네 개를 만들지 않는다")
     pr.add_argument("--stage", default="all", choices=["all", "align", "video", "short"])
     pr.set_defaults(func=cmd_produce)
 

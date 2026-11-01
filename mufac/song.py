@@ -56,6 +56,10 @@ class Song:
     def photo_v_path(self) -> Path:
         return self.dir / "photo_v.jpg"
 
+    def photo_v_paths(self) -> list[Path]:
+        """쇼츠 넷의 세로 그림. 첫 장은 photo_v.jpg, 나머지는 photo_v2~4.jpg."""
+        return [self.photo_v_path] + [self.dir / f"photo_v{i}.jpg" for i in (2, 3, 4)]
+
     @property
     def cover_path(self) -> Path:
         return self.dir / "cover.jpg"

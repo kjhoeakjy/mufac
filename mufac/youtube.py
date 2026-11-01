@@ -60,7 +60,12 @@ def fit_tags(tags: list[str], limit: int = 480) -> list[str]:
     return out
 
 
-GENERIC_HASHTAGS = ["음악", "노래", "감성", "신곡", "노래추천", "플레이리스트", "가사", "kpop", "music", "koreanmusic"]
+# 늘 들어가는 해시태그. 노래·음악·인공지능은 사용자 지정(2026-11-01)으로 앞쪽 고정
+FIXED_HASHTAGS = ["노래", "음악", "인공지능"]
+GENERIC_HASHTAGS = ["AI음악", "감성", "신곡", "노래추천", "플레이리스트", "가사", "AI노래", "kpop", "music", "koreanmusic"]
+GENERIC_TAGS = ["음악", "노래", "인공지능", "AI음악", "AI노래", "AI 작곡", "suno", "ai music", "감성", "신곡", "노래 추천",
+                "플레이리스트", "가사", "kpop", "korean music", "k-pop", "korean song"]
+SHORT_KINDS = ("도입", "후렴", "브릿지", "엔딩")
 
 
 def _genre_word(meta: dict) -> str:
@@ -72,8 +77,8 @@ def hashtags(meta: dict, artist: str) -> list[str]:
     """설명란 해시태그 15개. 유튜브는 15개를 넘으면 전부 무시하므로 딱 15개까지.
     곡별 태그 → 장르 → 제목·채널 → 넓은 기본 태그(음악, 노래, 감성) 순으로 채운다. 앞의 3개가 제목 위에 보인다."""
     own = list((meta.get("youtube_meta") or {}).get("hashtags") or [])
-    # 앞 3개는 곡이 고른 넓은 말, 그다음 장르와 기본 태그 넷, 나머지 곡 태그, 제목·채널, 남은 기본 태그
-    raw = own[:3] + [_genre_word(meta)] + GENERIC_HASHTAGS[:3] + own[3:] + [meta.get("title", ""), artist] + GENERIC_HASHTAGS[3:]
+    # 앞 3개는 곡이 고른 넓은 말(제목 위에 보인다), 그다음 장르와 고정 태그(노래·음악·인공지능), 나머지 곡 태그, 제목·채널, 기본 태그
+    raw = own[:3] + [_genre_word(meta)] + FIXED_HASHTAGS + own[3:] + [meta.get("title", ""), artist] + GENERIC_HASHTAGS
     out = []
     for t in raw:
         t = "".join(ch for ch in (t or "") if ch.isalnum() or ch == "_")
@@ -88,7 +93,12 @@ def description(song: Song, artist: str, *, main_id: str | None = None, short: b
     parts = []
     if main_id:
         parts.append(f"전체 노래 https://youtu.be/{main_id}")
-    if not short and song.plain_lyrics():
+    if short:
+        # 쇼츠 설명 첫 줄은 가사 한 줄(검색어가 되고, 설명을 열었을 때 바로 보인다)
+        line = (m.get("share_line") or m.get("hook") or "").strip()
+        if line:
+            parts.append(line)
+    elif song.plain_lyrics():
         parts.append(song.plain_lyrics())
     credit = []
     if artist:
@@ -101,25 +111,59 @@ def description(song: Song, artist: str, *, main_id: str | None = None, short: b
     year = str(m.get("created", ""))[:4] or _dt.date.today().strftime("%Y")
     credit.append(f"© {year} {artist or '채널 운영자'}. 무단 복제·재업로드 금지.")
     parts.append("\n".join(credit))
-    parts.append(" ".join("#" + t for t in hashtags(m, artist)))
+    tags = hashtags(m, artist)
+    if short and "shorts" not in tags:
+        tags = ["shorts", *tags][:15]
+    parts.append(" ".join("#" + t for t in tags))
     return "\n\n".join(p for p in parts if p).strip()[:4900]
+
+
+def shorts_titles(song: Song) -> list[str]:
+    """쇼츠 넷의 제목. 도입은 1절 첫 줄, 후렴은 후렴 문장(사용자 지정), 브릿지는 브릿지 첫 줄, 엔딩은 공유 한 줄(없으면 끝부분의 다른 줄).
+    넷이 다른 말이어야 검색과 추천에서 서로 다른 입구가 된다."""
+    m = song.meta
+    hook = (m.get("hook") or (m.get("youtube_meta") or {}).get("shorts_title") or m["title"]).strip()
+    lines = song.lyric_lines()
+    texts = [t for _, t in lines]
+    first = next((t for sec, t in lines if "verse" in sec.lower()), texts[0] if texts else hook)
+    bridge = next((t for sec, t in lines if "bridge" in sec.lower()), "")
+    share = (m.get("share_line") or "").strip()
+    tail = [t for t in reversed(texts) if t != hook and not t.startswith("(")]  # 끝에서부터, 훅이 아닌 줄
+    wants = [[first, hook], [hook], [bridge, share, *tail], [share, *tail, hook]]
+    out = []
+    for cands in wants:
+        pick = next((c for c in cands if c and c.strip() and c.strip() not in out), None) or hook
+        out.append(pick.strip())
+    return [f"{p} #shorts"[:100] for p in out]
 
 
 def preview(song: Song, cfg: dict) -> dict:
     """업로드 전에 보여 줄 유튜브 메타데이터. 업로드도 같은 값을 쓴다."""
     artist = cfg.get("artist", "")
     m, ym = song.meta, song.meta.get("youtube_meta") or {}
+    titles = shorts_titles(song)
     return {
         "title": main_title(cfg["youtube_title"], m["title"], artist, ym.get("situation", "")),
-        # 쇼츠 제목은 후렴 문장 그대로(사용자 지정)
-        "shorts_title": f"{(m.get('hook') or ym.get('shorts_title') or m['title']).strip()} #shorts"[:100],
+        "shorts_title": titles[1],  # 예전 호환: 후렴 쇼츠 제목
+        "shorts_titles": titles,
         "description": description(song, artist),
-        "tags": fit_tags([m["title"], artist, *(m.get("tags") or []), _genre_word(m), "음악", "노래", "감성", "신곡", "노래 추천",
-                          "플레이리스트", "가사", "kpop", "korean music", "k-pop"]),
+        "tags": fit_tags([m["title"], artist, *GENERIC_TAGS[:3], _genre_word(m), *(m.get("tags") or []), *GENERIC_TAGS[3:]]),
         "hashtags": hashtags(m, artist),
         "playlists": playlist_names(cfg, m),
         "privacy": cfg.get("privacy", "private"),
     }
+
+
+def publish_at(cfg: dict, index: int) -> str:
+    """쇼츠 예약 공개 시각(RFC 3339). 첫 편은 다음 publish_hour(KST), 그다음은 shorts_gap_days 간격."""
+    kst = _dt.timezone(_dt.timedelta(hours=9))
+    hour = int(cfg.get("publish_hour", 18))
+    gap = max(0, int(cfg.get("shorts_gap_days", 1)))
+    now = _dt.datetime.now(kst)
+    first = now.replace(hour=hour, minute=0, second=0, microsecond=0)
+    if first <= now + _dt.timedelta(minutes=30):
+        first += _dt.timedelta(days=1)
+    return (first + _dt.timedelta(days=gap * index)).isoformat()
 
 
 def playlist_names(cfg: dict, meta: dict) -> list[str]:
@@ -153,7 +197,7 @@ def add_to_playlist(video_id: str, name: str, privacy: str) -> None:
 
 
 def upload(path: Path, *, title: str, desc: str, tags: list[str], privacy: str,
-           thumb: Path | None = None) -> str:
+           thumb: Path | None = None, publish_at: str | None = None) -> str:
     from googleapiclient.errors import HttpError
     from googleapiclient.http import MediaFileUpload
 
@@ -173,6 +217,8 @@ def upload(path: Path, *, title: str, desc: str, tags: list[str], privacy: str,
             "containsSyntheticMedia": True,  # 유튜브의 AI 생성 콘텐츠 표시
         },
     }
+    if publish_at:  # 예약 공개: 올릴 때는 비공개, 그 시각에 유튜브가 공개로 바꾼다
+        body["status"].update(privacyStatus="private", publishAt=publish_at)
     req = yt.videos().insert(
         part="snippet,status", body=body,
         media_body=MediaFileUpload(str(path), mimetype="video/mp4", chunksize=8 * 1024 * 1024, resumable=True),

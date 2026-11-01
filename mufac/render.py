@@ -1,7 +1,7 @@
 """배경 그림 한 장 + 노래 + 가사 자막으로 영상을 만든다.
 
 - main.mp4  1920x1080, 곡 전체. 배경은 움직이지 않고, 처음에 제목이 가운데 떴다가 가사가 한 줄씩 바뀐다.
-- short.mp4 1080x1920, 후렴 구간. 같은 배경, 처음에 제목이 가운데 잠깐, 이어서 가사.
+- short1~4.mp4 1080x1920, 도입·후렴·브릿지·엔딩 네 구간. 구간마다 다른 세로 그림, 제목은 위에 작게 내내, 가사는 처음부터.
 - thumb.jpg 1280x720 유튜브 썸네일. 같은 배경 가운데에 제목.
 """
 
@@ -46,16 +46,23 @@ def _shade(w: int, h: int, *, bottom: float, top: float, vignette: float) -> Ima
     return Image.fromarray(rgba, "RGBA")
 
 
-def prepare(song: Song) -> dict[str, Path]:
+def prepare(song: Song) -> dict:
+    """본편 배경 한 장과 쇼츠 배경 네 장. 세로 그림이 없는 자리는 바로 앞 그림(없으면 가로 그림)을 쓴다."""
     song.out.mkdir(parents=True, exist_ok=True)
     photo = Image.open(song.photo_path).convert("RGB")
-    paths = {"land": song.out / "src_land.png", "port": song.out / "src_port.png"}
+    paths = {"land": song.out / "src_land.png", "ports": []}
     # 배경은 움직이지 않으므로 출력 크기 그대로, 글자용 그늘까지 미리 합쳐 둔다(ffmpeg에서 겹치면 매 프레임 비용)
-    vertical = Image.open(song.photo_v_path).convert("RGB") if song.photo_v_path.exists() else photo
     land = Image.alpha_composite(_cover(photo, 1920, 1080).convert("RGBA"), _shade(1920, 1080, bottom=0.55, top=0.0, vignette=0.3))
-    port = Image.alpha_composite(_cover(vertical, 1080, 1920).convert("RGBA"), _shade(1080, 1920, bottom=0.45, top=0.0, vignette=0.3))
     land.convert("RGB").save(paths["land"])
-    port.convert("RGB").save(paths["port"])
+    prev = photo
+    for i, vp in enumerate(song.photo_v_paths(), 1):
+        vertical = Image.open(vp).convert("RGB") if vp.exists() else prev
+        prev = vertical
+        port = Image.alpha_composite(_cover(vertical, 1080, 1920).convert("RGBA"), _shade(1080, 1920, bottom=0.45, top=0.22, vignette=0.3))
+        out = song.out / f"src_port{i}.png"
+        port.convert("RGB").save(out)
+        paths["ports"].append(out)
+    paths["port"] = paths["ports"][0]
     return paths
 
 
@@ -119,14 +126,24 @@ def write_ass_short(song: Song, rows: list[dict], path: Path, artist: str, start
     lines = [_ass_header(1080, 1920, [
         _style("Lyric", LYRIC_FONT, 54, 5, 0, margin_lr=100),
         _style("Title", TITLE_FONT, 72, 5, 0, bold=-1, margin_lr=90, spacing=1),
+        _style("Top", TITLE_FONT, 50, 8, 0, bold=-1, margin_lr=90, spacing=1),
         _style("Artist", SMALL_FONT, 34, 5, 0, color="&H00E6E6E6", spacing=2),
     ])]
     span = end - start
-    # 제목은 처음 2.5초 동안 가운데, 그다음 가사가 이어진다
-    t_end = 2.5 if rows else span  # 연주곡은 제목을 끝까지
-    lines.append(f"Dialogue: 0,{_ts(0)},{_ts(t_end)},Title,,0,0,0,,{{\\fad(400,500)\\pos(540,{880 if artist else 900})}}{_esc(title)}")
-    if artist:
-        lines.append(f"Dialogue: 0,{_ts(0)},{_ts(t_end)},Artist,,0,0,0,,{{\\fad(400,500)\\pos(540,960)}}{_esc(artist)}")
+    if rows:
+        # 첫 1초가 승부라 제목 카드로 시간을 쓰지 않는다. 제목은 위쪽(상태 표시줄 아래)에 작게 내내 둔다
+        lines.append(f"Dialogue: 0,{_ts(0)},{_ts(span)},Top,,0,0,0,,{{\\fad(300,300)\\pos(540,200)}}{_esc(title)}")
+        if artist:
+            lines.append(f"Dialogue: 0,{_ts(0)},{_ts(span)},Artist,,0,0,0,,{{\\fad(300,300)\\pos(540,262)}}{_esc(artist)}")
+        # 구간 앞에 가사 없는 전주가 길면 그동안 후렴 한 줄을 띄운다(첫 1~2초에 글이 있어야 넘기지 않는다)
+        first = next((r["start"] - start for r in rows if r["end"] > start), span)
+        hook = (song.meta.get("hook") or "").strip()
+        if hook and first > 2.5:
+            lines.append(f"Dialogue: 0,{_ts(0.2)},{_ts(first - 0.4)},Lyric,,0,0,0,,{{\\fad(300,400)\\pos(540,1380)}}{_esc(hook)}")
+    else:  # 연주곡은 제목을 가운데에 끝까지
+        lines.append(f"Dialogue: 0,{_ts(0)},{_ts(span)},Title,,0,0,0,,{{\\fad(400,500)\\pos(540,{880 if artist else 900})}}{_esc(title)}")
+        if artist:
+            lines.append(f"Dialogue: 0,{_ts(0)},{_ts(span)},Artist,,0,0,0,,{{\\fad(400,500)\\pos(540,960)}}{_esc(artist)}")
     for r in rows:
         a, b = r["start"] - start, r["end"] - start
         if b <= 0 or a >= span:
@@ -168,16 +185,18 @@ def render_main(song: Song, src: dict[str, Path], ass: Path) -> Path:
     return out
 
 
-def render_short(song: Song, src: dict[str, Path], ass: Path, start: float, end: float) -> Path:
+def render_short(song: Song, src: dict, ass: Path, start: float, end: float, out: Path | None = None, port: Path | None = None) -> Path:
     audio = song.audio_path()
     span = end - start
-    out = song.out / "short.mp4"
+    out = out or song.out / "short.mp4"
+    port = port or src["port"]
+    # 쇼츠는 끝나자마자 처음으로 돌아가며 재생되므로 페이드를 짧게 둔다(끊김 없이 이어지는 느낌)
     graph = (f"[0:v]{_subs(ass)},"
-             f"fade=t=in:st=0:d=0.6,fade=t=out:st={max(0, span - 1.5):.2f}:d=1.5,format=yuv420p[v];"
-             f"[1:a]afade=t=in:st=0:d=0.8,afade=t=out:st={max(0, span - 2):.2f}:d=2[a]")
+             f"fade=t=in:st=0:d=0.3,fade=t=out:st={max(0, span - 0.6):.2f}:d=0.6,format=yuv420p[v];"
+             f"[1:a]afade=t=in:st=0:d=0.3,afade=t=out:st={max(0, span - 1.2):.2f}:d=1.2[a]")
     _run([
         "ffmpeg", "-y", "-v", "warning", "-stats",
-        "-loop", "1", "-framerate", str(FPS), "-i", str(src["port"]),
+        "-loop", "1", "-framerate", str(FPS), "-i", str(port),
         "-ss", f"{start:.2f}", "-t", f"{span:.2f}", "-i", str(audio),
         "-filter_complex", graph, "-map", "[v]", "-map", "[a]",
         "-t", f"{span:.2f}", "-r", str(FPS),

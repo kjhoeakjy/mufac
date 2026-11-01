@@ -35,5 +35,9 @@ photo_source: openai
 # 가사 타이밍에 쓰는 음성 인식 모델 크기: small, medium, large-v3
 whisper_model: medium
 
-# 쇼츠 길이(초)
-short_seconds: 40
+# 쇼츠 길이(초). 곡마다 넷(도입·후렴·브릿지·엔딩). 15~30초가 끝까지 보는 비율이 가장 높다
+short_seconds: 30
+
+# 공개 범위가 public일 때 쇼츠 예약 공개: 첫 편은 다음 publish_hour(한국시간), 이후 shorts_gap_days 간격으로 한 편씩
+publish_hour: 18
+shorts_gap_days: 1

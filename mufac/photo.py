@@ -1,7 +1,8 @@
 """곡 분위기에 맞는 배경 그림(일러스트)을 구한다.
 
 photo.jpg   가로 그림(본편 영상, 썸네일)
-photo_v.jpg 세로 그림(쇼츠). 없으면 가로 그림 가운데를 잘라 쓴다.
+photo_v.jpg 세로 그림(쇼츠 도입). 없으면 가로 그림 가운데를 잘라 쓴다.
+photo_v2~4.jpg 쇼츠 후렴·브릿지·엔딩용 세로 그림. 같은 이야기의 다른 순간. 영상 만들 때 없으면 그린다.
 cover.jpg   정사각 커버(Suno 곡 이미지). 없으면 가로 그림 가운데를 잘라 만든다.
 
 OpenAI 이미지(기본, 일러스트) → Pexels 실제 사진 → 둘 다 없으면 색 그라데이션 순서로 시도한다.
@@ -30,17 +31,22 @@ LOOK = (
 )
 
 
-def fetch(song: Song, *, pick: int | None = None) -> dict:
+def fetch(song: Song, *, pick: int | None = None, shorts: bool = False) -> dict:
+    """가로·세로·정사각 그림. shorts=True면 쇼츠용 세로 그림 세 장(photo_v2~4)도 함께 그린다."""
     query = song.meta.get("photo_query") or "city night window rain"
     scene = song.meta.get("image_prompt") or f"Illustration of {query}."
     source = config().get("photo_source", "openai")
     has_openai, has_pexels = bool(os.environ.get("OPENAI_API_KEY")), bool(os.environ.get("PEXELS_API_KEY"))
     if source == "openai" and has_openai:
         info = _openai(song, scene)
+        if shorts:
+            fetch_shorts(song)
     elif has_pexels:
         info = _pexels(song, query, pick)
     elif has_openai:
         info = _openai(song, scene)
+        if shorts:
+            fetch_shorts(song)
     else:
         info = _gradient(song)
     song.meta["photo"] = info
@@ -55,17 +61,55 @@ SIZES = {"dall-e-3": ("1792x1024", "1024x1792", "1024x1024")}
 DEFAULT_SIZES = ("1536x1024", "1024x1536", "1024x1024")
 
 
+def _models() -> list[str]:
+    wanted = os.environ.get("OPENAI_IMAGE_MODEL", "")
+    return ([wanted] if wanted else []) + [m for m in IMAGE_MODELS if m != wanted]
+
+
 def _openai(song: Song, scene: str) -> dict:
     prompt = f"{scene}\n\n{LOOK}"
-    wanted = os.environ.get("OPENAI_IMAGE_MODEL", "")
-    models = ([wanted] if wanted else []) + [m for m in IMAGE_MODELS if m != wanted]
     last = None
-    for model in models:
+    for model in _models():
         try:
             _openai_model(song, model, prompt)
             return {"source": "openai", "model": model, "prompt": scene}
         except _NoModel as e:
             print(f"이미지 모델 {model} 사용 불가, 다음 모델로: {e}", flush=True)
+            last = e
+    raise RuntimeError(f"쓸 수 있는 OpenAI 이미지 모델이 없습니다: {last}")
+
+
+# 쇼츠 세 장(후렴·브릿지·엔딩)의 장면. 작사 때 short_scenes가 나오면 그것을, 없으면 본 장면에 순간만 바꿔 붙인다
+SHORT_MOMENTS = (
+    "The peak of the story, the same person and place but the most charged moment, strongest light and color.",
+    "A close view inside the same story: hands, one object, a small detail; shallow depth, quieter light.",
+    "After it is over: the same place later, the person leaving or already gone, last light of the day.",
+)
+
+
+def short_scenes(song: Song) -> list[str]:
+    base = song.meta.get("image_prompt") or f"Illustration of {song.meta.get('photo_query') or 'city night window rain'}."
+    given = [s for s in (song.meta.get("short_scenes") or []) if isinstance(s, str) and s.strip()]
+    if len(given) >= 3:
+        return given[:3]
+    return [f"{base}\n{m}" for m in SHORT_MOMENTS]
+
+
+def fetch_shorts(song: Song, *, only_missing: bool = False) -> None:
+    """쇼츠용 세로 그림 세 장(photo_v2~4). OpenAI 키가 없으면 아무것도 하지 않는다(영상은 앞 그림을 돌려 쓴다)."""
+    if not os.environ.get("OPENAI_API_KEY"):
+        return
+    paths = song.photo_v_paths()[1:]
+    jobs = [(scene, path) for scene, path in zip(short_scenes(song), paths) if not (only_missing and path.exists())]
+    if not jobs:
+        return
+    last = None
+    for model in _models():
+        try:
+            _openai_many(model, [(f"{scene}\n\n{LOOK}", path, SIZES.get(model, DEFAULT_SIZES)[1]) for scene, path in jobs])
+            song.meta.setdefault("photo", {})["shorts"] = len(jobs)
+            return
+        except _NoModel as e:
             last = e
     raise RuntimeError(f"쓸 수 있는 OpenAI 이미지 모델이 없습니다: {last}")
 
@@ -76,8 +120,14 @@ class _NoModel(RuntimeError):
 
 def _openai_model(song: Song, model: str, prompt: str) -> None:
     sizes = SIZES.get(model, DEFAULT_SIZES)
+    # 가로·세로·정사각 세 장을 동시에 만든다
+    _openai_many(model, [(prompt, song.photo_path, sizes[0]), (prompt, song.photo_v_path, sizes[1]), (prompt, song.cover_path, sizes[2])])
 
-    def one(size: str, path) -> None:
+
+def _openai_many(model: str, jobs: list[tuple[str, object, str]]) -> None:
+    """(프롬프트, 저장 경로, 크기) 묶음을 동시에 그린다."""
+
+    def one(prompt: str, size: str, path) -> None:
         body = {"model": model, "prompt": prompt, "size": size, "n": 1}
         if model.startswith("dall-e"):
             body.update(quality="hd", response_format="b64_json")
@@ -112,10 +162,8 @@ def _openai_model(song: Song, model: str, prompt: str) -> None:
         raw = base64.b64decode(item["b64_json"]) if item.get("b64_json") else requests.get(item["url"], timeout=120).content
         _save(Image.open(io.BytesIO(raw)), path)
 
-    # 가로·세로·정사각 세 장을 동시에 만든다
-    jobs = ((sizes[0], song.photo_path), (sizes[1], song.photo_v_path), (sizes[2], song.cover_path))
-    with ThreadPoolExecutor(max_workers=3) as pool:
-        for f in [pool.submit(one, size, path) for size, path in jobs]:
+    with ThreadPoolExecutor(max_workers=max(1, len(jobs))) as pool:
+        for f in [pool.submit(one, prompt, size, path) for prompt, path, size in jobs]:
             f.result()
 
 

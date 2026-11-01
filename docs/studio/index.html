@@ -98,7 +98,10 @@ details.field[open] summary::after{content:"접기"}
 .drop.over{border-color:var(--fg);color:var(--fg)}
 .drop input{display:none}
 audio{width:100%;margin-top:10px;height:32px}
-.videos{display:grid;grid-template-columns:minmax(0,16fr) minmax(0,5fr);gap:10px;align-items:start}
+.videos{display:grid;grid-template-columns:1fr;gap:10px;align-items:start}
+.shorts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.shorts figure{margin:0;min-width:0}
+.shorts figcaption{font-size:12px;color:var(--muted);margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 video{width:100%;border-radius:3px;background:#000;display:block}
 .note{color:var(--muted);font-size:12px;margin:8px 0 0}
 .state{display:flex;align-items:center;gap:8px;font-size:13px}
@@ -120,8 +123,7 @@ video{width:100%;border-radius:3px;background:#000;display:block}
   .make textarea,.make #style,.make #make{grid-column:1/3}
   .cols{grid-template-columns:1fr}
   .list{position:static;max-height:42vh;border-top:0;border-bottom:1px solid var(--line)}
-  .videos{grid-template-columns:1fr}
-  .videos video.v{max-width:280px}
+  .shorts{grid-template-columns:repeat(2,minmax(0,1fr))}
   .head{grid-template-columns:72px minmax(0,1fr)}
   .cover{width:72px;height:72px}
 }
@@ -202,6 +204,7 @@ function videoStarting(s) {
   return true;
 }
 let runs = [];
+let rateLimited = 0;     // GitHub 요청 한도에 걸린 시각. 걸리면 갱신 간격을 늘린다
 let selected = store.get("mufac.selected");
 let editSlug = null;     // 제목·가사 수정 중인 곡
 let editYt = null;       // 유튜브 글 수정 중인 곡
@@ -220,7 +223,8 @@ async function gh(path, opts = {}) {
   if (!res.ok && res.status !== 404) {
     let msg = res.status + "";
     try { msg = (await res.json()).message || msg; } catch {}
-    throw new Error(msg);
+    if (res.status === 403 && /rate limit/i.test(msg)) { rateLimited = Date.now(); msg = "GitHub 요청 한도. 잠시 뒤 다시 확인합니다"; }
+    const err = new Error(msg); err.status = res.status; throw err;
   }
   if (res.status === 404) return null;
   if (res.status === 204) return {};
@@ -234,6 +238,7 @@ function b64utf8(b64) {
 
 async function loadSongs() {
   const head = await gh(`/git/ref/heads/${BRANCH}`);
+  if (!head) throw new Error("저장소를 찾을 수 없습니다");
   const tree = await gh(`/git/trees/${head.object.sha}?recursive=1`);
   const bySlug = {};
   for (const n of tree.tree) {
@@ -269,7 +274,7 @@ async function loadRuns() {
   const r = await gh(`/actions/runs?per_page=30`);
   runs = r?.workflow_runs || [];
   for (const p of [...pending]) {
-    const run = runs.find(x => x.display_title.startsWith(`새 곡 ${p.req}`));
+    const run = runs.find(x => titleHas(x, p.req, "새 곡 "));
     if (run && run.status === "completed" && run.conclusion !== "success") {
       setPending(pending.filter(x => x !== p));
       toast("새 곡 생성 실패", run.html_url);
@@ -284,7 +289,7 @@ async function loadRuns() {
 // 작업별 단계: prep은 준비(설치) 구간 [시작 %, 끝 %, 보통 걸리는 초], stages는 [단계 이름, 시작 %, 끝 %, 보통 걸리는 초]
 const STAGE_SETS = {
   "새 곡": { prep: [0, 8, 30], stages: [["조사", 8, 30, 50], ["작사", 30, 85, 150], ["검수", 85, 97, 45], ["저장", 97, 100, 5]] },
-  "영상 만들기": { prep: [0, 12, 95], stages: [["가사 위치", 12, 45, 170], ["본편", 45, 82, 110], ["쇼츠", 82, 94, 40], ["영상 보관", 94, 98, 6], ["결과 저장", 98, 100, 5]] },
+  "영상 만들기": { prep: [0, 12, 95], stages: [["가사 위치", 12, 45, 170], ["본편", 45, 82, 110], ["쇼츠", 82, 94, 150], ["영상 보관", 94, 98, 6], ["결과 저장", 98, 100, 5]] },
   "다시 쓰기": { prep: [0, 8, 30], stages: [["다시 쓰기", 8, 92, 150], ["저장", 92, 100, 5]] },
 };
 function progressOf(run) {
@@ -315,12 +320,20 @@ function making() {
     return { key: x.id, label, stage: pr.label, pct: pr.pct };
   });
   for (const p of pending)
-    if (!runs.some(x => x.display_title.startsWith(`새 곡 ${p.req}`))) out.unshift({ key: p.req, label: p.label, stage: "요청", pct: 1 });
+    if (!runs.some(x => titleHas(x, p.req, "새 곡 "))) out.unshift({ key: p.req, label: p.label, stage: "요청", pct: 1 });
   return out;
 }
 
+// 실행 제목에 곡 번호가 낱말로 들어 있는지. "261030-1"이 "261030-10"에 걸리지 않게 앞뒤를 본다
+function titleHas(r, key, prefix = "") {
+  const t = r.display_title || "";
+  const i = t.indexOf(prefix + key);
+  if (i < 0) return false;
+  const after = t[i + prefix.length + key.length];
+  return !after || /\s/.test(after);
+}
 function runFor(slug, workflow) {
-  return runs.find(r => wf(r) === workflow && r.display_title.includes(slug));
+  return runs.find(r => wf(r) === workflow && titleHas(r, slug));
 }
 const active = (r) => r && r.status !== "completed";
 // 실행의 name은 run-name(예: "새 곡 abc 제목")이라 워크플로 파일로 어떤 작업인지 가린다
@@ -334,7 +347,7 @@ function status(s) {
   if (active(rev)) { const pr = progressOf(rev); return ["run", `다시 쓰는 중 ${Math.round(pr.pct)}%`]; }
   if (active(runFor(s.slug, "글 갱신"))) return ["run", "글 갱신 중"];
   if (active(up)) return ["run", "업로드 중"];
-  if (s.meta?.youtube?.main) return ["done", "업로드 완료"];
+  if (s.meta?.youtube?.main) { const n = (s.meta.youtube.shorts || []).length; return ["done", n ? `업로드 완료 · 쇼츠 ${n}` : "업로드 완료"]; }
   if (videoStarting(s)) return ["run", "영상 제작 시작"];
   if (active(prod)) { const pr = progressOf(prod); return ["run", `영상 제작 · ${pr.label} ${Math.round(pr.pct)}%`]; }
   if (s.release) return ["ready", "업로드 대기"];
@@ -366,13 +379,32 @@ function genreOf(s) {
 }
 function grpOpen(g) { const v = store.get("mufac.grp." + g); return v == null ? null : v === "1"; }
 
+// 같은 화면을 다시 그리지 않는다: 글이 같으면 그대로 두고, 진행률 숫자만 다르면 그 자리만 바꾼다(재생 중인 소리·영상, 누르던 단추가 끊기지 않게)
+const lastHtml = {};
+function patch(el, key, html) {
+  const strip = h => h.replace(/\d+%/g, "%");
+  if (lastHtml[key] === html) return false;
+  if (lastHtml[key] && strip(lastHtml[key]) === strip(html)) {
+    const tpl = document.createElement("template"); tpl.innerHTML = html;
+    const a = el.querySelectorAll("[data-p],[data-bar]"), b = tpl.content.querySelectorAll("[data-p],[data-bar]");
+    if (a.length === b.length) {
+      a.forEach((n, i) => { if (n.hasAttribute("data-bar")) n.style.width = b[i].style.width; else n.textContent = b[i].textContent; });
+      lastHtml[key] = html; return false;
+    }
+  }
+  el.innerHTML = html; lastHtml[key] = html; return true;
+}
+function progress(label, pct) {
+  pct = Math.round(pct);
+  return `<span data-p>${esc(label)} ${pct}%</span><div class="bar"><i data-bar style="width:${pct}%"></i></div>`;
+}
+
 function renderList() {
   const el = $("list");
   const items = making().map(p => `
     <div class="item" aria-busy="true"><div class="thumb"></div>
       <div style="min-width:0"><div class="t">${esc(p.label)}</div>
-      <div class="s"><span class="dot run"></span>${esc(p.stage)} ${Math.round(p.pct)}%</div>
-      <div class="bar"><i style="width:${Math.round(p.pct)}%"></i></div></div></div>`);
+      <div class="s"><span class="dot run"></span>${progress(p.stage, p.pct)}</div></div></div>`);
   // 보관함: 장르별로 접어 두고, 고른 곡이 있는 장르만 기본으로 펼친다
   const groups = new Map();
   for (const s of songs) { const g = genreOf(s); if (!groups.has(g)) groups.set(g, []); groups.get(g).push(s); }
@@ -387,14 +419,19 @@ function renderList() {
       return `<button class="item ${s.slug === selected ? "on" : ""}" data-slug="${esc(s.slug)}">
         <div class="thumb" style="${th ? `background-image:url('${th}')` : ""}"></div>
         <div style="min-width:0"><div class="t">${esc(s.meta.title || s.slug)}</div>
-        <div class="s"><span class="dot ${k}"></span>${label}</div></div></button>`;
+        <div class="s"><span class="dot ${k}"></span><span data-p>${esc(label)}</span></div></div></button>`;
     });
     items.push(`<details class="grp" data-g="${esc(g)}" ${open ? "open" : ""}><summary>${esc(g)}<span class="n">${list.length}</span></summary>${rows.join("")}</details>`);
   }
-  el.innerHTML = items.join("") || `<div class="empty">곡 없음</div>`;
-  el.querySelectorAll("[data-slug]").forEach(b => b.onclick = () => { selected = b.dataset.slug; store.set("mufac.selected", selected); render(); });
-  el.querySelectorAll("details.grp").forEach(d => d.ontoggle = () => store.set("mufac.grp." + d.dataset.g, d.open ? "1" : "0"));
+  patch(el, "list", items.join("") || `<div class="empty">곡 없음</div>`);
 }
+$("list").onclick = e => {
+  const b = e.target.closest("[data-slug]");
+  if (b) { selected = b.dataset.slug; store.set("mufac.selected", selected); render(); }
+};
+$("list").addEventListener("toggle", e => {
+  const d = e.target; if (d.matches?.("details.grp")) store.set("mufac.grp." + d.dataset.g, d.open ? "1" : "0");
+}, true);
 
 function field(label, value, cls = "", limit = 0) {
   const count = limit ? ` <em class="${value.length > limit ? "over" : ""}">${value.length}자</em>` : "";
@@ -409,18 +446,21 @@ function renderDetail() {
   if (!s) { el.innerHTML = `<div class="empty">곡 없음</div>`; return; }
   selected = s.slug;
   const m = s.meta, prod = runFor(s.slug, "영상 만들기"), up = runFor(s.slug, "유튜브 업로드");
-  const main = asset(s, "main.mp4"), short = asset(s, "short.mp4");
+  const main = asset(s, "main.mp4");
+  const shorts = [1, 2, 3, 4].map(i => asset(s, `short${i}.mp4`)).filter(Boolean);
+  if (!shorts.length && asset(s, "short.mp4")) shorts.push(asset(s, "short.mp4"));
+  const SHORT_KINDS = ["도입", "후렴", "브릿지", "엔딩"];
   const yt = m.youtube || {};
   const audioUrl = s.audio ? raw(s, s.audio) : null;
   const cover = raw(s, "cover.jpg");
 
   let video;
   if (videoStarting(s)) video = `<div class="state"><span class="dot run"></span>영상 제작 시작</div>`;
-  else if (active(prod)) { const pr = progressOf(prod), pct = Math.round(pr.pct);
-    video = `<div class="state"><span class="dot run"></span>${esc(pr.label)} ${pct}%<div class="bar"><i style="width:${pct}%"></i></div></div>`; }
+  else if (active(prod)) { const pr = progressOf(prod);
+    video = `<div class="state"><span class="dot run"></span>${progress(pr.label, pr.pct)}</div>`; }
   else if (main) video = `<div class="videos"><video src="${main}" controls preload="metadata" poster="${asset(s, "thumb.jpg") || ""}"></video>
-      ${short ? `<video class="v" src="${short}" controls preload="metadata"></video>` : ""}</div>
-      <p class="note"><button class="copy" id="reprod">다시 제작</button></p>`;
+      ${shorts.length ? `<div class="shorts">${shorts.map((u, i) => `<figure><video src="${u}" controls preload="metadata"></video><figcaption>쇼츠 ${SHORT_KINDS[i] || i + 1}</figcaption></figure>`).join("")}</div>` : ""}</div>
+      <p class="note"><button class="copy" id="reprod">다시 제작</button>${shorts.length < 4 && shorts.length ? " · 쇼츠 넷으로 다시 만들려면 다시 제작" : ""}</p>`;
   else if (s.audio && prod?.conclusion === "failure") video = `<div class="state err"><span class="dot fail"></span>영상 제작 실패 ·
       <a href="${prod.html_url}" target="_blank" rel="noopener">실행 기록</a> · <button class="copy" id="reprod">다시 제작</button></div>`;
   else if (s.audio) video = `<div class="state"><span class="dot run"></span>영상 제작 대기</div>`;
@@ -432,13 +472,13 @@ function renderDetail() {
   else if (active(up)) tube = `<div class="state"><span class="dot run"></span>업로드 중</div>`;
   else if (yt.main) tube = `<div class="links">
       <a href="https://youtu.be/${esc(yt.main)}" target="_blank" rel="noopener">본편</a>
-      ${yt.short ? `<a href="https://youtube.com/shorts/${esc(yt.short)}" target="_blank" rel="noopener">쇼츠</a>` : ""}
+      ${(yt.shorts || (yt.short ? [yt.short] : [])).map((id, i) => `<a href="https://youtube.com/shorts/${esc(id)}" target="_blank" rel="noopener">쇼츠 ${SHORT_KINDS[i] || i + 1}</a>`).join("")}
       <a href="https://studio.youtube.com" target="_blank" rel="noopener">YouTube Studio (공개 전환)</a></div>`;
   else if (editYt === s.slug) {
     const pv = m.youtube_preview || {};
     tube = `<form class="editor" id="ytForm">
       <label class="flabel"><span>제목</span></label><input id="ytTitle" value="${esc(pv.title || "")}" maxlength="100" autocomplete="off">
-      <label class="flabel"><span>쇼츠 제목</span></label><input id="ytShorts" value="${esc(pv.shorts_title || "")}" maxlength="100" autocomplete="off">
+      ${SHORT_KINDS.map((k, i) => `<label class="flabel"><span>쇼츠 제목 · ${k}</span></label><input id="ytShorts${i}" value="${esc((pv.shorts_titles || [])[i] || pv.shorts_title || "")}" maxlength="100" autocomplete="off">`).join("")}
       <label class="flabel"><span>설명</span></label><textarea id="ytDesc" spellcheck="false">${esc(pv.description || "")}</textarea>
       <label class="flabel"><span>해시태그 (띄어쓰기로 구분, 15개까지)</span></label><input id="ytHash" value="${esc((pv.hashtags || []).map(t => "#" + t).join(" "))}" autocomplete="off">
       <label class="flabel"><span>태그 (쉼표로 구분)</span></label><textarea id="ytTags" class="short" spellcheck="false">${esc((pv.tags || []).join(", "))}</textarea>
@@ -448,7 +488,7 @@ function renderDetail() {
     const pv = m.youtube_preview || {};
     const meta = pv.title ? `
       ${field("제목", pv.title)}
-      ${field("쇼츠 제목", pv.shorts_title || "")}
+      ${field("쇼츠 제목 · 도입 / 후렴 / 브릿지 / 엔딩", (pv.shorts_titles || [pv.shorts_title || ""]).join("\n"))}
       <details class="field"><summary class="flabel">설명</summary><div class="val lyrics">${esc(pv.description || "")}</div></details>
       ${field("해시태그", (pv.hashtags || []).map(t => "#" + t).join(" "))}
       ${field("태그", (pv.tags || []).join(", "))}
@@ -466,8 +506,9 @@ function renderDetail() {
     if (a && a.id && el.contains(a)) { focusId = a.id; selA = a.selectionStart ?? 0; selB = a.selectionEnd ?? 0; }
   }
   detailSlug = s.slug;
+  const cur = () => songs.find(x => x.slug === s.slug) || s;  // 단추를 누른 시점의 최신 곡 정보
 
-  el.innerHTML = `
+  const html = `
     <div class="head ${cover ? "" : "nocover"}">${cover ? `<img class="cover" src="${cover}" alt="">` : ""}
       <div><h1>${esc(m.title)}${editSlug === s.slug ? "" : `<button class="ghost fix" id="edit">제목·가사 수정</button><button class="ghost fix" id="del">삭제</button>`}</h1>
       <p>${esc(m.story || "")}</p></div></div>
@@ -480,7 +521,7 @@ function renderDetail() {
       </form></section>` : ""}
     <section class="step"><h2>수정 지시 <span>가사·소리·제목을 지시대로 다시 씁니다</span></h2>
       ${(() => { const r = runFor(s.slug, "다시 쓰기"); const last = (m.revisions || []).slice(-1)[0];
-        if (active(r)) { const pr = progressOf(r), pct = Math.round(pr.pct); return `<div class="state"><span class="dot run"></span>${esc(last?.note || "다시 쓰는 중")} · ${pct}%<div class="bar"><i style="width:${pct}%"></i></div></div>`; }
+        if (active(r)) { const pr = progressOf(r); return `<div class="state"><span class="dot run"></span>${progress(last?.note || "다시 쓰는 중", pr.pct)}</div>`; }
         return `<form class="editor" id="revForm">
           <textarea id="revNote" class="short" placeholder="예: 후렴을 더 짧게. 2절은 혼잣말로. 템포를 느리게 하고 피아노만으로 시작" aria-label="수정 지시"></textarea>
           <div class="row"><button class="btn primary" type="submit">지시대로 다시 쓰기</button>
@@ -501,18 +542,19 @@ function renderDetail() {
     </section>
     <section class="step"><h2>영상</h2>${video}</section>
     <section class="step"><h2>유튜브</h2>${tube}</section>`;
+  if (!patch(el, "detail", html)) return;  // 바뀐 것이 없으면 입력 중인 글·재생 중인 소리를 건드리지 않는다
 
   el.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => copy(b));
   const drop = $("drop"), file = $("file");
-  file.onchange = () => file.files[0] && uploadAudio(s, file.files[0]);
+  file.onchange = () => file.files[0] && uploadAudio(cur(), file.files[0]);
   drop.ondragover = e => { e.preventDefault(); drop.classList.add("over"); };
   drop.ondragleave = () => drop.classList.remove("over");
-  drop.ondrop = e => { e.preventDefault(); drop.classList.remove("over"); const f = e.dataTransfer.files[0]; if (f) uploadAudio(s, f); };
+  drop.ondrop = e => { e.preventDefault(); drop.classList.remove("over"); const f = e.dataTransfer.files[0]; if (f) uploadAudio(cur(), f); };
   for (const [id, v] of Object.entries(keep)) { const f = $(id); if (f && f.value !== v) f.value = v; }
   if (focusId && $(focusId)) { const f = $(focusId); f.focus({ preventScroll: true }); try { f.setSelectionRange(selA, selB); } catch {} }
-  if ($("publish")) $("publish").onclick = () => publish(s);
-  if ($("reprod")) $("reprod").onclick = () => reproduce(s);
-  if ($("del")) $("del").onclick = () => deleteSong(s);
+  if ($("publish")) $("publish").onclick = () => publish(cur());
+  if ($("reprod")) $("reprod").onclick = () => reproduce(cur());
+  if ($("del")) $("del").onclick = () => deleteSong(cur());
   if ($("ytEdit")) $("ytEdit").onclick = () => { editYt = s.slug; renderDetail(); $("ytTitle").focus(); };
   if ($("ytCancel")) $("ytCancel").onclick = () => { editYt = null; renderDetail(); };
   if ($("ytAuto")) $("ytAuto").onclick = async () => {
@@ -523,19 +565,22 @@ function renderDetail() {
     e.preventDefault();
     const hashtags = $("ytHash").value.split(/\s+/).map(x => x.replace(/^#/, "").trim()).filter(Boolean).slice(0, 15);
     const tags = $("ytTags").value.split(",").map(x => x.trim()).filter(Boolean);
-    const pv = { title: $("ytTitle").value.trim(), shorts_title: $("ytShorts").value.trim(), description: $("ytDesc").value.trim(), hashtags, tags };
+    const shorts_titles = SHORT_KINDS.map((_, i) => $("ytShorts" + i).value.trim());
+    const pv = { title: $("ytTitle").value.trim(), shorts_title: shorts_titles[1] || shorts_titles[0], shorts_titles, description: $("ytDesc").value.trim(), hashtags, tags };
     if (!pv.title) { $("ytTitle").focus(); return; }
-    e.submitter.disabled = true;
-    try { await saveYoutube(s, pv); editYt = null; toast("유튜브 글 저장"); await loadSongs(); render(); }
-    catch (err) { toast("저장 실패: " + err.message); e.submitter.disabled = false; }
+    const btn = submitBtn(e);
+    btn.disabled = true;
+    try { await saveYoutube(cur(), pv); editYt = null; toast("유튜브 글 저장"); await loadSongs(); render(); }
+    catch (err) { toast("저장 실패: " + err.message); btn.disabled = false; }
   };
   if ($("revForm")) $("revForm").onsubmit = async e => {
     e.preventDefault();
     const note = $("revNote").value.trim();
     if (!note) { $("revNote").focus(); return; }
-    e.submitter.disabled = true;
+    const btn = submitBtn(e);
+    btn.disabled = true;
     try { await dispatch("revise.yml", { slug: s.slug, note }); toast("지시대로 다시 쓰는 중"); setTimeout(refresh, 4000); poll(5000); }
-    catch (err) { toast("시작 실패: " + err.message); e.submitter.disabled = false; }
+    catch (err) { toast("시작 실패: " + err.message); btn.disabled = false; }
   };
   if ($("edit")) $("edit").onclick = () => { editSlug = s.slug; renderDetail(); $("editTitle").focus(); };
   if ($("editCancel")) $("editCancel").onclick = () => { editSlug = null; renderDetail(); };
@@ -544,15 +589,18 @@ function renderDetail() {
     const title = $("editTitle").value.trim(), lyrics = $("editLyrics").value;
     if (!title) { $("editTitle").focus(); return; }
     if (title === m.title && lyrics.trim() === (m.lyrics || "").trim()) { editSlug = null; renderDetail(); return; }
-    e.submitter.disabled = true;
+    const btn = submitBtn(e);
+    btn.disabled = true;
     try {
-      const changed = await saveEdit(s, title, lyrics);
+      const changed = await saveEdit(cur(), title, lyrics);
       editSlug = null;
       toast(changed && s.release ? "저장. 글 갱신 뒤 영상을 다시 제작해야 합니다" : "저장. 유튜브 글 갱신 중");
       await loadSongs(); render(); poll(5000);
-    } catch (err) { toast("저장 실패: " + err.message); e.submitter.disabled = false; }
+    } catch (err) { toast("저장 실패: " + err.message); btn.disabled = false; }
   };
 }
+// 오래된 Safari에는 e.submitter가 없다
+function submitBtn(e) { return e.submitter || e.target.querySelector("[type=submit]") || { set disabled(v) {} }; }
 
 function render() {
   if (!songs.some(x => x.slug === selected)) selected = songs[0]?.slug || null;
@@ -605,30 +653,43 @@ function b64enc(str) {
 }
 
 // 유튜브 글 직접 수정: song.yaml의 youtube_preview를 바꾸고 표시를 남긴다. 업로드는 이 글을 그대로 쓴다.
-async function saveYoutube(s, pv) {
+// song.yaml을 최신으로 읽어 고친 뒤 올린다. 그 사이 다른 갱신이 있어 충돌(409/422)하면 다시 읽어 한 번 더 시도한다
+async function putYaml(s, message, change) {
   const path = `/contents/songs/${encodeURIComponent(s.slug)}/song.yaml`;
-  const cur = await gh(`${path}?ref=${BRANCH}&t=${Date.now()}`);
-  const m = (cur && jsyaml.load(b64utf8(cur.content))) || JSON.parse(JSON.stringify(s.meta));
-  m.youtube_preview = { ...(m.youtube_preview || {}), ...pv };
-  m.youtube_preview_edited = true;
-  await gh(path, { method: "PUT",
-    body: JSON.stringify({ message: `유튜브 글: ${s.slug}`, content: b64enc(jsyaml.dump(m, { lineWidth: -1, noRefs: true })), sha: cur ? cur.sha : s.files["song.yaml"], branch: BRANCH }) });
+  for (let attempt = 0; ; attempt++) {
+    const cur = await gh(`${path}?ref=${BRANCH}&t=${Date.now()}`);
+    const m = (cur && jsyaml.load(b64utf8(cur.content))) || JSON.parse(JSON.stringify(s.meta));
+    const out = change(m);
+    if (out === false) return;
+    try {
+      await gh(path, { method: "PUT",
+        body: JSON.stringify({ message, content: b64enc(jsyaml.dump(m, { lineWidth: -1, noRefs: true })), sha: cur ? cur.sha : s.files["song.yaml"], branch: BRANCH }) });
+      return;
+    } catch (e) {
+      if (attempt >= 2 || ![409, 422].includes(e.status)) throw e;
+      await new Promise(r => setTimeout(r, 1500));
+    }
+  }
+}
+
+async function saveYoutube(s, pv) {
+  await putYaml(s, `유튜브 글: ${s.slug}`, m => {
+    m.youtube_preview = { ...(m.youtube_preview || {}), ...pv };
+    m.youtube_preview_edited = true;
+  });
 }
 
 // 제목·가사 수정: song.yaml을 바꿔 올리고, 글 갱신 실행으로 유튜브 제목·설명·해시태그를 다시 쓰게 한다
 async function saveEdit(s, title, lyrics) {
-  // 저장 직전에 최신 파일을 다시 읽어 그 위에 고친다(그 사이 다른 갱신이 있었어도 충돌하지 않게)
-  const path = `/contents/songs/${encodeURIComponent(s.slug)}/song.yaml`;
-  const cur = await gh(`${path}?ref=${BRANCH}&t=${Date.now()}`);
-  const m = (cur && jsyaml.load(b64utf8(cur.content))) || JSON.parse(JSON.stringify(s.meta));
-  const old = m.title || "";
-  const lyricsChanged = lyrics.trim() !== (m.lyrics || "").trim();
-  m.title = title; m.lyrics = lyrics.trim() + "\n";
-  const pv = m.youtube_preview;
-  if (pv && old && old !== title)  // 갱신이 끝나기 전까지 보일 임시 값
-    for (const k of ["title", "shorts_title", "description"]) if (typeof pv[k] === "string") pv[k] = pv[k].split(old).join(title);
-  await gh(path, { method: "PUT",
-    body: JSON.stringify({ message: `수정: ${title}`, content: b64enc(jsyaml.dump(m, { lineWidth: -1, noRefs: true })), sha: cur ? cur.sha : s.files["song.yaml"], branch: BRANCH }) });
+  let lyricsChanged = false;
+  await putYaml(s, `수정: ${title}`, m => {
+    const old = m.title || "";
+    lyricsChanged = lyrics.trim() !== (m.lyrics || "").trim();
+    m.title = title; m.lyrics = lyrics.trim() + "\n";
+    const pv = m.youtube_preview;
+    if (pv && old && old !== title)  // 갱신이 끝나기 전까지 보일 임시 값
+      for (const k of ["title", "shorts_title", "description"]) if (typeof pv[k] === "string") pv[k] = pv[k].split(old).join(title);
+  });
   await dispatch("refresh.yml", { slug: s.slug, lyrics_changed: String(lyricsChanged) });
   return lyricsChanged;
 }
@@ -710,24 +771,36 @@ async function reproduce(s) {
 }
 
 // ---------------------------------------------------------------- 갱신
-let timer = null, busyBefore = false;
+let timer = null, busyBefore = false, refreshing = null;
 async function refresh() {
-  try {
-    await loadRuns();
-    const busy = pending.length || runs.some(active);
-    if (!songs.length || busyBefore !== busy || !busy || pending.length) await loadSongs();
-    busyBefore = busy;
-    render();
-    return busy;
-  } catch (e) {
-    if (e.message !== "401") $("detail").innerHTML = `<div class="empty err">${esc(e.message)}</div>`;
-    return false;
-  }
+  if (refreshing) return refreshing;  // 겹쳐 돌지 않게 한 번에 하나만
+  refreshing = (async () => {
+    try {
+      await loadRuns();
+      const busy = pending.length || runs.some(active);
+      if (!songs.length || busyBefore !== busy || !busy || pending.length) await loadSongs();
+      busyBefore = busy;
+      render();
+      return busy;
+    } catch (e) {
+      if (e.message === "401") return false;
+      // 화면은 그대로 두고 알림만. 아직 아무것도 못 불러왔을 때만 자리에 적는다
+      if (!songs.length) $("detail").innerHTML = `<div class="empty err">${esc(e.message)} · <button class="copy" onclick="poll(100)">다시 시도</button></div>`;
+      else toast("갱신 실패: " + e.message);
+      return false;
+    } finally { refreshing = null; }
+  })();
+  return refreshing;
 }
 function poll(ms) {
   clearTimeout(timer);
-  timer = setTimeout(async () => { const busy = await refresh(); poll(busy ? 8000 : 60000); }, ms);
+  timer = setTimeout(async () => {
+    const busy = await refresh();
+    const slow = Date.now() - rateLimited < 5 * 60 * 1000;  // 한도에 걸렸으면 5분간 천천히
+    poll(slow ? 90000 : busy ? 8000 : 60000);
+  }, ms);
 }
+window.addEventListener("online", () => token && poll(100));
 // 진행률은 시간에 따라 움직이므로 1초마다 목록만 다시 그린다
 setInterval(() => {
   const videoBusy = runs.some(r => wf(r) === "영상 만들기" && active(r));
@@ -749,6 +822,7 @@ $("tokenSave").onclick = async () => {
   start();
 };
 $("logout").onclick = () => logout();
+$("tokenIn").onkeydown = e => { if (e.key === "Enter") $("tokenSave").click(); };
 $("make").onclick = () => makeSong();
 for (const id of ["title", "kw", "style"]) $(id).onkeydown = e => { if (e.key === "Enter") makeSong(); };
 document.addEventListener("visibilitychange", () => { if (!document.hidden && token) poll(100); });

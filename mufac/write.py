@@ -272,13 +272,14 @@ Suno Custom의 Style 칸에 그대로 붙여 넣는 영어 글이다. 짧은 문
 - photo_query: Pexels 영어 검색어 2~5단어.
 - image_prompt: 배경 일러스트용 영어 장면 묘사. 짧게, 2~3문장 60단어 이내. 가사를 옮기지 말고 가사의 상황 한 장면을 키워드로 잡는다: 누가(사람, 뒷모습이나 옆모습, 차림새), 어디서(장소, 시간대, 빛), 사물 한둘, 색과 기분.
   사람과 사물이 다 들어간 장면이어야 한다. 빈 풍경이나 하늘만 있는 그림은 안 된다. 글자, 간판 문구, 카메라를 보는 얼굴 없음.
+- short_scenes: 쇼츠용 세로 그림 세 장의 영어 장면, 순서대로 후렴·브릿지·엔딩 순간. image_prompt와 같은 사람·장소·색이되 다른 순간이다(후렴=가장 벅찬 순간, 브릿지=가까이 본 손이나 사물 하나, 엔딩=끝난 뒤의 그 자리). 각 1~2문장 40단어 이내.
 
 [유튜브]
 - situation: 제목 뒤에 붙일 듣는 상황 문구. 사람들이 검색하는 말로 10~20자. 예: 월요일 아침 출근길 노래, 잠 안 오는 밤에 듣는 노래
-- shorts_title: 후렴 문장(hook)을 그대로 적는다. #shorts는 붙이지 않는다.
+- shorts_title: 후렴 문장(hook)을 그대로 적는다. #shorts는 붙이지 않는다. 쇼츠는 곡마다 넷(도입·후렴·브릿지·엔딩)이 나가고 제목은 각 구간의 가사 한 줄로 시스템이 정한다.
 - 설명란에는 가사, 만든 사람, 저작권, 해시태그만 들어간다. 소개 글이나 댓글 유도 문장은 쓰지 않는다.
 - hashtags: 12개, # 없이, 띄어쓰기 없이. 앞의 3개가 제목 위에 보이니 가장 넓게 검색되는 말부터(예: 발라드, 감성노래, 퇴근길노래).
-  뻔하고 넓은 말을 먼저 넣는다: 장르(발라드, 락, 인디, 힙합), 기분(감성, 위로노래, 새벽감성, 신나는노래), 상황(출근길노래, 드라이브노래, 퇴근길), 플레이리스트형(감성플리, 노동요). 뒤에 시스템이 음악·노래·신곡 등 기본 3개를 붙여 15개를 맞춘다(유튜브는 15개 초과 시 전부 무시).
+  뻔하고 넓은 말을 먼저 넣는다: 장르(발라드, 락, 인디, 힙합), 기분(감성, 위로노래, 새벽감성, 신나는노래), 상황(출근길노래, 드라이브노래, 퇴근길), 플레이리스트형(감성플리, 노동요). 뒤에 시스템이 노래·음악·인공지능과 기본 태그를 붙여 15개를 맞추니 그 말들은 넣지 않는다.
 - tags: 검색 키워드 30~40개. 넓은 말(음악, 노래, 감성, 발라드, 플레이리스트, 노래 추천)부터 좁은 말(곡 상황, 기분, 장소)까지, 한국어 위주에 영어 몇 개(korean ballad, korean indie, kpop). 다른 가수 이름은 넣지 않는다(유튜브 스팸 정책).
 """
 
@@ -313,6 +314,7 @@ SCHEMA = {
         "exclude": {"type": "string"},
         "photo_query": {"type": "string"},
         "image_prompt": {"type": "string"},
+        "short_scenes": {"type": "array", "items": {"type": "string"}, "description": "쇼츠 세로 그림 세 장의 영어 장면(후렴·브릿지·엔딩 순)"},
         "situation": {"type": "string"},
         "shorts_title": {"type": "string"},
         "hashtags": {"type": "array", "items": {"type": "string"}},
@@ -333,7 +335,7 @@ SCHEMA = {
         },
     },
     "required": ["candidates", "chosen", "why", "title", "title_kind", "tempo", "arc", "line_plan", "lyrics", "share_line", "sound_plan", "style", "exclude",
-                 "photo_query", "image_prompt", "situation", "shorts_title",
+                 "photo_query", "image_prompt", "short_scenes", "situation", "shorts_title",
                  "hashtags", "tags", "references"],
     "additionalProperties": False,
 }

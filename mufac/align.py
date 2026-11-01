@@ -157,21 +157,56 @@ def read_lrc(path) -> list[tuple[float, str]]:
 
 # ---------------------------------------------------------------- 쇼츠 구간
 
-def short_window(song: Song, rows: list[dict], seconds: float) -> tuple[float, float]:
-    """쇼츠로 자를 구간. 첫 후렴을 우선, 없으면 가장 큰 소리 구간."""
+SHORT_KINDS = ("도입", "후렴", "브릿지", "엔딩")
+
+
+def _sec(r: dict) -> str:
+    return r["section"].lower()
+
+
+def short_windows(song: Song, rows: list[dict], seconds: float) -> list[dict]:
+    """쇼츠 네 개의 구간. 도입(노래 시작부터), 후렴(첫 후렴), 브릿지(브릿지부터 마지막 후렴으로), 엔딩(마지막 후렴부터 끝).
+    가사가 없으면(연주곡) 시작·가장 큰 소리·중간·끝에서 자른다. 겹치는 구간은 뒤로 민다."""
     total = duration(song.audio_path())
-    seconds = min(seconds, total)
-    chorus = [r for r in rows if "chorus" in r["section"].lower()]
-    if chorus:
-        first = chorus[0]
-        start = max(0.0, first["start"] - 2.0)
-        return start, min(total, start + seconds)
-    audio = load_mono(song.audio_path(), 8000)
-    hop = 4000  # 0.5초
-    rms = np.sqrt(np.add.reduceat(audio ** 2, np.arange(0, len(audio), hop)) / hop)
-    win = int(seconds * 2)
-    if len(rms) <= win:
-        return 0.0, seconds
-    score = np.convolve(rms, np.ones(win), "valid")
-    start = float(np.argmax(score[: max(1, len(score) - 20)]) / 2)
-    return start, start + seconds
+    seconds = max(10.0, min(seconds, total))
+    if rows:
+        chorus = [r for r in rows if "chorus" in _sec(r) and "pre" not in _sec(r)]
+        bridge = [r for r in rows if "bridge" in _sec(r)]
+        last_chorus = None
+        if chorus:  # 마지막 후렴 덩어리의 첫 줄
+            last_chorus = chorus[-1]
+            for r in reversed(chorus):
+                if last_chorus["start"] - r["start"] > 8:
+                    break
+                last_chorus = r
+        starts = [
+            0.0,
+            max(0.0, chorus[0]["start"] - 2.0) if chorus else total * 0.3,
+            max(0.0, bridge[0]["start"] - 1.0) if bridge else total * 0.55,
+            max(0.0, last_chorus["start"] - 2.0) if last_chorus else total - seconds,
+        ]
+    else:
+        audio = load_mono(song.audio_path(), 8000)
+        hop = 4000  # 0.5초
+        rms = np.sqrt(np.add.reduceat(audio ** 2, np.arange(0, len(audio), hop)) / hop)
+        win = int(seconds * 2)
+        loud = 0.0
+        if len(rms) > win:
+            score = np.convolve(rms, np.ones(win), "valid")
+            loud = float(np.argmax(score[: max(1, len(score) - 20)]) / 2)
+        starts = [0.0, loud, total * 0.55, total - seconds]
+    out = []
+    for kind, start in zip(SHORT_KINDS, starts):
+        start = min(max(0.0, start), max(0.0, total - seconds))
+        # 앞 구간과 절반 넘게 겹치면 그만큼 뒤로 민다
+        for prev in out:
+            if abs(start - prev["start"]) < seconds * 0.5:
+                start = min(prev["start"] + seconds * 0.5, max(0.0, total - seconds))
+        out.append({"kind": kind, "start": round(start, 2), "end": round(min(total, start + seconds), 2)})
+    return out
+
+
+def short_window(song: Song, rows: list[dict], seconds: float) -> tuple[float, float]:
+    """첫 후렴 구간(예전 호환)."""
+    w = short_windows(song, rows, seconds)[1]
+    return w["start"], w["end"]
