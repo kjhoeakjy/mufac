@@ -226,7 +226,8 @@ title_kind에 고른 형태를 적고, why에 왜 그 형태인지 쓴다.
 - 1절은 첫 줄부터 박히는 말로 연다([도입부와 후렴의 임팩트]의 여섯 가지 중 하나). 배경 설명, 사물 스냅샷, 장소로 시작하지 않는다.
 - 2절은 1절과 같은 멜로디 자리의 줄은 음절 수를 맞추고, 시점이나 상대를 바꿔 다른 각도를 준다.
 - 쇼츠 15초에 들어갈, 캡처해서 공유하고 싶은 한 줄을 반드시 하나 넣는다(보통 후렴 둘째 줄이나 브릿지).
-- 줄 끝은 히트곡 실측 분포를 따른다(한국어 줄 기준). 명사·조사·관형형으로 끊긴 줄 35~40%, 해체 종결(-아/-어/-야/-잖아) 20~25%, 연결어미(-고/-는데/-다가/-면/-서) 10~15%,
+- 줄 끝은 실측 분포를 따른다(한국어 줄 기준). 아래 [장르 줄 끝 실측]에 요청 장르의 분포가 있으면 그것이 우선이다. 장르마다 다르다: 발라드는 해체·해요체가 더 많고, 록·인디는 명사 끝과 연결어미가 더 많다.
+  기본값(히트곡 12곡): 명사·조사·관형형으로 끊긴 줄 35~40%, 해체 종결(-아/-어/-야/-잖아) 20~25%, 연결어미(-고/-는데/-다가/-면/-서) 10~15%,
   -네/-지 5%, 추측·의지(-겠지/-ㄹ게/-ㄹ 거야) 3%, 물음 2%, -다/-었다/-더라 0~1줄. 해요체(-요/-죠)는 전곡을 해요체로 쓰거나 아예 쓰지 않는다. 열 곡 중 둘은 전곡 해요체다(발라드·포크·어쿠스틱·OST에 맞다). 요청에 [해요체 차례]가 있으면 이번 곡은 전곡 해요체로 쓴다.
   네 줄 구간 하나에서: 명사·조사로 끊긴 줄 1~2, 연결어미 0~1, 닫는 줄(해체·-네/-지·훅) 1. 연결어미로 끝나는 줄이 넷 중 둘을 넘으면 산문이다. 한 구간 네 줄의 끝이 셋 이상 같은 종류면 고친다.
   혼잣말·관찰 화법에서는 해체 종결을 더 줄이고 명사 끝을 늘린다.
@@ -464,8 +465,37 @@ def _sound(genre: str = "") -> str:
     return out
 
 
+ENDINGS = LYRICS_DIR / "_장르어미.json"
+
+
+def _endings(genre: str = "") -> str:
+    """장르별 유명곡 줄 끝 실측(tools/endings_survey.py가 만든 통계)을 프롬프트 문장으로. 장르가 없으면 주요 묶음 다섯."""
+    if not ENDINGS.exists():
+        return ""
+    try:
+        result = json.loads(ENDINGS.read_text(encoding="utf-8"))
+    except ValueError:
+        return ""
+    groups = [g for g, s in result.items() if genre in (s.get("members") or [])]
+    if not groups:
+        groups = [g for g in ("발라드", "댄스·팝", "록", "인디", "힙합") if g in result]
+    lines = []
+    for g in groups:
+        s = result[g]
+        e = s.get("endings_pct") or {}
+        top = ", ".join(f"{k} {v}%" for k, v in list(e.items())[:6])
+        lines.append(f"- {g}(유명곡 {s['songs']}곡 {s['lines']}줄 실측): {top}. 줄 음절 중앙값 {s['syllables_median']}, 4음절 이하 {s['short_le4_pct']}%, "
+                     f"10음절 초과 {s['long_gt10_pct']}%, 같은 줄 반복 {s['repeat_pct']}%, 너·그대 든 줄 {s['you_pct']}%, 감정어 줄 {s['emotion_pct']}%, "
+                     f"양보형 {s['concession_pct']}%, 전곡 해요체 {s['polite_songs']}/{s['songs']}곡.")
+    if not lines:
+        return ""
+    head = ("이 장르 유명곡들의 줄 끝 분포다. 이 곡의 줄 끝·음절·반복·2인칭·감정어 비율을 이 분포에 맞춘다(±10%p). "
+            "분포가 [가사 설계]의 기본값과 다르면 이 분포가 우선이다. 해요체 곡 비율이 높은 장르면 그만큼 해요체 곡을 쓴다.")
+    return "\n\n[장르 줄 끝 실측]\n" + head + "\n" + "\n".join(lines)
+
+
 def _system(base: str, genre: str = "") -> str:
-    """시스템 프롬프트에 레퍼런스 이름, 작사 프로필, 후렴 원칙, 소리 설계도, AI 티 점검표를 붙인다."""
+    """시스템 프롬프트에 레퍼런스 이름, 작사 프로필, 후렴 원칙, 장르 줄 끝 실측, 소리 설계도, AI 티 점검표를 붙인다."""
     from .learn import profiles_text
     text = base.replace("{ref}", _ref())
     profiles = profiles_text()
@@ -474,6 +504,8 @@ def _system(base: str, genre: str = "") -> str:
     hooks = _read(HOOKS)
     if hooks:
         text += "\n\n[후렴과 반복]\n" + hooks
+    if base is SYSTEM:
+        text += _endings(genre)
     if base is SYSTEM:
         if is_instrumental(genre):
             text += "\n\n" + MODE_INSTRUMENTAL
@@ -542,7 +574,7 @@ def polish(data: dict, fixed_title: str = "") -> dict:
               "properties": {"lyrics": {"type": "string"}, "title": {"type": "string"}, "share_line": {"type": "string"},
                              "changes": {"type": "array", "items": {"type": "string"}}},
               "required": ["lyrics", "title", "share_line", "changes"], "additionalProperties": False}
-    system = REVIEW + "\n\n[AI 티 점검표]\n" + _checklist()
+    system = REVIEW + _endings((data.get("request") or {}).get("genre", "")) + "\n\n[AI 티 점검표]\n" + _checklist()
     content = f"[제목]\n{data['title']}\n\n[가사]\n{data['lyrics']}"
     if fixed_title:
         content += "\n\n[제목은 사용자가 정한 것이라 바꾸지 않는다]"

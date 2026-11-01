@@ -89,7 +89,8 @@ def melon_lyrics(song_id: str) -> tuple[str, list[str]]:
     if not m:
         return title, []
     body = re.sub(r"<!--.*?-->", "", m.group(1), flags=re.S)
-    lines = [html.unescape(re.sub(r"<[^>]+>", "", x)).strip() for x in re.split(r"<br\s*/?>", body)]
+    body = re.sub(r"<br\s*/?>", "\n", body)  # 곡에 따라 <br> 대신 줄바꿈 글자만 있는 페이지가 있다
+    lines = [html.unescape(re.sub(r"<[^>]+>", "", x)).strip() for x in body.splitlines()]
     return title, [x for x in lines if x]
 
 
