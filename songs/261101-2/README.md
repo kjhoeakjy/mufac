@@ -4,7 +4,7 @@
 
 > 찬란 말고 화란
 
-사랑 · 밤 늦게 혼자 운전하며 멀어졌다 가까워지길 반복하는 사람을 떠올리다, 이번에는 돌지 않고 그 사람 쪽으로 가겠다고 말하는 여자가 부른다.
+사랑 · 조용하고 반듯한 방에서 불을 끄지 못한 채, 흔들리더라도 네가 일으킨 소란이 그리워 다시 오라고 부르는 사람의 노래.
 
 ## 이렇게 쓴 이유
 
@@ -42,66 +42,66 @@ saxophone, synth brass, distorted guitar
 [Intro: fingered bass riff and acoustic guitar]
 
 [Verse 1: bass, acoustic guitar, close voice]
-파란 위에 또 파란
-노란 밑에 또 노란
-네 쪽으로 기울면
-모든 게 둥글어져
-반만 남은 소리
-끝도 없이 돌아와
-파란은 네 쪽에서부터
+잔잔한 날에는 내가 없고
+흔들릴 때에만 내가 있다
+네가 일으킨 파란 속에서
+젖은 채로 가벼운 마음
+반듯한 하루를 접어 두고
+기울어진 쪽으로 걸어가
+불을 끄지 못한 밤
 
 [Pre-Chorus: nylon guitar and soft electric piano enter, rising]
-밀어내면 밀려와
-돌고 돌아 안쪽으로
-네가 또 부르면
+가라앉으라는 말에
+나는 더 깊이 흔들리고
+네가 다시 손을 내밀면
 
 [Chorus: soft two-part harmonies, rim clicks]
 찬란 말고 화란
-파란 끝에 화란
-네가 오면 다 화란
+고요보다 네 소란
+부서져도 너라면
 찬란 말고 화란
 (말고 화란)
 
 [Verse 2: brushed drums and shaker added]
-하얀 위에 또 하얀
-까만 밑에 또 까만
-네 쪽에서 멀어지면
-모든 게 반듯해져
-반만 남은 노래
-멈추지 않고 돌아
-파란은 네 쪽에서부터
+네가 없는 방은 반듯하고
+모든 것이 제자리에 놓여
+하얀 벽에 걸린 바른 시계
+한 번도 틀리지 않는 고요
+그 고요가 나를 지우고
+숨소리마저 가지런해
+불을 끄지 못한 밤
 
 [Pre-Chorus: two acoustic guitars, rising]
-기다리면 멀어져
-돌고 돌아 바깥으로
-네 이름을 부르면
+잊으라는 말에
+나는 더 또렷해지고
+네 이름이 입술에 닿으면
 
 [Chorus: soft two-part harmonies, rim clicks]
 찬란 말고 화란
-파란 끝에 화란
-네가 오면 다 화란
+고요보다 네 소란
+부서져도 너라면
 찬란 말고 화란
 (말고 화란)
 
 [Guitar Solo: quiet acoustic guitar over bass]
 
 [Bridge: bass and whispered voice only]
-안에서 밖으로
-밖에서 안으로
-엉망인 게 편했어
-보고 싶어 네 소란
-이번엔 돌지 않을게
+고요를 다 가져도
+나는 비어 있었고
+흐트러진 그 계절이 편했다
+보고 싶다, 네 소란
+이번에는 놓지 않을게
 
 [Final Chorus: fullest yet restrained, extra harmonies]
 찬란 말고 화란
-파란 끝에 화란
+고요보다 네 소란
 다시 와서 화란
 찬란 말고 화란
 (말고 화란)
 찬란 말고 화란
 
 [Outro: bass riff alone, fade out]
-네 쪽으로 다시 파란
+파란이 다시 오는 쪽으로
 
 [End]
 ```
