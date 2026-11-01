@@ -1,0 +1,58 @@
+name: 영어 가사 조사
+run-name: "영어 가사 조사 ${{ inputs.probe && '(구조 확인)' || inputs.years }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      probe:
+        description: "목록·가사·장르 출처가 읽히는지만 확인"
+        type: boolean
+        default: false
+      years:
+        description: "연도 범위"
+        required: false
+        default: "1990-2025"
+      top:
+        description: "해마다 상위 몇 곡"
+        required: false
+        default: "100"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: en-survey
+  cancel-in-progress: false
+
+jobs:
+  survey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: 구조 확인
+        if: ${{ inputs.probe }}
+        run: python tools/en_survey.py --probe
+      - name: 조사
+        if: ${{ !inputs.probe }}
+        env:
+          YEARS: ${{ inputs.years }}
+          TOP: ${{ inputs.top }}
+        run: python tools/en_survey.py --years "$YEARS" --top "$TOP"
+      - name: 저장
+        if: ${{ !inputs.probe }}
+        run: |
+          git config user.name "mufac"
+          git config user.email "mufac@users.noreply.github.com"
+          git add assets/lyrics/_영어실측.json assets/lyrics/_영어실측.md
+          git diff --cached --quiet || git commit -m "영어 히트곡 가사 실측"
+          pushed=0
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase origin main && git push -q; then pushed=1; break; fi
+            git rebase --abort 2>/dev/null || true; sleep $((i * 5))
+          done
+          [ "$pushed" = 1 ] || { echo "::error::저장 실패: push가 다섯 번 밀렸습니다"; exit 1; }
