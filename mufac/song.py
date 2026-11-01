@@ -113,6 +113,14 @@ class Song:
         return "\n\n".join(blocks)
 
 
+def artist_name(cfg: dict, meta: dict) -> str:
+    """화면과 글에 쓰는 이름. 영어 곡은 영어 이름(사용자 지정: Yon Ju Kim)."""
+    lang = meta.get("lang") or (meta.get("request") or {}).get("lang", "")
+    if lang == "en":
+        return cfg.get("artist_en") or cfg.get("artist", "")
+    return cfg.get("artist", "")
+
+
 def new_slug() -> str:
     today = dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).strftime("%y%m%d")
     n = 1

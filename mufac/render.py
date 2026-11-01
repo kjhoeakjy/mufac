@@ -18,6 +18,7 @@ from .song import FONTS, Song
 
 # 글꼴은 Pretendard(SIL OFL). 자막(ASS)에서는 글꼴 이름으로, 썸네일(PIL)에서는 파일로 쓴다
 TITLE_FONT, TITLE_FILE = "Pretendard", FONTS / "Pretendard-Bold.otf"
+TRANS_FONT = "Pretendard Medium"  # 영어 곡: 영어 가사 밑에 작게 뜨는 한국어 번역
 LYRIC_FONT = "Pretendard SemiBold"
 SMALL_FONT, SMALL_FILE = "Pretendard Medium", FONTS / "Pretendard-Medium.otf"
 FPS = 30
@@ -101,8 +102,10 @@ def _style(name, font, size, align, margin_v, *, bold=0, shadow=1, margin_lr=120
 
 def write_ass_main(song: Song, rows: list[dict], path: Path, artist: str) -> None:
     title = song.meta.get("title", "")
+    two = any(r.get("ko") for r in rows)  # 번역 줄이 있으면 영어를 한 칸 올리고 그 밑에 한국어
     lines = [_ass_header(1920, 1080, [
-        _style("Lyric", LYRIC_FONT, 62, 2, 110),
+        _style("Lyric", LYRIC_FONT, 62 if not two else 58, 2, 110 if not two else 168),
+        _style("Trans", TRANS_FONT, 40, 2, 108, color="&H00DCDCDC"),
         _style("Title", TITLE_FONT, 84, 5, 0, bold=-1, spacing=1),
         _style("Artist", SMALL_FONT, 36, 5, 0, color="&H00E6E6E6", spacing=2),
     ])]
@@ -118,6 +121,9 @@ def write_ass_main(song: Song, rows: list[dict], path: Path, artist: str) -> Non
     for r in rows:
         lines.append(f"Dialogue: 0,{_ts(r['start'] - 0.15)},{_ts(r['end'])},Lyric,,0,0,0,,"
                      f"{{\\fad(220,320)}}{_esc(r['text'])}")
+        if r.get("ko"):
+            lines.append(f"Dialogue: 0,{_ts(r['start'] - 0.15)},{_ts(r['end'])},Trans,,0,0,0,,"
+                         f"{{\\fad(220,320)}}{_esc(r['ko'])}")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -125,6 +131,7 @@ def write_ass_short(song: Song, rows: list[dict], path: Path, artist: str, start
     title = song.meta.get("title", "")
     lines = [_ass_header(1080, 1920, [
         _style("Lyric", LYRIC_FONT, 54, 5, 0, margin_lr=100),
+        _style("Trans", TRANS_FONT, 40, 5, 0, margin_lr=100, color="&H00DCDCDC"),
         _style("Title", TITLE_FONT, 72, 5, 0, bold=-1, margin_lr=90, spacing=1),
         _style("Top", TITLE_FONT, 50, 8, 0, bold=-1, margin_lr=90, spacing=1),
         _style("Artist", SMALL_FONT, 34, 5, 0, color="&H00E6E6E6", spacing=2),
@@ -134,12 +141,15 @@ def write_ass_short(song: Song, rows: list[dict], path: Path, artist: str, start
         # 첫 1초가 승부라 제목 카드로 시간을 쓰지 않는다. 제목은 위쪽(상태 표시줄 아래)에 작게 내내 둔다
         lines.append(f"Dialogue: 0,{_ts(0)},{_ts(span)},Top,,0,0,0,,{{\\fad(300,300)\\pos(540,200)}}{_esc(title)}")
         if artist:
-            lines.append(f"Dialogue: 0,{_ts(0)},{_ts(span)},Artist,,0,0,0,,{{\\fad(300,300)\\pos(540,262)}}{_esc(artist)}")
+            lines.append(f"Dialogue: 0,{_ts(0)},{_ts(span)},Artist,,0,0,0,,{{\\fad(300,300)\\pos(540,288)}}{_esc(artist)}")
         # 구간 앞에 가사 없는 전주가 길면 그동안 후렴 한 줄을 띄운다(첫 1~2초에 글이 있어야 넘기지 않는다)
         first = next((r["start"] - start for r in rows if r["end"] > start), span)
         hook = (song.meta.get("hook") or "").strip()
         if hook and first > 2.5:
             lines.append(f"Dialogue: 0,{_ts(0.2)},{_ts(first - 0.4)},Lyric,,0,0,0,,{{\\fad(300,400)\\pos(540,1380)}}{_esc(hook)}")
+            ko = next((r.get("ko") for r in rows if r["text"].strip() == hook and r.get("ko")), "")
+            if ko:
+                lines.append(f"Dialogue: 0,{_ts(0.2)},{_ts(first - 0.4)},Trans,,0,0,0,,{{\\fad(300,400)\\pos(540,1462)}}{_esc(ko)}")
     else:  # 연주곡은 제목을 가운데에 끝까지
         lines.append(f"Dialogue: 0,{_ts(0)},{_ts(span)},Title,,0,0,0,,{{\\fad(400,500)\\pos(540,{880 if artist else 900})}}{_esc(title)}")
         if artist:
@@ -150,6 +160,9 @@ def write_ass_short(song: Song, rows: list[dict], path: Path, artist: str, start
             continue
         lines.append(f"Dialogue: 0,{_ts(a - 0.15)},{_ts(min(b, span))},Lyric,,0,0,0,,"
                      f"{{\\fad(220,320)\\pos(540,1380)}}{_esc(r['text'])}")
+        if r.get("ko"):
+            lines.append(f"Dialogue: 0,{_ts(a - 0.15)},{_ts(min(b, span))},Trans,,0,0,0,,"
+                         f"{{\\fad(220,320)\\pos(540,1462)}}{_esc(r['ko'])}")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

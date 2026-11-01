@@ -6,7 +6,7 @@ import os
 import datetime as _dt
 from pathlib import Path
 
-from .song import Song
+from .song import Song, artist_name
 
 SCOPES = ["https://www.googleapis.com/auth/youtube"]
 
@@ -67,10 +67,27 @@ GENERIC_TAGS = ["음악", "노래", "인공지능", "AI음악", "AI노래", "AI 
                 "플레이리스트", "가사", "kpop", "korean music", "k-pop", "korean song"]
 SHORT_KINDS = ("도입", "후렴", "브릿지", "엔딩")
 
+# 영어 곡은 제목·설명·해시태그·태그를 모두 영어로(사용자 지정, 2026-11-01)
+FIXED_HASHTAGS_EN = ["song", "music", "AI"]
+GENERIC_HASHTAGS_EN = ["AImusic", "newmusic", "englishsong", "popsong", "lyrics", "AIsong", "musicvideo", "playlist", "sadsongs", "lovesong"]
+GENERIC_TAGS_EN = ["song", "music", "AI", "AI music", "AI song", "suno", "new music", "english song", "pop song", "lyrics",
+                   "lyric video", "love song", "playlist", "chill music", "songs with lyrics"]
+GENRE_EN = {"발라드": "ballad", "록발라드": "rockballad", "팝": "pop", "R&B": "rnb", "어쿠스틱": "acoustic", "포크": "folk",
+            "밴드": "band", "인디밴드": "indie", "락": "rock", "펑크": "punk", "메탈": "metal", "힙합": "hiphop", "댄스": "dance",
+            "일렉트로닉": "electronic", "시티팝": "citypop", "재즈": "jazz", "블루스": "blues", "레게": "reggae", "OST": "soundtrack",
+            "트로트": "trot", "국악": "koreantraditional", "캐럴": "christmas", "동요": "kidssongs", "자장가": "lullaby",
+            "무가사": "instrumental", "뉴에이지": "newage", "로파이": "lofi"}
+
+
+def is_en(meta: dict) -> bool:
+    return (meta.get("lang") or (meta.get("request") or {}).get("lang", "")) == "en"
+
 
 def _genre_word(meta: dict) -> str:
     g = ((meta.get("request") or {}).get("genre") or "").strip()
-    return "" if g in ("", "자동") else g
+    if g in ("", "자동"):
+        return ""
+    return GENRE_EN.get(g, "") if is_en(meta) else g
 
 
 def hashtags(meta: dict, artist: str) -> list[str]:
@@ -78,7 +95,8 @@ def hashtags(meta: dict, artist: str) -> list[str]:
     곡별 태그 → 장르 → 제목·채널 → 넓은 기본 태그(음악, 노래, 감성) 순으로 채운다. 앞의 3개가 제목 위에 보인다."""
     own = list((meta.get("youtube_meta") or {}).get("hashtags") or [])
     # 앞 3개는 곡이 고른 넓은 말(제목 위에 보인다), 그다음 장르와 고정 태그(노래·음악·인공지능), 나머지 곡 태그, 제목·채널, 기본 태그
-    raw = own[:3] + [_genre_word(meta)] + FIXED_HASHTAGS + own[3:] + [meta.get("title", ""), artist] + GENERIC_HASHTAGS
+    fixed, generic = (FIXED_HASHTAGS_EN, GENERIC_HASHTAGS_EN) if is_en(meta) else (FIXED_HASHTAGS, GENERIC_HASHTAGS)
+    raw = own[:3] + [_genre_word(meta)] + fixed + own[3:] + [meta.get("title", ""), artist] + generic
     out = []
     for t in raw:
         t = "".join(ch for ch in (t or "") if ch.isalnum() or ch == "_")
@@ -90,6 +108,8 @@ def hashtags(meta: dict, artist: str) -> list[str]:
 def description(song: Song, artist: str, *, main_id: str | None = None, short: bool = False) -> str:
     """설명란. 가사, 만든 사람, 저작권, 해시태그만 적는다."""
     m = song.meta
+    if is_en(m):
+        return _description_en(song, artist, main_id=main_id, short=short)
     parts = []
     if main_id:
         parts.append(f"전체 노래 https://youtu.be/{main_id}")
@@ -118,6 +138,37 @@ def description(song: Song, artist: str, *, main_id: str | None = None, short: b
     return "\n\n".join(p for p in parts if p).strip()[:4900]
 
 
+def _description_en(song: Song, artist: str, *, main_id: str | None = None, short: bool = False) -> str:
+    """영어 곡 설명란. 전부 영어: 가사, 만든 사람(Yon Ju Kim과 채널 이름), 저작권, 해시태그."""
+    from .song import config
+    m = song.meta
+    parts = []
+    if main_id:
+        parts.append(f"Full song: https://youtu.be/{main_id}")
+    if short:
+        line = (m.get("share_line") or m.get("hook") or "").strip()
+        if line:
+            parts.append(line)
+    elif song.plain_lyrics():
+        parts.append(song.plain_lyrics())
+    channel = config().get("artist", "")
+    who = f"{artist} ({channel})" if channel and channel != artist else artist
+    credit = [f"{'Music' if m.get('instrumental') else 'Words & music'} by {who}" if who else ""]
+    photo = m.get("photo") or {}
+    if photo.get("source") == "pexels":
+        credit.append(f"Music generated with Suno. Photo by {photo.get('photographer')} (Pexels)")
+    else:
+        credit.append("Music and artwork generated with AI (Suno)")
+    year = str(m.get("created", ""))[:4] or _dt.date.today().strftime("%Y")
+    credit.append(f"© {year} {artist or 'the channel owner'}. All rights reserved. Please do not re-upload.")
+    parts.append("\n".join(c for c in credit if c))
+    tags = hashtags(m, artist)
+    if short and "shorts" not in tags:
+        tags = ["shorts", *tags][:15]
+    parts.append(" ".join("#" + t for t in tags))
+    return "\n\n".join(p for p in parts if p).strip()[:4900]
+
+
 def shorts_titles(song: Song) -> list[str]:
     """쇼츠 넷의 제목. 도입은 1절 첫 줄, 후렴은 후렴 문장(사용자 지정), 브릿지는 브릿지 첫 줄, 엔딩은 공유 한 줄(없으면 끝부분의 다른 줄).
     넷이 다른 말이어야 검색과 추천에서 서로 다른 입구가 된다."""
@@ -139,15 +190,16 @@ def shorts_titles(song: Song) -> list[str]:
 
 def preview(song: Song, cfg: dict) -> dict:
     """업로드 전에 보여 줄 유튜브 메타데이터. 업로드도 같은 값을 쓴다."""
-    artist = cfg.get("artist", "")
+    artist = artist_name(cfg, song.meta)
     m, ym = song.meta, song.meta.get("youtube_meta") or {}
     titles = shorts_titles(song)
+    generic = GENERIC_TAGS_EN if is_en(m) else GENERIC_TAGS
     return {
         "title": main_title(cfg["youtube_title"], m["title"], artist, ym.get("situation", "")),
         "shorts_title": titles[1],  # 예전 호환: 후렴 쇼츠 제목
         "shorts_titles": titles,
         "description": description(song, artist),
-        "tags": fit_tags([m["title"], artist, *GENERIC_TAGS[:3], _genre_word(m), *(m.get("tags") or []), *GENERIC_TAGS[3:]]),
+        "tags": fit_tags([m["title"], artist, *generic[:3], _genre_word(m), *(m.get("tags") or []), *generic[3:]]),
         "hashtags": hashtags(m, artist),
         "playlists": playlist_names(cfg, m),
         "privacy": cfg.get("privacy", "private"),
@@ -167,6 +219,8 @@ def publish_at(cfg: dict, index: int) -> str:
 
 
 def playlist_names(cfg: dict, meta: dict) -> list[str]:
+    if is_en(meta):
+        return list(cfg.get("playlists_en") or [])
     names = list(cfg.get("playlists") or [])
     theme = meta.get("theme")
     themed = (cfg.get("theme_playlists") or {}).get(theme)
@@ -197,7 +251,7 @@ def add_to_playlist(video_id: str, name: str, privacy: str) -> None:
 
 
 def upload(path: Path, *, title: str, desc: str, tags: list[str], privacy: str,
-           thumb: Path | None = None, publish_at: str | None = None) -> str:
+           thumb: Path | None = None, publish_at: str | None = None, lang: str = "ko") -> str:
     from googleapiclient.errors import HttpError
     from googleapiclient.http import MediaFileUpload
 
@@ -208,8 +262,8 @@ def upload(path: Path, *, title: str, desc: str, tags: list[str], privacy: str,
             "description": desc,
             "tags": tags[:30],
             "categoryId": "10",  # Music
-            "defaultLanguage": "ko",
-            "defaultAudioLanguage": "ko",
+            "defaultLanguage": lang,
+            "defaultAudioLanguage": lang,
         },
         "status": {
             "privacyStatus": privacy,

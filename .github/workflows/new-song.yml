@@ -38,6 +38,10 @@ on:
         description: "노래에 담을 내용 (비워도 됨)"
         required: false
         default: ""
+      lang:
+        description: "가사 언어 (ko 한국어, en 영어)"
+        required: false
+        default: "ko"
       genre:
         description: "장르 (자동, 발라드, 록발라드, 팝, R&B, 어쿠스틱, 포크, 밴드, 인디밴드, 락, 펑크, 메탈, 힙합, 댄스, 일렉트로닉, 시티팝, 재즈, 블루스, 레게, OST, 트로트, 국악, 캐럴, 동요, 자장가, 무가사, 뉴에이지, 로파이)"
         required: false
@@ -71,6 +75,7 @@ jobs:
       TITLE_IN: ${{ inputs.title }}
       CONTENT: ${{ inputs.content }}
       GENRE: ${{ inputs.genre || '자동' }}
+      LANG_IN: ${{ inputs.lang || 'ko' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -79,7 +84,7 @@ jobs:
           cache: pip
       - run: pip install anthropic requests PyYAML Pillow numpy
       - name: 조사
-        run: python -m mufac new --stage plan --idea "$IDEA" --hook "$HOOK" --theme "$THEME" --vocal "$VOCAL" --style "$STYLE" --req "$REQ" --title "$TITLE_IN" --content "$CONTENT" --genre "$GENRE"
+        run: python -m mufac new --stage plan --idea "$IDEA" --hook "$HOOK" --theme "$THEME" --vocal "$VOCAL" --style "$STYLE" --req "$REQ" --title "$TITLE_IN" --content "$CONTENT" --genre "$GENRE" --lang "$LANG_IN"
       - name: 작사
         run: python -m mufac new --stage write
       - name: 검수 · 사진 · 멜로디

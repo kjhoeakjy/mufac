@@ -1,6 +1,9 @@
 # 활동명. 영상 설명과 자막 첫 화면에 들어갑니다.
 artist: "연주왕김연주"
 
+# 영어 곡에 쓰는 이름(영상 첫 화면, 유튜브 제목·설명)
+artist_en: "Yon Ju Kim"
+
 # 유튜브 제목 형식. {title}(곡 제목), {artist}, {situation}(듣는 상황 문구) 사용 가능.
 youtube_title: "{title} - {artist} | {situation}"
 
@@ -8,7 +11,11 @@ youtube_title: "{title} - {artist} | {situation}"
 playlists:
   - 연주왕김연주 노래
 
-# 주제별 재생목록
+# 영어 곡 본편이 들어갈 재생목록
+playlists_en:
+  - Yon Ju Kim English Songs
+
+# 주제별 재생목록(한국어 곡만)
 theme_playlists:
   사랑: 헤어진 날 듣는 노래
   어른: 어른이 된 우리에게

@@ -60,7 +60,7 @@ def _recognize_and_match(song: Song, lines, model_size: str) -> list[float | Non
     prompt = " ".join(t for _, t in lines)[:220]
     # 파일 대신 파형을 넘긴다(faster-whisper의 PyAV 디코더 버전 문제를 피함)
     segments, _ = model.transcribe(
-        load_mono(audio, 16000), language="ko", word_timestamps=True, vad_filter=False,
+        load_mono(audio, 16000), language="en" if song.meta.get("lang") == "en" else "ko", word_timestamps=True, vad_filter=False,
         initial_prompt=prompt, condition_on_previous_text=False, beam_size=2,  # 줄 맞추기엔 충분하고 두 배 빠르다
     )
     # 인식된 글자마다 시간 하나

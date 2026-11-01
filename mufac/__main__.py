@@ -82,6 +82,22 @@ def _preview(s: Song) -> dict:
     return youtube.preview(s, songmod.config())
 
 
+def _retranslate(s: Song, *, only_missing: bool = False) -> None:
+    """영어 곡이면 가사 줄마다 한국어 번역(자막 둘째 줄)을 만든다. 실패해도 곡은 남긴다."""
+    from .english import is_english, translate
+    if not is_english(s.meta) or s.meta.get("instrumental"):
+        return
+    lines = [t for _, t in s.lyric_lines()]
+    have = s.meta.get("translation") or []
+    if only_missing and len(have) == len(lines) and (s.meta.get("translation_of") or []) == lines:
+        return
+    try:
+        s.meta["translation"] = translate(s.meta.get("title", ""), lines)
+        s.meta["translation_of"] = lines  # 어떤 가사를 옮긴 것인지(가사가 바뀌면 다시 옮긴다)
+    except Exception as e:
+        print(f"번역을 만들지 못했습니다: {e}", file=sys.stderr)
+
+
 def _work_dir():
     from pathlib import Path
     d = Path(os.environ.get("MUFAC_WORK", ".mufac-work"))
@@ -104,15 +120,19 @@ def cmd_new(a) -> None:
     t_all = time.time()
 
     if stage in ("all", "plan"):
-        done = songmod.all_songs()
+        from .english import is_english
+        lang = "en" if is_english(a.lang) else "ko"
+        everything = songmod.all_songs()
+        # 버릇말·화법·해요체 차례는 같은 언어의 곡끼리만 본다
+        done = [x for x in everything if (x.meta.get("lang") or "ko") == lang]
         avoid = [x.meta.get("hook", "") for x in done][-40:]
-        avoid_styles = [x.meta.get("style", "") for x in done][-12:]
+        avoid_styles = [x.meta.get("style", "") for x in everything][-12:]
         work = prepare(hook=a.hook, idea=a.idea, theme=a.theme, vocal=a.vocal, style=a.style,
                        avoid=avoid, avoid_styles=avoid_styles, title=a.title, content=a.content, genre=a.genre,
-                       avoid_words=songmod.habit_words(done), prev_speech=songmod.speech_styles(done)[-6:],
-                       polite_turn=songmod.polite_turn(done, a.genre))
+                       avoid_words=songmod.habit_words(done) if lang == "ko" else [], prev_speech=songmod.speech_styles(done)[-6:],
+                       polite_turn=songmod.polite_turn(done, a.genre) if lang == "ko" else False, lang=lang)
         work["request"] = {k: v for k, v in {"id": a.req, "title": a.title, "idea": a.idea, "content": a.content,
-                                             "genre": a.genre, "style": a.style}.items() if v and v != "자동"}
+                                             "genre": a.genre, "style": a.style, "lang": lang if lang != "ko" else ""}.items() if v and v != "자동"}
         (wd / "plan.json").write_text(json.dumps(work, ensure_ascii=False), encoding="utf-8")
         if stage == "plan":
             return
@@ -135,6 +155,7 @@ def cmd_new(a) -> None:
         "story": pick["story"],
         "created": dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M"),
         "request": data.get("request", {}),
+        "lang": data.get("lang", "ko"),
         "instrumental": bool(data.get("instrumental")),
         "sound_plan": data.get("sound_plan", ""),
         "style": data["style"],
@@ -184,6 +205,7 @@ def cmd_new(a) -> None:
     for k in ("title", "lyrics", "lyrics_draft", "polish", "share_line"):
         if k in data:
             s.meta[k] = data[k]
+    _retranslate(s)
     s.meta["youtube_preview"] = _preview(s)
     s.save()
     write_readme(s)
@@ -229,6 +251,7 @@ def cmd_refresh(a) -> None:
     if a.lyrics_changed and s.timing_path.exists():
         s.timing_path.unlink()
         print("가사가 바뀌어 자막 타이밍을 지웠습니다. 영상은 다시 만들어야 합니다.", flush=True)
+    _retranslate(s, only_missing=True)
     m["youtube_preview"] = _preview(s)
     m["youtube_preview_edited"] = False  # 직접 고친 글이 있었어도 새 제목·가사 기준으로 다시 쓴다
     s.save()
@@ -272,6 +295,7 @@ def cmd_revise(a) -> None:
     if lyrics_changed and s.timing_path.exists():
         s.timing_path.unlink()
         print("가사가 바뀌어 자막 타이밍을 지웠습니다. 영상은 다시 만들어야 합니다.", flush=True)
+    _retranslate(s, only_missing=True)
     m["youtube_preview"] = _preview(s)
     m["youtube_preview_edited"] = False
     s.save()
@@ -300,8 +324,8 @@ def cmd_produce(a) -> None:
     from .render import prepare, render_main, render_short, thumbnail, write_ass_main, write_ass_short
 
     cfg = songmod.config()
-    artist = cfg.get("artist", "")
     s = Song(a.slug)
+    artist = songmod.artist_name(cfg, s.meta)
     stage = a.stage
     if not s.audio_path():
         sys.exit(f"{s.slug}: 노래 파일이 없습니다. mp3를 폴더에 올려주세요.")
@@ -327,6 +351,11 @@ def cmd_produce(a) -> None:
         photo_job = pool.submit(ensure_photo)
         rows = timings(s, cfg.get("whisper_model", "medium"))  # timing.lrc가 있으면 바로 읽는다
         photo_job.result()
+    _retranslate(s, only_missing=True)  # 영어 곡: 자막 둘째 줄(한국어 번역). 이미 있으면 그대로
+    tr = s.meta.get("translation") or []
+    if len(tr) == len(rows):
+        for r, ko in zip(rows, tr):
+            r["ko"] = ko
     s.save()
     if stage == "align":
         print("완료", s.timing_path, flush=True)
@@ -367,8 +396,9 @@ def cmd_publish(a) -> None:
     from . import youtube
 
     cfg = songmod.config()
-    artist = cfg.get("artist", "")
     s = Song(a.slug)
+    artist = songmod.artist_name(cfg, s.meta)
+    lang = "en" if youtube.is_en(s.meta) else "ko"
     main, thumb = s.out / "main.mp4", s.out / "thumb.jpg"
     shorts = [p for p in [s.out / f"short{i}.mp4" for i in range(1, 5)] if p.exists()] or [p for p in [s.out / "short.mp4"] if p.exists()]
     if not main.exists():
@@ -387,7 +417,7 @@ def cmd_publish(a) -> None:
     if not yt.get("main"):
         print("유튜브 본편 업로드:", title, flush=True)
         yt["main"] = youtube.upload(main, title=title, desc=pv["description"],
-                                    tags=tags, privacy=cfg["privacy"], thumb=thumb)
+                                    tags=tags, privacy=cfg["privacy"], thumb=thumb, lang=lang)
         s.save()
         for name in youtube.playlist_names(cfg, s.meta):
             try:
@@ -404,7 +434,7 @@ def cmd_publish(a) -> None:
         when = youtube.publish_at(cfg, i) if cfg["privacy"] == "public" else None
         print(f"유튜브 쇼츠 {i + 1} 업로드: {title}" + (f" (예약 {when})" if when else ""), flush=True)
         vid = youtube.upload(path, title=title, desc=youtube.description(s, artist, main_id=yt.get("main"), short=True),
-                             tags=short_tags, privacy=cfg["privacy"], publish_at=when)
+                             tags=short_tags, privacy=cfg["privacy"], publish_at=when, lang=lang)
         ids[i:i + 1] = [vid]
         yt["shorts"] = ids
         yt["short"] = ids[0]
@@ -450,6 +480,7 @@ def main() -> None:
     n.add_argument("--title", default="", help="제목을 직접 정하려면")
     n.add_argument("--content", default="", help="노래에 담을 내용")
     n.add_argument("--genre", default="", help="장르 (트로트, 인디밴드, 발라드, 락, OST, 팝 ...)")
+    n.add_argument("--lang", default="ko", help="가사 언어: ko(한국어) 또는 en(영어)")
     n.add_argument("--stage", default="all", choices=["all", "plan", "write", "finish"],
                    help="단계별 실행 (Actions가 진행률을 보여 주려고 셋으로 나눠 부른다)")
     n.set_defaults(func=cmd_new)

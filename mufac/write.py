@@ -574,7 +574,12 @@ def polish(data: dict, fixed_title: str = "") -> dict:
               "properties": {"lyrics": {"type": "string"}, "title": {"type": "string"}, "share_line": {"type": "string"},
                              "changes": {"type": "array", "items": {"type": "string"}}},
               "required": ["lyrics", "title", "share_line", "changes"], "additionalProperties": False}
-    system = REVIEW + _endings((data.get("request") or {}).get("genre", "")) + "\n\n[AI 티 점검표]\n" + _checklist()
+    from . import english
+    genre = (data.get("request") or {}).get("genre", "")
+    if english.is_english(data):
+        system = english.review_system(genre)
+    else:
+        system = REVIEW + _endings(genre) + "\n\n[AI 티 점검표]\n" + _checklist()
     content = f"[제목]\n{data['title']}\n\n[가사]\n{data['lyrics']}"
     if fixed_title:
         content += "\n\n[제목은 사용자가 정한 것이라 바꾸지 않는다]"
@@ -612,9 +617,12 @@ META_SCHEMA = {
 def refresh_meta(meta: dict) -> dict:
     """사용자가 제목이나 가사를 고친 뒤, 유튜브 글(상황 문구, 쇼츠 제목, 설명 첫 줄, 댓글 유도, 해시태그, 태그)과
     공유용 한 줄을 지금 제목·가사에 맞게 다시 쓴다."""
+    from . import english
     yt = SYSTEM[SYSTEM.index("[유튜브]"):]
     system = ("너는 유튜브 채널 편집자다. 아래 노래의 제목과 가사가 확정됐다. 그에 맞는 유튜브 글을 쓴다. "
               "담백하게, 과장과 감탄사 없이, 사람이 쓴 말로. '-해요/-거예요' 어미는 쓰지 않는다. JSON만 답한다.\n\n" + yt)
+    if english.is_english(meta):
+        system = english.youtube_system()
     content = (f"[제목]\n{meta.get('title', '')}\n\n[가사]\n{meta.get('lyrics', '')}\n\n[Suno 스타일]\n{meta.get('style', '')}"
                + f"\n\n[이전 값(참고만)]\n{json.dumps(meta.get('youtube_meta') or {}, ensure_ascii=False)}")
     t0 = time.time()
@@ -662,8 +670,9 @@ REVISE_NOTE = """
 
 def revise(meta: dict, note: str) -> dict:
     """사용자의 수정 지시대로 가사·소리·제목을 고친다."""
+    from . import english
     genre = (meta.get("request") or {}).get("genre", "")
-    system = _system(SYSTEM, genre) + "\n" + REVISE_NOTE
+    system = (english.system(genre) if english.is_english(meta) else _system(SYSTEM, genre)) + "\n" + REVISE_NOTE
     content = (f"[수정 지시]\n{note.strip()}\n\n[제목]\n{meta.get('title', '')}\n\n[후렴 문장]\n{meta.get('hook', '')}\n\n"
                f"[기승전결]\n{meta.get('arc', '')}\n\n[가사]\n{meta.get('lyrics', '')}\n\n[소리 설계]\n{meta.get('sound_plan', '')}\n\n"
                f"[Suno 스타일]\n{meta.get('style', '')}\n\n[Exclude]\n{meta.get('exclude', '')}\n\n[이미지 프롬프트]\n{meta.get('image_prompt', '')}")
@@ -694,8 +703,9 @@ def safe_polish(data: dict, fixed_title: str = "") -> dict:
         return data
 
 
-def research(brief: str) -> str:
+def research(brief: str, lang: str = "ko") -> str:
     """웹 검색으로 레퍼런스 노트를 만든다."""
+    from . import english
     client = anthropic.Anthropic()
     today = dt.datetime.now(KST).strftime("%Y년 %m월 %d일")
     first = {"role": "user", "content": f"오늘은 {today}.\n\n{brief}"}
@@ -705,7 +715,8 @@ def research(brief: str) -> str:
     t0 = time.time()
     for _ in range(5):
         with client.beta.messages.stream(
-            model=FAST_MODEL, max_tokens=16000, system=_system(RESEARCH), betas=BETAS, fallbacks="default",
+            model=FAST_MODEL, max_tokens=16000, system=english.research_system() if english.is_english(lang) else _system(RESEARCH),
+            betas=BETAS, fallbacks="default",
             output_config={"effort": "medium"}, tools=tools, messages=messages,
         ) as stream:
             response = stream.get_final_message()
@@ -722,9 +733,12 @@ def research(brief: str) -> str:
 def prepare(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "", style: str = "",
             avoid: list[str] | None = None, avoid_styles: list[str] | None = None,
             title: str = "", content: str = "", genre: str = "",
-            avoid_words: list[str] | None = None, prev_speech: list[str] | None = None, polite_turn: bool = False) -> dict:
+            avoid_words: list[str] | None = None, prev_speech: list[str] | None = None, polite_turn: bool = False,
+            lang: str = "ko") -> dict:
     """1단계: 요청문을 만들고 레퍼런스를 조사한다. 결과는 JSON으로 저장할 수 있는 dict."""
-    asks = []
+    from . import english
+    en = english.is_english(lang)
+    asks = ["[언어] 영어 노래다. 가사·제목·후렴·유튜브 글을 모두 영어로 쓴다(요청이 한국어여도)."] if en else []
     if hook:
         asks.append(f"후렴 문장은 이것으로 정했다: \"{hook}\". 후보 첫 번째에 넣고 그걸로 가사를 써라.")
     else:
@@ -753,16 +767,16 @@ def prepare(*, hook: str = "", idea: str = "", theme: str = "", vocal: str = "",
         asks.append("[이전 곡 화법] 최근 곡들의 화법이다(오래된 것부터). 직전 두 곡과 같은 화법은 쓰지 마라: " + ", ".join(prev_speech))
     if avoid_words:
         asks.append("[버릇말] 이전 곡 셋 이상에 나온 낱말이다. 이번 곡에는 쓰지 마라: " + ", ".join(avoid_words))
-    if polite_turn and not is_instrumental(genre):
+    if polite_turn and not en and not is_instrumental(genre):
         asks.append("[해요체 차례] 최근 곡에 해요체 곡이 없다. 이번 곡은 전곡을 해요체(-요/-죠)로 써라. 한 줄도 반말로 닫지 않는다.")
     brief = "\n\n".join(asks)
 
     notes = ""
     try:
-        notes = research(brief)
+        notes = research(brief, "en" if en else "ko")
     except (anthropic.APIError, RuntimeError) as e:
         print(f"레퍼런스 조사를 건너뜁니다: {e}", flush=True)
-    return {"brief": brief, "notes": notes, "title": title, "genre": genre}
+    return {"brief": brief, "notes": notes, "title": title, "genre": genre, "lang": "en" if en else "ko"}
 
 
 def compose(work: dict) -> dict:
@@ -775,7 +789,7 @@ def compose(work: dict) -> dict:
     content = "\n\n".join(parts)
     t0 = time.time()
     with anthropic.Anthropic().beta.messages.stream(
-        model=MODEL, max_tokens=32000, system=_system(SYSTEM, work.get("genre", "")), betas=BETAS, fallbacks="default",
+        model=MODEL, max_tokens=32000, system=_compose_system(work), betas=BETAS, fallbacks="default",
         output_config={"effort": "high", "format": {"type": "json_schema", "schema": SCHEMA}},
         messages=[{"role": "user", "content": content}],
     ) as stream:
@@ -796,7 +810,14 @@ def compose(work: dict) -> dict:
             data["candidates"][data["chosen"]]["hook"] = data["title"]
         data["instrumental"] = True
     data["research"] = notes
+    data["lang"] = work.get("lang", "ko")
     return data
+
+
+def _compose_system(work: dict) -> str:
+    from . import english
+    genre = work.get("genre", "")
+    return english.system(genre) if english.is_english(work.get("lang", "")) else _system(SYSTEM, genre)
 
 
 def write_song(*, do_polish: bool = True, **kw) -> dict:

@@ -59,6 +59,7 @@ jobs:
       - name: 가사 위치 찾기
         env:
           SLUGS: ${{ steps.pick.outputs.slugs }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}  # 영어 곡: 번역이 없으면 이때 만든다
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: for s in $SLUGS; do python -m mufac produce "$s" --stage align; done
