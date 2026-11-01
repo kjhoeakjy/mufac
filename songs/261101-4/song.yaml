@@ -1,0 +1,398 @@
+title: 비 온대
+hook: 비 온대
+theme: 사랑
+story: 헤어질 시간이 지났는데도 둘 다 가자는 말을 꺼내지 않는 두 사람이, 있지도 않은 비를 핑계 삼아 서로를 붙잡는 느린 고백.
+created: 2026-11-01 14:33
+request:
+  id: mvxe3e7n
+  title: 비 온대
+  idea: 고백
+  genre: 발라드
+instrumental: false
+sound_plan: 따뜻한 장조에 프리코러스에서 단조로 한 번 꺾이는 72bpm 4/4 발라드. 인트로와 1절은 나일론 기타 분산화음 위에 목소리만 두고, 절 멜로디는 좁은 음역에서 말하듯 간다. 프리코러스에서 펠트 피아노와 낮은 첼로가 같은 음을 반복하며 밀어 올리고, 후렴 첫 음 '비'에서 위로 도약해 마지막 낱말을 길게 끈다. 첫 후렴은 얇은 현만 깔고 드럼은 아낀다. 2절부터 둥근 핑거 베이스가 뿌리음을 지키고 브러시 스네어와 부드러운 킥이 들어오며, 둘째 후렴은 보컬을 더블링한다. 간주는 첼로가 선율을 맡는다. 브릿지는 기타와 거의 말하는 목소리만 남긴다. 마지막 후렴은 옥타브 위에서 현이 선율을 잡고 하모니가 쌓이는 가장 큰 자리다. 아웃트로는 나일론 기타 혼자 느려지며 마지막 음을 길게 둔다. 보컬은 성숙하고 부드러운 남성 테너로, 절은 가깝고 숨이 섞이게, 마지막 후렴에서만 가슴소리를 다 연다. 공간은 작고 따뜻한 방이다.
+style: 'Korean ballad, 2000s acoustic ballad, slow 72 bpm, warm major key with a bittersweet minor turn in the pre-chorus. Male tenor, soft, warm and airy, close in the verses, a little behind the beat, full chest voice only at the final chorus, mature and sincere, sung in Korean, korean lyrics. Nylon-string guitar arpeggios carry the intro and verse 1, narrow conversational melody. Felt piano and low cello enter at the pre-chorus on a rising repeated note. Chorus opens with an upward leap, long held note on the last word, thin strings. Verse 2 adds round fingered bass on roots, brushed snare and soft kick, doubled vocal in chorus two. Cello interlude. Bridge drops to guitar and a near-spoken voice. Final chorus octave up, strings carry the melody, stacked harmonies. Outro: nylon guitar alone, slowing, last note held. Small warm room. Shy, tender, unhurried.'
+exclude: autotune, trap hi-hats, power belting
+photo_query: couple sitting together dusk window
+image_prompt: Two young adults sit side by side seen from behind at a large window at dusk, shoulders almost touching, coats folded on their laps. The sky outside is clear and pale blue-violet, warm lamp light inside. Soft amber and dusty blue tones, quiet and shy mood.
+short_scenes:
+- The same two people from behind at the dusk window, one turning slightly toward the other, warm lamp light glowing, clear violet sky outside, a held breath of a moment.
+- Close-up of two hands resting on a wooden table, fingertips almost touching beside two cooling cups, warm amber light, dusty blue shadows.
+- The empty window seat after they have gone, two cups left on the table, the sky outside fully dark and clear, warm lamp still on.
+title_kind: 지정
+tempo: 느림
+arc: '화법: 우리. 기(1절): 둘 다 가자는 말을 미루는 두 사람이 있고, 할 말이 클수록 조용해진다. 감정은 아직 말하지 않는다. 승(프리코러스→후렴): 가라는 말 대신 ''비 온대''로 서로를 붙잡는다. 후렴은 머물자는 부탁과 보내기 싫다는 고백이다. 전(2절→브릿지): 2절은 시간이 흘러 늦을수록 반가워지는 쪽으로 시점이 옮겨 가고, 일어서려 할 때마다 하늘 탓을 한다. 브릿지에서 처음으로 ''좋아해요''를 말하고, 이 한마디가 이렇게 멀었다고 인정한다. 결(마지막 후렴): 셋째 줄이 ''하늘은 처음부터 맑았어요''로, 넷째 줄이 ''비 온대 사랑한단 말이에요''로 바뀌어 핑계가 고백으로 뒤집힌다. 아웃트로는 가사 없이 기타 하나로 닫는다.'
+line_plan: '1(V1) 선언: 떠나자는 말을 둘 다 미룬다 / 2(V1) 모순: 할 말이 클수록 조용해지는 우리 / 3(V1) 새 뜻: 시간이 다 가도록 / 4(V1) 닫음: 일어설 마음이 없다 / 5(Pre) 전환: 가라는 말을 하는 대신 / 6(Pre) 열림: 누가 그러는데(훅으로 떨어짐) / 7(Ch) 부탁+훅: 비 온대, 더 머물자 / 8(Ch) 고백: 보내기 싫다 / 9(Ch) 모순: 그쳐도 그치지 않는다 / 10(Ch) 질문+훅: 우리 둘 다 같은 핑계를 들었다 / 11(V2) 모순: 늦었다는 말이 반갑다 / 12(V2) 정확한 말: 시간이 갈수록 가까워진다 / 13(V2) 연결: 누가 일어서려 하면 / 14(V2) 뒤집기·재치: 하늘을 탓한다 / 15~16(Pre) 반복 / 17~20(Ch) 반복 / 21(Br) 고백: 좋아해요 / 22(Br) 정확한 말: 이 한마디가 그렇게 멀었다 / 23(Final) 부탁+훅 / 24(Final) 고백 / 25(Final) 뒤집기: 비는 처음부터 없었다 / 26(Final) 고백+훅: 비 온대가 곧 사랑한단 말이다. 훅 줄: 7, 10, 17, 20, 23, 26(총 6회).'
+why: '''비 온대''는 누구나 한 번은 써 본 붙잡는 핑계입니다. 듣는 사람이 자기 사람을 바로 떠올릴 수 있어서 가장 넓게 닿습니다. 첫 두 후렴에서는 날씨 핑계로 들리고, 브릿지의 ''좋아해요''를 지나 마지막 후렴에서 ''하늘은 처음부터 맑았어요''로 뒤집힙니다. 그러면 같은 훅이 ''사랑한단 말''로 다시 들립니다. 이것은 마지막 후렴에서 한두 줄만 바꿔 결론을 내는 한로로의 원리이고, 모순을 풀지 않고 나란히 두는 자우림의 원리입니다. 제목이 지정되어 있어 후렴 문장 형태를 그대로 쓰되, 반말 제목은 전해 들은 말로 두고 나머지는 전곡 해요체로 맞춰 발라드의 담담한 호흡을 지켰습니다.'
+share_line: 보내기 싫다는 말이에요
+youtube_meta:
+  situation: 고백하고 싶은 밤에 듣는 노래
+  shorts_title: 비 온대
+  hashtags:
+  - 발라드
+  - 감성노래
+  - 고백노래
+  - 새벽감성
+  - 감성플리
+  - 사랑노래
+  - 잔잔한노래
+  - 짝사랑노래
+  - 설렘
+  - 밤에듣는노래
+  - 어쿠스틱발라드
+  - 비오는날노래
+tags:
+- 음악
+- 노래
+- 감성
+- 발라드
+- 플레이리스트
+- 노래 추천
+- 감성 발라드
+- 고백 노래
+- 사랑 노래
+- 짝사랑 노래
+- 설레는 노래
+- 잔잔한 노래
+- 밤에 듣는 노래
+- 새벽 감성
+- 비 오는 날 노래
+- 비 온대
+- 고백하고 싶을 때
+- 좋아한다는 말
+- 보내기 싫은 사람
+- 썸 노래
+- 연애 초반 노래
+- 어쿠스틱 발라드
+- 나일론 기타
+- 남자 발라드
+- 감성 플리
+- 잠 안 오는 밤
+- 데이트 노래
+- 카페 노래
+- 조용한 노래
+- korean ballad
+- kpop
+- korean acoustic
+- love confession song
+- rainy day song
+- sad love song
+references:
+- title: 서른 즈음에
+  artist: 김광석
+  takeaway: 큰 감정을 낮은 목소리의 평서문으로 말하면 더 깊게 들린다.
+- title: 바람이 분다
+  artist: 이소라
+  takeaway: 후렴은 짧은 말 하나를 되풀이하고 감정은 그 반복의 무게로 쌓는다.
+- title: 사랑하긴 했었나요 스쳐가는 인연이었나요 짧지않은 우리 함께했던 시간들이 자꾸 내 마음을 가둬두네
+  artist: 잔나비
+  takeaway: 존댓말로 하는 고백은 거리를 두면서도 더 진심으로 들린다.
+- title: 미안해 널 미워해
+  artist: 자우림
+  takeaway: 반대되는 두 마음을 한 줄에 붙여 두고 설명하지 않는다.
+candidates:
+- hook: 비 온대
+  theme: 사랑
+  story: 헤어질 시간이 지났는데도 둘 다 가자는 말을 꺼내지 않는 두 사람이, 있지도 않은 비를 핑계 삼아 서로를 붙잡는 느린 고백.
+- hook: 조금 더 있어요
+  theme: 사랑
+  story: 오래 알고 지낸 사람에게 끝내 하지 못한 말을, 머무르자는 부탁 하나로 대신하는 담담한 발라드.
+- hook: 그쳐도 있어요
+  theme: 사랑
+  story: 이유가 사라져도 곁에 남겠다는 마음을, 비가 그친 뒤의 시간으로 돌려 말하는 중간 템포의 회상.
+- hook: 보내기 싫어
+  theme: 아픔
+  story: 떠나는 사람을 붙잡지 못하고 보낸 뒤, 그때 삼킨 한마디를 혼자 되뇌는 쓸쓸한 노래.
+- hook: 좋아한단 말
+  theme: 사랑
+  story: 짝사랑이 들킬까 봐 날씨 얘기만 하던 사람이 결국 한 번은 직접 말하는 밝은 어쿠스틱 고백.
+chosen: 0
+lyrics: |
+  [Intro: nylon guitar alone]
+
+  [Verse 1: guitar and close voice only]
+  가자는 말을 둘 다 아껴요
+  할 말이 클수록 조용한 우리
+  그대 옆에서는
+  일어설 생각이 없어요
+
+  [Pre-Chorus: felt piano and low cello enter, rising]
+  그대 가란 말 대신에
+  누가 그러는데
+
+  [Chorus: thin strings, upward leap]
+  비 온대 조금 더 있어요
+  보내기 싫다는 말이에요
+  그쳐도 그치지 않을 거예요
+  비 온대 그대도 들었죠
+
+  [Verse 2: round bass and brushed snare added]
+  늦었다는 말이 반가워요
+  돌아갈 길이 멀어져요
+  그대 일어서려 하면
+  하늘부터 어두워져요
+
+  [Pre-Chorus: cello rises, building]
+  그대 가란 말 대신에
+  누가 그러는데
+
+  [Chorus: soft kick, doubled vocal]
+  비 온대 조금 더 있어요
+  보내기 싫다는 말이에요
+  그쳐도 그치지 않을 거예요
+  비 온대 그대도 들었죠
+
+  [Instrumental: cello interlude over guitar]
+
+  [Bridge: strip to guitar and near-spoken voice]
+  좋아해요 이 한마디가
+  이렇게 멀었어요
+
+  [Final Chorus: octave up, strings carry the melody, stacked harmonies]
+  비 온대 조금 더 있어요
+  보내기 싫다는 말이에요
+  하늘은 처음부터 맑았어요
+  비 온대 사랑한단 말이에요
+
+  [Outro: nylon guitar alone, slowing, last note held]
+
+  [End]
+lyrics_draft: '[Intro: nylon guitar alone]
+
+
+  [Verse 1: guitar and close voice only]
+
+  가자는 말을 둘 다 아껴요
+
+  할 말이 클수록 조용한 우리
+
+  하루가 다 가도록
+
+  일어설 생각이 없어요
+
+
+  [Pre-Chorus: felt piano and low cello enter, rising]
+
+  가라는 말 대신에
+
+  누가 그러는데
+
+
+  [Chorus: thin strings, upward leap]
+
+  비 온대 조금 더 있어요
+
+  보내기 싫다는 말이에요
+
+  그쳐도 그치지 않을 거예요
+
+  비 온대 우리 둘 다 들었죠
+
+
+  [Verse 2: round bass and brushed snare added]
+
+  늦었다는 말이 반가워요
+
+  시간이 갈수록 가까운 우리
+
+  누가 일어서려 하면
+
+  하늘부터 어두워져요
+
+
+  [Pre-Chorus: cello rises, building]
+
+  가라는 말 대신에
+
+  누가 그러는데
+
+
+  [Chorus: soft kick, doubled vocal]
+
+  비 온대 조금 더 있어요
+
+  보내기 싫다는 말이에요
+
+  그쳐도 그치지 않을 거예요
+
+  비 온대 우리 둘 다 들었죠
+
+
+  [Instrumental: cello interlude over guitar]
+
+
+  [Bridge: strip to guitar and near-spoken voice]
+
+  좋아해요 이 한마디가
+
+  이렇게 멀었어요
+
+
+  [Final Chorus: octave up, strings carry the melody, stacked harmonies]
+
+  비 온대 조금 더 있어요
+
+  보내기 싫다는 말이에요
+
+  하늘은 처음부터 맑았어요
+
+  비 온대 사랑한단 말이에요
+
+
+  [Outro: nylon guitar alone, slowing, last note held]
+
+
+  [End]'
+polish:
+- '하루가 다 가도록 → 그대 옆에서는: 시간 경과를 그리는 서술을 지우고, 말을 거는 상대를 넣어 ''일어설 생각이 없는'' 이유를 마음으로 남김'
+- '가라는 말 대신에 → 그대 가란 말 대신에(두 프리코러스): 너에게 화법인데 상대가 든 줄이 2할 미만이라 상대를 넣음'
+- '비 온대 우리 둘 다 들었죠 → 비 온대 그대도 들었죠(1·2 후렴): 같은 뜻을 더 짧게, 상대를 직접 불러 공모의 느낌을 살림. 세 후렴 글자는 마지막 후렴 바뀐 줄 외에 같게 유지'
+- '시간이 갈수록 가까운 우리 → 돌아갈 길이 멀어져요: 1절 ''할 말이 클수록 조용한 우리''와 거울처럼 맞선 대구를 깨고, 추상어(시간)를 지워 ''길'' 하나로 머물고 싶은 마음을 말함'
+- '누가 일어서려 하면 → 그대 일어서려 하면: 막연한 주어를 상대로 바꿔 하늘이 어두워지는 까닭이 ''그대를 보내기 싫은 마음''으로 읽히게 함'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: Two young adults sit side by side seen from behind at a large window at dusk, shoulders almost touching, coats folded on their laps. The sky outside is clear and pale blue-violet, warm lamp light inside. Soft amber and dusty blue tones, quiet and shy mood.
+youtube_preview:
+  title: 비 온대 - 연주왕김연주 | 고백하고 싶은 밤에 듣는 노래
+  shorts_title: '비 온대 #shorts'
+  shorts_titles:
+  - '가자는 말을 둘 다 아껴요 #shorts'
+  - '비 온대 #shorts'
+  - '좋아해요 이 한마디가 #shorts'
+  - '보내기 싫다는 말이에요 #shorts'
+  description: '가자는 말을 둘 다 아껴요
+
+    할 말이 클수록 조용한 우리
+
+    그대 옆에서는
+
+    일어설 생각이 없어요
+
+
+    그대 가란 말 대신에
+
+    누가 그러는데
+
+
+    비 온대 조금 더 있어요
+
+    보내기 싫다는 말이에요
+
+    그쳐도 그치지 않을 거예요
+
+    비 온대 그대도 들었죠
+
+
+    늦었다는 말이 반가워요
+
+    돌아갈 길이 멀어져요
+
+    그대 일어서려 하면
+
+    하늘부터 어두워져요
+
+
+    그대 가란 말 대신에
+
+    누가 그러는데
+
+
+    비 온대 조금 더 있어요
+
+    보내기 싫다는 말이에요
+
+    그쳐도 그치지 않을 거예요
+
+    비 온대 그대도 들었죠
+
+
+    좋아해요 이 한마디가
+
+    이렇게 멀었어요
+
+
+    비 온대 조금 더 있어요
+
+    보내기 싫다는 말이에요
+
+    하늘은 처음부터 맑았어요
+
+    비 온대 사랑한단 말이에요
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #발라드 #감성노래 #고백노래 #노래 #음악 #인공지능 #새벽감성 #감성플리 #사랑노래 #잔잔한노래 #짝사랑노래 #설렘 #밤에듣는노래 #어쿠스틱발라드 #비오는날노래'
+  tags:
+  - 비 온대
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 인공지능
+  - 발라드
+  - 감성
+  - 플레이리스트
+  - 노래 추천
+  - 감성 발라드
+  - 고백 노래
+  - 사랑 노래
+  - 짝사랑 노래
+  - 설레는 노래
+  - 잔잔한 노래
+  - 밤에 듣는 노래
+  - 새벽 감성
+  - 비 오는 날 노래
+  - 고백하고 싶을 때
+  - 좋아한다는 말
+  - 보내기 싫은 사람
+  - 썸 노래
+  - 연애 초반 노래
+  - 어쿠스틱 발라드
+  - 나일론 기타
+  - 남자 발라드
+  - 감성 플리
+  - 잠 안 오는 밤
+  - 데이트 노래
+  - 카페 노래
+  - 조용한 노래
+  - korean ballad
+  - kpop
+  - korean acoustic
+  - love confession song
+  - rainy day song
+  - sad love song
+  - AI음악
+  - AI노래
+  - AI 작곡
+  - suno
+  - ai music
+  - 신곡
+  - 가사
+  - korean music
+  - k-pop
+  - korean song
+  hashtags:
+  - 발라드
+  - 감성노래
+  - 고백노래
+  - 노래
+  - 음악
+  - 인공지능
+  - 새벽감성
+  - 감성플리
+  - 사랑노래
+  - 잔잔한노래
+  - 짝사랑노래
+  - 설렘
+  - 밤에듣는노래
+  - 어쿠스틱발라드
+  - 비오는날노래
+  playlists:
+  - 연주왕김연주 노래
+  - 헤어진 날 듣는 노래
+  privacy: private
