@@ -1,7 +1,7 @@
 title: 나는 연주야
 hook: 나는 연주야
 theme: 사랑
-story: 처음 보는 사람들 사이에서 어색하게 자기소개를 하다가, 이름을 크게 말하고 술 한잔과 합주를 청하는 베이시스트가 부르는 노래.
+story: 처음 만난 사람들 앞에서 이름을 크게 말하며 합주하자고 먼저 다가가는 베이시스트가 술자리에서 부르는 노래.
 created: 2026-11-01 19:56
 request:
   id: mvxpp4xh
@@ -10,9 +10,9 @@ request:
   genre: 밴드
   style: 여자보컬. 담백한 목소리
 instrumental: false
-sound_plan: 따뜻한 장조에 96bpm 안팎의 미드템포, 브릿지에서만 잠깐 단조로 돈다. 리듬은 곧게 흐르는 8분음 그루브로, 작은 방에서 친 라이브 드럼에 킥은 단단하고 스네어는 또렷하다. 곡의 주인공은 베이스이고, 처음부터 끝까지 가장 크게 앞에 선다. 피크로 친 일렉 베이스가 굵고 멜로디가 있는 리프로 곡을 혼자 열고, 절에서는 그 리프가 보컬 줄 사이마다 돌아오며, 2절에서는 두툼한 베이스 필이 목소리에 대답하고, 프리코러스에서는 베이스가 한 음씩 걸어 올라간다. 2절 후렴 뒤 간주는 베이스 리프 브레이크다. 화성은 크런치 리듬 기타 한 대가 받치고, 리드 기타는 후렴에서만 얹는다. 신스 패드와 전조는 뺀다. 멜로디는 절에서 좁고 말하듯, 프리코러스는 같은 음을 되풀이하며 밀고, 후렴은 짧은 줄을 세게 끊어 치다가 첫 음 '나는'에서 위로 뛰고 '연주야'를 길게 끈다. 후렴은 크래시 심벌과 함께 밴드가 한꺼번에 터지고 드럼이 더 세게 몰아친다. 보컬은 중저음 여자 알토, 낮고 따뜻한 흉성에 매끈하고 맑은 담백한 톤, 긁는 소리 없이 비브라토 적게, 절은 가깝고 건조하게, 후렴은 힘 있게 더블링, 2절 후렴부터 3도 하모니. 브릿지는 하프타임으로 떨어져 베이스와 목소리만 남는다. 마지막 후렴은 같은 키에서 가장 크고 베이스가 가장 크게 들리며, 떼창 없이 목소리 둘로 끝낸다. 아웃트로는 베이스 리프 두 번 뒤 딱 끊는다.
-style: 'Korean band pop rock, 2010s indie band sound, 96 bpm, straight eighth-note groove, warm major key, minor turn at the bridge. Bass-driven, bass loud and upfront. Melodic picked electric bass riff opens alone, returns between vocal lines, fat fills answer the voice, walks up in the pre-chorus, bass riff break after chorus two. Female alto, low warm chest voice, smooth and clean, plain delivery, little vibrato, sung in Korean, korean lyrics. Live drums in a small room, punchy kick, crisp snare. One crunchy rhythm guitar, lead guitar only in choruses. Chorus hits hard: full band, crash cymbals, upward leap on the first word, strong chest voice, doubled vocal, third harmony from chorus two. Bridge: half-time, bass and voice only. Final chorus: biggest. Outro: bass riff twice, hard stop. Warm, bold, honest.'
-exclude: trot, autotune, raspy vocal
+sound_plan: 밝은 장조에 122bpm 안팎의 경쾌한 업템포로, 브릿지까지 단조로 돌지 않고 끝까지 환하게 간다. 리듬은 통통 튀는 8분음 그루브로, 타이트한 라이브 드럼에 킥은 단단하고 스네어는 또렷하며 오픈 하이햇이 열려 있고 후렴에는 손뼉이 얹힌다. 베이스는 여전히 앞에 서지만 굵고 질척한 소리 대신 가볍고 탄력 있게 튄다. 피크로 친 오현 베이스가 멜로디 있는 리프로 곡을 혼자 열고, 절에서는 보컬 줄 사이마다 돌아오며, 2절에서는 짧고 빠른 필이 목소리에 대답하고, 프리코러스에서는 한 음씩 걸어 올라간다. 2절 후렴 뒤 간주는 베이스 솔로다. 화성은 밝은 잰글 기타 두 대가 받치고, 리드 기타는 후렴 멜로디를 따라 부른다. 신스 패드와 전조는 뺀다. 멜로디는 절에서 좁고 말하듯, 프리코러스는 같은 음을 되풀이하며 밀고, 후렴 첫 음 '나는'에서 위로 뛰고 '연주야'를 길게 끈다. 보컬은 더 낮은 여자 콘트랄토로, 깊고 따뜻한 흉성을 낮은 음역에서 쓰고, 매끈하고 맑은 담백한 톤에 긁는 소리 없이 친근하게 부른다. 절은 가깝고 건조하게, 후렴은 더블링, 2절 후렴부터 3도 하모니. 브릿지는 하프타임으로 떨어져 베이스와 목소리만 남는다. 마지막 후렴은 같은 키에서 가장 크고 밝게, 떼창 없이 목소리 둘로 끝낸다. 아웃트로는 베이스 리프 두 번 뒤 딱 끊는다.
+style: 'Korean band pop rock, bright 2010s indie band sound, upbeat 122 bpm, bouncy eighth-note groove, sunny major key. Bass-forward, light and punchy: melodic picked five-string bass riff opens alone, returns between lines, quick fills answer the voice, walks up in the pre-chorus, bass solo after chorus two. Low female contralto, deep warm chest voice, smooth and clean, plain friendly delivery, sung in Korean, korean lyrics. Tight live drums, crisp snare, open hi-hats, handclaps in the chorus. Two jangly bright guitars, lead guitar doubles the chorus melody. Chorus: full band, upward leap on the first word, doubled vocal, third harmony from chorus two. Bridge: half-time, bass and voice. Final chorus: biggest and brightest. Outro: bass riff twice, hard stop. Bright, cheerful, friendly.'
+exclude: raspy vocal, high-pitched vocal, autotune
 photo_query: friends toasting soju night
 image_prompt: A young woman in a denim jacket, seen from the side, playing an electric bass in a small warm-lit rehearsal room at night, a green soju bottle and two small glasses on top of the amp. A drummer blurred behind her, orange light, relaxed friendly mood.
 short_scenes:
@@ -21,17 +21,17 @@ short_scenes:
 - After the night, the young woman walks out of the pub into the blue late-night street, side profile, jacket over her shoulder, a small smile.
 title_kind: 지정
 tempo: 빠름
-arc: '화법: 우리. 기: 첫 줄부터 ''안녕! 나는 연주야, 나랑 합주할래''로 인사와 이름, 부탁을 한꺼번에 던지고, 낯설지 않다는 모순과 이름이면 충분하다는 말을 덧붙인다. 승: 서툰 첫인사를 ''다시 크게 말할게''로 밀어 올리고, 후렴에서 이름, 술 한번 먹자는 말, 좋아하는 것 둘(소주, 베이스)을 짧게 박아 외친다(후렴 ''나는 연주야''). 전: 2절에서는 1절의 ''이름이면 충분해''를 뒤집어, 이름은 잘 외우지 못해도 얼굴은 기억해 보겠다고 하고, 소주에 다 잊어도 재미있으면 됐다며 웃어넘긴다. 브릿지에서 처음으로 ''낯선 사람으로 헤어지기 싫어''라는 진심을 말한다. 결: 마지막 후렴의 끝줄 ''나는 연주야''가 ''이제 이름 불러 줘''로 바뀌어 소개가 부탁이 되고, 아웃트로에서 ''만나서 반가워''로 인사를 닫은 뒤 베이스 리프 두 번으로 끊는다.'
+arc: '화법: 우리. 기: 첫 줄부터 ''안녕! 나는 연주야, 나랑 합주할래''로 인사와 이름, 부탁을 한꺼번에 던지고, 낯설지 않다는 모순과 이름이면 충분하다는 말을 덧붙인다. 승: 서툰 첫인사를 ''다시 크게 말할게''로 밀어 올리고, 후렴에서 이름, 술 한번 먹자는 말, 좋아하는 것 둘(소주, 베이스)을 짧게 박아 외친다(후렴 ''나는 연주야''). 전: 2절에서는 1절의 ''이름이면 충분해''를 뒤집어, 이름은 잘 외우지 못해도 얼굴은 기억해 보겠다고 하고, 소주에 다 잊어도 재미있으면 됐다며 웃어넘긴 뒤 ''내 베이스는 줄도 다섯 개나 있어''로 자랑 한마디를 던진다. 브릿지에서 처음으로 ''낯선 사람으로 헤어지기 싫어''라는 진심을 말한다. 결: 마지막 후렴의 끝줄 ''나는 연주야''가 ''이제 이름 불러 줘''로 바뀌어 소개가 부탁이 되고, 아웃트로에서 ''만나서 반가워''로 인사를 닫은 뒤 베이스 리프 두 번으로 끊는다.'
 line_plan: '[Verse 1] 1: 모순(임팩트) — 처음인데 낯설지 않다. 2: 부탁(임팩트) — 설명은 미루자. 3: 새 뜻(명사구) — 이 밤의 우리. 4: 정확한 말(리프레인) — 사람 사이엔 이름이면 된다. [Pre-Chorus] 5: 정확한 말 — 첫인사는 늘 서툴다. 6: 전환(열어 둠) — 이것만은 분명히 말하겠다며 후렴으로 떨어짐. [Chorus] 7: 선언(훅) — 내 이름. 8: 부탁+고백 — 술 한잔과 소주 취향(사용자 지정). 9: 선언(훅 반복). 10: 고백 — 반가움을 바로 말함. [Verse 2] 11: 고백 — 상대 이름이 궁금하다(시점이 상대로). 12: 새 뜻 — 기억하겠다는 다짐. 13: 새 뜻(명사구) — 모르는 사람들끼리. 14: 리프레인 — 1절 끝과 같은 줄. [Pre-Chorus] 15~16: 1절과 같음. [Chorus] 17~20: 같음(훅 17, 19). [Bridge] 21~22: 고백 — 낯선 사람으로 헤어지기 싫다는 곡의 진심, 훅 없음. [Final Chorus] 23: 훅. 24: 부탁. 25: 훅. 26: 뒤집기 — 인사가 이름을 불러 달라는 부탁으로 바뀜. 훅 줄 번호: 7, 9, 17, 19, 23, 25 (총 6회).'
 why: 제목이 '나는 연주야'로 정해져 있으니 훅은 제목 그대로여야 하고, 소개곡은 이름이 가장 많이 들려야 남는다. 크라잉넛 '말달리자'처럼 입으로 외칠 수 있는 한 덩이 말을 후렴 첫 줄과 셋째 줄에 세우고, 사용자가 정한 '술 한번 먹자 나 소주 좋아해'를 그 사이에 넣어 이름-부탁-이름-인사로 닫았다. 주어 대명사로 시작하는 줄 제한은 지정 제목 때문에 후렴에서만 예외로 두고, 절은 주어 없이 짧은 뜻으로만 썼다. 마지막 후렴은 한로로처럼 한 줄만 바꿔 '만나서 반가워'를 '이제 이름 불러 줘'로 돌려, 브릿지의 '낯선 사람으로 헤어지기 싫어'를 지나온 뒤 같은 훅이 부탁으로 들리게 했다. 화법은 직전 두 곡(너에게, 혼잣말)을 피해 처음 만난 '우리'의 말로 잡았다.
-share_line: 이름은 잘 외우지 못해 / 얼굴은 기억해 볼게
+share_line: 소주가 좋아 / 베이스가 좋아
 youtube_meta:
   situation: 처음 만난 사람과 술자리 노래
   shorts_title: 나는 연주야 술 한번 먹자
   hashtags:
-  - 밴드음악
   - 신나는노래
   - 인디
+  - 밴드음악
   - 록
   - 드라이브노래
   - 감성플리
@@ -44,43 +44,44 @@ youtube_meta:
 tags:
 - 음악
 - 노래
-- 밴드음악
-- 신나는노래
+- 신나는 노래
+- 밴드 음악
 - 인디
 - 록
 - 플레이리스트
 - 노래 추천
-- 신나는 노래 추천
-- 밴드 노래 추천
-- 인디밴드
-- 인디음악
-- 록밴드
-- 팝록
-- 밴드팝
-- 여자보컬
-- 여자 보컬 노래
-- 알토 보컬
-- 베이스 노래
-- 베이스 리프
-- 베이스가 좋아
-- 소주 노래
+- 나는 연주야
 - 술자리 노래
 - 술자리 플레이리스트
-- 첫 만남 노래
-- 자기소개 노래
+- 소주 노래
+- 소주
+- 베이스
+- 베이스 노래
+- 베이스 기타
+- 5현 베이스
+- 베이스 솔로
 - 합주
 - 합주 노래
+- 합주할래
+- 자기소개 노래
+- 첫인사
+- 처음 만난 사람
+- 처음 만난 사람과 술자리
+- 낯가림
+- 여자 보컬
+- 콘트랄토
+- 인디 밴드
+- 밴드 사운드
+- 기분 좋은 노래
 - 드라이브 노래
-- 기분 좋아지는 노래
-- 에너지 넘치는 노래
-- 2010년대 밴드 사운드
-- 나는 연주야
-- korean band
+- 드라이브 플레이리스트
+- hand clap
 - korean indie
+- korean band
 - korean rock
-- korean pop rock
 - kpop
-- bass driven rock
+- k-indie
+- bass rock
 references:
 - title: 말달리자
   artist: 크라잉넛
@@ -109,9 +110,9 @@ candidates:
   story: 한동안 혼자였던 사람이 다시 사람을 만나러 나가며 건네는 가벼운 첫마디
 chosen: 0
 lyrics: |
-  [Intro: loud solo bass riff, then drums and guitar join]
+  [Intro: bright bouncy bass riff alone, then drums and jangly guitar join]
 
-  [Verse 1: loud bass riff leads, hi-hat, one clean guitar]
+  [Verse 1: bouncy bass riff leads, open hi-hat, one clean guitar]
   안녕! 나는 연주야
   나랑 합주할래
   처음 보는데 낯설지 않아
@@ -121,7 +122,7 @@ lyrics: |
   첫인사는 늘 서툰데
   다시 크게 말할게
 
-  [Chorus: full band hits hard, crash cymbals, heavy bass, doubled vocals]
+  [Chorus: full band, bright guitars, handclaps, doubled vocals]
   나는 연주야
   술 한번 먹자
   소주가 좋아
@@ -129,17 +130,18 @@ lyrics: |
   나랑 합주할래
   나는 연주야
 
-  [Verse 2: fat bass fills answer the voice]
+  [Verse 2: quick bass fills answer the voice]
   이름은 잘 외우지 못해
   얼굴은 기억해 볼게
   소주 한잔에 잊어도
   재미있으면 됐지
+  내 베이스는 줄도 다섯 개나 있어
 
   [Pre-Chorus: tom build, bass walks up]
   첫인사는 늘 서툰데
   다시 크게 말할게
 
-  [Chorus: full band hits hard, heavy bass, third harmony]
+  [Chorus: full band, handclaps, third harmony]
   나는 연주야
   술 한번 먹자
   소주가 좋아
@@ -153,7 +155,7 @@ lyrics: |
   낯선 사람으로
   헤어지기 싫어
 
-  [Final Chorus: biggest, bass loudest, third harmony]
+  [Final Chorus: biggest and brightest, third harmony]
   나는 연주야
   술 한번 먹자
   소주가 좋아
@@ -268,7 +270,7 @@ youtube_preview:
   - '안녕! 나는 연주야 #shorts'
   - '나는 연주야 #shorts'
   - '낯선 사람으로 #shorts'
-  - '이름은 잘 외우지 못해 / 얼굴은 기억해 볼게 #shorts'
+  - '소주가 좋아 / 베이스가 좋아 #shorts'
   description: '안녕! 나는 연주야
 
     나랑 합주할래
@@ -303,6 +305,8 @@ youtube_preview:
     소주 한잔에 잊어도
 
     재미있으면 됐지
+
+    내 베이스는 줄도 다섯 개나 있어
 
 
     첫인사는 늘 서툰데
@@ -353,7 +357,7 @@ youtube_preview:
     © 2026 연주왕김연주. 무단 복제·재업로드 금지.
 
 
-    #밴드음악 #신나는노래 #인디 #밴드 #노래 #음악 #인공지능 #록 #드라이브노래 #감성플리 #여자보컬 #인디밴드 #술자리노래 #기분좋은노래 #자기소개노래'
+    #신나는노래 #인디 #밴드음악 #밴드 #노래 #음악 #인공지능 #록 #드라이브노래 #감성플리 #여자보컬 #인디밴드 #술자리노래 #기분좋은노래 #자기소개노래'
   tags:
   - 나는 연주야
   - 연주왕김연주
@@ -361,42 +365,43 @@ youtube_preview:
   - 노래
   - 인공지능
   - 밴드
-  - 밴드음악
-  - 신나는노래
+  - 신나는 노래
+  - 밴드 음악
   - 인디
   - 록
   - 플레이리스트
   - 노래 추천
-  - 신나는 노래 추천
-  - 밴드 노래 추천
-  - 인디밴드
-  - 인디음악
-  - 록밴드
-  - 팝록
-  - 밴드팝
-  - 여자보컬
-  - 여자 보컬 노래
-  - 알토 보컬
-  - 베이스 노래
-  - 베이스 리프
-  - 베이스가 좋아
-  - 소주 노래
   - 술자리 노래
   - 술자리 플레이리스트
-  - 첫 만남 노래
-  - 자기소개 노래
+  - 소주 노래
+  - 소주
+  - 베이스
+  - 베이스 노래
+  - 베이스 기타
+  - 5현 베이스
+  - 베이스 솔로
   - 합주
   - 합주 노래
+  - 합주할래
+  - 자기소개 노래
+  - 첫인사
+  - 처음 만난 사람
+  - 처음 만난 사람과 술자리
+  - 낯가림
+  - 여자 보컬
+  - 콘트랄토
+  - 인디 밴드
+  - 밴드 사운드
+  - 기분 좋은 노래
   - 드라이브 노래
-  - 기분 좋아지는 노래
-  - 에너지 넘치는 노래
-  - 2010년대 밴드 사운드
-  - korean band
+  - 드라이브 플레이리스트
+  - hand clap
   - korean indie
+  - korean band
   - korean rock
-  - korean pop rock
   - kpop
-  - bass driven rock
+  - k-indie
+  - bass rock
   - AI음악
   - AI노래
   - AI 작곡
@@ -409,9 +414,9 @@ youtube_preview:
   - k-pop
   - korean song
   hashtags:
-  - 밴드음악
   - 신나는노래
   - 인디
+  - 밴드음악
   - 밴드
   - 노래
   - 음악
@@ -770,4 +775,127 @@ revisions:
       '
     arc: '화법: 우리. 기: 첫 줄부터 ''나는 연주야, 나랑 합주할래''로 이름과 부탁을 던지고, 낯설지 않다는 모순과 이름이면 충분하다는 말을 덧붙인다. 승: 서툰 첫인사를 ''다시 크게 말할게''로 밀어 올리고, 후렴에서 이름, 술 한번 먹자는 말, 좋아하는 것 둘(소주, 베이스)을 짧게 박아 외친다(후렴 ''나는 연주야''). 전: 2절은 상대의 이름으로 시선이 옮겨 가고, 브릿지에서 처음으로 ''낯선 사람으로 헤어지기 싫어''라는 진심을 말한다. 결: 마지막 후렴의 끝줄 ''나는 연주야''가 ''이제 이름 불러 줘''로 바뀌어 소개가 부탁이 되고, 아웃트로에서 ''만나서 반가워''로 인사를 닫은 뒤 베이스 리프 두 번으로 끊는다.'
     share_line: 나는 연주야 / 나랑 합주할래
+- at: 2026-11-01 20:12
+  note: 너무 끈적해 난 밝은 분위기를 원해. 보컬 목소리가 더 낮았으면 좋겠어. 내 베이스는 줄도 다섯개나 있어 라는 가사도 넣자.
+  plan: 끈적한 느낌을 걷어 내려고 템포를 96에서 122bpm 안팎으로 올리고, 밝은 장조를 끝까지 유지하며, 굵은 베이스를 가볍게 튀는 베이스로, 크런치 기타를 밝은 잰글 기타로, 후렴 손뼉으로 소리를 바꾼다. 보컬은 더 낮은 콘트랄토 흉성으로 내리고, 2절 끝에 '내 베이스는 줄도 다섯 개나 있어' 한 줄을 넣는다. 다른 가사 줄과 제목, 후렴 글자, 이미지 프롬프트는 그대로 둔다.
+  changes:
+  - 템포를 96bpm에서 122bpm 안팎의 경쾌한 업템포로 올렸다.
+  - 브릿지의 단조 전환을 빼고 곡 전체를 밝은 장조로 유지했다.
+  - 굵고 무거운(heavy, fat) 베이스를 가볍고 탄력 있게 튀는 오현 베이스로 바꿨다.
+  - 크런치 기타 한 대를 밝은 잰글 기타 두 대로 바꾸고, 리드 기타가 후렴 멜로디를 따라 부르게 했다.
+  - 오픈 하이햇과 후렴 손뼉을 더해 밝은 느낌을 살렸다.
+  - 보컬을 알토에서 더 낮은 콘트랄토, 낮은 음역의 깊은 흉성으로 내렸다.
+  - 2절 끝에 '내 베이스는 줄도 다섯 개나 있어'를 넣었다.
+  - 구간 태그의 heavy bass, fat bass fills, crash cymbals 등 무거운 지시를 밝은 지시로 고쳤다.
+  - Exclude에서 trot를 빼고 high-pitched vocal을 넣어 높은 목소리를 막았다.
+  before:
+    lyrics: '[Intro: loud solo bass riff, then drums and guitar join]
+
+
+      [Verse 1: loud bass riff leads, hi-hat, one clean guitar]
+
+      안녕! 나는 연주야
+
+      나랑 합주할래
+
+      처음 보는데 낯설지 않아
+
+      이름이면 충분해
+
+
+      [Pre-Chorus: tom build, bass walks up]
+
+      첫인사는 늘 서툰데
+
+      다시 크게 말할게
+
+
+      [Chorus: full band hits hard, crash cymbals, heavy bass, doubled vocals]
+
+      나는 연주야
+
+      술 한번 먹자
+
+      소주가 좋아
+
+      베이스가 좋아
+
+      나랑 합주할래
+
+      나는 연주야
+
+
+      [Verse 2: fat bass fills answer the voice]
+
+      이름은 잘 외우지 못해
+
+      얼굴은 기억해 볼게
+
+      소주 한잔에 잊어도
+
+      재미있으면 됐지
+
+
+      [Pre-Chorus: tom build, bass walks up]
+
+      첫인사는 늘 서툰데
+
+      다시 크게 말할게
+
+
+      [Chorus: full band hits hard, heavy bass, third harmony]
+
+      나는 연주야
+
+      술 한번 먹자
+
+      소주가 좋아
+
+      베이스가 좋아
+
+      나랑 합주할래
+
+      나는 연주야
+
+
+      [Bass Solo]
+
+
+      [Bridge: half-time, bass and voice only]
+
+      낯선 사람으로
+
+      헤어지기 싫어
+
+
+      [Final Chorus: biggest, bass loudest, third harmony]
+
+      나는 연주야
+
+      술 한번 먹자
+
+      소주가 좋아
+
+      베이스가 좋아
+
+      나랑 합주할래
+
+      이제 이름 불러 줘
+
+
+      [Outro: bass riff twice, hard stop]
+
+      만나서 반가워
+
+      나는 연주야
+
+
+      [End]
+
+      '
+    style: 'Korean band pop rock, 2010s indie band sound, 96 bpm, straight eighth-note groove, warm major key, minor turn at the bridge. Bass-driven, bass loud and upfront. Melodic picked electric bass riff opens alone, returns between vocal lines, fat fills answer the voice, walks up in the pre-chorus, bass riff break after chorus two. Female alto, low warm chest voice, smooth and clean, plain delivery, little vibrato, sung in Korean, korean lyrics. Live drums in a small room, punchy kick, crisp snare. One crunchy rhythm guitar, lead guitar only in choruses. Chorus hits hard: full band, crash cymbals, upward leap on the first word, strong chest voice, doubled vocal, third harmony from chorus two. Bridge: half-time, bass and voice only. Final chorus: biggest. Outro: bass riff twice, hard stop. Warm, bold, honest.'
+    exclude: trot, autotune, raspy vocal
+    sound_plan: 따뜻한 장조에 96bpm 안팎의 미드템포, 브릿지에서만 잠깐 단조로 돈다. 리듬은 곧게 흐르는 8분음 그루브로, 작은 방에서 친 라이브 드럼에 킥은 단단하고 스네어는 또렷하다. 곡의 주인공은 베이스이고, 처음부터 끝까지 가장 크게 앞에 선다. 피크로 친 일렉 베이스가 굵고 멜로디가 있는 리프로 곡을 혼자 열고, 절에서는 그 리프가 보컬 줄 사이마다 돌아오며, 2절에서는 두툼한 베이스 필이 목소리에 대답하고, 프리코러스에서는 베이스가 한 음씩 걸어 올라간다. 2절 후렴 뒤 간주는 베이스 리프 브레이크다. 화성은 크런치 리듬 기타 한 대가 받치고, 리드 기타는 후렴에서만 얹는다. 신스 패드와 전조는 뺀다. 멜로디는 절에서 좁고 말하듯, 프리코러스는 같은 음을 되풀이하며 밀고, 후렴은 짧은 줄을 세게 끊어 치다가 첫 음 '나는'에서 위로 뛰고 '연주야'를 길게 끈다. 후렴은 크래시 심벌과 함께 밴드가 한꺼번에 터지고 드럼이 더 세게 몰아친다. 보컬은 중저음 여자 알토, 낮고 따뜻한 흉성에 매끈하고 맑은 담백한 톤, 긁는 소리 없이 비브라토 적게, 절은 가깝고 건조하게, 후렴은 힘 있게 더블링, 2절 후렴부터 3도 하모니. 브릿지는 하프타임으로 떨어져 베이스와 목소리만 남는다. 마지막 후렴은 같은 키에서 가장 크고 베이스가 가장 크게 들리며, 떼창 없이 목소리 둘로 끝낸다. 아웃트로는 베이스 리프 두 번 뒤 딱 끊는다.
+    arc: '화법: 우리. 기: 첫 줄부터 ''안녕! 나는 연주야, 나랑 합주할래''로 인사와 이름, 부탁을 한꺼번에 던지고, 낯설지 않다는 모순과 이름이면 충분하다는 말을 덧붙인다. 승: 서툰 첫인사를 ''다시 크게 말할게''로 밀어 올리고, 후렴에서 이름, 술 한번 먹자는 말, 좋아하는 것 둘(소주, 베이스)을 짧게 박아 외친다(후렴 ''나는 연주야''). 전: 2절에서는 1절의 ''이름이면 충분해''를 뒤집어, 이름은 잘 외우지 못해도 얼굴은 기억해 보겠다고 하고, 소주에 다 잊어도 재미있으면 됐다며 웃어넘긴다. 브릿지에서 처음으로 ''낯선 사람으로 헤어지기 싫어''라는 진심을 말한다. 결: 마지막 후렴의 끝줄 ''나는 연주야''가 ''이제 이름 불러 줘''로 바뀌어 소개가 부탁이 되고, 아웃트로에서 ''만나서 반가워''로 인사를 닫은 뒤 베이스 리프 두 번으로 끊는다.'
+    share_line: 이름은 잘 외우지 못해 / 얼굴은 기억해 볼게
 youtube_preview_edited: false
