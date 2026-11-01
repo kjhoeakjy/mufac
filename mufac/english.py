@@ -29,7 +29,7 @@ SYSTEM_EN_HEAD = """\
 - 상황 보고가 아니라 뜻이다. 장소 이름, 시각, 요일, 생활 소품(phone, text, car keys, coffee, Uber, Instagram), 동작의 차례로 장면을 세우지 않는다.
   사물은 곡에 둘까지, 뜻을 지는 큰 것(night, road, window, hands, sea, fire, rain, summer)만. 곡을 읽고 "어떤 마음"만 남아야 한다.
 - 줄은 뜻 한 겹이다. 보편 명사와 기본 동사(love, time, leave, stay, fall, hold, run, know)로 누구의 상황에도 들어맞는 말을 쓴다.
-- 큰말(forever, soul, heaven, fate, always)은 노래의 말이니 써도 된다. 한 줄에 둘을 겹치지 않는다.
+- 큰말(forever, soul, heaven, fate)은 노래의 말이니 써도 된다. 영어 히트곡에서는 드문 말이라 곡에 하나, 가장 센 자리(후렴 마지막 줄이나 브릿지)에 둔다.
 - 가사는 많을 필요 없다. 멜로디와 후렴이 먼저다. 훅이 곡의 뜻 전부를 지고, 절은 그 뜻의 다른 면 하나씩만 짧게 비춘다.
 
 [길이와 구조]
@@ -50,7 +50,7 @@ SYSTEM_EN_HEAD = """\
 [영어다운 말] (강제)
 - 대화하듯 쓴다. 축약형(I'm, don't, can't, you're, gonna, wanna)을 자연스럽게 쓴다. 풀어 쓴 "I do not", "I am going to"는 강조할 때만.
 - 영어 어순과 강세를 지킨다. 강세 있는 음절이 박자의 강한 자리에 오도록 줄을 짠다(prosody). 강세 없는 말(the, of, and)로 줄을 끝내지 않는다.
-- 각운은 쓰되 억지로 맞추지 않는다. 완전운과 근사운(slant rhyme: time/mind, love/enough)을 섞는다. 운을 맞추려고 어순을 뒤집거나("love I need") 뜻 없는 낱말을 넣지 않는다.
+- 각운은 쓰되 억지로 맞추지 않는다. 히트곡의 운은 대부분 모음운이다(완전운 5.5%, 모음운 23%). 근사운(slant rhyme: time/mind, love/enough)을 기본으로 완전운을 섞는다. 운을 맞추려고 어순을 뒤집거나("love I need") 뜻 없는 낱말을 넣지 않는다.
   같은 낱말로 끝나는 줄(you/you)은 후렴의 반복에서만. 운 패턴은 절마다 AABB나 ABCB 하나로 일관되게.
 - 대명사: 곡의 중심은 I와 you다. "you"에게 말하는 곡이 가장 많다. 화자와 상대는 곡 끝까지 같다.
 - 번역투 금지: 한국어를 옮긴 듯한 말("my heart is hurting so much", "you are my everything that I have", "fighting", "skinship", "eye smile")을 쓰지 않는다. 콩글리시 금지.
@@ -169,7 +169,7 @@ def stats_text(genre: str = "") -> str:
             f"AI 상투어 1000줄당 {s['ai_cliche_per_1000']}.")
     if not lines:
         return ""
-    head = "유행한 영어 노래들의 실측이다. 이 곡의 줄 길이·각운·반복·축약·인칭·감정어 비율을 요청 장르 묶음(없으면 전체)에 맞춘다. 2020년대 값은 요즘 곡의 방향이다."
+    head = "유행한 영어 노래들의 실측이다. 이 곡의 줄 길이·각운·반복·축약·인칭·감정어 비율을 요청 장르 묶음(없으면 전체)에 맞춘다. 2020년대 값은 요즘 곡의 방향이다. 곡당 줄 수는 반복 후렴을 모두 적은 길이라 따르지 않는다(이 곡의 길이는 [길이와 구조]대로)."
     return "\n\n[영어 실측]\n" + head + "\n" + "\n".join(lines)
 
 
