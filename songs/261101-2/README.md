@@ -4,7 +4,7 @@
 
 > 찬란 말고 화란
 
-사랑 · 조용하고 반듯한 방에서 불을 끄지 못한 채, 흔들리더라도 네가 일으킨 소란이 그리워 다시 오라고 부르는 사람의 노래.
+사랑 · 네가 없는 반듯한 방에서 불을 끄지 못한 채, 고요보다 너의 소란이 그리웠다고 인정하는 사람이 밤 드라이브처럼 흘러가는 리듬에 실어 부르는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -24,12 +24,12 @@
 
 **Style**
 ```text
-Korean city pop, acoustic, 80s late night, 94 bpm, quiet, maj7 chords, minor turn in the pre-chorus. Female alto, low, cool, slightly husky, close dry vocal behind the beat, sung in Korean, korean lyrics. Warm fingered bass leads up front, melodic lines, octave slides, ghost notes. Steel-string acoustic guitar carries the chords with muted strums from the intro. Verse 1: bass, acoustic guitar, narrow talky melody. Pre-chorus: nylon guitar and soft electric piano enter, rising repeated note. Chorus: gentle upward leap, soft rim clicks, two-part harmonies, long held last word. Verse 2 adds brushed drums and shaker. Acoustic guitar solo after chorus two. Bridge drops to bass and whispered voice. Final chorus fullest yet restrained. Outro: bass riff alone, fades. Small room, intimate, light plate reverb, analog warmth. Calm, wistful.
+Korean city pop, 80s, groovy 106 bpm, bright major with maj7 and 9th chords, brief minor turn in the pre-chorus. Smooth polished female mezzo vocal, cool and slightly husky, light chorus effect, sung in Korean, korean lyrics. Slap bass leads with octave patterns and ghost notes. Rhodes and DX electric piano chords, clean funk guitar cutting with chorus effect, tight 80s drums with sixteenth hi-hats and soft gated snare, shaker and cowbell. Intro: bass riff and Rhodes. Verse 1 adds guitar cutting, syncopated narrow melody. Pre-chorus rises by half steps over synth pads. Chorus opens with an upward leap, synth brass stabs, two-part harmonies, long held last word. Saxophone solo after the second chorus. Bridge drops to pads and voice, slap stops. Final chorus fullest, octave-up harmonies, ad-libs. Outro: bass riff fades. Wide stereo, plate reverb. Glossy night drive, nostalgic, breezy.
 ```
 
 **Exclude styles**
 ```text
-saxophone, synth brass, distorted guitar
+distorted guitar, trap hi-hats, acoustic guitar
 ```
 
 **Title**
@@ -39,9 +39,9 @@ saxophone, synth brass, distorted guitar
 
 **Lyrics**
 ```text
-[Intro: fingered bass riff and acoustic guitar]
+[Intro: slap bass riff and Rhodes]
 
-[Verse 1: bass, acoustic guitar, close voice]
+[Verse 1: funk guitar cutting, tight 80s drums]
 잔잔한 날에는 내가 없고
 흔들릴 때에만 내가 있다
 네가 일으킨 파란 속에서
@@ -50,19 +50,19 @@ saxophone, synth brass, distorted guitar
 기울어진 쪽으로 걸어가
 불을 끄지 못한 밤
 
-[Pre-Chorus: nylon guitar and soft electric piano enter, rising]
+[Pre-Chorus: synth pads enter, rising by half steps]
 가라앉으라는 말에
 나는 더 깊이 흔들리고
 네가 다시 손을 내밀면
 
-[Chorus: soft two-part harmonies, rim clicks]
+[Chorus: synth brass stabs, two-part harmonies]
 찬란 말고 화란
 고요보다 네 소란
 부서져도 너라면
 찬란 말고 화란
 (말고 화란)
 
-[Verse 2: brushed drums and shaker added]
+[Verse 2: bass variation, shaker and cowbell added]
 네가 없는 방은 반듯하고
 모든 것이 제자리에 놓여
 하얀 벽에 걸린 바른 시계
@@ -71,28 +71,28 @@ saxophone, synth brass, distorted guitar
 숨소리마저 가지런해
 불을 끄지 못한 밤
 
-[Pre-Chorus: two acoustic guitars, rising]
+[Pre-Chorus: synth pads enter, rising by half steps]
 잊으라는 말에
 나는 더 또렷해지고
 네 이름이 입술에 닿으면
 
-[Chorus: soft two-part harmonies, rim clicks]
+[Chorus: synth brass stabs, two-part harmonies]
 찬란 말고 화란
 고요보다 네 소란
 부서져도 너라면
 찬란 말고 화란
 (말고 화란)
 
-[Guitar Solo: quiet acoustic guitar over bass]
+[Saxophone Solo: 8 bars over the full groove]
 
-[Bridge: bass and whispered voice only]
+[Bridge: pads and voice, slap bass stops]
 고요를 다 가져도
 나는 비어 있었고
 흐트러진 그 계절이 편했다
 보고 싶다, 네 소란
 이번에는 놓지 않을게
 
-[Final Chorus: fullest yet restrained, extra harmonies]
+[Final Chorus: full band, octave-up harmonies, ad-libs]
 찬란 말고 화란
 고요보다 네 소란
 다시 와서 화란
@@ -100,7 +100,7 @@ saxophone, synth brass, distorted guitar
 (말고 화란)
 찬란 말고 화란
 
-[Outro: bass riff alone, fade out]
+[Outro: slap bass riff and Rhodes, fade out]
 파란이 다시 오는 쪽으로
 
 [End]
