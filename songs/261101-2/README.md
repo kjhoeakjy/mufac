@@ -4,7 +4,7 @@
 
 > 찬란 말고 화란
 
-사랑 · 밀어내도 밀려오는 사람 쪽으로 다시 기울며, 엉망인 채로 편했던 소란이 그립다고 말하는 밤 드라이브 노래.
+사랑 · 밤 늦게 혼자 운전하며 멀어졌다 가까워지길 반복하는 사람을 떠올리다, 이번에는 돌지 않고 그 사람 쪽으로 가겠다고 말하는 여자가 부른다.
 
 ## 이렇게 쓴 이유
 
@@ -24,12 +24,12 @@
 
 **Style**
 ```text
-Korean city pop, 80s night drive, 102 bpm, maj7 chords, bittersweet minor turn in the pre-chorus. Female alto, low, cool, slightly husky, close dry verses, just behind the beat, sincere, sung in Korean, korean lyrics. Slap bass with octave pops leads from the intro. Verse 1: DX7 electric piano and tight 80s drums, sixteenth hi-hats, narrow talky melody. Pre-chorus: chorus-effect funk guitar cutting enters, rising repeated note. Chorus: upward leap, synth brass stabs, two-part harmonies, short hook with a long held last word. Verse 2 adds congas and bell synth answers. Alto sax solo after chorus two. Bridge drops to electric piano, pad and near-whispered voice, bass stops. Final chorus widest, extra harmonies, ad-libs. Outro fades on the bass riff. Wide stereo, plate reverb, analog warmth. Cool, restless, wistful.
+Korean city pop, acoustic, 80s late night, 94 bpm, quiet, maj7 chords, minor turn in the pre-chorus. Female alto, low, cool, slightly husky, close dry vocal behind the beat, sung in Korean, korean lyrics. Warm fingered bass leads up front, melodic lines, octave slides, ghost notes. Steel-string acoustic guitar carries the chords with muted strums from the intro. Verse 1: bass, acoustic guitar, narrow talky melody. Pre-chorus: nylon guitar and soft electric piano enter, rising repeated note. Chorus: gentle upward leap, soft rim clicks, two-part harmonies, long held last word. Verse 2 adds brushed drums and shaker. Acoustic guitar solo after chorus two. Bridge drops to bass and whispered voice. Final chorus fullest yet restrained. Outro: bass riff alone, fades. Small room, intimate, light plate reverb, analog warmth. Calm, wistful.
 ```
 
 **Exclude styles**
 ```text
-distorted guitar, trap hi-hats, autotune
+saxophone, synth brass, distorted guitar
 ```
 
 **Title**
@@ -39,9 +39,9 @@ distorted guitar, trap hi-hats, autotune
 
 **Lyrics**
 ```text
-[Intro: slap bass riff and electric piano]
+[Intro: fingered bass riff and acoustic guitar]
 
-[Verse 1: electric piano and drums, close voice]
+[Verse 1: bass, acoustic guitar, close voice]
 파란 위에 또 파란
 노란 밑에 또 노란
 네 쪽으로 기울면
@@ -50,19 +50,19 @@ distorted guitar, trap hi-hats, autotune
 끝도 없이 돌아와
 파란은 네 쪽에서부터
 
-[Pre-Chorus: funk guitar enters, rising]
+[Pre-Chorus: nylon guitar and soft electric piano enter, rising]
 밀어내면 밀려와
 돌고 돌아 안쪽으로
 네가 또 부르면
 
-[Chorus: synth brass, two-part harmonies]
+[Chorus: soft two-part harmonies, rim clicks]
 찬란 말고 화란
 파란 끝에 화란
 네가 오면 다 화란
 찬란 말고 화란
 (말고 화란)
 
-[Verse 2: congas and bell synth added]
+[Verse 2: brushed drums and shaker added]
 하얀 위에 또 하얀
 까만 밑에 또 까만
 네 쪽에서 멀어지면
@@ -71,28 +71,28 @@ distorted guitar, trap hi-hats, autotune
 멈추지 않고 돌아
 파란은 네 쪽에서부터
 
-[Pre-Chorus: guitar cutting, rising]
+[Pre-Chorus: two acoustic guitars, rising]
 기다리면 멀어져
 돌고 돌아 바깥으로
 네 이름을 부르면
 
-[Chorus: synth brass, two-part harmonies]
+[Chorus: soft two-part harmonies, rim clicks]
 찬란 말고 화란
 파란 끝에 화란
 네가 오면 다 화란
 찬란 말고 화란
 (말고 화란)
 
-[Saxophone Solo]
+[Guitar Solo: quiet acoustic guitar over bass]
 
-[Bridge: electric piano and whisper, bass stops]
+[Bridge: bass and whispered voice only]
 안에서 밖으로
 밖에서 안으로
 엉망인 게 편했어
 보고 싶어 네 소란
 이번엔 돌지 않을게
 
-[Final Chorus: full band, widest, ad-libs]
+[Final Chorus: fullest yet restrained, extra harmonies]
 찬란 말고 화란
 파란 끝에 화란
 다시 와서 화란
