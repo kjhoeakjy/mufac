@@ -297,7 +297,7 @@ def genre_text(genre: str) -> str:
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--probe", action="store_true")
-    ap.add_argument("--limit", type=int, default=100)
+    ap.add_argument("--limit", type=int, default=160)  # 가사 없는 곡·읽기 실패를 빼면 100곡 안팎이 남는다
     ap.add_argument("--genres", default="")
     a = ap.parse_args()
     if a.probe:

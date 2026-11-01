@@ -15,7 +15,7 @@ on:
       limit:
         description: "묶음당 곡 수"
         required: false
-        default: "100"
+        default: "160"
 
 permissions:
   contents: write
