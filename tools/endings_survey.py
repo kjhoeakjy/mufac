@@ -64,14 +64,20 @@ def get(url: str, **kw) -> str:
 def melon_list(code: str, limit: int) -> list[str]:
     """장르별 차트(최근)와 스테디셀러 목록에서 곡 번호를 모은다."""
     ids: list[str] = []
-    urls = [f"https://www.melon.com/chart/genre/index.htm?classCd={code}"]
-    for start in range(1, 500, 50):
-        urls.append(f"https://www.melon.com/genre/song_list.htm?gnrCode={code}&steadyYn=Y&startIndex={start}&pageSize=50")
+    # 장르별 차트 페이지(chart/genre/index.htm?classCd=)는 classCd를 무시하고 종합 차트를 주므로 쓰지 않는다(2026-11-01 확인).
+    # 스테디셀러 목록(장르별로 다르다)을 먼저, 모자라면 장르 곡 목록으로 채운다
+    urls = [f"https://www.melon.com/genre/song_list.htm?gnrCode={code}&steadyYn=Y&startIndex={start}&pageSize=50" for start in range(1, 500, 50)]
+    urls += [f"https://www.melon.com/genre/song_list.htm?gnrCode={code}&steadyYn=N&startIndex={start}&pageSize=50" for start in range(1, 300, 50)]
+    seen_pages = set()
     for u in urls:
         if len(ids) >= limit:
             break
         page = get(u)
         found = re.findall(r"data-song-no=\"(\d+)\"", page) or re.findall(r"goSongDetail\('(\d+)'\)", page)
+        key = tuple(found[:5])
+        if not found or key in seen_pages:  # 다음 쪽이 없으면 같은 쪽을 돌려준다
+            continue
+        seen_pages.add(key)
         for f in found:
             if f not in ids:
                 ids.append(f)
