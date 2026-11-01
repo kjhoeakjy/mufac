@@ -4,7 +4,7 @@
 
 > 나는 연주야
 
-사랑 · 처음 만난 사람들 사이에서 이름부터 또렷하게 건네고, 소주 한 잔에 합주를 청하는 베이스 치는 사람이 부르는 자기소개 노래.
+사랑 · 처음 만난 술자리에서 낯을 가리던 연주가 이름부터 크게 말하며 합주하자고 먼저 손을 내미는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -24,12 +24,12 @@
 
 **Style**
 ```text
-Korean band pop rock, laid-back 2010s indie band sound, mid-tempo 96 bpm, straight eighth-note groove, warm major key, brief minor turn at the bridge. Bass-driven song: melodic picked electric bass riff opens alone and returns between vocal lines, bass fills answer the voice, bass walks up in the pre-chorus, bass riff break after chorus two. Female mezzo, plain clear unadorned voice, little vibrato, close dry vocal, sung in Korean, korean lyrics. Live drums in a small room, punchy kick, crisp snare, steady hi-hat. One clean crunchy rhythm guitar, light lead guitar only in choruses. Chorus: full band, upward leap on the first word, long held last word, doubled vocal, third harmony from chorus two. Bridge: half-time, bass and voice only. Final chorus: fuller, same key, bass loudest. Outro: bass riff twice, hard stop. Warm, honest, easygoing.
+Korean band pop rock, 2010s indie band sound, 96 bpm, straight eighth-note groove, warm major key, minor turn at the bridge. Bass-driven, bass loud and upfront. Melodic picked electric bass riff opens alone, returns between vocal lines, fat fills answer the voice, walks up in the pre-chorus, bass riff break after chorus two. Female alto, low warm chest voice, smooth and clean, plain delivery, little vibrato, sung in Korean, korean lyrics. Live drums in a small room, punchy kick, crisp snare. One crunchy rhythm guitar, lead guitar only in choruses. Chorus hits hard: full band, crash cymbals, upward leap on the first word, strong chest voice, doubled vocal, third harmony from chorus two. Bridge: half-time, bass and voice only. Final chorus: biggest. Outro: bass riff twice, hard stop. Warm, bold, honest.
 ```
 
 **Exclude styles**
 ```text
-trot, polka beat, autotune
+trot, autotune, raspy vocal
 ```
 
 **Title**
@@ -39,26 +39,27 @@ trot, polka beat, autotune
 
 **Lyrics**
 ```text
-[Intro: solo bass riff, then drums and guitar join]
+[Intro: loud solo bass riff, then drums and guitar join]
 
-[Verse 1: bass riff leads, hi-hat, one clean guitar]
+[Verse 1: loud bass riff leads, hi-hat, one clean guitar]
+나는 연주야
+나랑 합주할래
 처음 보는데 낯설지 않아
-긴 말은 나중에
-이 밤에 만난 우리
 이름이면 충분해
 
 [Pre-Chorus: tom build, bass walks up]
 첫인사는 늘 서툰데
-이것만은 또렷하게
+다시 크게 말할게
 
-[Chorus: full band, bass riff between lines, doubled vocals]
+[Chorus: full band hits hard, crash cymbals, heavy bass, doubled vocals]
 나는 연주야
-나는 소주를 좋아해
-베이스 치는 것도 좋아해
-나랑 술 먹고 합주할래
+술 한번 먹자
+소주가 좋아
+베이스가 좋아
+나랑 합주할래
 나는 연주야
 
-[Verse 2: bass fills answer the voice]
+[Verse 2: fat bass fills answer the voice]
 궁금한 네 이름
 들으면 꼭 외울게
 모르는 사람끼리
@@ -66,13 +67,14 @@ trot, polka beat, autotune
 
 [Pre-Chorus: tom build, bass walks up]
 첫인사는 늘 서툰데
-이것만은 또렷하게
+다시 크게 말할게
 
-[Chorus: full band, bass riff between lines, third harmony]
+[Chorus: full band hits hard, heavy bass, third harmony]
 나는 연주야
-나는 소주를 좋아해
-베이스 치는 것도 좋아해
-나랑 술 먹고 합주할래
+술 한번 먹자
+소주가 좋아
+베이스가 좋아
+나랑 합주할래
 나는 연주야
 
 [Bass Solo]
@@ -81,11 +83,12 @@ trot, polka beat, autotune
 낯선 사람으로
 헤어지기 싫어
 
-[Final Chorus: full band, bass riff louder, third harmony]
+[Final Chorus: biggest, bass loudest, third harmony]
 나는 연주야
-나는 소주를 좋아해
-베이스 치는 것도 좋아해
-나랑 술 먹고 합주할래
+술 한번 먹자
+소주가 좋아
+베이스가 좋아
+나랑 합주할래
 이제 이름 불러 줘
 
 [Outro: bass riff twice, hard stop]
