@@ -4,7 +4,7 @@
 
 > 나는 연주야
 
-사랑 · 처음 만난 술자리에서 낯을 가리던 연주가 이름부터 크게 말하며 합주하자고 먼저 손을 내미는 노래.
+사랑 · 처음 보는 사람들 사이에서 어색하게 자기소개를 하다가, 이름을 크게 말하고 술 한잔과 합주를 청하는 베이시스트가 부르는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -42,7 +42,7 @@ trot, autotune, raspy vocal
 [Intro: loud solo bass riff, then drums and guitar join]
 
 [Verse 1: loud bass riff leads, hi-hat, one clean guitar]
-나는 연주야
+안녕! 나는 연주야
 나랑 합주할래
 처음 보는데 낯설지 않아
 이름이면 충분해
@@ -60,10 +60,10 @@ trot, autotune, raspy vocal
 나는 연주야
 
 [Verse 2: fat bass fills answer the voice]
-궁금한 네 이름
-들으면 꼭 외울게
-모르는 사람끼리
-이름이면 충분해
+이름은 잘 외우지 못해
+얼굴은 기억해 볼게
+소주 한잔에 잊어도
+재미있으면 됐지
 
 [Pre-Chorus: tom build, bass walks up]
 첫인사는 늘 서툰데
