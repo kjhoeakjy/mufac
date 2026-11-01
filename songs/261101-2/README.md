@@ -4,7 +4,7 @@
 
 > 찬란 말고 화란
 
-사랑 · 네가 없는 반듯한 방에서 불을 끄지 못한 채, 고요보다 너의 소란이 그리웠다고 인정하는 사람이 밤 드라이브처럼 흘러가는 리듬에 실어 부르는 노래.
+사랑 · 헤어진 뒤 반듯하고 조용해진 방에서 불을 끄지 못한 채, 그 사람이 일으키던 소란을 그리워하며 부르는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -24,12 +24,12 @@
 
 **Style**
 ```text
-Korean city pop, 80s, groovy 106 bpm, bright major with maj7 and 9th chords, brief minor turn in the pre-chorus. Smooth polished female mezzo vocal, cool and slightly husky, light chorus effect, sung in Korean, korean lyrics. Slap bass leads with octave patterns and ghost notes. Rhodes and DX electric piano chords, clean funk guitar cutting with chorus effect, tight 80s drums with sixteenth hi-hats and soft gated snare, shaker and cowbell. Intro: bass riff and Rhodes. Verse 1 adds guitar cutting, syncopated narrow melody. Pre-chorus rises by half steps over synth pads. Chorus opens with an upward leap, synth brass stabs, two-part harmonies, long held last word. Saxophone solo after the second chorus. Bridge drops to pads and voice, slap stops. Final chorus fullest, octave-up harmonies, ad-libs. Outro: bass riff fades. Wide stereo, plate reverb. Glossy night drive, nostalgic, breezy.
+Slow korean city pop ballad, 80s, 74 bpm, laid-back, maj7 and 9th chords, soft minor turn in the pre-chorus. Breathy warm female mezzo, close and intimate, sung softly behind the beat, sung in Korean, korean lyrics. Rhodes carries the intro and verse 1. Round fingered bass on long notes, soft brushed drums with quiet rimshot. Muted clean guitar fills from verse 2, warm pads under the pre-chorus. Narrow conversational verses, chorus with a small lift, long held last word. Rhodes and guitar break after the second chorus. Bridge drops to voice and Rhodes. Final chorus adds soft strings and layered harmonies, still gentle. Outro: Rhodes alone, slowing. Small room, light plate reverb, tape warmth. Calm, tender, late night.
 ```
 
 **Exclude styles**
 ```text
-distorted guitar, trap hi-hats, acoustic guitar
+saxophone, slap bass, synth brass
 ```
 
 **Title**
@@ -39,9 +39,9 @@ distorted guitar, trap hi-hats, acoustic guitar
 
 **Lyrics**
 ```text
-[Intro: slap bass riff and Rhodes]
+[Intro: Rhodes alone, soft and slow]
 
-[Verse 1: funk guitar cutting, tight 80s drums]
+[Verse 1: Rhodes and voice, light brushed drums]
 잔잔한 날에는 내가 없고
 흔들릴 때에만 내가 있다
 네가 일으킨 파란 속에서
@@ -50,19 +50,19 @@ distorted guitar, trap hi-hats, acoustic guitar
 기울어진 쪽으로 걸어가
 불을 끄지 못한 밤
 
-[Pre-Chorus: synth pads enter, rising by half steps]
+[Pre-Chorus: warm pads enter, gentle rise]
 가라앉으라는 말에
 나는 더 깊이 흔들리고
 네가 다시 손을 내밀면
 
-[Chorus: synth brass stabs, two-part harmonies]
+[Chorus: round bass joins, soft airy harmonies]
 찬란 말고 화란
 고요보다 네 소란
 부서져도 너라면
 찬란 말고 화란
 (말고 화란)
 
-[Verse 2: bass variation, shaker and cowbell added]
+[Verse 2: muted clean guitar fills, still sparse]
 네가 없는 방은 반듯하고
 모든 것이 제자리에 놓여
 하얀 벽에 걸린 바른 시계
@@ -71,28 +71,28 @@ distorted guitar, trap hi-hats, acoustic guitar
 숨소리마저 가지런해
 불을 끄지 못한 밤
 
-[Pre-Chorus: synth pads enter, rising by half steps]
+[Pre-Chorus: warm pads enter, gentle rise]
 잊으라는 말에
 나는 더 또렷해지고
 네 이름이 입술에 닿으면
 
-[Chorus: synth brass stabs, two-part harmonies]
+[Chorus: round bass joins, soft airy harmonies]
 찬란 말고 화란
 고요보다 네 소란
 부서져도 너라면
 찬란 말고 화란
 (말고 화란)
 
-[Saxophone Solo: 8 bars over the full groove]
+[Instrumental Break: Rhodes and clean guitar, 8 bars, quiet]
 
-[Bridge: pads and voice, slap bass stops]
+[Bridge: voice and Rhodes only, drums stop]
 고요를 다 가져도
 나는 비어 있었고
 흐트러진 그 계절이 편했다
 보고 싶다, 네 소란
 이번에는 놓지 않을게
 
-[Final Chorus: full band, octave-up harmonies, ad-libs]
+[Final Chorus: soft strings enter, layered harmonies, still gentle]
 찬란 말고 화란
 고요보다 네 소란
 다시 와서 화란
@@ -100,7 +100,7 @@ distorted guitar, trap hi-hats, acoustic guitar
 (말고 화란)
 찬란 말고 화란
 
-[Outro: slap bass riff and Rhodes, fade out]
+[Outro: Rhodes alone, slows down]
 파란이 다시 오는 쪽으로
 
 [End]

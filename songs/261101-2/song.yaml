@@ -1,7 +1,7 @@
 title: 화란
 hook: 찬란 말고 화란
 theme: 사랑
-story: 네가 없는 반듯한 방에서 불을 끄지 못한 채, 고요보다 너의 소란이 그리웠다고 인정하는 사람이 밤 드라이브처럼 흘러가는 리듬에 실어 부르는 노래.
+story: 헤어진 뒤 반듯하고 조용해진 방에서 불을 끄지 못한 채, 그 사람이 일으키던 소란을 그리워하며 부르는 노래.
 created: 2026-11-01 11:47
 request:
   id: mvx8881c
@@ -10,9 +10,9 @@ request:
   genre: 시티팝
   style: 여자보컬, 가사 내용 추상적으로
 instrumental: false
-sound_plan: 메이저세븐과 나인스 코드가 굴러가는 밝은 장조에, 프리코러스에서만 단조로 살짝 꺾이는 밤 드라이브용 80년대 시티팝입니다. 빠르기는 106bpm으로 올려 몸이 먼저 움직이게 합니다. 곡의 주인공은 슬랩 베이스입니다. 인트로부터 옥타브 패턴과 고스트 노트로 멜로디처럼 뛰고, 2절에서는 리프를 변주합니다. 화성은 로즈와 DX 일렉 피아노가 깔고, 코러스 이펙트를 건 클린 펑크 기타가 단음 커팅으로 1절부터 리듬을 쪼갭니다. 드럼은 하이햇 16분음과 약하게 게이트를 건 스네어의 타이트한 80년대 소리이고, 후렴에는 탐 필, 2절부터 셰이커와 카우벨을 가볍게 더합니다. 신스 브라스 스탭은 후렴에서만 터뜨리고, 두 번째 후렴 뒤에 색소폰 솔로 8마디를 둡니다. 멜로디는 절에서 싱코페이션이 걸린 짧은 음절로 좁게 말하듯 가고, 프리코러스는 신스 패드 위에서 반음씩 오르며, 후렴 첫 음 '찬'에서 위로 뛰어 '화란'의 '란'을 길게 뻗습니다. 보컬은 서늘하고 약간 허스키한 여자 메조로, 매끈하게 다듬고 가벼운 코러스 이펙트를 겁니다. 후렴은 두 줄 하모니, 마지막 후렴은 옥타브 위 하모니와 애드립으로 가장 크게 엽니다. 브릿지에서는 슬랩이 멈추고 패드와 목소리만 남아 한 번 숨을 고릅니다. 공간은 넓은 스테레오에 플레이트 리버브를 둘러 밤 도시의 윤기를 냅니다. 아웃트로는 베이스 리프와 로즈만 남아 페이드아웃으로 끝납니다.
-style: 'Korean city pop, 80s, groovy 106 bpm, bright major with maj7 and 9th chords, brief minor turn in the pre-chorus. Smooth polished female mezzo vocal, cool and slightly husky, light chorus effect, sung in Korean, korean lyrics. Slap bass leads with octave patterns and ghost notes. Rhodes and DX electric piano chords, clean funk guitar cutting with chorus effect, tight 80s drums with sixteenth hi-hats and soft gated snare, shaker and cowbell. Intro: bass riff and Rhodes. Verse 1 adds guitar cutting, syncopated narrow melody. Pre-chorus rises by half steps over synth pads. Chorus opens with an upward leap, synth brass stabs, two-part harmonies, long held last word. Saxophone solo after the second chorus. Bridge drops to pads and voice, slap stops. Final chorus fullest, octave-up harmonies, ad-libs. Outro: bass riff fades. Wide stereo, plate reverb. Glossy night drive, nostalgic, breezy.'
-exclude: distorted guitar, trap hi-hats, acoustic guitar
+sound_plan: 메이저세븐과 나인스 코드의 부드러운 장조에 프리코러스에서만 단조로 살짝 기우는, 늦은 밤에 듣는 느린 시티팝 발라드다. 빠르기는 74bpm 안팎으로 내려 몸보다 귀가 먼저 머물게 한다. 곡을 끌고 가는 것은 로즈 일렉 피아노로, 인트로에서 혼자 시작해 1절까지 목소리를 받친다. 드럼은 브러시와 작은 림샷으로 아주 가볍게 깔고, 베이스는 슬랩 대신 둥근 핑거 베이스가 긴 음으로 뿌리만 지키며 첫 후렴에서 들어온다. 2절부터 뮤트한 클린 기타가 코러스 이펙트를 살짝 걸고 빈자리에 짧게 대답한다. 신스 브라스, 색소폰, 카우벨처럼 들뜨거나 트로트처럼 들릴 소리는 모두 뺀다. 멜로디는 절에서 좁은 음역으로 말하듯 가고, 프리코러스는 따뜻한 패드 위에서 조금씩 오르며, 후렴은 '찬' 에서 작게 올라 '화란'의 '란'을 길게 끈다. 보컬은 숨이 섞인 따뜻한 여자 메조로, 가깝게 녹음하고 박자 뒤에 살짝 앉아 부른다. 후렴 하모니는 공기처럼 얇게 둔다. 두 번째 후렴 뒤에는 로즈와 기타가 조용히 여덟 마디를 이어 가고, 브릿지에서는 드럼이 멈추고 목소리와 로즈만 남는다. 마지막 후렴에는 부드러운 현과 겹친 하모니가 들어오지만 크기는 끝까지 잔잔하게 지킨다. 공간은 작은 방에 옅은 플레이트 리버브와 테이프 질감. 아웃트로는 로즈 혼자 느려지며 끝난다.
+style: 'Slow korean city pop ballad, 80s, 74 bpm, laid-back, maj7 and 9th chords, soft minor turn in the pre-chorus. Breathy warm female mezzo, close and intimate, sung softly behind the beat, sung in Korean, korean lyrics. Rhodes carries the intro and verse 1. Round fingered bass on long notes, soft brushed drums with quiet rimshot. Muted clean guitar fills from verse 2, warm pads under the pre-chorus. Narrow conversational verses, chorus with a small lift, long held last word. Rhodes and guitar break after the second chorus. Bridge drops to voice and Rhodes. Final chorus adds soft strings and layered harmonies, still gentle. Outro: Rhodes alone, slowing. Small room, light plate reverb, tape warmth. Calm, tender, late night.'
+exclude: saxophone, slap bass, synth brass
 photo_query: woman night city drive retro
 image_prompt: A woman in a loose 80s blazer seen from the side, leaning against a tall glass window at night, a tilted glass on the sill catching the light. Swirls of blue, yellow and coral city light bleed over her like smeared paint, glossy and abstract, cool and restless mood.
 short_scenes:
@@ -26,13 +26,13 @@ line_plan: '[Verse 1] 1 고백(임팩트: 선언) 좋은 사람은 지루하다 
 why: 제목이 '화란'으로 정해졌으니 '찬란'과 '화란'이 한 줄에서 부딪히는 1번이 세 키워드를 가장 짧게 묶습니다. 자우림이 '미안해'와 '미워해'를 나란히 두고 풀지 않듯, 훅을 '찬란 말고 화란'이라는 설명 없는 모순으로 세웠습니다. 좋은 사람보다 나를 흔드는 사람에게 끌려 본 기억은 누구에게나 있어서 넓게 닿습니다. 극동아시아타이거즈처럼 2절은 1절의 틀에 명사만 바꿔 '컵 속의 물'이 일어났다가 잠잠해지게 했고, 한로로처럼 마지막 후렴은 한 줄만 바꿔 '놓고 가'를 '다시 엎질러 줘'로 돌려 결론을 냈습니다. 제목은 지정된 단어 하나 그대로이며 후렴 안에서 매번 마지막 낱말로 늘여 부릅니다.
 share_line: 고요보다 네 소란
 youtube_meta:
-  situation: 불 끄지 못한 밤에 듣는 시티팝
+  situation: 잠 안 오는 밤에 듣는 시티팝
   shorts_title: 찬란 말고 화란
   hashtags:
   - 시티팝
   - 감성노래
   - 새벽감성
-  - 드라이브노래
+  - 밤드라이브
   - 감성플리
   - 시티팝플리
   - 여자보컬
@@ -40,47 +40,47 @@ youtube_meta:
   - 레트로감성
   - 밤감성
   - 그리움
-  - 밤드라이브
+  - 위로노래
 tags:
 - 음악
 - 노래
 - 감성
 - 시티팝
+- 발라드
 - 플레이리스트
 - 노래 추천
-- 감성 노래
-- 시티팝 추천
+- 감성 플레이리스트
 - 시티팝 플레이리스트
+- 시티팝 추천
+- 80년대 시티팝
 - 한국 시티팝
-- 80년대 감성
-- 레트로 감성
-- 밤 노래
 - 새벽 감성
 - 새벽에 듣는 노래
+- 잠 안 오는 밤
 - 잠 안 오는 밤 노래
-- 불 끄지 못한 밤
+- 밤에 듣는 노래
 - 밤 드라이브 노래
-- 드라이브 노래
-- 드라이브 플레이리스트
+- 야간 드라이브
 - 이별 노래
 - 그리움 노래
-- 보고 싶은 사람 노래
+- 보고 싶은 사람
+- 헤어진 후에 듣는 노래
 - 여자 보컬
-- 여자 시티팝
-- 슬랩 베이스
-- 색소폰 솔로
-- 신스 브라스
+- 여자 보컬 노래
 - 로즈 피아노
-- 퇴근길 노래
-- 감성 플리
+- 잔잔한 노래
+- 조용한 노래
+- 혼자 듣는 노래
+- 불 끄지 못한 밤
 - 화란
 - 찬란 말고 화란
 - korean city pop
 - korean ballad
-- korean indie
-- kpop
+- korean female vocal
 - city pop
-- 80s city pop
+- kpop
+- night playlist
+- late night songs
 references:
 - title: 미안해 널 미워해
   artist: 자우림
@@ -109,9 +109,9 @@ candidates:
   story: 아무 일 없는 무채색 나날이 지겨운 사람이 차라리 사건이라도 오라고 중얼거리는 담담한 곡.
 chosen: 0
 lyrics: |
-  [Intro: slap bass riff and Rhodes]
+  [Intro: Rhodes alone, soft and slow]
 
-  [Verse 1: funk guitar cutting, tight 80s drums]
+  [Verse 1: Rhodes and voice, light brushed drums]
   잔잔한 날에는 내가 없고
   흔들릴 때에만 내가 있다
   네가 일으킨 파란 속에서
@@ -120,19 +120,19 @@ lyrics: |
   기울어진 쪽으로 걸어가
   불을 끄지 못한 밤
 
-  [Pre-Chorus: synth pads enter, rising by half steps]
+  [Pre-Chorus: warm pads enter, gentle rise]
   가라앉으라는 말에
   나는 더 깊이 흔들리고
   네가 다시 손을 내밀면
 
-  [Chorus: synth brass stabs, two-part harmonies]
+  [Chorus: round bass joins, soft airy harmonies]
   찬란 말고 화란
   고요보다 네 소란
   부서져도 너라면
   찬란 말고 화란
   (말고 화란)
 
-  [Verse 2: bass variation, shaker and cowbell added]
+  [Verse 2: muted clean guitar fills, still sparse]
   네가 없는 방은 반듯하고
   모든 것이 제자리에 놓여
   하얀 벽에 걸린 바른 시계
@@ -141,28 +141,28 @@ lyrics: |
   숨소리마저 가지런해
   불을 끄지 못한 밤
 
-  [Pre-Chorus: synth pads enter, rising by half steps]
+  [Pre-Chorus: warm pads enter, gentle rise]
   잊으라는 말에
   나는 더 또렷해지고
   네 이름이 입술에 닿으면
 
-  [Chorus: synth brass stabs, two-part harmonies]
+  [Chorus: round bass joins, soft airy harmonies]
   찬란 말고 화란
   고요보다 네 소란
   부서져도 너라면
   찬란 말고 화란
   (말고 화란)
 
-  [Saxophone Solo: 8 bars over the full groove]
+  [Instrumental Break: Rhodes and clean guitar, 8 bars, quiet]
 
-  [Bridge: pads and voice, slap bass stops]
+  [Bridge: voice and Rhodes only, drums stop]
   고요를 다 가져도
   나는 비어 있었고
   흐트러진 그 계절이 편했다
   보고 싶다, 네 소란
   이번에는 놓지 않을게
 
-  [Final Chorus: full band, octave-up harmonies, ad-libs]
+  [Final Chorus: soft strings enter, layered harmonies, still gentle]
   찬란 말고 화란
   고요보다 네 소란
   다시 와서 화란
@@ -170,7 +170,7 @@ lyrics: |
   (말고 화란)
   찬란 말고 화란
 
-  [Outro: slap bass riff and Rhodes, fade out]
+  [Outro: Rhodes alone, slows down]
   파란이 다시 오는 쪽으로
 
   [End]
@@ -305,7 +305,7 @@ photo:
   model: gpt-image-2.5-flare
   prompt: A woman in a loose 80s blazer seen from the side, sitting in a parked car at night by the harbor, a paper cup of water trembling on the dashboard. Teal and coral city light through the windshield, glossy reflections, cool and restless mood.
 youtube_preview:
-  title: 화란 - 연주왕김연주 | 불 끄지 못한 밤에 듣는 시티팝
+  title: 화란 - 연주왕김연주 | 잠 안 오는 밤에 듣는 시티팝
   shorts_title: '찬란 말고 화란 #shorts'
   shorts_titles:
   - '잔잔한 날에는 내가 없고 #shorts'
@@ -412,7 +412,7 @@ youtube_preview:
     © 2026 연주왕김연주. 무단 복제·재업로드 금지.
 
 
-    #시티팝 #감성노래 #새벽감성 #노래 #음악 #인공지능 #드라이브노래 #감성플리 #시티팝플리 #여자보컬 #이별노래 #레트로감성 #밤감성 #그리움 #밤드라이브'
+    #시티팝 #감성노래 #새벽감성 #노래 #음악 #인공지능 #밤드라이브 #감성플리 #시티팝플리 #여자보컬 #이별노래 #레트로감성 #밤감성 #그리움 #위로노래'
   tags:
   - 화란
   - 연주왕김연주
@@ -421,40 +421,40 @@ youtube_preview:
   - 인공지능
   - 시티팝
   - 감성
+  - 발라드
   - 플레이리스트
   - 노래 추천
-  - 감성 노래
-  - 시티팝 추천
+  - 감성 플레이리스트
   - 시티팝 플레이리스트
+  - 시티팝 추천
+  - 80년대 시티팝
   - 한국 시티팝
-  - 80년대 감성
-  - 레트로 감성
-  - 밤 노래
   - 새벽 감성
   - 새벽에 듣는 노래
+  - 잠 안 오는 밤
   - 잠 안 오는 밤 노래
-  - 불 끄지 못한 밤
+  - 밤에 듣는 노래
   - 밤 드라이브 노래
-  - 드라이브 노래
-  - 드라이브 플레이리스트
+  - 야간 드라이브
   - 이별 노래
   - 그리움 노래
-  - 보고 싶은 사람 노래
+  - 보고 싶은 사람
+  - 헤어진 후에 듣는 노래
   - 여자 보컬
-  - 여자 시티팝
-  - 슬랩 베이스
-  - 색소폰 솔로
-  - 신스 브라스
+  - 여자 보컬 노래
   - 로즈 피아노
-  - 퇴근길 노래
-  - 감성 플리
+  - 잔잔한 노래
+  - 조용한 노래
+  - 혼자 듣는 노래
+  - 불 끄지 못한 밤
   - 찬란 말고 화란
   - korean city pop
   - korean ballad
-  - korean indie
-  - kpop
+  - korean female vocal
   - city pop
-  - 80s city pop
+  - kpop
+  - night playlist
+  - late night songs
   - AI음악
   - AI노래
   - AI 작곡
@@ -464,7 +464,6 @@ youtube_preview:
   - 가사
   - korean music
   - k-pop
-  - korean song
   hashtags:
   - 시티팝
   - 감성노래
@@ -472,7 +471,7 @@ youtube_preview:
   - 노래
   - 음악
   - 인공지능
-  - 드라이브노래
+  - 밤드라이브
   - 감성플리
   - 시티팝플리
   - 여자보컬
@@ -480,7 +479,7 @@ youtube_preview:
   - 레트로감성
   - 밤감성
   - 그리움
-  - 밤드라이브
+  - 위로노래
   playlists:
   - 연주왕김연주 노래
   - 헤어진 날 듣는 노래
@@ -1036,4 +1035,142 @@ revisions:
     exclude: saxophone, synth brass, distorted guitar
     sound_plan: 장조의 메이저세븐 코드 위에 프리코러스에서만 단조로 살짝 꺾이는, 늦은 밤 작은 방의 조용한 어쿠스틱 시티팝입니다. 빠르기는 94bpm 안팎으로 원래보다 한 걸음 늦췄습니다. 곡의 주인공은 둥근 핑거 베이스입니다. 인트로부터 앞에 나와 옥타브 슬라이드와 고스트 노트로 멜로디처럼 움직이고, 슬랩은 쓰지 않아 튀지 않고 따뜻하게 들립니다. 화성은 스틸 줄 어쿠스틱 기타가 메이저세븐 코드와 뮤트한 퍼커시브 스트럼으로 처음부터 끌고 갑니다. 프리코러스에서 나일론 기타 한 대와 아주 작은 일렉 피아노가 들어와 색을 보탭니다. 드럼은 1절에는 없고, 후렴에서 부드러운 림 클릭만 들어옵니다. 2절부터 브러시 드럼과 셰이커가 가볍게 깔립니다. 신스 브라스와 색소폰은 빼고, 두 번째 후렴 뒤에는 베이스 위에 조용한 어쿠스틱 기타 솔로 8마디를 둡니다. 멜로디는 절에서 좁은 음역으로 말하듯 가고, 프리코러스는 같은 음을 되풀이하며 오르고, 후렴 첫 음 '찬'에서 부드럽게 위로 뛰어 '화란'의 '란'을 길게 늘입니다. 보컬은 낮고 서늘하며 약간 허스키한 여자 알토입니다. 마이크 가까이 건조하게, 박자 뒤로 걸쳐 부르고, 후렴은 작은 두 줄 하모니로만 넓힙니다. 브릿지는 베이스와 속삭이는 목소리만 남아 가장 조용해집니다. 마지막 후렴은 하모니를 더해 가장 꽉 차지만 끝까지 절제합니다. 공간은 작은 방의 가까운 소리에 옅은 플레이트 리버브와 아날로그 온기를 더합니다. 아웃트로는 베이스 리프만 남아 페이드아웃으로 끝납니다.
     share_line: 찬란 말고 화란 / 고요보다 네 소란
+- at: 2026-11-01 12:13
+  note: 너무 빠르고 트로트같은 느낌이 나서 별로야. 더 조용하고 잔잔한 노래였으면 좋겠어.
+  plan: 빠르고 트로트처럼 들리게 한 소리(106bpm 그루브, 슬랩 베이스, 신스 브라스, 색소폰 솔로, 카우벨)를 빼고, 74bpm 안팎의 느리고 조용한 시티팝 발라드로 소리를 다시 설계한다. 가사 줄과 제목, 후렴, 기승전결, 이미지는 그대로 두고 구간 태그의 전개 지시와 sound_plan, style, exclude만 바꾼다.
+  changes:
+  - 빠르기를 106bpm에서 74bpm 안팎으로 내려 느린 시티팝 발라드로 바꿨다.
+  - 트로트처럼 들리게 한 색소폰 솔로, 신스 브라스 스탭, 카우벨, 셰이커를 모두 뺐다.
+  - 들뜬 슬랩 베이스 대신 긴 음으로 받치는 둥근 핑거 베이스로 바꿨다.
+  - 드럼을 타이트한 80년대 드럼에서 브러시와 작은 림샷으로 바꿔 소리를 낮췄다.
+  - 로즈 일렉 피아노가 곡을 끌고 가게 하고, 기타는 2절부터 뮤트한 클린 톤으로 짧게만 넣었다.
+  - 보컬을 매끈한 톤에서 숨이 섞인 따뜻하고 가까운 톤으로 바꾸고, 박자 뒤에 앉아 부르게 했다.
+  - 색소폰 솔로 자리를 로즈와 기타의 조용한 여덟 마디 간주로 바꿨다.
+  - 마지막 후렴은 부드러운 현과 겹친 하모니만 더해 끝까지 잔잔하게 두었다.
+  - 구간 태그의 전개 지시를 새 소리 설계에 맞게 고치고, 가사 줄은 한 글자도 바꾸지 않았다.
+  - exclude를 saxophone, slap bass, synth brass로 바꿨다.
+  before:
+    lyrics: '[Intro: slap bass riff and Rhodes]
+
+
+      [Verse 1: funk guitar cutting, tight 80s drums]
+
+      잔잔한 날에는 내가 없고
+
+      흔들릴 때에만 내가 있다
+
+      네가 일으킨 파란 속에서
+
+      젖은 채로 가벼운 마음
+
+      반듯한 하루를 접어 두고
+
+      기울어진 쪽으로 걸어가
+
+      불을 끄지 못한 밤
+
+
+      [Pre-Chorus: synth pads enter, rising by half steps]
+
+      가라앉으라는 말에
+
+      나는 더 깊이 흔들리고
+
+      네가 다시 손을 내밀면
+
+
+      [Chorus: synth brass stabs, two-part harmonies]
+
+      찬란 말고 화란
+
+      고요보다 네 소란
+
+      부서져도 너라면
+
+      찬란 말고 화란
+
+      (말고 화란)
+
+
+      [Verse 2: bass variation, shaker and cowbell added]
+
+      네가 없는 방은 반듯하고
+
+      모든 것이 제자리에 놓여
+
+      하얀 벽에 걸린 바른 시계
+
+      한 번도 틀리지 않는 고요
+
+      그 고요가 나를 지우고
+
+      숨소리마저 가지런해
+
+      불을 끄지 못한 밤
+
+
+      [Pre-Chorus: synth pads enter, rising by half steps]
+
+      잊으라는 말에
+
+      나는 더 또렷해지고
+
+      네 이름이 입술에 닿으면
+
+
+      [Chorus: synth brass stabs, two-part harmonies]
+
+      찬란 말고 화란
+
+      고요보다 네 소란
+
+      부서져도 너라면
+
+      찬란 말고 화란
+
+      (말고 화란)
+
+
+      [Saxophone Solo: 8 bars over the full groove]
+
+
+      [Bridge: pads and voice, slap bass stops]
+
+      고요를 다 가져도
+
+      나는 비어 있었고
+
+      흐트러진 그 계절이 편했다
+
+      보고 싶다, 네 소란
+
+      이번에는 놓지 않을게
+
+
+      [Final Chorus: full band, octave-up harmonies, ad-libs]
+
+      찬란 말고 화란
+
+      고요보다 네 소란
+
+      다시 와서 화란
+
+      찬란 말고 화란
+
+      (말고 화란)
+
+      찬란 말고 화란
+
+
+      [Outro: slap bass riff and Rhodes, fade out]
+
+      파란이 다시 오는 쪽으로
+
+
+      [End]
+
+      '
+    style: 'Korean city pop, 80s, groovy 106 bpm, bright major with maj7 and 9th chords, brief minor turn in the pre-chorus. Smooth polished female mezzo vocal, cool and slightly husky, light chorus effect, sung in Korean, korean lyrics. Slap bass leads with octave patterns and ghost notes. Rhodes and DX electric piano chords, clean funk guitar cutting with chorus effect, tight 80s drums with sixteenth hi-hats and soft gated snare, shaker and cowbell. Intro: bass riff and Rhodes. Verse 1 adds guitar cutting, syncopated narrow melody. Pre-chorus rises by half steps over synth pads. Chorus opens with an upward leap, synth brass stabs, two-part harmonies, long held last word. Saxophone solo after the second chorus. Bridge drops to pads and voice, slap stops. Final chorus fullest, octave-up harmonies, ad-libs. Outro: bass riff fades. Wide stereo, plate reverb. Glossy night drive, nostalgic, breezy.'
+    exclude: distorted guitar, trap hi-hats, acoustic guitar
+    sound_plan: 메이저세븐과 나인스 코드가 굴러가는 밝은 장조에, 프리코러스에서만 단조로 살짝 꺾이는 밤 드라이브용 80년대 시티팝입니다. 빠르기는 106bpm으로 올려 몸이 먼저 움직이게 합니다. 곡의 주인공은 슬랩 베이스입니다. 인트로부터 옥타브 패턴과 고스트 노트로 멜로디처럼 뛰고, 2절에서는 리프를 변주합니다. 화성은 로즈와 DX 일렉 피아노가 깔고, 코러스 이펙트를 건 클린 펑크 기타가 단음 커팅으로 1절부터 리듬을 쪼갭니다. 드럼은 하이햇 16분음과 약하게 게이트를 건 스네어의 타이트한 80년대 소리이고, 후렴에는 탐 필, 2절부터 셰이커와 카우벨을 가볍게 더합니다. 신스 브라스 스탭은 후렴에서만 터뜨리고, 두 번째 후렴 뒤에 색소폰 솔로 8마디를 둡니다. 멜로디는 절에서 싱코페이션이 걸린 짧은 음절로 좁게 말하듯 가고, 프리코러스는 신스 패드 위에서 반음씩 오르며, 후렴 첫 음 '찬'에서 위로 뛰어 '화란'의 '란'을 길게 뻗습니다. 보컬은 서늘하고 약간 허스키한 여자 메조로, 매끈하게 다듬고 가벼운 코러스 이펙트를 겁니다. 후렴은 두 줄 하모니, 마지막 후렴은 옥타브 위 하모니와 애드립으로 가장 크게 엽니다. 브릿지에서는 슬랩이 멈추고 패드와 목소리만 남아 한 번 숨을 고릅니다. 공간은 넓은 스테레오에 플레이트 리버브를 둘러 밤 도시의 윤기를 냅니다. 아웃트로는 베이스 리프와 로즈만 남아 페이드아웃으로 끝납니다.
 youtube_preview_edited: false
