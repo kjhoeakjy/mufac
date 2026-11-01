@@ -1,5 +1,5 @@
 name: 영어 가사 조사
-run-name: "영어 가사 조사 ${{ inputs.probe && '(구조 확인)' || inputs.years }}"
+run-name: "영어 가사 조사 ${{ inputs.probe && '(구조 확인)' || '' }}"
 
 on:
   workflow_dispatch:
@@ -8,10 +8,6 @@ on:
         description: "목록·가사·장르 출처가 읽히는지만 확인"
         type: boolean
         default: false
-      years:
-        description: "연도 범위"
-        required: false
-        default: "1990-2025"
       top:
         description: "해마다 상위 몇 곡"
         required: false
@@ -25,26 +21,63 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  survey:
+  probe:
+    if: ${{ inputs.probe }}
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install requests
-      - name: 구조 확인
-        if: ${{ inputs.probe }}
-        run: python tools/en_survey.py --probe
+      - run: python tools/en_survey.py --probe
+
+  # 연대마다 따로 돌려 시간 한도 안에 끝낸다. 조각에는 곡별 통계만 들어 있다(가사 원문 없음).
+  part:
+    if: ${{ !inputs.probe }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    strategy:
+      fail-fast: false
+      matrix:
+        years: ["1990-1999", "2000-2009", "2010-2019", "2020-2025"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
       - name: 조사
-        if: ${{ !inputs.probe }}
         env:
-          YEARS: ${{ inputs.years }}
+          YEARS: ${{ matrix.years }}
           TOP: ${{ inputs.top }}
-        run: python tools/en_survey.py --years "$YEARS" --top "$TOP"
+        run: python tools/en_survey.py --years "$YEARS" --top "$TOP" --budget 150 --part "part-$YEARS.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: part-${{ matrix.years }}
+          path: part-${{ matrix.years }}.json
+          retention-days: 3
+
+  merge:
+    if: ${{ !inputs.probe && !cancelled() }}
+    needs: part
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: part-*
+          path: parts
+          merge-multiple: true
+      - name: 합치기
+        run: python tools/en_survey.py --merge parts/*.json
       - name: 저장
-        if: ${{ !inputs.probe }}
         run: |
           git config user.name "mufac"
           git config user.email "mufac@users.noreply.github.com"

@@ -1,6 +1,8 @@
 """유행했던 영어 노래 가사 실측. GitHub Actions에서 돌린다(여기 컨테이너는 바깥 사이트에 못 붙는다).
 
   python tools/en_survey.py [--years 1990-2025] [--top 100] [--probe]
+  python tools/en_survey.py --years 1990-1999 --part part.json --budget 140   # 연대별 조각(통계만)
+  python tools/en_survey.py --merge part1.json part2.json ...                  # 조각을 합쳐 결과 파일 작성
 
 1. 위키백과 'Billboard Year-End Hot 100 singles of <연도>'에서 해마다 상위 곡 목록을 받는다.
 2. 곡마다 LRCLIB(공개 가사 API)에서 가사를, Deezer 앨범 정보에서 장르를 받는다.
@@ -103,6 +105,9 @@ def clean_title(t: str) -> str:
 
 def fetch_lyrics(title: str, artist: str) -> list[str]:
     t, a = clean_title(title), main_artist(artist)
+    exact = get_json("https://lrclib.net/api/get", {"track_name": t, "artist_name": a}, tries=2)
+    if isinstance(exact, dict) and exact.get("plainLyrics") and not exact.get("instrumental"):
+        return [l.strip() for l in exact["plainLyrics"].splitlines()]
     for params in ({"track_name": t, "artist_name": a}, {"q": f"{a} {t}"}):
         res = get_json("https://lrclib.net/api/search", params) or []
         for r in res:
@@ -263,7 +268,9 @@ def aggregate(items: list[dict]) -> dict:
 
 # ---------------------------------------------------------------- 실행
 
-def survey(years: range, top: int, workers: int) -> dict:
+def collect(years: range, top: int, workers: int, budget_min: float) -> dict:
+    """곡마다 통계만 모은다. 시간 한도가 지나면 남은 곡은 건너뛴다(그때까지 모은 것은 남는다)."""
+    deadline = time.time() + budget_min * 60
     songs = []
     for y in years:
         songs += year_list(y, top)
@@ -271,6 +278,8 @@ def survey(years: range, top: int, workers: int) -> dict:
     print(f"곡 목록 {len(songs)}곡", flush=True)
 
     def one(s: dict) -> dict:
+        if time.time() > deadline:
+            return {**s, "genre": "", "stats": None, "skipped": True}
         lines = fetch_lyrics(s["title"], s["artist"])
         genre = fetch_genre(s["title"], s["artist"]) if lines else ""
         r = analyze_song(s["title"], lines) if lines else None
@@ -282,21 +291,37 @@ def survey(years: range, top: int, workers: int) -> dict:
             done.append(r)
             if i % 100 == 0:
                 print(f"  {i}/{len(songs)} (가사 {sum(1 for x in done if x['stats'])})", flush=True)
+    skipped = sum(1 for x in done if x.get("skipped"))
+    if skipped:
+        print(f"시간 한도로 {skipped}곡 건너뜀", flush=True)
+    return {"years": [years.start, years.stop - 1], "top": top, "listed": len(songs),
+            "songs": [{k: x[k] for k in ("year", "genre", "stats")} for x in done if x["stats"]]}
 
-    ok = [x for x in done if x["stats"]]
+
+def merge(parts: list[dict]) -> dict:
+    ok = [x for p in parts for x in p["songs"]]
+    for x in ok:  # JSON을 거치면 Counter가 dict가 된다
+        for k in ("ends", "starts", "content"):
+            x["stats"][k] = Counter(x["stats"][k])
     by_group, by_decade = defaultdict(list), defaultdict(list)
     for x in ok:
         by_group[GENRE_MAP.get(x["genre"], "기타")].append(x["stats"])
         by_decade[f"{x['year'] // 10 * 10}년대"].append(x["stats"])
-    result = {
-        "source": f"Billboard Year-End Hot 100 {years.start}-{years.stop - 1} 상위 {top}곡, 가사 LRCLIB, 장르 Deezer",
+    y0 = min(p["years"][0] for p in parts); y1 = max(p["years"][1] for p in parts)
+    return {
+        "source": f"Billboard Year-End Hot 100 {y0}-{y1} 상위 {parts[0]['top']}곡, 가사 LRCLIB, 장르 Deezer",
         "total": aggregate([x["stats"] for x in ok]),
         "groups": {g: {**aggregate(v), "members": MEMBERS.get(g, [])} for g, v in sorted(by_group.items(), key=lambda kv: -len(kv[1]))},
         "decades": {d: aggregate(v) for d, v in sorted(by_decade.items())},
-        "listed": len(songs), "with_lyrics": len(ok),
+        "listed": sum(p["listed"] for p in parts), "with_lyrics": len(ok),
         "genres_raw": dict(Counter(x["genre"] or "-" for x in ok).most_common()),
     }
-    return result
+
+
+def save(res: dict) -> None:
+    OUT_JSON.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
+    write_md(res)
+    print(f"목록 {res['listed']}곡, 가사 {res['with_lyrics']}곡", flush=True)
 
 
 def write_md(r: dict) -> None:
@@ -342,14 +367,21 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--years", default="1990-2025")
     ap.add_argument("--top", type=int, default=100)
-    ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--budget", type=float, default=140, help="분 단위 시간 한도")
+    ap.add_argument("--part", help="통계 조각을 이 파일에 쓰고 끝낸다")
+    ap.add_argument("--merge", nargs="+", help="조각 파일을 합쳐 결과를 쓴다")
     ap.add_argument("--probe", action="store_true")
     a = ap.parse_args()
     if a.probe:
         probe()
+    elif a.merge:
+        save(merge([json.loads(Path(f).read_text(encoding="utf-8")) for f in a.merge]))
     else:
         y0, y1 = (int(x) for x in a.years.split("-"))
-        res = survey(range(y0, y1 + 1), a.top, a.workers)
-        OUT_JSON.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
-        write_md(res)
-        print(json.dumps(res["total"], ensure_ascii=False)[:1500], flush=True)
+        part = collect(range(y0, y1 + 1), a.top, a.workers, a.budget)
+        if a.part:
+            Path(a.part).write_text(json.dumps(part, ensure_ascii=False), encoding="utf-8")
+            print(f"조각 {len(part['songs'])}곡", flush=True)
+        else:
+            save(merge([part]))
