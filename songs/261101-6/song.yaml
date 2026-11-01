@@ -1,0 +1,405 @@
+title: 작두
+hook: 네가 작두냐
+theme: 어른
+story: 남의 팔자를 다 안다는 듯 떠드는 사람에게, 늘 듣기만 하던 사람이 처음으로 소리 지르며 되묻는다.
+created: 2026-11-01 14:50
+request:
+  id: mvxer9yq
+  title: 작두
+  genre: 락
+  style: 빠르고 욕하고 소리지르기
+instrumental: false
+sound_plan: 단조 파워코드의 거친 락, 152bpm 안팎의 빠른 8비트로 달린다. 드럼은 한 방에서 친 라이브 드럼으로 킥은 단단하고 스네어는 두툼하며, 절은 닫힌 하이햇, 후렴은 크래시를 열어 둔다. 베이스는 피크로 치며 기타 리프와 킥에 붙어 8분음으로 밀고, 브릿지에서는 혼자 남아 하프타임으로 박자를 지킨다. 디스토션 리듬 기타 둘을 좌우에 두고 절은 팜뮤트, 후렴은 기타 벽으로 연다. 멜로디는 절에서 좁은 음역의 말하듯 내지르는 짧은 프레이즈, 프리코러스는 같은 음을 반복하며 올라가고, 후렴 첫 음절 '네가'에서 위로 뛰어 짧게 끊어 치는 훅을 외친다. 보컬은 거친 결의 남성 흉성으로 소리 지르되 음정은 지키고, 후렴 훅은 떼창이 받아친다. 인트로는 기타 리프 혼자 시작해 전 밴드가 들이닥치고, 2절에 리드 기타가 보컬에 대답하며, 두 번째 후렴 뒤 지저분한 8마디 기타 솔로 후 갑자기 멈춘다. 브릿지는 베이스와 거의 말하는 목소리로 내려앉아 고백을 하고, 마지막 후렴은 옥타브 위 외침과 떼창으로 가장 크게 터진 뒤 리프 한 번으로 딱 끊는다.
+style: 'Korean rock, 2000s garage punk edge, fast 152 bpm, driving straight eighths, minor key power chords. Male lead, raspy chest voice, shouted and furious, talky clipped verses right on the beat, screamed hook, sung in Korean, korean lyrics. Intro: one distorted guitar riff alone, then live drums and picked bass slam in. Verse 1: palm-muted riff, closed hi-hat, bass locked to the kick, narrow shouted melody. Pre-chorus: toms, rising repeated note, guitars open. Chorus: two distorted guitars left and right, open crash, fat snare, upward leap on the first word, short clipped hook, gang vocals shout the hook back. Verse 2 adds a lead guitar answering the voice. Noisy 8-bar guitar solo. Bridge: half-time, bass and near-spoken voice. Final chorus loudest, octave-up shout, hard stop. Live room drums, raw and loud. Angry, defiant, cathartic.'
+exclude: autotune, synth pop beat, string orchestra
+photo_query: punk rock singer shouting
+image_prompt: A man in his thirties seen from the side, black hoodie, shouting into a microphone on a stand in a small dim rock club. Red stage light, a distorted electric guitar leaning on an amp behind him. Gritty red and black tones, defiant and raw.
+short_scenes:
+- The same man in the black hoodie screaming the chorus, fist raised, red stage light flaring, the guitarist behind him bent over the amp, crowd hands blurred in front.
+- Close-up of his hand gripping the microphone stand, knuckles white, red light on metal, sweat on the skin, the amp glowing in soft focus.
+- After the last chord, the empty small stage in red light, microphone stand tilted, guitar leaning on the amp, the man sitting on the stage edge from behind.
+title_kind: 지정
+tempo: 빠름
+arc: '화법: 너에게. 기(1절): 보지도 않고 다 안다는 너, 틀릴수록 더 크게 말하는 너가 남의 팔자 위에서 춤추는 모습을 못 박는다. 승(프리코러스→후렴): 피는 내가 흘린다는 정확한 말로 밀어 올려 ''네가 작두냐''를 내지른다. 전(2절→브릿지): 2절은 어제와 오늘 말을 바꾸는 너로 시간이 바뀌고, 브릿지에서 처음으로 나도 남의 팔자에 칼을 댄 밤이 있다고 고백한다. 결(마지막 후렴): ''씨발 네가 작두냐''가 ''씨발 나도 작두냐''로, ''내 팔자에''가 ''남의 팔자에''로 바뀌어 분노가 나와 모두를 향한 말이 된다. 아웃트로는 가사 없이 리프 한 번과 끊음.'
+line_plan: '[Verse 1] 1 모순: 보지 않고 다 봤다는 사람 / 2 선언(정확한 말): 틀릴수록 더 크게 말한다 / 3 새 뜻: 남의 팔자 위라는 자리 / 4 새 뜻+리프레인: 그 위에서 춤춘다(작두 비유 한 번). [Pre-Chorus] 5 전환: 욕으로 판을 뒤집음 / 6 정확한 말, 열린 끝(-는데): 피는 내가 흘린다. [Chorus] 7 질문(훅) / 8 질문 강화, 욕을 얹은 훅 / 9 부탁·명령: 내 팔자에 칼 대지 마 / 10 질문(훅). 훅 줄: 7,8,10. [Verse 2] 11 새 뜻(시간 전환): 어제는 망한다던 말 / 12 뒤집기(정확한 말): 오늘은 될 줄 알았다는 말 / 13 전환: 칼날 위에서 하루를 바꿔 디딤 / 14 리프레인: 4번과 같은 줄. [Pre-Chorus] 15~16 5~6 반복. [Chorus] 17~20 7~10 반복, 훅 줄 17,18,20. [Bridge] 21~22 고백: 나도 남의 팔자에 칼을 댄 적이 있다(훅 없음). [Final Chorus] 23 질문(훅) / 24 뒤집기: 나도 작두냐 / 25 부탁·명령의 확장: 남의 팔자에 칼 대지 마 / 26 질문(훅). 훅 ''네가 작두냐'' 총 8회, ''작두냐'' 9회.'
+why: '''네가 작두냐''는 명절 어른, 직장 상사, 훈수 두는 선배처럼 누구에게나 있는 ''다 아는 듯 떠드는 사람''에게 그대로 던질 수 있어 가장 넓게 공감된다. 크라잉넛 ''말달리자''의 원리대로 외침 앞에 모순과 선언을 쌓아 두고, 상황극 없이 ''팔자''와 ''칼''이라는 뜻만 남겨 누구나 자기 사람을 꽂아 넣게 했다. 극동아시아타이거즈처럼 마지막 후렴에서 ''네가''를 ''나도''로 한 글자 바꿔 칼끝이 나에게 돌아오게 했고, 브릿지에서 처음으로 나도 그랬다고 고백해 그 변화를 받친다. 한로로식으로 소리가 닮은 말을 한 줄에 붙여 ''날 위에서 날을 바꿔''(칼날/하루)로 2절의 시간 변화를 보여 준다. 제목은 지정된 ''작두'' 한 단어 그대로이며, 훅 안의 낱말로 후렴마다 세 번 불린다.'
+share_line: 피는 내가 흘리는데
+youtube_meta:
+  situation: 훈수에 화날 때 듣는 락
+  shorts_title: 네가 작두냐
+  hashtags:
+  - 락
+  - 신나는노래
+  - 스트레스해소
+  - 노동요
+  - 한국락
+  - 밴드음악
+  - 소리지르는노래
+  - 사이다노래
+  - 직장인노래
+  - 펑크락
+  - 드라이브노래
+  - 분노노래
+tags:
+- 음악
+- 노래
+- 락
+- 한국 락
+- 밴드
+- 락 노래
+- 노래 추천
+- 플레이리스트
+- 신나는 노래
+- 스트레스 해소
+- 스트레스 풀리는 노래
+- 소리 지르는 노래
+- 사이다 노래
+- 분노 노래
+- 직장인 노래
+- 노동요
+- 훈수
+- 잔소리
+- 명절 잔소리
+- 팔자
+- 작두
+- 펑크 락
+- 개러지 락
+- 하드 락
+- 드라이브 노래
+- 운동할 때 듣는 노래
+- 퇴근길 노래
+- 화날 때 듣는 노래
+- 욕 나오는 날
+- 속 시원한 노래
+- 기타 솔로
+- korean rock
+- korean punk
+- k-rock
+- korean band
+references:
+- title: 말달리자
+  artist: 크라잉넛
+  takeaway: 외침 하나를 터뜨리기 전에 그 앞에 말을 쌓아 두어야 외침이 소음이 아니라 응답이 된다.
+- title: 그대에게
+  artist: 무한궤도
+  takeaway: 질주하는 템포 위에서 제목이 곧 후렴이 되어 곡 전체를 끌고 간다.
+- title: 다시, 다시 만나
+  artist: 극동아시아타이거즈
+  takeaway: 마지막 후렴에서 핵심 낱말 하나만 바꿔 같은 훅을 다른 뜻으로 들리게 한다.
+- title: 불시
+  artist: 터치드
+  takeaway: 후렴 가사를 한 글자만 바꿔 화자가 달라졌음을 보여 준다.
+candidates:
+- hook: 네가 작두냐
+  theme: 어른
+  story: 남의 팔자를 다 안다는 듯 떠드는 사람에게, 늘 듣기만 하던 사람이 처음으로 소리 지르며 되묻는다.
+- hook: 작두 위에서
+  theme: 아픔
+  story: 하루하루 칼날 위에서 버티면서도 아무렇지 않은 얼굴로 사는 사람이 자기 자신에게 부르는 노래.
+- hook: 작두를 타
+  theme: 어른
+  story: 출근하는 모두가 매일 칼날 위에서 춤추는 신세라는 것을 같이 겪는 사람들이 함께 외친다.
+- hook: 우리 끝을 점치지 마
+  theme: 사랑
+  story: 시작도 하기 전에 끝을 단정하는 연인에게, 아직 끝나지 않았다고 맞서는 사람.
+- hook: 칼날은 내가 타
+  theme: 어른
+  story: 훈수 두는 사람들을 등지고 내 팔자는 내가 걸겠다고 버티는 사람.
+chosen: 0
+lyrics: |
+  [Intro: one distorted guitar riff alone, then drums and bass slam in]
+
+  [Verse 1: palm-muted riff, closed hi-hat, shouted talky delivery]
+  보지도 않고 다 봤다며
+  틀릴수록 더 크게 말해
+  남의 팔자 위에서
+  맨발로 춤을 추네
+
+  [Pre-Chorus: toms, rising repeated note, guitars open]
+  지랄 마 지랄 마
+  피는 내가 흘리는데
+
+  [Chorus: wall of guitars, open crash, gang vocals on the hook]
+  네가 작두냐
+  씨발 네가 작두냐
+  내 팔자에 칼 대지 마
+  네가 작두냐
+
+  [Verse 2: lead guitar answers the voice]
+  어제는 망한다더니
+  오늘은 될 줄 알았대
+  날 위에서 날을 바꿔
+  맨발로 춤을 추네
+
+  [Pre-Chorus: toms, rising repeated note, guitars open]
+  지랄 마 지랄 마
+  피는 내가 흘리는데
+
+  [Chorus: wall of guitars, open crash, gang vocals on the hook]
+  네가 작두냐
+  씨발 네가 작두냐
+  내 팔자에 칼 대지 마
+  네가 작두냐
+
+  [Guitar Solo: noisy 8 bars, then sudden stop]
+
+  [Bridge: half-time, bass and near-spoken voice]
+  나도 남의 팔자에
+  칼을 댄 밤이 있어
+
+  [Final Chorus: loudest, octave-up shout, gang vocals]
+  네가 작두냐
+  씨발 나도 작두냐
+  남의 팔자에 칼 대지 마
+  네가 작두냐
+
+  [Outro: riff once more, hard stop]
+
+  [End]
+lyrics_draft: '[Intro: one distorted guitar riff alone, then drums and bass slam in]
+
+
+  [Verse 1: palm-muted riff, closed hi-hat, shouted talky delivery]
+
+  보지도 않고 다 봤다며
+
+  틀릴수록 더 크게 말해
+
+  남의 팔자 위에서
+
+  맨발로 춤을 추네
+
+
+  [Pre-Chorus: toms, rising repeated note, guitars open]
+
+  지랄 마 지랄 마
+
+  피는 내가 흘리는데
+
+
+  [Chorus: wall of guitars, open crash, gang vocals on the hook]
+
+  네가 작두냐
+
+  씨발 네가 작두냐
+
+  내 팔자에 칼 대지 마
+
+  네가 작두냐
+
+
+  [Verse 2: lead guitar answers the voice]
+
+  어제는 망한다더니
+
+  오늘은 될 줄 알았대
+
+  날 위에서 날을 바꿔
+
+  맨발로 춤을 추네
+
+
+  [Pre-Chorus: toms, rising repeated note, guitars open]
+
+  지랄 마 지랄 마
+
+  피는 내가 흘리는데
+
+
+  [Chorus: wall of guitars, open crash, gang vocals on the hook]
+
+  네가 작두냐
+
+  씨발 네가 작두냐
+
+  내 팔자에 칼 대지 마
+
+  네가 작두냐
+
+
+  [Guitar Solo: noisy 8 bars, then sudden stop]
+
+
+  [Bridge: half-time, bass and near-spoken voice]
+
+  나도 남의 팔자에
+
+  칼을 댄 밤이 있어
+
+
+  [Final Chorus: loudest, octave-up shout, gang vocals]
+
+  네가 작두냐
+
+  씨발 나도 작두냐
+
+  남의 팔자에 칼 대지 마
+
+  네가 작두냐
+
+
+  [Outro: riff once more, hard stop]
+
+
+  [End]'
+polish:
+- '고친 줄 없음: 점검표를 다시 돌려도 고쳐야 할 줄이 나오지 않았다.'
+- '도입부: 1절 첫 줄 ''보지도 않고 다 봤다며''는 모순으로 바로 연다. 사물이나 장소 서술이 아니다.'
+- '후렴: 네 줄이 모두 훅 ''네가 작두냐''를 되풀이하거나 직진하는 명령이다. 훅은 다섯 글자이고 첫 줄과 마지막 줄에 있으며 제목도 들어 있다. 펑크·락 곡이라 외침형 후렴을 그대로 둔다.'
+- '브릿지: ''나도 남의 팔자에 / 칼을 댄 밤이 있어''는 곡에서 처음 나오는 인정이고 곡을 한 번 뒤집는다. 훅도 없다.'
+- '마지막 후렴: ''씨발 나도 작두냐'', ''남의 팔자에 칼 대지 마'' 두 줄이 바뀌어 화살이 자신에게 돌아온다. 그대로 둔다.'
+- '추상: 생활 소품, 장소, 시각이 없다. 사물은 작두를 뜻하는 칼·맨발뿐이고 ''어떤 마음''만 남는다.'
+- '말장난: ''날 위에서 날을 바꿔'' 하나뿐이라 둔다. ''맨발로 춤을 추네'' 반복은 리프레인이라 허용한다.'
+- '어미: 해체 종결은 전체의 3분의 1 아래이고 ''-다/-었다''로 끝나는 줄은 없다. 짧은 부정도 ''않고'', ''대지 마'' 꼴이라 고칠 것이 없다.'
+- '감정어: 직접 쓴 감정어는 없다. 하지만 ''지랄 마'', ''피는 내가 흘리는데''가 분노와 아픔을 바로 말하므로 후렴을 건드리지 않는다.'
+- 욕설은 장르와 화자의 태도에 맞아 사용자가 쓴 그대로 둔다.
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A man in his thirties seen from the side, black hoodie, shouting into a microphone on a stand in a small dim rock club. Red stage light, a distorted electric guitar leaning on an amp behind him. Gritty red and black tones, defiant and raw.
+youtube_preview:
+  title: 작두 - 연주왕김연주 | 훈수에 화날 때 듣는 락
+  shorts_title: '네가 작두냐 #shorts'
+  shorts_titles:
+  - '보지도 않고 다 봤다며 #shorts'
+  - '네가 작두냐 #shorts'
+  - '나도 남의 팔자에 #shorts'
+  - '피는 내가 흘리는데 #shorts'
+  description: '보지도 않고 다 봤다며
+
+    틀릴수록 더 크게 말해
+
+    남의 팔자 위에서
+
+    맨발로 춤을 추네
+
+
+    지랄 마 지랄 마
+
+    피는 내가 흘리는데
+
+
+    네가 작두냐
+
+    씨발 네가 작두냐
+
+    내 팔자에 칼 대지 마
+
+    네가 작두냐
+
+
+    어제는 망한다더니
+
+    오늘은 될 줄 알았대
+
+    날 위에서 날을 바꿔
+
+    맨발로 춤을 추네
+
+
+    지랄 마 지랄 마
+
+    피는 내가 흘리는데
+
+
+    네가 작두냐
+
+    씨발 네가 작두냐
+
+    내 팔자에 칼 대지 마
+
+    네가 작두냐
+
+
+    나도 남의 팔자에
+
+    칼을 댄 밤이 있어
+
+
+    네가 작두냐
+
+    씨발 나도 작두냐
+
+    남의 팔자에 칼 대지 마
+
+    네가 작두냐
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #락 #신나는노래 #스트레스해소 #노래 #음악 #인공지능 #노동요 #한국락 #밴드음악 #소리지르는노래 #사이다노래 #직장인노래 #펑크락 #드라이브노래 #분노노래'
+  tags:
+  - 작두
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 인공지능
+  - 락
+  - 한국 락
+  - 밴드
+  - 락 노래
+  - 노래 추천
+  - 플레이리스트
+  - 신나는 노래
+  - 스트레스 해소
+  - 스트레스 풀리는 노래
+  - 소리 지르는 노래
+  - 사이다 노래
+  - 분노 노래
+  - 직장인 노래
+  - 노동요
+  - 훈수
+  - 잔소리
+  - 명절 잔소리
+  - 팔자
+  - 펑크 락
+  - 개러지 락
+  - 하드 락
+  - 드라이브 노래
+  - 운동할 때 듣는 노래
+  - 퇴근길 노래
+  - 화날 때 듣는 노래
+  - 욕 나오는 날
+  - 속 시원한 노래
+  - 기타 솔로
+  - korean rock
+  - korean punk
+  - k-rock
+  - korean band
+  - AI음악
+  - AI노래
+  - AI 작곡
+  - suno
+  - ai music
+  - 감성
+  - 신곡
+  - 가사
+  - kpop
+  - korean music
+  - k-pop
+  - korean song
+  hashtags:
+  - 락
+  - 신나는노래
+  - 스트레스해소
+  - 노래
+  - 음악
+  - 인공지능
+  - 노동요
+  - 한국락
+  - 밴드음악
+  - 소리지르는노래
+  - 사이다노래
+  - 직장인노래
+  - 펑크락
+  - 드라이브노래
+  - 분노노래
+  playlists:
+  - 연주왕김연주 노래
+  - 어른이 된 우리에게
+  privacy: private
