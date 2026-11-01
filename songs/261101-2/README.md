@@ -4,7 +4,7 @@
 
 > 찬란 말고 화란
 
-사랑 · 좋은 사람 대신 늘 자기를 흔들어 놓는 사람을 고르고 마는 여자가, 떠난 그 사람에게 다시 와서 엎질러 달라고 담담하게 말하는 중간 템포 그루브.
+사랑 · 밀어내도 밀려오는 사람 쪽으로 다시 기울며, 엉망인 채로 편했던 소란이 그립다고 말하는 밤 드라이브 노래.
 
 ## 이렇게 쓴 이유
 
@@ -42,66 +42,66 @@ distorted guitar, trap hi-hats, autotune
 [Intro: slap bass riff and electric piano]
 
 [Verse 1: electric piano and drums, close voice]
-좋은 사람은 지루한데
-다 엎는 너만 좋아
-네가 들어온 밤
-컵 속의 물이 일어나
-반듯하게 접어 둔 날들이
-한꺼번에 펼쳐지고
+파란 위에 또 파란
+노란 밑에 또 노란
+네 쪽으로 기울면
+모든 게 둥글어져
+반만 남은 소리
+끝도 없이 돌아와
 파란은 네 쪽에서부터
 
 [Pre-Chorus: funk guitar enters, rising]
 밀어내면 밀려와
-젖은 발끝으로
+돌고 돌아 안쪽으로
 네가 또 부르면
 
 [Chorus: synth brass, two-part harmonies]
 찬란 말고 화란
-다 엎질러 놓고 가
-멀쩡한 나는 싫어
+파란 끝에 화란
+네가 오면 다 화란
 찬란 말고 화란
 (말고 화란)
 
 [Verse 2: congas and bell synth added]
-네가 없는 계절
-컵 속의 물은 잠잠해
-반듯해진 방에서
-잘 지내 정말로
-조용한 게 이렇게
-시끄러운 줄 몰랐네
+하얀 위에 또 하얀
+까만 밑에 또 까만
+네 쪽에서 멀어지면
+모든 게 반듯해져
+반만 남은 노래
+멈추지 않고 돌아
 파란은 네 쪽에서부터
 
 [Pre-Chorus: guitar cutting, rising]
-기다려도 오지 않아
-마른 발끝으로
+기다리면 멀어져
+돌고 돌아 바깥으로
 네 이름을 부르면
 
 [Chorus: synth brass, two-part harmonies]
 찬란 말고 화란
-다 엎질러 놓고 가
-멀쩡한 나는 싫어
+파란 끝에 화란
+네가 오면 다 화란
 찬란 말고 화란
 (말고 화란)
 
 [Saxophone Solo]
 
 [Bridge: electric piano and whisper, bass stops]
-처음부터 알았는데
-너를 만난 그 밤에
-엉망인 나는 편했지
-보고 싶어 네 난리
-이번엔 피하지 않을게
+안에서 밖으로
+밖에서 안으로
+엉망인 게 편했어
+보고 싶어 네 소란
+이번엔 돌지 않을게
 
 [Final Chorus: full band, widest, ad-libs]
 찬란 말고 화란
-다시 엎질러 줘
-멀쩡한 나는 싫어
+파란 끝에 화란
+다시 와서 화란
 찬란 말고 화란
 (말고 화란)
 찬란 말고 화란
 
 [Outro: bass riff alone, fade out]
-컵 속의 물이 일어나
+네 쪽으로 다시 파란
 
 [End]
 ```
