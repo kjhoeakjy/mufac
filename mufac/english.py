@@ -109,27 +109,64 @@ RESEARCH_EN = """\
 마지막에 "이번 곡에 가져갈 원칙" 6~8개를 쓴다. 구조와 원리만 가져오고 표현은 베끼지 않는다. 가사 전문이나 긴 구절은 인용하지 않는다. 한국어로 쓴다.
 """
 
+TRANSLATE_VERSION = 2  # 번역 규칙을 바꾸면 올린다. 영상을 다시 만들 때 옛 번역은 새로 옮긴다.
+
 TRANSLATE = """\
-너는 영어 노래 가사를 한국어 자막으로 옮기는 번역가다. 이 자막은 유튜브 영상에서 영어 가사 바로 아래에 한 줄씩 뜬다.
-목표는 한국 사람이 읽고 "사람이 번역했네" 하고 느끼는 자연스러운 한국어다. 직역이 아니라 그 줄이 하는 말을 한국어 노래말로 다시 말한다.
+너는 영어 노래를 한국어로 옮기는 작사가다. 결과는 유튜브 영상에서 영어 가사 바로 아래에 한 줄씩 뜨는 자막이다.
+번역문이 아니라 한국 작사가가 이 곡의 뜻으로 처음부터 쓴 한국어 노랫말처럼 읽혀야 한다. 영어를 가리고 한국어만 읽어도 한 편의 가사여야 한다.
+
+먼저 곡 전체를 읽고 정한다: 누가 누구에게 하는 말인가, 곡의 기분은 무엇인가, 말투(반말 평서가 기본, 존대 곡만 해요체) 하나.
+그다음 줄마다 "이 줄이 결국 하는 말"을 한국어로 가장 짧고 자연스럽게 쓴다.
+
+줄 맞춤
+- 영어 한 줄에 한국어 한 줄, 순서와 줄 수는 그대로. 같은 영어 줄은 늘 같은 한국어다(후렴 반복).
+- 영어 두 줄이 한 문장이면 한국어도 두 줄에 걸쳐 한 문장으로 이어 써도 된다. 줄마다 문장을 닫지 않는다.
+- 한 줄 16자 안팎, 길어도 20자. 영어보다 짧게. 한눈에 읽혀야 한다.
+
+AI 번역 티를 없애는 규칙 (가장 중요)
+1. 줄 머리 접속사를 옮기지 않는다. And, So, But, 'Cause, Then, Or, Now를 "그리고, 그래서, 그러니, 그런데, 근데, 아니면, 이제"로 옮기면 번역투다. 거의 다 빼고, 꼭 필요할 때만 어미(-는데, -니까, -고)로 녹인다.
+2. 주어를 쓰지 않는다. 나는, 난, 너는, 넌, 내가, 네가는 뜻이 헷갈릴 때만. "나는 돌을 내려놨어"는 "이제 내려놓을게"처럼.
+3. 줄 끝을 섞는다. 모든 줄이 -어/-해/-야로 끝나면 번역 자막이다. 명사로 끊기, -는데, -지, -까, -고, -네, -던, -ㄹ게, 말줄임을 섞고, 같은 끝맺음은 세 줄 넘게 잇지 않는다.
+4. 영어 비유를 낱말째 옮기지 않는다. 한국어에서 그 그림이 안 서면 뜻으로 바꾼다. "tell my hands"를 "손에게 말해", "I need the ground"를 "디딜 땅이 필요해", "almost mine"을 "거의 내 사람"으로 옮기지 않는다.
+5. 사전 낱말 대신 노래 낱말. 감당하다, 알아차리다, 밀려오다, 필요하다, 존재, 순간, 감정 같은 설명하는 말보다 기본 동사와 쉬운 말(알다, 보다, 남다, 놓다, 버티다, 그립다).
+6. 영어 문장 구조를 따르지 않는다. "~뿐일까", "~할 수만 있다면", "~하는 법을 배웠을 뿐", "~것만으로", "~가 다였는데", "~하기엔 충분했어" 같은 영어 구문의 직역 틀을 피한다.
+7. 번역투 낱말: 나의·너의(→내·네), 그것은, 당신(존대 곡이 아니면), ~에 대해, ~를 통해, ~하는 것, 수동태, "~하는 중이야", "~할 수 있어" 남발.
+8. 어색한 구어체(사용자 금지): 니/니가, "~부터 ~까지" 틀, 그냥·뭔가·진짜·되게·근데·완전·막, "~거든", "~잖아" 반복, "야" 부르기, "~한 거 있지".
+9. 닳은 감성어: 소중한, 빛나는, 너라는, 그날의 우리. 음차(러브, 하트, 베이비) 금지.
+10. 짧은 부정이 어색하면 긴 부정("~지 않아")으로.
+
+후렴과 훅
+- 제목 훅은 한국어로도 짧고 입에 붙게, 곡 내내 같은 말로. 훅이 반복되면 한국어도 반복한다.
+- 추임새만 있는 줄(oh, yeah, ooh, baby)은 빈 문자열. baby·darling 부름은 빼거나 "너"로.
+
+보기 (우리 곡의 줄, 나쁜 번역 → 좋은 번역)
+- So I tell my hands what I can't say: "그래서 말 못 할 걸 손에게 말해" → "못 한 말은 손에 쥐고"
+- I don't need the answer, I need the ground: "답은 필요 없어, 디딜 땅이 필요해" → "답 말고 발 디딜 곳이면 돼"
+- Then one look and you were almost mine: "한 번 마주친 순간 넌 거의 내 사람" → "눈 한 번 마주쳤을 뿐인데"
+- Or am I just a face you used to see?: "아니면 예전에 보던 얼굴일 뿐일까" → "그저 낯익은 얼굴이었을까"
+- And I'd believe me too, if I could: "믿을 수만 있다면 나라도 믿겠지" → "나도 그 말을 믿고 싶어"
+- I've been living like the ending's here: "끝이 벌써 온 것처럼 살아왔어" → "다 끝난 사람처럼 살았어"
+- I just learned to live with half my soul: "반쪽 마음으로 사는 법을 배웠을 뿐" → "반만 남은 채로 버텼을 뿐"
+
+JSON만 답한다: {"lines": ["<1번 줄>", "<2번 줄>", ...]} 줄 수는 받은 영어 줄 수와 정확히 같다.
+"""
+
+POLISH_KO = """\
+너는 한국 노랫말 편집자다. 아래는 영어 노래 자막으로 쓸 한국어 가사 초안이다. 영어 원문은 뜻 확인용으로만 본다.
+한국어 줄만 위에서 아래로 소리 내어 읽고, 한국 가요의 가사로 들리지 않는 줄을 고친다.
+
+고칠 줄
+- 번역문처럼 들리는 줄: 줄 머리 접속사(그리고·그래서·그러니·그런데·아니면), 주어(나는·난·너는·넌), 영어 구문 직역("~뿐일까", "~할 수만 있다면", "~것만으로", "~하기엔 충분했어", "~가 다였는데"), 낱말째 옮긴 비유, 사전 낱말.
+- 줄 끝이 -어/-해/-야로 세 줄 넘게 이어지는 곳: 명사로 끊기, -는데, -지, -까, -고, -ㄹ게로 바꿔 숨을 고른다.
+- 20자를 넘는 줄, 한눈에 안 읽히는 줄.
+- 어색한 구어체(니/니가, ~부터 ~까지, 그냥·뭔가·진짜·되게·근데·완전·막, ~거든, ~잖아 반복).
+- 앞뒤 줄과 말투가 다른 줄.
 
 지킬 것
-- 영어 한 줄에 한국어 한 줄. 순서와 줄 수를 바꾸지 않는다. 같은 영어 줄은 늘 같은 번역이다(후렴 반복).
-- 짧게. 영어 줄보다 길어지지 않게, 한 줄 20자 안쪽. 자막이니 한눈에 읽혀야 한다.
-- 한국어 어순으로 다시 쓴다. 영어 어순을 따라가지 않는다. 주어(나, 너)는 뜻이 통하면 뺀다.
-- 말투는 곡 전체에 하나. 연인·친구에게 하는 말이면 반말, 담담한 곡이면 반말 평서나 명사로 끊는다. 해요체는 곡이 공손한 말투일 때만. 한 곡에서 섞지 않는다.
-- 말장난·관용구는 뜻으로 옮긴다. 각운은 살리려 하지 않는다. 대신 한국어 리듬이 좋게.
-- 추임새(oh, yeah, ooh, baby)만 있는 줄은 빈 문자열로 둔다. baby·darling 같은 부름은 문맥에 맞게 빼거나 "너"로.
-- 고유한 뜻이 없는 영어(OK, bye)는 한국어로 자연스러운 말로.
+- 줄 수와 순서는 그대로. 같은 영어 줄은 같은 한국어. 빈 줄은 빈 줄로.
+- 이미 자연스러운 줄은 그대로 둔다. 뜻을 새로 보태지 않는다.
 
-AI 번역 티 (하나라도 있으면 다시 쓴다)
-- 번역투: "나의 ~", "너의 ~"(그냥 "내", "네"), "그것은", "~하는 중이야", "~할 수 있어"의 남발, "~에 대해", "~를 통해", "~하는 것", 수동태, "당신"(곡이 존대가 아니면 "너").
-- 어색한 구어체(사용자 지정 금지): 니/니가, "~부터 ~까지" 틀, 그냥·뭔가·진짜·되게·근데·완전·막, "~거든", "~잖아"의 반복, "야" 부르기, "~한 거 있지".
-- 닳은 감성어: 소중한, 빛나는, 너라는, 그날의 우리.
-- 짧은 부정 남발: "안 ~"보다 "~지 않아"가 노래말로 자연스러울 때가 많다.
-- 영어 단어를 그대로 음차한 말(러브, 하트, 베이비)은 쓰지 않는다.
-
-JSON만 답한다: {"lines": ["<1번 줄 번역>", "<2번 줄 번역>", ...]} 줄 수는 받은 영어 줄 수와 정확히 같다.
+JSON만 답한다: {"lines": [...]} 줄 수는 받은 줄 수와 정확히 같다.
 """
 
 
@@ -207,34 +244,52 @@ def youtube_system() -> str:
             "담백하게, 과장과 감탄사 없이. JSON만 답한다. story만 한국어 한 문장.\n\n" + EN_YOUTUBE)
 
 
-def translate(title: str, lyric_lines: list[str]) -> list[str]:
-    """영어 가사 줄(구간 태그·괄호 코러스 제외)을 자연스러운 한국어 자막 줄로. 줄 수가 같아야 한다."""
-    if not lyric_lines:
-        return []
-    numbered = "\n".join(f"{i + 1}. {t}" for i, t in enumerate(lyric_lines))
+def _lines_call(system: str, content: str, n: int, label: str, effort: str) -> list[str]:
     schema = {"type": "object", "properties": {"lines": {"type": "array", "items": {"type": "string"}}},
               "required": ["lines"], "additionalProperties": False}
-    content = f"[제목]\n{title}\n\n[영어 가사 {len(lyric_lines)}줄]\n{numbered}\n\n번호는 빼고 같은 순서로 {len(lyric_lines)}줄을 돌려준다."
     for attempt in range(2):
         t0 = time.time()
         with anthropic.Anthropic().beta.messages.stream(
-            model=w.MODEL, max_tokens=8000, system=TRANSLATE, betas=w.BETAS, fallbacks="default",
-            output_config={"effort": "medium", "format": {"type": "json_schema", "schema": schema}},
+            model=w.MODEL, max_tokens=16000, system=system, betas=w.BETAS, fallbacks="default",
+            output_config={"effort": effort, "format": {"type": "json_schema", "schema": schema}},
             messages=[{"role": "user", "content": content}],
         ) as stream:
             response = stream.get_final_message()
         w._check(response)
-        w.took("번역", t0)
+        w.took(label, t0)
         out = [x.strip() for x in json.loads(next(b.text for b in response.content if b.type == "text"))["lines"]]
-        if len(out) == len(lyric_lines):
-            # 같은 영어 줄은 같은 번역으로 맞춘다(후렴이 매번 다르게 뜨지 않게)
-            first: dict[str, str] = {}
-            for i, en in enumerate(lyric_lines):
-                key = en.strip().lower()
-                if key in first and first[key]:
-                    out[i] = first[key]
-                else:
-                    first[key] = out[i]
+        if len(out) == n:
             return out
-        content += f"\n\n앞 답은 {len(out)}줄이었다. 정확히 {len(lyric_lines)}줄이어야 한다."
+        content += f"\n\n앞 답은 {len(out)}줄이었다. 정확히 {n}줄이어야 한다."
     raise RuntimeError("번역 줄 수가 가사 줄 수와 맞지 않습니다")
+
+
+def _same_for_same(lyric_lines: list[str], out: list[str]) -> list[str]:
+    """같은 영어 줄은 같은 번역으로 맞춘다(후렴이 매번 다르게 뜨지 않게)."""
+    first: dict[str, str] = {}
+    for i, en in enumerate(lyric_lines):
+        key = en.strip().lower()
+        if key in first and first[key]:
+            out[i] = first[key]
+        else:
+            first[key] = out[i]
+    return out
+
+
+def translate(title: str, lyric_lines: list[str]) -> list[str]:
+    """영어 가사 줄(구간 태그·괄호 코러스 제외)을 자연스러운 한국어 자막 줄로. 옮긴 뒤 한국어만 읽고 한 번 더 다듬는다."""
+    if not lyric_lines:
+        return []
+    n = len(lyric_lines)
+    numbered = "\n".join(f"{i + 1}. {t}" for i, t in enumerate(lyric_lines))
+    draft = _lines_call(TRANSLATE, f"[제목]\n{title}\n\n[영어 가사 {n}줄]\n{numbered}\n\n번호는 빼고 같은 순서로 {n}줄을 돌려준다.",
+                        n, "번역", "high")
+    draft = _same_for_same(lyric_lines, draft)
+    pairs = "\n".join(f"{i + 1}. {ko}    ← {en}" for i, (en, ko) in enumerate(zip(lyric_lines, draft)))
+    try:
+        final = _lines_call(POLISH_KO, f"[제목]\n{title}\n\n[한국어 초안 ← 영어 원문, {n}줄]\n{pairs}\n\n번호와 영어는 빼고 한국어 {n}줄을 돌려준다.",
+                            n, "번역 다듬기", "high")
+    except Exception as e:  # 다듬기가 실패해도 초안은 쓴다
+        print(f"번역 다듬기 실패, 초안 사용: {e}")
+        return draft
+    return _same_for_same(lyric_lines, final)

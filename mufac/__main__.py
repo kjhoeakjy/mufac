@@ -84,16 +84,18 @@ def _preview(s: Song) -> dict:
 
 def _retranslate(s: Song, *, only_missing: bool = False) -> None:
     """영어 곡이면 가사 줄마다 한국어 번역(자막 둘째 줄)을 만든다. 실패해도 곡은 남긴다."""
-    from .english import is_english, translate
+    from .english import TRANSLATE_VERSION, is_english, translate
     if not is_english(s.meta) or s.meta.get("instrumental"):
         return
     lines = [t for _, t in s.lyric_lines()]
     have = s.meta.get("translation") or []
-    if only_missing and len(have) == len(lines) and (s.meta.get("translation_of") or []) == lines:
+    if (only_missing and len(have) == len(lines) and (s.meta.get("translation_of") or []) == lines
+            and s.meta.get("translation_v") == TRANSLATE_VERSION):
         return
     try:
         s.meta["translation"] = translate(s.meta.get("title", ""), lines)
         s.meta["translation_of"] = lines  # 어떤 가사를 옮긴 것인지(가사가 바뀌면 다시 옮긴다)
+        s.meta["translation_v"] = TRANSLATE_VERSION  # 번역 규칙이 바뀌면 다시 옮긴다
     except Exception as e:
         print(f"번역을 만들지 못했습니다: {e}", file=sys.stderr)
 
@@ -351,7 +353,7 @@ def cmd_produce(a) -> None:
         photo_job = pool.submit(ensure_photo)
         rows = timings(s, cfg.get("whisper_model", "medium"))  # timing.lrc가 있으면 바로 읽는다
         photo_job.result()
-    _retranslate(s, only_missing=True)  # 영어 곡: 자막 둘째 줄(한국어 번역). 이미 있으면 그대로
+    _retranslate(s, only_missing=True)  # 영어 곡: 자막 둘째 줄(한국어 번역). 가사와 번역 규칙이 그대로면 다시 옮기지 않는다
     tr = s.meta.get("translation") or []
     if len(tr) == len(rows):
         for r, ko in zip(rows, tr):
