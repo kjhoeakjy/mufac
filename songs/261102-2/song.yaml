@@ -255,32 +255,32 @@ photo:
   prompt: A young man in a dark hoodie, seen in side profile, sits by a rain-streaked window at night, one hand resting on the glass. A dim amber lamp glows behind him. Deep blue and warm amber tones, quiet and aching.
   shorts: 3
 translation:
-- 세상에 말했지, 너와는 끝이라고
+- 너랑은 끝났다고 떠들고 다녔지
 - 한동안은 정말 그런 줄 알았어
-- 한 번 마주친 순간 넌 거의 내 사람
-- 그 모든 게 다시 한 번 밀려왔어
-- 일 초도 채 되지 않았는데
-- 알아차리기엔 충분했어
-- 널 한 번 본 것만으로 무너져
-- 일 년 동안 놓아 온 마음이 풀려
-- 아직 널 원해, 거짓말은 못 해
-- 널 한 번 본 게 다였는데
-- 그게 나인 줄은 알았을까
-- 아니면 예전에 보던 얼굴일 뿐일까
-- 모두에게 괜찮다고 말하고 다녀
-- 믿을 수만 있다면 나라도 믿겠지
-- 일 초도 채 되지 않았는데
-- 알아차리기엔 충분했어
-- 널 한 번 본 것만으로 무너져
-- 일 년 동안 놓아 온 마음이 풀려
-- 아직 널 원해, 거짓말은 못 해
-- 널 한 번 본 게 다였는데
-- 사실 난 한 번도 떠난 적 없어
-- 반쪽 마음으로 사는 법을 배웠을 뿐
-- 널 한 번 본 것만으로 무너져
-- 도망치고 싶지도 않아
-- 아직 널 원해, 거짓말은 못 해
-- 널 한 번 볼 수 있다면 다 줄게
+- 눈 한 번 마주쳤을 뿐인데
+- 그 마음이 다 돌아왔어
+- 일 초도 채 안 됐는데
+- 그새 다 알아버렸어
+- 너 한 번 보자마자 흔들려
+- 일 년 놓아온 마음도 풀리고
+- 아직 네가 좋아, 거짓말 못 해
+- 널 스쳐 본 그 한 번에
+- 날 알아보긴 했을까
+- 그저 낯익은 얼굴이었을까
+- 괜찮다고 늘 말하고 다녀
+- 나도 그 말을 믿고 싶어
+- 일 초도 채 안 됐는데
+- 그새 다 알아버렸어
+- 너 한 번 보자마자 흔들려
+- 일 년 놓아온 마음도 풀리고
+- 아직 네가 좋아, 거짓말 못 해
+- 널 스쳐 본 그 한 번에
+- 사실 한 번도 떠난 적 없어
+- 반쪽 마음으로 버텼을 뿐
+- 너 한 번 보자마자 흔들려
+- 도망칠 생각도 없는걸
+- 아직 네가 좋아, 거짓말 못 해
+- 널 한 번 보려면 다 걸게
 translation_of:
 - I told the world that I was done with you,
 - And for a while I swore that it was true,
@@ -451,7 +451,7 @@ short_windows:
 - kind: 엔딩
   start: 140.24
   end: 170.24
-produced: 2026-11-02 15:07
+produced: 2026-11-02 15:18
 youtube:
   main: FkpVEB8PPEM
   shorts:
@@ -461,3 +461,4 @@ youtube:
   - g1NexBsPrKw
   short: pwGQEatmWPg
 uploaded: 2026-11-02 15:12
+translation_v: 2
