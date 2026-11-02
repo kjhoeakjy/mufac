@@ -20,6 +20,15 @@
 
 조사 전체는 [research.md](research.md).
 
+## 유튜브
+
+- 본편 https://youtu.be/FkpVEB8PPEM
+- 쇼츠 도입 https://youtube.com/shorts/pwGQEatmWPg
+- 쇼츠 후렴 https://youtube.com/shorts/CtXUcKLEjuI
+- 쇼츠 브릿지 https://youtube.com/shorts/4uONRZEhMtY
+- 쇼츠 엔딩 https://youtube.com/shorts/g1NexBsPrKw
+- 비공개로 올라갑니다. [YouTube Studio](https://studio.youtube.com)에서 공개로 바꾸세요.
+
 ## 1. Suno에 붙여넣기
 
 [Suno](https://suno.com/create)에서 Custom 모드를 켜고 아래를 칸마다 붙여넣는다. 곡 이미지는 cover.jpg.
