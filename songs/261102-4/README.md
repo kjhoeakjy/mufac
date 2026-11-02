@@ -4,7 +4,7 @@
 
 > We make purple
 
-사랑 · 정반대인 두 사람이 서로 섞여, 혼자서는 될 수 없던 무언가가 되었다고 함께 선언하는 노래.
+사랑 · 서로 다른 두 사람이 부딪히면서도 함께 있어 새로운 색이 된다고, 늦은 밤 사랑하는 사람에게 조용히 고백하는 남자가 부르는 노래.
 
 ## 이렇게 쓴 이유
 
@@ -53,8 +53,8 @@ Now I can't tell where I stop and you start,
 And I don't wanna know
 
 [Chorus: full beat, stacked harmonies]
-You're my blue, I'm your red, and we make purple,
-Something neither one of us could make alone,
+We make purple, we make purple,
+Your blue, my red, nobody makes it alone,
 And I don't wanna be just red again,
 Baby, we make purple.
 
@@ -69,8 +69,8 @@ Now I can't tell where I stop and you start,
 And I don't wanna know
 
 [Chorus: full beat, stacked harmonies]
-You're my blue, I'm your red, and we make purple,
-Something neither one of us could make alone,
+We make purple, we make purple,
+Your blue, my red, nobody makes it alone,
 And I don't wanna be just red again,
 Baby, we make purple.
 
@@ -81,8 +81,8 @@ I thought I'd only ever be the color I was born,
 'Til you poured your soul in mine and made me something more.
 
 [Final Chorus: female harmony joins, ad-libs, widest]
-You're my blue, I'm your red, and we make purple,
-Something neither one of us could make alone,
+We make purple, we make purple,
+Your blue, my red, nobody makes it alone,
 And we ain't ever going back to red and blue,
 Baby, we make purple.
 
