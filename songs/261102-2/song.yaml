@@ -1,0 +1,439 @@
+title: One Glimpse of You
+hook: One Glimpse of You
+theme: 아픔
+story: 다 잊었다고 말하고 다니던 사람이 스치듯 본 한순간에 1년의 노력이 무너지는 걸 느끼며 그 사람에게 부르는 노래.
+created: 2026-11-02 14:55
+request:
+  id: mvyucrgl
+  idea: glimpse
+  genre: R&B
+  lang: en
+lang: en
+instrumental: false
+sound_plan: 단조를 바탕으로 maj7과 m9 코드가 따뜻하게 감싸는 2010년대 네오 소울 R&B로, 86bpm 안팎의 중간 빠르기 16분음 그루브입니다. 리듬은 프로그래밍 드럼으로 합니다. 킥은 부드럽고 깊게, 스네어는 박 뒤로 살짝 늦게 crisp하게, 하이햇은 16분음에 고스트 노트를 섞고 핑거스냅을 얹습니다. 베이스는 신스 베이스입니다. 1절에서는 긴 음으로 바닥만 받치다가 후렴부터 킥과 맞물리고, 마지막 후렴 끝에서 슬라이드합니다. 화성은 트레몰로 걸린 클린 일렉 기타 코드와 멀리 깔린 따뜻한 패드가 맡습니다(앞선 시티팝 곡과 겹치지 않도록 Rhodes는 뺐습니다). 멜로디는 절에서 좁은 음역의 싱코페이션 구절로 말하듯 흐르고, 프리코러스에서 같은 음을 반복하며 밀어 올립니다. 후렴은 첫 단어에서 위로 도약하고 마지막 단어 'you'를 길게 끕니다. 마지막 후렴은 하모니를 가장 넓게 쌓고 애드리브를 처음 허용합니다. 보컬은 부드럽고 숨 섞인 남성 테너로, 박 뒤에 느긋하게 걸치며 브릿지에서만 가성을 한 줄 씁니다. 리드 보컬은 가깝고 건조하게 앞에 두고, 백킹 하모니는 넓게 뒤에 두며, 아날로그의 따뜻한 질감을 줍니다. 구간별 전개는 이렇습니다. 인트로는 트레몰로 기타와 스냅. 1절은 비트 절반과 신스 베이스. 프리코러스에 하이햇이 들어오고, 첫 후렴에서 풀 비트와 스택 하모니가 열립니다. 2절은 뮤트 기타가 목소리에 대답하고, 두 번째 후렴 뒤에 기타와 패드 간주가 짧게 나옵니다. 브릿지는 비트가 빠지고 기타와 가성만 남습니다. 마지막 후렴이 가장 넓고, 아웃트로는 기타 루프가 페이드아웃하며 끝납니다.
+style: 'R&B, 2010s neo soul, around 86 bpm, minor key with warm maj7 and m9 chords. Smooth male tenor, breathy and close, relaxed behind the beat, one falsetto line in the bridge, sung in English, english lyrics, native English pronunciation. Intro: clean tremolo electric guitar chords and finger snaps. Verse 1: half beat, soft kick, synth bass on long notes, narrow syncopated melody. Pre-chorus: 16th hi-hats with ghost notes enter, rising repeated note. Chorus: full beat, crisp snare behind the beat, upward leap on the first word, long held last word, stacked harmonies. Verse 2 adds muted guitar strokes answering the voice. Guitar and pad interlude. Bridge: beat drops to guitar and voice. Final chorus widest, ad-libs, bass slides. Outro: guitar loop fading. Close dry lead vocal, wide backing vocals, warm analog. Late night, aching, tender.'
+exclude: autotune, distorted guitar, rap verse
+photo_query: man rainy window night
+image_prompt: A young man in a dark hoodie, seen in side profile, sits by a rain-streaked window at night, one hand resting on the glass. A dim amber lamp glows behind him. Deep blue and warm amber tones, quiet and aching.
+short_scenes:
+- The same young man in a dark hoodie stands at the rain-streaked window at night, head tilted back, eyes closed, amber lamp glowing behind him, blue and amber light washing over him.
+- Close-up of his hand pressed flat against the cold rainy window glass at night, raindrops blurred in deep blue, a soft amber glow on his fingers.
+- The empty chair by the rain-streaked window at night, the amber lamp still on, a dark hoodie draped over the chair, rain slowing on the glass.
+title_kind: 후렴 문장
+tempo: 중간
+arc: '화법: 너에게 말하기 / 기: 다 끝났다고 선언했지만 너를 한 번 스치자 모든 감정이 다시 살아난다. / 승: 너는 나를 알아봤을까 묻고, 괜찮다는 말이 남에게도 나에게도 거짓말이었음을 인정한다. / 전: 브릿지에서 처음으로 진심을 말한다. 나는 떠난 적이 없고, 영혼의 반만으로 사는 법을 배웠을 뿐이다. / 결: 마지막 후렴 2행 ''A whole year of letting go comes undone''이 ''And I don''t even wanna run''으로 바뀌고, 4행 ''And all it took was one glimpse of you''가 ''Now I''d give it all for one glimpse of you''로 바뀌어, 무너짐이 바람으로 뒤집힌다.'
+line_plan: '[Verse 1] 1행(선언): 너와는 끝났다고 모두에게 말했다. / 2행(고백): 한동안은 나도 정말 그렇게 믿었다. / 3행(전환): 너는 한때 내 사람이었던 적 없는 듯 스쳐 갔다. / 4행(정확한 말): 그 순간 모든 감정이 한 번 더 되살아났다. [Pre-Chorus] 1행(전환): 1초도 안 되는 시간이었다. / 2행(열어 둠): 그래도 알기엔 충분히 길었다. 후렴으로 떨어진다. [Chorus] 1행(고백, 훅 1): 너를 한 번 본 것만으로 나는 괜찮지 않다. / 2행(모순): 1년 동안 놓아 온 것이 풀려 버린다. / 3행(고백, 감정 직접): 여전히 너를 원하고, 거짓말은 못 한다. / 4행(뒤집기, 훅 2): 그 모든 건 너를 한 번 본 것으로 충분했다. [Verse 2] 1행(질문): 너는 그게 나인 줄 알았을까. / 2행(질문): 아니면 나는 그저 예전에 보던 얼굴일까. / 3행(고백): 모두에게 괜찮다고 말하고 다닌다. / 4행(모순): 할 수만 있다면 나도 그 말을 믿고 싶다. [Pre-Chorus] 1절과 같음. [Chorus] 같음(훅 3·4). [Bridge] 1행(처음 하는 진심): 사실 나는 떠난 적이 없다. / 2행(정확한 말, 큰말 soul): 내 영혼의 반만으로 사는 법을 배웠을 뿐이다. [Final Chorus] 1행 같음(훅 5). / 2행(뒤집기): 이제는 도망치고 싶지도 않다. / 3행 같음. / 4행(뒤집기, 훅 6): 이제는 너를 한 번 볼 수만 있다면 다 주겠다. 훅은 Chorus 1행과 4행, 세 번의 후렴에서 모두 6번 나온다.'
+why: '''One glimpse of you''는 열린 모음 you로 끝나서 길게 늘여 부를 수 있고, 세 번 불러도 어색하지 않습니다. 이별 뒤 ''괜찮다''고 말해 본 사람이라면 누구나 자기 일로 받아들일 수 있습니다. 레퍼런스 노트 초안의 빗속 신호등, 택시, 지명 같은 장면 소품은 모두 걷어내고 ''한순간에 무너지는 회복''이라는 마음만 남겼습니다. 제목과 훅을 같은 짧은 말로 맞추는 원칙은 No Scrubs와 Say My Name에서, 작은 편곡으로 시작해 하모니로 부풀리는 전개는 Best Part에서 가져왔습니다. 마지막 후렴에서는 ''all it took''을 ''I''d give it all for''로 바꿔, 같은 훅이 원망에서 갈망으로 뒤집혀 들리게 했습니다.'
+share_line: And all it took was one glimpse of you
+youtube_meta:
+  situation: late night r&b playlist
+  shorts_title: One glimpse of you and I'm not fine
+  hashtags:
+  - rnb
+  - sadsongs
+  - latenightvibes
+  - neosoul
+  - slowjam
+  - rnbmusic
+  - heartbreak
+  - missingyou
+  - breakupsongs
+  - newrnb
+  - rnbsoul
+  - originalsong
+tags:
+- r&b
+- rnb music
+- new music
+- love song
+- playlist
+- neo soul
+- slow jam
+- sad r&b
+- r&b playlist
+- late night r&b
+- heartbreak song
+- breakup song
+- missing you song
+- sad love song
+- chill r&b
+- soulful r&b
+- male r&b vocals
+- falsetto r&b
+- 2010s r&b
+- moody r&b
+- late night playlist
+- songs about an ex
+- still in love with my ex
+- can't move on song
+- songs for heartbreak
+- rainy night songs
+- emotional r&b
+- smooth r&b
+- one glimpse of you
+- glimpse
+- not over you
+- songs when you see your ex
+- r&b slow song
+- aching love song
+- original song
+references:
+- title: No Scrubs
+  artist: TLC
+  takeaway: 제목과 훅을 같은 짧은 말로 맞추고, 후렴을 바로 선언으로 시작합니다.
+- title: Say My Name
+  artist: Destiny's Child
+  takeaway: 절에 질문을 두어 의심과 추궁을 대화처럼 들리게 합니다.
+- title: Best Part
+  artist: Daniel Caesar & H.E.R.
+  takeaway: 작은 편곡으로 소박하게 시작해 하모니로 부풀리는 전개입니다.
+- title: Adorn
+  artist: Miguel
+  takeaway: 가슴소리와 가성을 오가되, 가성은 가장 진심인 자리에 아껴 씁니다.
+- title: Ordinary People
+  artist: John Legend
+  takeaway: 화자가 솔직하게 털어놓고, 후렴은 낮게 시작해 천천히 오르게 합니다.
+candidates:
+- hook: One Glimpse of You
+  theme: 아픔
+  story: 다 잊었다고 말하고 다니던 사람이 스치듯 본 한순간에 1년의 노력이 무너지는 걸 느끼며 그 사람에게 부르는 노래.
+- hook: Just a Glimpse Is Enough
+  theme: 사랑
+  story: 막 사랑에 빠진 사람이 상대를 잠깐 보는 것만으로 하루가 채워진다고 고백하는 노래.
+- hook: Don't Look at Me Like That
+  theme: 사랑
+  story: 끝내야 할 관계인데 상대의 한 번의 눈길에 마음이 다시 흔들리는 사람이 그만해 달라고 부탁하는 노래.
+- hook: Let Me See You Again
+  theme: 아픔
+  story: 떠난 사람을 꿈에서만 잠깐 보는 사람이 한 번만 더 보게 해 달라고 비는 노래.
+- hook: All I Got Was a Glimpse
+  theme: 어른
+  story: 돌아보니 젊은 날도 가장 좋았던 사람도 잠깐 스쳐 지나갔을 뿐이라는 걸 깨달은 어른의 혼잣말.
+chosen: 0
+lyrics: |
+  [Intro: tremolo guitar and finger snaps]
+
+  [Verse 1: half beat, synth bass, close voice]
+  I told the world that I was done with you,
+  And for a while I swore that it was true,
+  Then one look and you were almost mine,
+  And I felt all of it one more time
+
+  [Pre-Chorus: hi-hats enter, rising]
+  It wasn't even a second long,
+  But it was long enough to know
+
+  [Chorus: full beat, stacked harmonies]
+  One glimpse of you and I'm not fine,
+  A whole year of letting go, undone,
+  'Cause I still want you, I can't lie,
+  And all it took was one glimpse of you
+
+  [Verse 2: muted guitar answers the voice]
+  Did you even know that it was me?
+  Or am I just a face you used to see?
+  I keep tellin' everyone I'm good,
+  And I'd believe me too, if I could
+
+  [Pre-Chorus: hi-hats enter, rising]
+  It wasn't even a second long,
+  But it was long enough to know
+
+  [Chorus: full beat, stacked harmonies]
+  One glimpse of you and I'm not fine,
+  A whole year of letting go, undone,
+  'Cause I still want you, I can't lie,
+  And all it took was one glimpse of you
+
+  [Instrumental: guitar and pad interlude]
+
+  [Bridge: beat drops, guitar and falsetto]
+  Truth is I was never gone at all,
+  I just learned to live with half my soul
+
+  [Final Chorus: widest harmonies, ad-libs]
+  One glimpse of you and I'm not fine,
+  And I don't even wanna run,
+  'Cause I still want you, I can't lie,
+  Now I'd give it all for one glimpse of you
+
+  [Outro: guitar loop fading]
+
+  [End]
+lyrics_draft: '[Intro: tremolo guitar and finger snaps]
+
+
+  [Verse 1: half beat, synth bass, close voice]
+
+  I told the world that I was done with you,
+
+  And for a while I swore that it was true,
+
+  Then you went by like you were never mine,
+
+  And I felt all of it one more time
+
+
+  [Pre-Chorus: hi-hats enter, rising]
+
+  It wasn''t even a second long,
+
+  But it was long enough to know
+
+
+  [Chorus: full beat, stacked harmonies]
+
+  One glimpse of you and I''m not fine,
+
+  A whole year of letting go comes undone,
+
+  ''Cause I still want you, I can''t lie,
+
+  And all it took was one glimpse of you
+
+
+  [Verse 2: muted guitar answers the voice]
+
+  Did you even know that it was me?
+
+  Or am I just a face you used to see?
+
+  I keep tellin'' everyone I''m good,
+
+  And I''d believe me too, if I could
+
+
+  [Pre-Chorus: hi-hats enter, rising]
+
+  It wasn''t even a second long,
+
+  But it was long enough to know
+
+
+  [Chorus: full beat, stacked harmonies]
+
+  One glimpse of you and I''m not fine,
+
+  A whole year of letting go comes undone,
+
+  ''Cause I still want you, I can''t lie,
+
+  And all it took was one glimpse of you
+
+
+  [Instrumental: guitar and pad interlude]
+
+
+  [Bridge: beat drops, guitar and falsetto]
+
+  Truth is I was never gone at all,
+
+  I just learned to live with half my soul
+
+
+  [Final Chorus: widest harmonies, ad-libs]
+
+  One glimpse of you and I''m not fine,
+
+  And I don''t even wanna run,
+
+  ''Cause I still want you, I can''t lie,
+
+  Now I''d give it all for one glimpse of you
+
+
+  [Outro: guitar loop fading]
+
+
+  [End]'
+polish:
+- 'Then you went by like you were never mine → Then one look and you were almost mine: ''지나갔다''는 동작 장면을 지우고, 한 번 본 순간 다시 내 것 같았다는 마음만 남김. mine/time 운은 유지'
+- 'A whole year of letting go comes undone → A whole year of letting go, undone (후렴 전체): 주어가 긴 문장에 붙은 ''comes''가 설명조라 덜어내어 말하듯 짧게 끊음. undone이 Final Chorus의 run과 모음운으로 이어짐'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A young man in a dark hoodie, seen in side profile, sits by a rain-streaked window at night, one hand resting on the glass. A dim amber lamp glows behind him. Deep blue and warm amber tones, quiet and aching.
+translation:
+- 세상에 말했지, 너와는 끝이라고
+- 한동안은 정말 그런 줄 알았어
+- 한 번 마주친 순간 넌 거의 내 사람
+- 그 모든 게 다시 한 번 밀려왔어
+- 일 초도 채 되지 않았는데
+- 알아차리기엔 충분했어
+- 널 한 번 본 것만으로 무너져
+- 일 년 동안 놓아 온 마음이 풀려
+- 아직 널 원해, 거짓말은 못 해
+- 널 한 번 본 게 다였는데
+- 그게 나인 줄은 알았을까
+- 아니면 예전에 보던 얼굴일 뿐일까
+- 모두에게 괜찮다고 말하고 다녀
+- 믿을 수만 있다면 나라도 믿겠지
+- 일 초도 채 되지 않았는데
+- 알아차리기엔 충분했어
+- 널 한 번 본 것만으로 무너져
+- 일 년 동안 놓아 온 마음이 풀려
+- 아직 널 원해, 거짓말은 못 해
+- 널 한 번 본 게 다였는데
+- 사실 난 한 번도 떠난 적 없어
+- 반쪽 마음으로 사는 법을 배웠을 뿐
+- 널 한 번 본 것만으로 무너져
+- 도망치고 싶지도 않아
+- 아직 널 원해, 거짓말은 못 해
+- 널 한 번 볼 수 있다면 다 줄게
+translation_of:
+- I told the world that I was done with you,
+- And for a while I swore that it was true,
+- Then one look and you were almost mine,
+- And I felt all of it one more time
+- It wasn't even a second long,
+- But it was long enough to know
+- One glimpse of you and I'm not fine,
+- A whole year of letting go, undone,
+- '''Cause I still want you, I can''t lie,'
+- And all it took was one glimpse of you
+- Did you even know that it was me?
+- Or am I just a face you used to see?
+- I keep tellin' everyone I'm good,
+- And I'd believe me too, if I could
+- It wasn't even a second long,
+- But it was long enough to know
+- One glimpse of you and I'm not fine,
+- A whole year of letting go, undone,
+- '''Cause I still want you, I can''t lie,'
+- And all it took was one glimpse of you
+- Truth is I was never gone at all,
+- I just learned to live with half my soul
+- One glimpse of you and I'm not fine,
+- And I don't even wanna run,
+- '''Cause I still want you, I can''t lie,'
+- Now I'd give it all for one glimpse of you
+youtube_preview:
+  title: One Glimpse of You - Yon Ju Kim | late night r&b playlist
+  shorts_title: 'One Glimpse of You #shorts'
+  shorts_titles:
+  - 'I told the world that I was done with you, #shorts'
+  - 'One Glimpse of You #shorts'
+  - 'Truth is I was never gone at all, #shorts'
+  - 'And all it took was one glimpse of you #shorts'
+  description: 'I told the world that I was done with you,
+
+    And for a while I swore that it was true,
+
+    Then one look and you were almost mine,
+
+    And I felt all of it one more time
+
+
+    It wasn''t even a second long,
+
+    But it was long enough to know
+
+
+    One glimpse of you and I''m not fine,
+
+    A whole year of letting go, undone,
+
+    ''Cause I still want you, I can''t lie,
+
+    And all it took was one glimpse of you
+
+
+    Did you even know that it was me?
+
+    Or am I just a face you used to see?
+
+    I keep tellin'' everyone I''m good,
+
+    And I''d believe me too, if I could
+
+
+    It wasn''t even a second long,
+
+    But it was long enough to know
+
+
+    One glimpse of you and I''m not fine,
+
+    A whole year of letting go, undone,
+
+    ''Cause I still want you, I can''t lie,
+
+    And all it took was one glimpse of you
+
+
+    Truth is I was never gone at all,
+
+    I just learned to live with half my soul
+
+
+    One glimpse of you and I''m not fine,
+
+    And I don''t even wanna run,
+
+    ''Cause I still want you, I can''t lie,
+
+    Now I''d give it all for one glimpse of you
+
+
+    Words & music by Yon Ju Kim (연주왕김연주)
+
+    Music and artwork generated with AI (Suno)
+
+    © 2026 Yon Ju Kim. All rights reserved. Please do not re-upload.
+
+
+    #rnb #sadsongs #latenightvibes #song #music #AI #neosoul #slowjam #rnbmusic #heartbreak #missingyou #breakupsongs #newrnb #rnbsoul #originalsong'
+  tags:
+  - One Glimpse of You
+  - Yon Ju Kim
+  - song
+  - music
+  - AI
+  - rnb
+  - r&b
+  - rnb music
+  - new music
+  - love song
+  - playlist
+  - neo soul
+  - slow jam
+  - sad r&b
+  - r&b playlist
+  - late night r&b
+  - heartbreak song
+  - breakup song
+  - missing you song
+  - sad love song
+  - chill r&b
+  - soulful r&b
+  - male r&b vocals
+  - falsetto r&b
+  - 2010s r&b
+  - moody r&b
+  - late night playlist
+  - songs about an ex
+  - still in love with my ex
+  - can't move on song
+  - songs for heartbreak
+  - rainy night songs
+  - emotional r&b
+  - smooth r&b
+  hashtags:
+  - rnb
+  - sadsongs
+  - latenightvibes
+  - song
+  - music
+  - AI
+  - neosoul
+  - slowjam
+  - rnbmusic
+  - heartbreak
+  - missingyou
+  - breakupsongs
+  - newrnb
+  - rnbsoul
+  - originalsong
+  playlists:
+  - Yon Ju Kim English Songs
+  privacy: private
