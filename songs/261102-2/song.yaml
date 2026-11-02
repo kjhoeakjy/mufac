@@ -253,6 +253,7 @@ photo:
   source: openai
   model: gpt-image-2.5-flare
   prompt: A young man in a dark hoodie, seen in side profile, sits by a rain-streaked window at night, one hand resting on the glass. A dim amber lamp glows behind him. Deep blue and warm amber tones, quiet and aching.
+  shorts: 3
 translation:
 - 세상에 말했지, 너와는 끝이라고
 - 한동안은 정말 그런 줄 알았어
@@ -437,3 +438,17 @@ youtube_preview:
   playlists:
   - Yon Ju Kim English Songs
   privacy: private
+short_windows:
+- kind: 도입
+  start: 0.0
+  end: 30.0
+- kind: 후렴
+  start: 37.52
+  end: 67.52
+- kind: 브릿지
+  start: 122.18
+  end: 152.18
+- kind: 엔딩
+  start: 140.24
+  end: 170.24
+produced: 2026-11-02 15:07
