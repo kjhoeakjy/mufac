@@ -1,0 +1,439 @@
+title: We Make Purple
+hook: We make purple
+theme: 사랑
+story: 정반대인 두 사람이 서로 섞여, 혼자서는 될 수 없던 무언가가 되었다고 함께 선언하는 노래.
+created: 2026-11-02 15:21
+request:
+  id: mvyva36n
+  idea: Purple
+  genre: R&B
+  lang: en
+lang: en
+instrumental: false
+sound_plan: 따뜻한 장조에 maj9·m9 코드를 쓰고 프리코러스에서만 잠깐 단조로 꺾이는 90년대식 슬로 그루브 R&B, 약 92bpm의 스윙 섞인 16분음 느낌이다. 리듬은 깊은 킥과 박자 뒤로 늦게 떨어지는 크리스프한 스네어, 프리코러스부터 고스트 노트 섞인 16분 하이햇, 인트로부터 핑거스냅. 베이스는 둥근 핑거 베이스가 1절에선 긴 음으로 뿌리만 지키다 후렴에서 킥과 맞물리고 마지막 후렴 끝에서 슬라이드한다. 화성은 Rhodes가 처음부터 끝까지 중심이고, 2절부터 뮤트한 클린 기타 스트로크가 목소리에 대답한다. 멜로디는 절은 좁은 음역의 싱코페이션 많은 말투, 프리코러스는 한 음씩 내려오며 긴장을 풀어 후렴으로 떨어지고, 후렴 첫 낱말에서 위로 도약해 마지막 낱말 purple을 길게 늘인다. 보컬은 부드럽고 숨 섞인 남성 바리톤이 가깝고 건조하게 앞에 서고, 후렴은 넓게 쌓인 하모니, 브릿지에 가성 한 줄. 마지막 후렴에서야 따뜻한 여성 목소리가 하모니로 들어와 두 색이 섞이는 순간을 소리로 만든다. 간주는 Rhodes 솔로, 브릿지는 비트를 모두 빼고 Rhodes와 목소리만, 마지막 후렴이 가장 넓고 애드리브는 여기서만. 끝은 Rhodes 코드 루프가 천천히 사라지는 페이드. 공간은 가깝고 따뜻한 아날로그 질감.
+style: 'R&B, 90s slow groove, about 92 bpm, swung 16ths, warm maj9 and m9 chords, soft minor turn in the pre-chorus. Smooth male baritone, warm and breathy, relaxed behind the beat, one falsetto line in the bridge, sung in English, english lyrics, native English pronunciation. Intro: Rhodes chords and finger snaps. Verse 1: half beat, round fingered bass on long notes, narrow syncopated melody. Pre-chorus: 16th hi-hats with ghost notes, falling stepwise melody. Chorus: full beat, crisp late snare, upward leap on the first word, long held last word, stacked harmonies. Verse 2 adds muted guitar strokes answering the voice. Rhodes solo break, then the bridge drops to Rhodes and voice. Final chorus widest, a warm female voice joins the harmony, ad-libs, bass slides. Outro: Rhodes loop fading. Close dry lead, wide backing vocals, warm analog. Late night, tender, devoted.'
+exclude: rock guitar, rap, autotune
+photo_query: couple purple dusk sky
+image_prompt: A young couple seen from behind, sitting shoulder to shoulder on a rooftop ledge at dusk, her in a red sweater, him in a blue jacket. A small fire bowl glows beside them as the sky deepens into violet. Warm amber and purple tones, tender and quiet.
+short_scenes:
+- The same couple standing on the rooftop, foreheads almost touching, red sweater against blue jacket, the whole sky behind them glowing deep purple, wind in her hair.
+- Close-up of two hands intertwined, one in a red sleeve, one in a blue sleeve, lit by soft violet dusk light and the warm glow of the fire bowl.
+- The empty rooftop ledge after dark, the red sweater and blue jacket folded together on the ledge, the fire bowl down to soft glowing coals under a purple night sky.
+title_kind: 후렴 문장
+tempo: 중간
+arc: '화법: 우리 둘. 기: 나는 불, 너는 비, 다들 우리가 서로를 꺼뜨리거나 태울 거라 했다. 승: 이제 어디까지가 나고 어디부터가 너인지 모르겠고, 다투고 멍들어도 그 멍마저 우리 색이다. 전: 브릿지에서 처음 하는 진심, 나는 태어난 색으로만 살 줄 알았는데 네가 나를 더 큰 무언가로 만들었다. 결: 후렴 셋째 줄 ''And I don''t wanna be just red again''(혼자로 돌아가기 싫다는 나의 바람)이 마지막 후렴에서 ''And we ain''t ever going back to red and blue''(우리 둘 다 돌아가지 않는다는 약속)로 바뀐다.'
+line_plan: '[Verse 1] 1줄 모순(임팩트): 우리는 정반대다. 2줄 선언(임팩트): 다들 뻔한 끝을 예언했다. 3줄 뜻: 한쪽이 다른 쪽을 지울 거라는 예언. 4줄 전환: 그들은 끝까지 보지 않았다. [Pre-Chorus] 1줄 고백: 경계가 사라졌다. 2줄 열어 둠: 알고 싶지도 않다(후렴으로 밀어 넣음). [Chorus] 1줄 선언(훅①): 너와 내가 섞여 하나의 색이 된다. 2줄 선언: 혼자서는 될 수 없던 것. 3줄 고백: 다시 혼자로 돌아가기 싫다. 4줄 선언(훅②): 우리는 보라를 만든다. [Verse 2] 1줄 뒤집기: 그래도 우리는 부딪친다. 2줄 정확한 말: 한쪽은 식고 한쪽은 들끓는다. 3줄 고백: 사랑은 멍을 남긴다. 4줄 뒤집기: 그 멍조차 우리 색이다. [Pre-Chorus] 반복. [Chorus] 반복(훅③④). [Bridge] 1줄 고백: 태어난 그대로만 살 줄 알았다. 2줄 정확한 말(큰말 soul 한 번): 네가 나를 더 큰 것으로 만들었다. [Final Chorus] 1줄 훅⑤, 2줄 그대로, 3줄 뒤집기: 나의 바람이 우리의 약속으로, 4줄 훅⑥. 훅 ''we make purple'' 총 6회(후렴마다 1·4줄).'
+why: '''We make purple''은 설명 없이 뜻이 통하고, 빨강과 파랑이 섞여 보라가 된다는 누구나 아는 사실이 곧 ''우리 둘''의 이야기가 되어 직전 두 곡의 너에게·혼잣말 화법과 겹치지 않습니다. Frank Ocean의 ''Thinking Bout You''처럼 제목을 후렴 첫 줄에 그대로 두고, Prince의 ''Purple Rain''처럼 색 낱말 ''purple''을 후렴 끝에서 길게 늘여 부르게 했습니다. Alicia Keys의 ''If I Ain''t Got You''에서 가져온 대조 구조(불과 비, 빨강과 파랑)로 절을 세우되, 장면 대신 뜻만 남겼습니다. 마지막 후렴에서는 ''나''의 바람이던 줄을 ''우리''의 약속으로 뒤집어 같은 훅이 다른 무게로 들리게 했습니다.'
+share_line: Something neither one of us could make alone
+youtube_meta:
+  situation: late night R&B playlist
+  shorts_title: You're my blue, I'm your red, and we make purple
+  hashtags:
+  - rnb
+  - lovesongs
+  - latenightvibes
+  - slowjam
+  - 90srnb
+  - smoothrnb
+  - chillrnb
+  - rnbvibes
+  - newrnb
+  - purple
+  - couplegoals
+  - loveplaylist
+tags:
+- r&b
+- rnb
+- love song
+- new r&b
+- playlist
+- slow jam
+- 90s r&b
+- smooth r&b
+- late night r&b
+- r&b love song
+- chill r&b
+- soul
+- neo soul
+- romantic songs
+- songs for couples
+- love songs for her
+- love songs for him
+- late night vibes
+- late night playlist
+- rhodes r&b
+- male r&b vocal
+- baritone r&b
+- slow groove
+- purple
+- we make purple
+- opposites attract song
+- red and blue
+- soulmate song
+- songs about us
+- relationship songs
+- devoted love song
+- bedroom r&b
+- mellow r&b
+- romantic playlist
+- original r&b song
+- english r&b
+references:
+- title: Thinking Bout You
+  artist: Frank Ocean
+  takeaway: 제목을 후렴 첫 줄에 그대로 두면 처음 듣는 사람도 곧바로 제목을 따라 부른다.
+- title: Purple Rain
+  artist: Prince
+  takeaway: 색 낱말 하나를 후렴 끝에 두고 길게 늘이면 그 색이 곡의 감정 전체를 진다.
+- title: If I Ain't Got You
+  artist: Alicia Keys
+  takeaway: 두 가지를 맞세우는 대조 구조로 고백의 무게를 세운다.
+- title: Human Nature
+  artist: Michael Jackson
+  takeaway: 짧은 줄과 열린 모음, 부드러운 보컬 톤이 반복 청취를 부른다.
+candidates:
+- hook: We make purple
+  theme: 사랑
+  story: 정반대인 두 사람이 서로 섞여, 혼자서는 될 수 없던 무언가가 되었다고 함께 선언하는 노래.
+- hook: Stay till the sky goes purple
+  theme: 사랑
+  story: 떠나려는 사람에게 하루가 끝날 때까지만 곁에 있어 달라고 부탁하는 노래.
+- hook: Purple don't fade that fast
+  theme: 아픔
+  story: 끝난 사랑이 남긴 멍이 생각보다 오래 빠지지 않는다고 고백하는 노래.
+- hook: Somewhere in the purple
+  theme: 어른
+  story: 옳고 그름을 따지던 시절을 지나, 흑백 대신 그 사이에서 함께 사는 법을 배운 두 어른의 노래.
+- hook: Call it purple, not goodbye
+  theme: 어른
+  story: 헤어짐도 이어짐도 아닌 관계를 억지로 이름 붙이지 말자고 말하는 노래.
+chosen: 0
+lyrics: |
+  [Intro: Rhodes chords and finger snaps]
+
+  [Verse 1: half beat, bass on long notes]
+  I'm all fire and you're all rain,
+  And everybody swore it'd end the same,
+  Said you'd put me out or I'd burn you down,
+  Guess they left too soon to see us now.
+
+  [Pre-Chorus: 16th hi-hats enter, falling line]
+  Now I can't tell where I stop and you start,
+  And I don't wanna know
+
+  [Chorus: full beat, stacked harmonies]
+  You're my blue, I'm your red, and we make purple,
+  Something neither one of us could make alone,
+  And I don't wanna be just red again,
+  Baby, we make purple.
+
+  [Verse 2: muted guitar answers the voice]
+  Don't get me wrong, we still collide,
+  Some days you go cold and I go wild,
+  And love leaves a bruise sometimes, I know,
+  But even the bruise is a color we own.
+
+  [Pre-Chorus: 16th hi-hats, falling line]
+  Now I can't tell where I stop and you start,
+  And I don't wanna know
+
+  [Chorus: full beat, stacked harmonies]
+  You're my blue, I'm your red, and we make purple,
+  Something neither one of us could make alone,
+  And I don't wanna be just red again,
+  Baby, we make purple.
+
+  [Instrumental: Rhodes solo over the groove]
+
+  [Bridge: beat drops, Rhodes and voice, falsetto]
+  I thought I'd only ever be the color I was born,
+  'Til you poured your soul in mine and made me something more.
+
+  [Final Chorus: female harmony joins, ad-libs, widest]
+  You're my blue, I'm your red, and we make purple,
+  Something neither one of us could make alone,
+  And we ain't ever going back to red and blue,
+  Baby, we make purple.
+
+  [Outro: Rhodes loop fading]
+
+  [End]
+lyrics_draft: '[Intro: Rhodes chords and finger snaps]
+
+
+  [Verse 1: half beat, bass on long notes]
+
+  I''m all fire and you''re all rain,
+
+  And everybody swore it''d end the same,
+
+  Said you''d put me out or I''d burn you down,
+
+  Guess they never stuck around.
+
+
+  [Pre-Chorus: 16th hi-hats enter, falling line]
+
+  Now I can''t tell where I stop and you start,
+
+  And I don''t wanna know
+
+
+  [Chorus: full beat, stacked harmonies]
+
+  You''re my blue, I''m your red, and we make purple,
+
+  Something neither one of us could make alone,
+
+  And I don''t wanna be just red again,
+
+  Baby, we make purple.
+
+
+  [Verse 2: muted guitar answers the voice]
+
+  Don''t get me wrong, we still collide,
+
+  Some days you go cold and I go wild,
+
+  And love leaves a bruise sometimes, I know,
+
+  But even the bruise is the color we own.
+
+
+  [Pre-Chorus: 16th hi-hats, falling line]
+
+  Now I can''t tell where I stop and you start,
+
+  And I don''t wanna know
+
+
+  [Chorus: full beat, stacked harmonies]
+
+  You''re my blue, I''m your red, and we make purple,
+
+  Something neither one of us could make alone,
+
+  And I don''t wanna be just red again,
+
+  Baby, we make purple.
+
+
+  [Instrumental: Rhodes solo over the groove]
+
+
+  [Bridge: beat drops, Rhodes and voice, falsetto]
+
+  I thought I''d only ever be the color I was born,
+
+  ''Til you poured your soul in mine and made me something more.
+
+
+  [Final Chorus: female harmony joins, ad-libs, widest]
+
+  You''re my blue, I''m your red, and we make purple,
+
+  Something neither one of us could make alone,
+
+  And we ain''t ever going back to red and blue,
+
+  Baby, we make purple.
+
+
+  [Outro: Rhodes loop fading]
+
+
+  [End]'
+polish:
+- 'Guess they never stuck around. → Guess they left too soon to see us now.: down/around 완전운을 맞추려고 넣은 뜻 없는 줄이었다. ''끝날 거라던 사람들은 지금의 우리를 못 봤다''는 뜻을 살리고, down/now 모음운으로 바꿨다.'
+- 'But even the bruise is the color we own. → But even the bruise is a color we own.: 멍도 우리가 가진 색 가운데 하나라는 뜻이라 정관사보다 부정관사가 자연스럽다.'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A young couple seen from behind, sitting shoulder to shoulder on a rooftop ledge at dusk, her in a red sweater, him in a blue jacket. A small fire bowl glows beside them as the sky deepens into violet. Warm amber and purple tones, tender and quiet.
+translation:
+- 불 같은 나, 비 같은 너
+- 다들 뻔한 끝이라 했지
+- 네가 날 끄든 내가 널 태우든
+- 지금 우리 모습은 못 보고 갔네
+- 너와 나 구분이 안 되는데
+- 알고 싶지도 않아
+- 넌 내 파랑, 난 네 빨강, 섞이면 보라
+- 혼자서는 못 만드는 색
+- 다시 혼자 빨강이긴 싫어
+- 우린 보라야
+- 물론 아직도 부딪치지
+- 네가 식으면 난 들끓는 날도 있고
+- 사랑이 멍을 남길 때도 있지만
+- 그 멍조차 우리 색인걸
+- 너와 나 구분이 안 되는데
+- 알고 싶지도 않아
+- 넌 내 파랑, 난 네 빨강, 섞이면 보라
+- 혼자서는 못 만드는 색
+- 다시 혼자 빨강이긴 싫어
+- 우린 보라야
+- 타고난 색으로만 살 줄 알았어
+- 네 마음이 스며들어 날 바꾸기 전엔
+- 넌 내 파랑, 난 네 빨강, 섞이면 보라
+- 혼자서는 못 만드는 색
+- 다시 빨강, 파랑으론 안 돌아가
+- 우린 보라야
+translation_of:
+- I'm all fire and you're all rain,
+- And everybody swore it'd end the same,
+- Said you'd put me out or I'd burn you down,
+- Guess they left too soon to see us now.
+- Now I can't tell where I stop and you start,
+- And I don't wanna know
+- You're my blue, I'm your red, and we make purple,
+- Something neither one of us could make alone,
+- And I don't wanna be just red again,
+- Baby, we make purple.
+- Don't get me wrong, we still collide,
+- Some days you go cold and I go wild,
+- And love leaves a bruise sometimes, I know,
+- But even the bruise is a color we own.
+- Now I can't tell where I stop and you start,
+- And I don't wanna know
+- You're my blue, I'm your red, and we make purple,
+- Something neither one of us could make alone,
+- And I don't wanna be just red again,
+- Baby, we make purple.
+- I thought I'd only ever be the color I was born,
+- '''Til you poured your soul in mine and made me something more.'
+- You're my blue, I'm your red, and we make purple,
+- Something neither one of us could make alone,
+- And we ain't ever going back to red and blue,
+- Baby, we make purple.
+translation_v: 2
+youtube_preview:
+  title: We Make Purple - Yon Ju Kim | late night R&B playlist
+  shorts_title: 'We make purple #shorts'
+  shorts_titles:
+  - 'I''m all fire and you''re all rain, #shorts'
+  - 'We make purple #shorts'
+  - 'I thought I''d only ever be the color I was born, #shorts'
+  - 'Something neither one of us could make alone #shorts'
+  description: 'I''m all fire and you''re all rain,
+
+    And everybody swore it''d end the same,
+
+    Said you''d put me out or I''d burn you down,
+
+    Guess they left too soon to see us now.
+
+
+    Now I can''t tell where I stop and you start,
+
+    And I don''t wanna know
+
+
+    You''re my blue, I''m your red, and we make purple,
+
+    Something neither one of us could make alone,
+
+    And I don''t wanna be just red again,
+
+    Baby, we make purple.
+
+
+    Don''t get me wrong, we still collide,
+
+    Some days you go cold and I go wild,
+
+    And love leaves a bruise sometimes, I know,
+
+    But even the bruise is a color we own.
+
+
+    Now I can''t tell where I stop and you start,
+
+    And I don''t wanna know
+
+
+    You''re my blue, I''m your red, and we make purple,
+
+    Something neither one of us could make alone,
+
+    And I don''t wanna be just red again,
+
+    Baby, we make purple.
+
+
+    I thought I''d only ever be the color I was born,
+
+    ''Til you poured your soul in mine and made me something more.
+
+
+    You''re my blue, I''m your red, and we make purple,
+
+    Something neither one of us could make alone,
+
+    And we ain''t ever going back to red and blue,
+
+    Baby, we make purple.
+
+
+    Words & music by Yon Ju Kim (연주왕김연주)
+
+    Music and artwork generated with AI (Suno)
+
+    © 2026 Yon Ju Kim. All rights reserved. Please do not re-upload.
+
+
+    #rnb #lovesongs #latenightvibes #song #music #AI #slowjam #90srnb #smoothrnb #chillrnb #rnbvibes #newrnb #purple #couplegoals #loveplaylist'
+  tags:
+  - We Make Purple
+  - Yon Ju Kim
+  - song
+  - music
+  - AI
+  - rnb
+  - r&b
+  - love song
+  - new r&b
+  - playlist
+  - slow jam
+  - 90s r&b
+  - smooth r&b
+  - late night r&b
+  - r&b love song
+  - chill r&b
+  - soul
+  - neo soul
+  - romantic songs
+  - songs for couples
+  - love songs for her
+  - love songs for him
+  - late night vibes
+  - late night playlist
+  - rhodes r&b
+  - male r&b vocal
+  - baritone r&b
+  - slow groove
+  - purple
+  - opposites attract song
+  - red and blue
+  - soulmate song
+  - songs about us
+  - relationship songs
+  - devoted love song
+  hashtags:
+  - rnb
+  - lovesongs
+  - latenightvibes
+  - song
+  - music
+  - AI
+  - slowjam
+  - 90srnb
+  - smoothrnb
+  - chillrnb
+  - rnbvibes
+  - newrnb
+  - purple
+  - couplegoals
+  - loveplaylist
+  playlists:
+  - Yon Ju Kim English Songs
+  privacy: private
