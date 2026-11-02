@@ -1,0 +1,438 @@
+title: Put the Stone Down
+hook: Put the stone down
+theme: 어른
+story: 모든 끝을 미리 보는 돌을 손에서 놓지 못하던 사람이, 결말을 모르는 채로 살기로 스스로에게 명령하는 노래.
+created: 2026-11-02 15:11
+request:
+  id: mvyuxzyc
+  idea: Seeing Stone
+  genre: R&B
+  style: 강렬한 후렴
+  lang: en
+lang: en
+instrumental: false
+sound_plan: 조성은 m9 코드의 단조 절에서 따뜻한 장조 후렴으로 열리고, 72bpm 하프타임 그루브로 느리지만 무겁게 간다. 리듬은 핑거스냅과 깊은 킥으로 1절을 비워 두고, 프리코러스에서 고스트 노트가 섞인 16분 하이햇이 들어오며, 후렴에서 박자 뒤에 늦게 떨어지는 두꺼운 스네어로 풀 비트가 된다. 베이스는 둥근 서브 베이스가 긴 음으로 뿌리를 지키다 후렴 끝마다 아래로 미끄러진다. 화성은 Wurlitzer가 인트로와 1절을 이끌고, 2절부터 해먼드 오르간이 목소리에 대답한다. 멜로디는 절에서 좁은 음역으로 말하듯 싱코페이션, 프리코러스는 같은 음을 반복하며 밀어 올리고, 후렴 첫 낱말에서 크게 도약해 down을 길게 벨팅한다. 보컬은 힘 있는 여성 알토, 따뜻한 흉성에 절제된 거침, 절은 가깝고 건조하게, 브릿지에 가성 한 줄, 후렴은 가스펠 스택 하모니. 간주는 Wurlitzer와 오르간, 브릿지는 비트를 빼고 Wurlitzer와 목소리만 남긴다. 마지막 후렴은 합창이 훅을 겹쳐 가장 크게, 애드리브를 얹고, 아웃트로는 Wurlitzer 혼자 느려지며 마지막 화음을 길게 둔다. 공간은 가깝고 따뜻한 아날로그, 리드는 앞에 건조하게, 코러스는 넓게.
+style: 'R&B, 2020s gospel-tinged soul R&B, half-time groove at 72 bpm, minor verses opening to a warm major chorus. Powerful female alto, warm chest voice, controlled grit, talky verses behind the beat, belted chorus, one falsetto line in the bridge, sung in English, english lyrics, native English pronunciation. Intro: Wurlitzer chords alone. Verse 1: finger snaps, deep kick, round sub bass on long notes, narrow syncopated melody. Pre-chorus: 16th hi-hats with ghost notes, rising repeated note. Chorus: full beat, fat late snare, bass slides, upward leap on the first word, long held last word, stacked gospel harmonies. Verse 2 adds Hammond organ answers. Bridge drops to Wurlitzer and voice. Final chorus biggest, choir doubles the hook, ad-libs, ends on a held note. Close dry lead, wide backing choir, warm analog. Defiant, aching, free.'
+exclude: autotune, rap verse, distorted guitar
+photo_query: woman holding stone hands
+image_prompt: A woman in a loose cream sweater sits on a wooden floor by a tall window at night, seen from the side, holding a small grey stone glowing faintly in her open palm. Warm amber lamp light against deep blue window glass, quiet and heavy, on the edge of a decision.
+short_scenes:
+- The same woman stands by the tall window, arm raised, the faintly glowing grey stone held high in amber lamp light against deep blue glass, head tilted back mid-breath.
+- Close-up of her hands in the cream sweater sleeves, fingers slowly opening around the dim grey stone, amber light on her skin, deep blue shadows behind.
+- The grey stone rests dark on the wooden floor beneath the tall window, her bare feet walking away out of frame, amber lamp still on, blue dawn starting in the glass.
+title_kind: 후렴 문장
+tempo: 느림
+arc: '화법: 혼잣말. 기: 모든 끝을 아는데도 돌을 다시 들여다보는 자신에게 왜냐고 묻는다. 승: 끝을 미리 봤기에 사랑을 먼저 놓아 버렸고, 결말 속에 사느라 지금을 놓쳤다고 고백한다. 전: 브릿지에서 처음 말한다 — 두려웠던 건 끝이 아니라 모르는 가운데였고, 그 가운데가 내가 가진 전부다. 결: 마지막 후렴 3행이 ''let me feel it now''에서 ''I''ve seen how it ends, but I''m staying now''로, 4행이 명령 ''So put the stone down''에서 이미 한 행동 ''I put the stone down''으로 바뀐다.'
+line_plan: '[Verse 1] 1행 선언: 나는 모든 끝을 안다 / 2행 질문: 그런데 왜 또 들여다보나 / 3행 뜻: 돌은 누가 떠나는지만 보여 준다 / 4행 전환: 살아 있는 느낌은 끝내 안 보여 준다. [Pre-Chorus] 1행 고백(감정 직접): 아는 게 지쳤다 / 2행 열어 둠: 그래서 손에게 말한다(후렴으로 떨어짐). [Chorus] 1행 명령(훅 x2) / 2행 뒤집기: 답이 아니라 발 디딜 땅 / 3행 부탁(감정 직접 feel): 잃을 거라면 지금 느끼게 / 4행 명령(훅 x1). 후렴당 훅 3번 x 3후렴 = 9번. [Verse 2] 1행 고백: 사랑이 떠나기도 전에 먼저 놓았다 / 2행 이유: 이미 어떻게 되는지 봤으니까 / 3행 뜻: 끝이 와 있는 것처럼 살았다 / 4행 고백(감정 직접 miss): 모를 모든 것을 놓치고 있다. [Bridge] 1행 정확한 말: 끝이 무서웠던 게 아니다 / 2행 진심: 가운데가 무서웠고 가운데가 내 전부다. [Final Chorus] 1·2행 그대로 / 3행 뒤집기: 끝을 봤지만 남는다 / 4행 선언: 명령이 완료된 행동으로.'
+why: Put the stone down은 네 낱말 명령형이라 첫 후렴에서 바로 따라 부를 수 있고, 끝말 down이 열린 모음이라 벨팅으로 길게 끌기 좋습니다. Say My Name처럼 요구하는 짧은 말을 후렴 안에서 되풀이해 강렬한 후렴을 만들고, 나머지 줄은 down·ground·now 모음운으로 받쳐 훅과 같은 소리로 몰아갑니다. 직전 곡들이 너에게 말하는 화법이고 One Glimpse of You가 보고 싶다는 간절함이었으니, 이 곡은 혼잣말로 보지 않기를 선택하는 반대 방향을 잡았습니다. End of the Road와 Halo처럼 절은 좁게 말하다 후렴에서 화음이 열리는 구조를 가져왔고, 마지막 후렴은 명령이 이미 한 행동(I put the stone down)으로 바뀌어 같은 훅이 다른 무게로 들립니다.
+share_line: I don't need the answer, I need the ground,
+youtube_meta:
+  situation: songs for letting go
+  shorts_title: Put the stone down, put the stone down
+  hashtags:
+  - rnb
+  - soulmusic
+  - lettinggo
+  - newrnb
+  - gospelrnb
+  - femalevocals
+  - powerballad
+  - emotionalsongs
+  - latenightvibes
+  - healingmusic
+  - originalsong
+  - lyrics
+tags:
+- r&b
+- rnb music
+- soul music
+- new music
+- new r&b
+- original song
+- english song
+- female vocal
+- powerful vocals
+- r&b ballad
+- gospel r&b
+- soul ballad
+- slow r&b
+- letting go
+- songs for letting go
+- moving on song
+- healing song
+- emotional song
+- breakup recovery
+- self love song
+- empowering song
+- late night r&b
+- wurlitzer
+- choir harmonies
+- belting vocals
+- put the stone down
+- seeing stone
+- fear of the future
+- living in the moment
+- not knowing
+- defiant ballad
+- aching song
+- playlist
+- r&b playlist 2026
+- lyrics video
+references:
+- title: Say My Name
+  artist: Destiny's Child
+  takeaway: 짧은 명령형 훅을 후렴 안에서 되풀이하면 요구 자체가 후렴의 힘이 된다.
+- title: End of the Road
+  artist: Boyz II Men
+  takeaway: 절은 말하듯 좁게 두고 후렴에서 화음을 터뜨려야 같은 말이 크게 들린다.
+- title: Halo
+  artist: Beyoncé
+  takeaway: 이미지 하나로 곡 전체를 묶고 감정을 쌓아 마지막 후렴에서 가장 넓게 연다.
+- title: No One
+  artist: Alicia Keys
+  takeaway: 단순한 확신의 선언을 짧은 줄로 반복하면 처음 듣는 사람도 두 번째 후렴에서 따라 부른다.
+candidates:
+- hook: Put the stone down
+  theme: 어른
+  story: 모든 끝을 미리 보는 돌을 손에서 놓지 못하던 사람이, 결말을 모르는 채로 살기로 스스로에게 명령하는 노래.
+- hook: Don't Show Me How It Ends
+  theme: 사랑
+  story: 사랑이 끝나는 방식을 이미 알아 버린 사람이, 알면서도 이번엔 끝까지 가 보겠다고 돌에게 등을 돌리는 노래.
+- hook: I Don't Wanna Know
+  theme: 아픔
+  story: 미래를 보는 힘 때문에 사람을 먼저 떠나보내 온 사람이, 처음으로 모르는 쪽을 고르는 노래.
+- hook: Let It Stay Dark
+  theme: 어른
+  story: 앞날을 비추는 빛에 지친 사람이, 보이지 않는 길을 그냥 걸어가겠다고 혼자 다짐하는 노래.
+- hook: Blind Again
+  theme: 사랑
+  story: 한 번 다 본 사람이 다시 눈을 감고, 처음처럼 상대를 믿어 보려는 노래.
+chosen: 0
+lyrics: |
+  [Intro: Wurlitzer chords alone]
+
+  [Verse 1: finger snaps, deep kick, sub bass on long notes]
+  I know every way that this could end,
+  So why do I keep looking one more time?
+  It shows me who leaves and when they go,
+  But it never shows me how it feels to be alive.
+
+  [Pre-Chorus: ghost-note hi-hats, rising]
+  I'm tired of knowing more than I can hold,
+  So I tell my hands what I can't say:
+
+  [Chorus: full beat, belted, stacked gospel harmonies]
+  Put the stone down, put the stone down,
+  I don't need the answer, I need the ground,
+  And if I'm gonna lose it, let me feel it now,
+  So put the stone down.
+
+  [Verse 2: Hammond organ answers the voice]
+  I let go of love before it ever left,
+  'Cause I'd already seen the way it goes,
+  I've been living like the ending's here,
+  And I'm missing everything I'll never know.
+
+  [Pre-Chorus: ghost-note hi-hats, rising]
+  I'm tired of knowing more than I can hold,
+  So I tell my hands what I can't say:
+
+  [Chorus: full beat, belted, stacked gospel harmonies]
+  Put the stone down, put the stone down,
+  I don't need the answer, I need the ground,
+  And if I'm gonna lose it, let me feel it now,
+  So put the stone down.
+
+  [Instrumental: Wurlitzer and organ break]
+
+  [Bridge: beat drops, Wurlitzer and voice, falsetto]
+  I was never scared of how it ends,
+  I was scared of the middle, and the middle's all I've got.
+
+  [Final Chorus: choir doubles the hook, ad-libs, biggest]
+  Put the stone down, put the stone down,
+  I don't need the answer, I need the ground,
+  And I've seen how it ends, but I'm staying now,
+  I PUT THE STONE DOWN.
+
+  [Outro: Wurlitzer alone, slowing, last chord held]
+
+  [End]
+lyrics_draft: '[Intro: Wurlitzer chords alone]
+
+
+  [Verse 1: finger snaps, deep kick, sub bass on long notes]
+
+  I know every way that this could end,
+
+  So why do I keep looking one more time?
+
+  It shows me who leaves and when they go,
+
+  But it never shows me how it feels to be alive.
+
+
+  [Pre-Chorus: ghost-note hi-hats, rising]
+
+  I''m tired of knowing more than I can hold,
+
+  So I tell my hands what I couldn''t say:
+
+
+  [Chorus: full beat, belted, stacked gospel harmonies]
+
+  Put the stone down, put the stone down,
+
+  I don''t need the answer, I need the ground,
+
+  And if I''m gonna lose it, let me feel it now,
+
+  So put the stone down.
+
+
+  [Verse 2: Hammond organ answers the voice]
+
+  I let go of love before it ever left,
+
+  ''Cause I already saw the way it goes,
+
+  I''ve been living like the ending''s here,
+
+  And I''m missing everything I''ll never know.
+
+
+  [Pre-Chorus: ghost-note hi-hats, rising]
+
+  I''m tired of knowing more than I can hold,
+
+  So I tell my hands what I couldn''t say:
+
+
+  [Chorus: full beat, belted, stacked gospel harmonies]
+
+  Put the stone down, put the stone down,
+
+  I don''t need the answer, I need the ground,
+
+  And if I''m gonna lose it, let me feel it now,
+
+  So put the stone down.
+
+
+  [Instrumental: Wurlitzer and organ break]
+
+
+  [Bridge: beat drops, Wurlitzer and voice, falsetto]
+
+  I was never scared of how it ends,
+
+  I was scared of the middle, and the middle''s all I''ve got.
+
+
+  [Final Chorus: choir doubles the hook, ad-libs, biggest]
+
+  Put the stone down, put the stone down,
+
+  I don''t need the answer, I need the ground,
+
+  And I''ve seen how it ends, but I''m staying now,
+
+  I PUT THE STONE DOWN.
+
+
+  [Outro: Wurlitzer alone, slowing, last chord held]
+
+
+  [End]'
+polish:
+- 'So I tell my hands what I couldn''t say → So I tell my hands what I can''t say (두 프리코러스 모두): 현재형 tell과 과거형 couldn''t가 어긋나는 시제를 맞추고, 지금 털어놓는 고백으로 힘을 살림'
+- '''Cause I already saw the way it goes → ''Cause I''d already seen the way it goes: 사랑을 놓기 전에 이미 봤다는 앞선 시점이라 과거완료가 원어민 어법에 맞음'
+- 나머지 줄은 선언·질문·부탁으로 열리고, 축약형·모음운·감정어(need, feel, love, scared)가 이미 자연스러워 그대로 둠
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A woman in a loose cream sweater sits on a wooden floor by a tall window at night, seen from the side, holding a small grey stone glowing faintly in her open palm. Warm amber lamp light against deep blue window glass, quiet and heavy, on the edge of a decision.
+translation:
+- 어떻게 끝날지 다 알고 있어
+- 그런데 왜 자꾸 또 들여다볼까
+- 누가 언제 떠나는지 보여주지만
+- 살아 있는 기분은 보여주지 않아
+- 감당 못 할 만큼 알아서 지쳤어
+- 그래서 말 못 할 걸 손에게 말해
+- 돌을 내려놔, 돌을 내려놔
+- 답은 필요 없어, 디딜 땅이 필요해
+- 어차피 잃을 거라면 지금 느끼게 해 줘
+- 그러니 돌을 내려놔
+- 사랑이 떠나기도 전에 놓아버렸어
+- 어떻게 될지 이미 봤으니까
+- 끝이 벌써 온 것처럼 살아왔어
+- 끝내 모를 것들을 다 놓치고 있어
+- 감당 못 할 만큼 알아서 지쳤어
+- 그래서 말 못 할 걸 손에게 말해
+- 돌을 내려놔, 돌을 내려놔
+- 답은 필요 없어, 디딜 땅이 필요해
+- 어차피 잃을 거라면 지금 느끼게 해 줘
+- 그러니 돌을 내려놔
+- 끝이 두려웠던 적은 없어
+- 두려운 건 그 사이, 내겐 그 사이뿐인데
+- 돌을 내려놔, 돌을 내려놔
+- 답은 필요 없어, 디딜 땅이 필요해
+- 끝을 봤지만 이제 여기 남을래
+- 나는 돌을 내려놨어
+translation_of:
+- I know every way that this could end,
+- So why do I keep looking one more time?
+- It shows me who leaves and when they go,
+- But it never shows me how it feels to be alive.
+- I'm tired of knowing more than I can hold,
+- 'So I tell my hands what I can''t say:'
+- Put the stone down, put the stone down,
+- I don't need the answer, I need the ground,
+- And if I'm gonna lose it, let me feel it now,
+- So put the stone down.
+- I let go of love before it ever left,
+- '''Cause I''d already seen the way it goes,'
+- I've been living like the ending's here,
+- And I'm missing everything I'll never know.
+- I'm tired of knowing more than I can hold,
+- 'So I tell my hands what I can''t say:'
+- Put the stone down, put the stone down,
+- I don't need the answer, I need the ground,
+- And if I'm gonna lose it, let me feel it now,
+- So put the stone down.
+- I was never scared of how it ends,
+- I was scared of the middle, and the middle's all I've got.
+- Put the stone down, put the stone down,
+- I don't need the answer, I need the ground,
+- And I've seen how it ends, but I'm staying now,
+- I PUT THE STONE DOWN.
+youtube_preview:
+  title: Put the Stone Down - Yon Ju Kim | songs for letting go
+  shorts_title: 'Put the stone down #shorts'
+  shorts_titles:
+  - 'I know every way that this could end, #shorts'
+  - 'Put the stone down #shorts'
+  - 'I was never scared of how it ends, #shorts'
+  - 'I don''t need the answer, I need the ground, #shorts'
+  description: 'I know every way that this could end,
+
+    So why do I keep looking one more time?
+
+    It shows me who leaves and when they go,
+
+    But it never shows me how it feels to be alive.
+
+
+    I''m tired of knowing more than I can hold,
+
+    So I tell my hands what I can''t say:
+
+
+    Put the stone down, put the stone down,
+
+    I don''t need the answer, I need the ground,
+
+    And if I''m gonna lose it, let me feel it now,
+
+    So put the stone down.
+
+
+    I let go of love before it ever left,
+
+    ''Cause I''d already seen the way it goes,
+
+    I''ve been living like the ending''s here,
+
+    And I''m missing everything I''ll never know.
+
+
+    I''m tired of knowing more than I can hold,
+
+    So I tell my hands what I can''t say:
+
+
+    Put the stone down, put the stone down,
+
+    I don''t need the answer, I need the ground,
+
+    And if I''m gonna lose it, let me feel it now,
+
+    So put the stone down.
+
+
+    I was never scared of how it ends,
+
+    I was scared of the middle, and the middle''s all I''ve got.
+
+
+    Put the stone down, put the stone down,
+
+    I don''t need the answer, I need the ground,
+
+    And I''ve seen how it ends, but I''m staying now,
+
+    I PUT THE STONE DOWN.
+
+
+    Words & music by Yon Ju Kim (연주왕김연주)
+
+    Music and artwork generated with AI (Suno)
+
+    © 2026 Yon Ju Kim. All rights reserved. Please do not re-upload.
+
+
+    #rnb #soulmusic #lettinggo #song #music #AI #newrnb #gospelrnb #femalevocals #powerballad #emotionalsongs #latenightvibes #healingmusic #originalsong #lyrics'
+  tags:
+  - Put the Stone Down
+  - Yon Ju Kim
+  - song
+  - music
+  - AI
+  - rnb
+  - r&b
+  - rnb music
+  - soul music
+  - new music
+  - new r&b
+  - original song
+  - english song
+  - female vocal
+  - powerful vocals
+  - r&b ballad
+  - gospel r&b
+  - soul ballad
+  - slow r&b
+  - letting go
+  - songs for letting go
+  - moving on song
+  - healing song
+  - emotional song
+  - breakup recovery
+  - self love song
+  - empowering song
+  - late night r&b
+  - wurlitzer
+  - choir harmonies
+  - belting vocals
+  - seeing stone
+  - fear of the future
+  - living in the moment
+  hashtags:
+  - rnb
+  - soulmusic
+  - lettinggo
+  - song
+  - music
+  - AI
+  - newrnb
+  - gospelrnb
+  - femalevocals
+  - powerballad
+  - emotionalsongs
+  - latenightvibes
+  - healingmusic
+  - originalsong
+  - lyrics
+  playlists:
+  - Yon Ju Kim English Songs
+  privacy: private
