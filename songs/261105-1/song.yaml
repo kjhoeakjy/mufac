@@ -1,0 +1,394 @@
+title: 그때 말할걸
+hook: 그때 말할걸
+theme: 아픔
+story: 가지 말라는 말을 삼키고 사람을 보낸 누구나, 뒤늦게 그 사람에게 건네는 느린 고백.
+created: 2026-11-05 12:16
+request: {}
+lang: ko
+instrumental: false
+sound_plan: 장조에 프리코러스에서 단조로 한 번 꺾이는 씁쓸한 진행, 74bpm의 느린 드라마 OST 발라드. 인트로는 그랜드 피아노와 낮은 첼로 한 줄. 1절은 피아노 분산화음과 목소리만, 좁은 음역에서 말하듯 부른다. 프리코러스에 현악 패드가 깔리고 같은 음을 되풀이하며 밀어 올려 '-는데'에서 열린 채 후렴으로 떨어진다. 첫 후렴은 훅 첫 음에서 위로 도약하고 마지막 낱말을 길게 끌며, 드럼 없이 현이 대선율을 맡는다. 2절에 하프 아르페지오, 더블베이스의 긴 뿌리음, 부드러운 킥이 들어오고, 두 번째 후렴은 현 전체와 보컬 더블링으로 넓어진다. 간주는 오보에와 피아노. 브릿지는 피아노와 거의 말하는 목소리로 내려앉는다. 마지막 후렴 직전 한 음 위로 전조하고 팀파니 롤, 가장 넓은 현, 쌓인 하모니로 처음으로 목소리를 다 연다. 보컬은 맑고 따뜻한 메조, 절에서는 숨이 섞인 가까운 소리로 박자 뒤에 둔다. 공간은 큰 홀 잔향에 보컬만 가깝게. 아웃트로는 현이 길게 남고 피아노 한 음으로 끝낸다.
+style: 'Korean drama OST ballad, 2010s, slow 74 bpm, bittersweet major with a minor turn in the pre-chorus. Female mezzo, clear and warm, breathy close vocal behind the beat, full voice only at the final chorus, mature and sincere, sung in Korean, korean lyrics. Intro: grand piano and low cello. Verse 1: piano arpeggios and voice, narrow conversational melody. Pre-chorus: string pad, rising repeated note. Chorus: upward leap on the hook, long held last note, strings only. Verse 2 adds harp, double bass roots and soft kick. Full strings in chorus two, doubled vocal. Oboe interlude. Bridge drops to piano and near-spoken voice. Key change into the final chorus, timpani roll, stacked harmonies. Outro: strings hold, one piano note. Hall reverb, intimate vocal. Regretful, tender.'
+exclude: electric guitar, synth, trap hi-hats
+photo_query: woman alone window winter night
+image_prompt: A woman in a long dark coat seen from behind, standing at a tall window on a winter night, one hand resting on the cold glass. A dim warm lamp behind her, city lights blurred outside. Deep blue and amber tones, quiet regret.
+short_scenes:
+- The same woman in the dark coat at the tall window, head lifted toward the blurred city lights, breath fogging the glass, deep blue and amber glow.
+- Close-up of her hand pressed flat on the cold window glass, faint amber lamplight on her fingers, city lights soft behind.
+- The empty window at night after she has gone, the lamp still on, her faint handprint fading on the glass, blue and amber stillness.
+title_kind: 후렴 문장
+tempo: 느림
+arc: '화법: 너에게. 기(1절): 웃으며 너를 보낸 일, 그게 어른스러운 줄 알았던 믿음, 삼킨 한마디가 밤을 늘인다는 것까지만 말한다. 승(프리코러스→후렴): 시간이 다 가져가도 너만 남는다는 데서 ''그때 말할걸''이라는 후회 한 문장으로 떨어진다. 전(2절→브릿지): 2절은 지금의 너를 향해 잘 지내라 빌면서 돌아오길 꿈꾸는 모순으로 시점을 옮긴다. 브릿지에서 처음으로 ''떠난 건 너, 놓은 건 나''라고 자기 몫을 인정한다. 결(마지막 후렴): 마지막 줄이 ''사랑해, 그 쉬운 걸''에서 ''지금 말할게, 사랑해''로 바뀌어, 후회가 늦은 고백이 된다. 아웃트로는 가사 없이 현과 피아노 한 음.'
+line_plan: '[1절] 1 고백: 웃으며 보냈다(임팩트-고백). 2 뒤집기: 그게 어른인 줄 알았다(임팩트-뒤집기). 3 정확한 말: 삼킨 부탁의 이름. 4 새 뜻: 삼킨 만큼 밤이 길다. [프리] 5 선언: 시간은 다 데려간다. 6 전환(열린 끝 -는데): 너만 두고 간다. [후렴] 7 훅(고백). 8 모순: 보내 놓고 기다린다. 9 훅. 10 모순·고백: 가장 쉬운 말 사랑해를 못 했다. [2절] 11 새 뜻(시점 전환): 잘 지내라 빈다. 12 모순: 돌아오는 너를 꿈꾼다. 13~14 정확한 말: 늦게 안 사랑이 더 오래 남는다. [프리] 15~16 반복. [후렴] 17~20 반복(훅 17·19). [브릿지] 21 인정: 떠난 건 너. 22 뒤집기·진심: 놓은 건 나. [마지막 후렴] 23 훅. 24 모순 유지. 25 훅. 26 뒤집기: 지금 말할게, 사랑해. 훅 줄 번호: 7, 9, 17, 19, 23, 25 (6번).'
+why: 가지 말라는 말을 삼키고 누군가를 보낸 기억은 연인이든 친구든 거의 모든 사람에게 있어서, 다섯 후보 중 가장 넓게 자기 얘기가 된다. 조사 노트의 초안은 지하철·편의점·삼각김밥으로 한 장면을 세운 상황극이라 쓰지 않았고, 사물은 밤과 손 둘만 남기고 뜻만으로 짰다. 자우림의 '~줄 알았어'로 과거의 믿음을 세워 현재와 부딪히게 하는 원리, 한로로와 극동아시아타이거즈의 '마지막 후렴에서 한 낱말만 뒤집기'를 가져와 '그때 말할걸'이 마지막에 '지금 말할게'로 돌아오게 했다. 제목은 후렴 문장 그대로다. 외쳐지는 반말 한 덩이라 처음 듣는 사람도 두 번째 후렴에서 따라 부를 수 있다.
+share_line: 사랑해, 그 쉬운 걸
+youtube_meta:
+  situation: 잠 안 오는 밤에 듣는 이별 노래
+  shorts_title: 그때 말할걸
+  hashtags:
+  - 발라드
+  - 이별노래
+  - 감성노래
+  - 새벽감성
+  - 드라마OST
+  - 위로노래
+  - 감성플리
+  - 후회
+  - 짝사랑
+  - 밤에듣는노래
+  - 고백
+  - OST
+tags:
+- 음악
+- 노래
+- 감성
+- 발라드
+- 플레이리스트
+- 노래 추천
+- 이별 노래
+- 드라마 OST
+- OST 발라드
+- 감성 발라드
+- 새벽 감성
+- 잠 안 오는 밤
+- 후회하는 노래
+- 고백 노래
+- 보내고 후회
+- 말 못한 사랑
+- 그때 말할걸
+- 이별 후
+- 헤어진 연인
+- 짝사랑 노래
+- 혼자 듣는 노래
+- 밤에 듣는 노래
+- 여자 발라드
+- 슬픈 노래
+- 위로 노래
+- 감성 플리
+- 겨울 발라드
+- 피아노 발라드
+- 현악 발라드
+- 눈물 나는 노래
+- korean ballad
+- korean ost
+- kpop ballad
+- sad korean song
+references:
+- title: 스물다섯, 스물하나
+  artist: 자우림
+  takeaway: '''~줄 알았어''로 지난 믿음을 세워 지금과 부딪히게 하면 설명 없이 후회가 선다.'
+- title: 사랑하게 될 거야
+  artist: 한로로
+  takeaway: 후렴은 상대에게 건네는 짧은 말 한 문장이고, 마지막 후렴만 살짝 바꿔 결론을 낸다.
+- title: 다시, 다시 만나
+  artist: 극동아시아타이거즈
+  takeaway: 마지막 후렴에서 핵심어 하나를 뒤집으면 같은 후렴이 다른 뜻으로 들린다.
+- title: 미안해 널 미워해
+  artist: 자우림
+  takeaway: 반대되는 마음을 한 줄에 붙이고 풀지 않으면 그 줄이 가장 오래 남는다.
+- title: 주저하는 연인들을 위해
+  artist: 잔나비
+  takeaway: 큰 감정어 옆에는 손에 잡히는 것 하나만 두어 뜻을 땅에 내려앉힌다.
+candidates:
+- hook: 그때 말할걸
+  theme: 아픔
+  story: 가지 말라는 말을 삼키고 사람을 보낸 누구나, 뒤늦게 그 사람에게 건네는 느린 고백.
+- hook: 꿈이 늙어 가
+  theme: 어른
+  story: 어릴 때 꿈을 접은 줄도 모르고 사는 사람이 중간 템포로 지난 시간을 돌아보는 노래.
+- hook: 울어도 배고파
+  theme: 아픔
+  story: 크게 무너진 날에도 몸은 살자고 하는 걸 아는 사람이 담담하게 자기를 다독이는 노래.
+- hook: 오늘은 부자
+  theme: 어른
+  story: 가진 건 없는데 이상하게 기분이 좋은 날을 사는 사람이 부르는 밝은 노래.
+- hook: 연락하지 마
+  theme: 사랑
+  story: 연락하지 않겠다고 백 번 다짐하면서 상대에게 그 말을 떠넘기는 사람의 중간 템포 노래.
+chosen: 0
+lyrics: |
+  [Intro: piano and low cello]
+
+  [Verse 1: piano and voice only]
+  웃으며 너를 보냈어
+  그게 어른인 줄 알고
+  가지 말라는 한마디
+  삼킨 만큼 밤은 길지
+
+  [Pre-Chorus: string pad, building]
+  시간은 다 데려가면서
+  너만 두고 가는데
+
+  [Chorus: strings, long held last note]
+  그때 말할걸
+  너를 보내 놓고 기다려
+  그때 말할걸
+  사랑해, 그 쉬운 걸
+
+  [Verse 2: harp, double bass, soft kick]
+  잘 지내라고 빌면서
+  돌아오는 너를 꿈꿔
+  늦은 줄 아는 사랑은
+  더 오래 손에 남아
+
+  [Pre-Chorus: strings rising]
+  시간은 다 데려가면서
+  너만 두고 가는데
+
+  [Chorus: full strings, doubled vocal]
+  그때 말할걸
+  너를 보내 놓고 기다려
+  그때 말할걸
+  사랑해, 그 쉬운 걸
+
+  [Instrumental: oboe and piano]
+
+  [Bridge: piano and near-spoken voice]
+  떠난 건 너였지만
+  놓은 건 나였어
+
+  [Final Chorus: key change, timpani, stacked harmonies]
+  그때 말할걸
+  너를 보내 놓고 기다려
+  그때 말할걸
+  지금 말할게, 사랑해
+
+  [Outro: strings hold, one piano note]
+
+  [End]
+lyrics_draft: '[Intro: piano and low cello]
+
+
+  [Verse 1: piano and voice only]
+
+  웃으며 너를 보냈어
+
+  그게 어른인 줄 알고
+
+  가지 말라는 한마디
+
+  삼킨 만큼 밤이 길어
+
+
+  [Pre-Chorus: string pad, building]
+
+  시간은 다 데려가면서
+
+  너만 두고 가는데
+
+
+  [Chorus: strings, long held last note]
+
+  그때 말할걸
+
+  너를 보내 놓고 기다려
+
+  그때 말할걸
+
+  사랑해, 그 쉬운 걸
+
+
+  [Verse 2: harp, double bass, soft kick]
+
+  잘 지내라고 빌면서
+
+  돌아오는 너를 꿈꿔
+
+  늦은 줄 아는 사랑은
+
+  더 오래 손에 남아
+
+
+  [Pre-Chorus: strings rising]
+
+  시간은 다 데려가면서
+
+  너만 두고 가는데
+
+
+  [Chorus: full strings, doubled vocal]
+
+  그때 말할걸
+
+  너를 보내 놓고 기다려
+
+  그때 말할걸
+
+  사랑해, 그 쉬운 걸
+
+
+  [Instrumental: oboe and piano]
+
+
+  [Bridge: piano and near-spoken voice]
+
+  떠난 건 너였지만
+
+  놓은 건 나였어
+
+
+  [Final Chorus: key change, timpani, stacked harmonies]
+
+  그때 말할걸
+
+  너를 보내 놓고 기다려
+
+  그때 말할걸
+
+  지금 말할게, 사랑해
+
+
+  [Outro: strings hold, one piano note]
+
+
+  [End]'
+polish:
+- '삼킨 만큼 밤이 길어 → 삼킨 만큼 밤은 길지: 해체 종결(-어)이 곡의 3분의 1을 넘어 -지로 바꿔 줄 끝을 섞었다. 음절 수와 뜻은 그대로 두었다.'
+- '나머지 줄은 유지: 첫 두 줄이 고백으로 열리고, 후렴은 훅 ''그때 말할걸''이 첫 줄에 두 번 나오며 제목과 같다. 브릿지는 ''놓은 건 나였어''라는 인정으로 곡을 한 번 뒤집고, 마지막 후렴은 끝 줄만 바뀌어 다른 뜻으로 들린다. 사물은 밤·손 둘뿐이고, 생활 소품과 어색한 구어체도 없다.'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A woman in a long dark coat seen from behind, standing at a tall window on a winter night, one hand resting on the cold glass. A dim warm lamp behind her, city lights blurred outside. Deep blue and amber tones, quiet regret.
+youtube_preview:
+  title: 그때 말할걸 - 연주왕김연주 | 잠 안 오는 밤에 듣는 이별 노래
+  shorts_title: '그때 말할걸 #shorts'
+  shorts_titles:
+  - '웃으며 너를 보냈어 #shorts'
+  - '그때 말할걸 #shorts'
+  - '떠난 건 너였지만 #shorts'
+  - '사랑해, 그 쉬운 걸 #shorts'
+  description: '웃으며 너를 보냈어
+
+    그게 어른인 줄 알고
+
+    가지 말라는 한마디
+
+    삼킨 만큼 밤은 길지
+
+
+    시간은 다 데려가면서
+
+    너만 두고 가는데
+
+
+    그때 말할걸
+
+    너를 보내 놓고 기다려
+
+    그때 말할걸
+
+    사랑해, 그 쉬운 걸
+
+
+    잘 지내라고 빌면서
+
+    돌아오는 너를 꿈꿔
+
+    늦은 줄 아는 사랑은
+
+    더 오래 손에 남아
+
+
+    시간은 다 데려가면서
+
+    너만 두고 가는데
+
+
+    그때 말할걸
+
+    너를 보내 놓고 기다려
+
+    그때 말할걸
+
+    사랑해, 그 쉬운 걸
+
+
+    떠난 건 너였지만
+
+    놓은 건 나였어
+
+
+    그때 말할걸
+
+    너를 보내 놓고 기다려
+
+    그때 말할걸
+
+    지금 말할게, 사랑해
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #발라드 #이별노래 #감성노래 #노래 #음악 #인공지능 #새벽감성 #드라마OST #위로노래 #감성플리 #후회 #짝사랑 #밤에듣는노래 #고백 #OST'
+  tags:
+  - 그때 말할걸
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 인공지능
+  - 감성
+  - 발라드
+  - 플레이리스트
+  - 노래 추천
+  - 이별 노래
+  - 드라마 OST
+  - OST 발라드
+  - 감성 발라드
+  - 새벽 감성
+  - 잠 안 오는 밤
+  - 후회하는 노래
+  - 고백 노래
+  - 보내고 후회
+  - 말 못한 사랑
+  - 이별 후
+  - 헤어진 연인
+  - 짝사랑 노래
+  - 혼자 듣는 노래
+  - 밤에 듣는 노래
+  - 여자 발라드
+  - 슬픈 노래
+  - 위로 노래
+  - 감성 플리
+  - 겨울 발라드
+  - 피아노 발라드
+  - 현악 발라드
+  - 눈물 나는 노래
+  - korean ballad
+  - korean ost
+  - kpop ballad
+  - sad korean song
+  - AI음악
+  - AI노래
+  - AI 작곡
+  - suno
+  - ai music
+  - 신곡
+  - 가사
+  - kpop
+  - korean music
+  - k-pop
+  - korean song
+  hashtags:
+  - 발라드
+  - 이별노래
+  - 감성노래
+  - 노래
+  - 음악
+  - 인공지능
+  - 새벽감성
+  - 드라마OST
+  - 위로노래
+  - 감성플리
+  - 후회
+  - 짝사랑
+  - 밤에듣는노래
+  - 고백
+  - OST
+  playlists:
+  - 연주왕김연주 노래
+  - 혼자 우는 밤에
+  privacy: private
