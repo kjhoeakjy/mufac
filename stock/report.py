@@ -70,7 +70,24 @@ LABELS = {
     "SHANGHAI_r1": ("상하이", _pct), "SHANGHAI_r5": ("상하이 5일", _pct), "SHANGHAI_r20": ("상하이 20일", _pct), "HANGSENG_r1": ("항셍", _pct),
     "HANGSENG_r5": ("항셍 5일", _pct), "HANGSENG_r20": ("항셍 20일", _pct), "EWY_r1": ("한국 ETF(EWY) 밤사이", _pct), "EWY_r5": ("EWY 5일", _pct),
     "EWY_r20": ("EWY 20일", _pct), "NVDA_r1": ("엔비디아 밤사이", _pct), "NVDA_r5": ("엔비디아 5일", _pct), "NVDA_r20": ("엔비디아 20일", _pct),
-    "is_pref": ("우선주", None), "dow": ("요일", lambda v: "월화수목금토일"[int(v)]), "month": ("월", _n), "short_ban": ("공매도 금지 기간", None), "market_kq": ("코스닥", None),
+    "is_pref": ("우선주", None), "age": ("상장 후 거래일", _n), "dte": ("옵션 만기까지", lambda v: f"{v:.0f}일"), "dom": ("일", _n),
+    "d_alert_notice": ("투자경고·단기과열 지정 예고 공시", _n), "d_alert_set": ("투자경고·위험·과열 지정 공시", _n), "d_alert_release": ("지정 해제 공시", _n),
+    "d_caution": ("투자주의 지정", _n), "d_manage": ("관리종목 지정 공시", _n), "d_delist": ("상장폐지·실질심사 관련 공시", _n), "d_spike": ("시황변동 조회공시", _n),
+    "d_supply": ("공급계약 공시", _n), "d_bonus": ("무상증자 공시", _n), "d_rights": ("유상증자 공시", _n), "d_cb": ("전환사채 관련 공시", _n),
+    "d_owner": ("최대주주 변경 공시", _n), "d_mna": ("합병·양수도 공시", _n), "d_buyback": ("자사주 취득 공시", _n), "d_dispose": ("자사주 처분 공시", _n),
+    "d_earn": ("실적 공시", _n), "d_capital_cut": ("감자 공시", _n), "d_halt": ("거래정지 공시", _n), "d_resume": ("거래재개 공시", _n), "d_warn": ("시장경보 관련 공시", _n),
+    "d_inquiry": ("조회공시", _n), "d_lawsuit": ("소송·횡령·회생 공시", _n), "d_pharma": ("임상·허가·특허 공시", _n), "d_contract_cancel": ("계약 해지 공시", _n),
+    "d_limit": ("주식선물 가격제한폭 확대 공시", _n), "d_shareholder": ("주주총회 공시", _n), "d_dividend": ("배당 공시", _n), "d_split": ("액면분할·병합 공시", _n),
+    "d_spac": ("스팩 공시", _n), "d_pledge": ("담보·대여 공시", _n), "d_lockup": ("보호예수 공시", _n), "d_fairdisc": ("공정공시", _n), "d_fundraise": ("자금조달 공시", _n),
+    "d_major": ("주요사항보고서", _n), "d_any": ("당일 공시 수", _n), "d_any5": ("5일 공시 수", _n), "d_any20": ("20일 공시 수", _n),
+    "d_supply20": ("20일 공급계약 공시", _n), "d_bonus20": ("20일 무상증자 공시", _n), "d_rights20": ("20일 유상증자 공시", _n), "d_cb20": ("20일 전환사채 공시", _n),
+    "d_owner20": ("20일 최대주주 변경 공시", _n), "d_warn20": ("20일 시장경보 공시", _n), "d_halt20": ("20일 거래정지 공시", _n), "d_resume20": ("20일 거래재개 공시", _n),
+    "n_feature": ("'특징주' 뉴스", _n), "n_limit_up": ("급등·상한가 뉴스", _n), "n_limit_dn": ("급락·하한가 뉴스", _n), "n_contract": ("계약·수주 뉴스", _n),
+    "n_mna": ("인수·합병·지분 뉴스", _n), "n_bio": ("임상·허가 뉴스", _n), "n_theme": ("테마·관련주 뉴스", _n), "n_politics": ("정치 테마 뉴스", _n),
+    "n_earn": ("실적 뉴스", _n), "n_bad": ("횡령·소송·조사 뉴스", _n), "n_rights": ("유상증자·CB 뉴스", _n), "n_bonus": ("무상증자 뉴스", _n),
+    "n_foreign": ("수급 뉴스", _n), "n_treasury": ("자사주·배당 뉴스", _n), "n_ipo": ("상장·공모 뉴스", _n), "n_ai": ("AI·반도체 등 테마 뉴스", _n),
+    "n_cnt": ("당일 뉴스 수", _n), "n_cnt3": ("3일 뉴스 수", _n), "n_cnt20": ("20일 평균 뉴스 수", lambda v: f"{v:.1f}"), "n_surge": ("뉴스 급증 배수", _x),
+    "n_share": ("시장 뉴스 점유율", lambda v: f"{v*100:.2f}%"), "n_share_rk": ("뉴스 수 순위", lambda v: f"상위 {(1-v)*100:.0f}%"), "dow": ("요일", lambda v: "월화수목금토일"[int(v)]), "month": ("월", _n), "short_ban": ("공매도 금지 기간", None), "market_kq": ("코스닥", None),
     "rk_ret1": ("전일 등락 순위", lambda v: f"상위 {(1-v)*100:.0f}%"), "rk_vr20": ("거래량 배수 순위", lambda v: f"상위 {(1-v)*100:.0f}%"),
     "rk_turn": ("회전율 순위", lambda v: f"상위 {(1-v)*100:.0f}%"), "rk_logmcap": ("시총 순위", lambda v: f"상위 {(1-v)*100:.0f}%"),
     "rk_logval": ("거래대금 순위", lambda v: f"상위 {(1-v)*100:.0f}%"), "rk_ret5": ("5일 등락 순위", lambda v: f"상위 {(1-v)*100:.0f}%"),
@@ -127,13 +144,23 @@ def _evidence(code: str, name: str, dart: list[dict]) -> dict:
     return ev
 
 
+def _load_json(name):
+    try:
+        return json.loads((DATA / name).read_text())
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def score_today(today: pd.DataFrame, res: dict, universe: list[dict]) -> dict:
     cols = res["features"]
     last_date = today["date"].max()
     today = today.copy()
     names = {u["code"]: u["name"] for u in universe}
     halted = {u["code"] for u in universe if (u.get("status") not in (None, "ok") and u.get("halt") == "HALTED")}
-    today = today[(today["volume"] > 0)]
+    status = _load_json("status_today.json") or {}
+    over = _load_json("overnight.json") or {}
+    halted |= {c for c, v in status.items() if v.get("halt")}
+    today = today[(today["volume"] > 0) & ~today["code"].isin(halted)]
     out = {"as_of": last_date, "up": [], "dn": [], "n_scored": int(len(today))}
     try:
         dart = json.loads((DATA / "dart_today.json").read_text())
@@ -157,6 +184,9 @@ def score_today(today: pd.DataFrame, res: dict, universe: list[dict]) -> dict:
                 "p": round(float(r[f"p_{key}"]), 4), "raw": round(float(r[f"raw_{key}"]), 4),
                 "hist_rate": b["rate"], "hist_n": b["n"],
                 "halted": r["code"] in halted, "pref": bool(r.get("is_pref", 0)),
+                "alert": (status.get(r["code"]) or {}).get("alert"), "managed": (status.get(r["code"]) or {}).get("managed"),
+                "over_ret": (over.get(r["code"]) or {}).get("over_ret"), "over_status": (over.get(r["code"]) or {}).get("over_status"),
+                "up_limit": (over.get(r["code"]) or {}).get("up_limit"), "dn_limit": (over.get(r["code"]) or {}).get("dn_limit"),
                 "reasons": reasons(t["model"], cols, r),
             })
         ev = pmap(lambda it: _evidence(it["code"], it["name"], dart), items, workers=8, label=f"evidence-{key}")

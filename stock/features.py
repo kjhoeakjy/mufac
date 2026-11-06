@@ -206,6 +206,19 @@ def build(prices: pd.DataFrame, flows: pd.DataFrame | None, universe: list[dict]
     d = pd.to_datetime(df["date"], format="%Y%m%d")
     df["dow"] = d.dt.dayofweek.astype("int8")
     df["month"] = d.dt.month.astype("int8")
+    df["dom"] = d.dt.day.astype("int8")
+    # 상장(데이터 시작) 후 경과 거래일: 신규상장 직후 변동성
+    df["age"] = df.groupby("code", sort=False).cumcount().clip(upper=2000).astype("int16")
+    # 옵션 만기(둘째 목요일)까지 남은 일수
+    first = d.values.astype("datetime64[M]").astype("datetime64[D]")
+    first_dow = (pd.DatetimeIndex(first).dayofweek).to_numpy()
+    second_thu = first + np.timedelta64(1, "D") * (((3 - first_dow) % 7) + 7)
+    dte = (second_thu - d.values.astype("datetime64[D]")).astype("timedelta64[D]").astype(int)
+    nxt_first = (d.values.astype("datetime64[M]") + np.timedelta64(1, "M")).astype("datetime64[D]")
+    nf_dow = pd.DatetimeIndex(nxt_first).dayofweek.to_numpy()
+    nxt_thu = nxt_first + np.timedelta64(1, "D") * (((3 - nf_dow) % 7) + 7)
+    dte2 = (nxt_thu - d.values.astype("datetime64[D]")).astype("timedelta64[D]").astype(int)
+    df["dte"] = np.where(dte >= 0, dte, dte2).astype("int8")
     df["short_ban"] = (((df["date"] >= "20200316") & (df["date"] <= "20210502")) |
                        ((df["date"] >= "20231106") & (df["date"] <= "20250330"))).astype("int8")
 
