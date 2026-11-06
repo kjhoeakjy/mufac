@@ -4,3 +4,5 @@ songs/*/out/
 .venv/
 .env
 .mufac-work/
+stock/data/
+stock/cache/

@@ -8,6 +8,8 @@ on:
   push:
     branches: [claude/project-thread-4ct9w2]
     paths: [stock/collect.py, stock/common.py, .github/workflows/stock-collect-test.yml]
+permissions:
+  contents: write
 jobs:
   collect:
     runs-on: ubuntu-latest
@@ -24,8 +26,12 @@ jobs:
           key: stock-cache-${{ github.run_id }}
           restore-keys: stock-cache-
       - run: python -m stock.collect ${{ inputs.args }}
-      - uses: actions/upload-artifact@v4
-        with:
-          name: stock-data
-          path: stock/data
-          retention-days: 3
+      - name: push data branch
+        run: |
+          cd stock/data
+          git init -q -b stock-data
+          git config user.name github-actions
+          git config user.email actions@github.com
+          git add -A
+          git commit -qm "data $(date -u +%Y%m%dT%H%M)"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" stock-data
