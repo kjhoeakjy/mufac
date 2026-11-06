@@ -10,7 +10,7 @@ import pandas as pd
 
 from stock.common import DATA, OUT, http_json, pmap
 
-TOP = 15
+TOP = 25
 
 # 특징 → 한국어 근거 문구 (값 포맷 함수)
 def _pct(v): return f"{v*100:+.1f}%"

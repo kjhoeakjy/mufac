@@ -116,7 +116,8 @@ def summarize(oos: pd.DataFrame, target: str) -> dict:
         pr, cnt = precision_at_k(oos, "p", target, k)
         res[f"p@{k}"] = pr
         res[f"hits@{k}"] = cnt
-    bins = [0, 0.02, 0.05, 0.1, 0.2, 0.3, 0.5, 1.01]
+    bins = ([0, 0.02, 0.05, 0.1, 0.2, 0.3, 0.5, 1.01] if target == "y_up"
+            else [0, 0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1.01])
     cut = pd.cut(p, bins, right=False)
     tab = pd.DataFrame({"y": y, "b": cut}).groupby("b", observed=True)["y"].agg(["mean", "size"])
     res["buckets"] = [{"lo": float(i.left), "hi": float(i.right), "rate": float(r["mean"]), "n": int(r["size"])}
