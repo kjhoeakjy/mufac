@@ -78,7 +78,8 @@ def market_features(mk: pd.DataFrame) -> pd.DataFrame:
 
 # ---------------------------------------------------------------- build
 def build(prices: pd.DataFrame, flows: pd.DataFrame | None, universe: list[dict],
-          groups: dict, market: pd.DataFrame, start: str = "20190101") -> pd.DataFrame:
+          groups: dict, market: pd.DataFrame, start: str = "20190101",
+          disclosures: pd.DataFrame | None = None, news: pd.DataFrame | None = None) -> pd.DataFrame:
     df = prices[prices["date"] >= start].sort_values(["code", "date"]).reset_index(drop=True).copy()
     uni = pd.DataFrame(universe).drop_duplicates("code").set_index("code")
     df["market_kq"] = df["code"].map(uni["market"]).eq("KOSDAQ").astype("int8")
@@ -200,6 +201,12 @@ def build(prices: pd.DataFrame, flows: pd.DataFrame | None, universe: list[dict]
     df["short_ban"] = (((df["date"] >= "20200316") & (df["date"] <= "20210502")) |
                        ((df["date"] >= "20231106") & (df["date"] <= "20250330"))).astype("int8")
 
+    # 공시·뉴스 제목 특징
+    if (disclosures is not None and len(disclosures)) or (news is not None and len(news)):
+        from stock.text_features import build_text_features
+        tf = build_text_features(df[["code", "date"]], disclosures, news)
+        df = df.merge(tf, on=["code", "date"], how="left")
+
     # 횡단면 순위(날짜별)
     for k in ("ret1", "vr20", "turn", "logmcap", "logval", "ret5"):
         df[f"rk_{k}"] = df.groupby("date")[k].rank(pct=True).astype("float32")
@@ -259,13 +266,16 @@ def load_all():
     universe = json.loads((DATA / "universe.json").read_text())
     groups = json.loads((DATA / "groups.json").read_text()) if (DATA / "groups.json").exists() else {}
     market = pd.read_parquet(DATA / "market.parquet")
-    return prices, flows, universe, groups, market
+    disc = pd.read_parquet(DATA / "disclosures.parquet") if (DATA / "disclosures.parquet").exists() else None
+    news = pd.read_parquet(DATA / "news.parquet") if (DATA / "news.parquet").exists() else None
+    return prices, flows, universe, groups, market, disc, news
 
 
 if __name__ == "__main__":
     import time
     t0 = time.time()
-    df = build(*load_all())
+    prices, flows, universe, groups, market, disc, news = load_all()
+    df = build(prices, flows, universe, groups, market, disclosures=disc, news=news)
     print(df.shape, f"{time.time()-t0:.0f}s")
     print("positives up/dn:", (df.y_up == 1).sum(), (df.y_dn == 1).sum(), "valid", (df.y_up >= 0).sum())
     df.to_parquet(DATA / "panel.parquet", index=False)

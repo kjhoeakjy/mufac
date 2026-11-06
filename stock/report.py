@@ -162,6 +162,11 @@ def score_today(panel: pd.DataFrame, res: dict, universe: list[dict]) -> dict:
         ev = pmap(lambda it: _evidence(it["code"], it["name"], dart), items, workers=8, label=f"evidence-{key}")
         for it, e in zip(items, ev):
             it["evidence"] = e or {"news": [], "disclosures": []}
+        try:
+            from stock.llm import annotate
+            annotate(items, key)
+        except Exception as e:  # noqa: BLE001
+            print(f"[report] llm skipped: {e}")
         out[key] = items
         out[f"expected_{key}"] = float(np.sum(cal))
     return out, today

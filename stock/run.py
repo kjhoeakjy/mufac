@@ -14,8 +14,9 @@ def main(argv):
     rounds = model.ROUNDS
     if "--fast" in argv:
         months, rounds = 3, 200
-    prices, flows, universe, groups, market = features.load_all()
-    panel = features.build(prices, flows, universe, groups, market)
+    prices, flows, universe, groups, market, disc, news = features.load_all()
+    panel = features.build(prices, flows, universe, groups, market, disclosures=disc, news=news)
+    del prices, flows
     print(f"[run] panel {panel.shape} in {time.time()-t0:.0f}s; up={int((panel.y_up==1).sum())} dn={int((panel.y_dn==1).sum())}")
     if "--save-panel" in argv:
         panel.to_parquet(DATA / "panel.parquet", index=False)
