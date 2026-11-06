@@ -1,0 +1,13 @@
+name: stock-probe
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: "script path"
+        default: "stock/tools/probe_news.py"
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python ${{ inputs.script }}
