@@ -8,6 +8,9 @@ on:
         description: "빠른 시험(3개월 검증)"
         type: boolean
         default: false
+  push:
+    branches: [claude/project-thread-4ct9w2]
+    paths: [.github/workflows/stock-daily.yml]
   schedule:
     # 평일 아침 07:20 KST (22:20 UTC 전날). 수집·학습 후 08:30 전에 페이지 갱신.
     - cron: "20 22 * * 0-4"
