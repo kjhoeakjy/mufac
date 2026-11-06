@@ -50,6 +50,7 @@ def fetch_universe() -> list[dict]:
             if page * 100 >= int(j.get("totalCount", 0)):
                 break
             page += 1
+    seen=set(); rows=[r for r in rows if not (r["code"] in seen or seen.add(r["code"]))]
     print(f"[universe] {len(rows)} stocks")
     return rows
 

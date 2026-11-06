@@ -7,7 +7,7 @@ on:
         default: ""
   push:
     branches: [claude/project-thread-4ct9w2]
-    paths: [stock/collect.py, stock/common.py, .github/workflows/stock-collect-test.yml]
+    paths: [stock/collect.py, stock/collect_text.py, stock/common.py, .github/workflows/stock-collect-test.yml]
 permissions:
   contents: write
 jobs:
@@ -26,6 +26,7 @@ jobs:
           key: stock-cache-${{ github.run_id }}
           restore-keys: stock-cache-
       - run: python -m stock.collect ${{ inputs.args }}
+      - run: python -m stock.collect_text ${{ inputs.args }}
       - name: push data branch
         run: |
           cd stock/data

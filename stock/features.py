@@ -59,7 +59,7 @@ def market_features(mk: pd.DataFrame) -> pd.DataFrame:
     """symbol별 수익률 -> date 인덱스 wide 프레임(미국 지수는 해당 미국 날짜 = 한국 다음날 아침 정보)."""
     out = {}
     for sym, g in mk.groupby("symbol"):
-        g = g.sort_values("date").set_index("date")
+        g = g.sort_values("date").drop_duplicates("date", keep="last").set_index("date")
         c = g["close"].astype(float)
         r1 = c.pct_change()
         d = pd.DataFrame({f"{sym}_r1": r1, f"{sym}_r5": c.pct_change(5), f"{sym}_r20": c.pct_change(20)})
@@ -80,7 +80,7 @@ def market_features(mk: pd.DataFrame) -> pd.DataFrame:
 def build(prices: pd.DataFrame, flows: pd.DataFrame | None, universe: list[dict],
           groups: dict, market: pd.DataFrame, start: str = "20190101") -> pd.DataFrame:
     df = prices[prices["date"] >= start].sort_values(["code", "date"]).reset_index(drop=True).copy()
-    uni = pd.DataFrame(universe).set_index("code")
+    uni = pd.DataFrame(universe).drop_duplicates("code").set_index("code")
     df["market_kq"] = df["code"].map(uni["market"]).eq("KOSDAQ").astype("int8")
     shares = df["code"].map(uni["shares"]).astype("float64")
 
