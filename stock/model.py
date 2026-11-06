@@ -149,7 +149,7 @@ class Ensemble:
 def run(df: pd.DataFrame, months: int = 12, rounds: int = ROUNDS, n_seeds: int = 3) -> dict:
     p = Panel(df)
     print(f"[model] {len(p.cols)} features, X {p.X.shape} ({p.X.nbytes/1e9:.1f}GB)")
-    result = {"features": p.cols, "targets": {}, "panel": p}
+    result = {"features": p.cols, "targets": {}}
     for target in ("y_up", "y_dn"):
         oos = walk_forward(p, target, months, rounds)
         stats = summarize(oos, target)

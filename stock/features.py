@@ -81,7 +81,15 @@ def build(prices: pd.DataFrame, flows: pd.DataFrame | None, universe: list[dict]
           groups: dict, market: pd.DataFrame, start: str = "20190101",
           disclosures: pd.DataFrame | None = None, news: pd.DataFrame | None = None) -> pd.DataFrame:
     df = prices[prices["date"] >= start].sort_values(["code", "date"]).reset_index(drop=True).copy()
+    # 장중·장 마감 직후 실행이면 당일 행은 미완성이므로 제외(16:00 KST 이전)
+    import datetime as _dt
+    now = _dt.datetime.now(_dt.timezone.utc) + _dt.timedelta(hours=9)
+    if df["date"].max() == now.strftime("%Y%m%d") and now.hour < 16:
+        df = df[df["date"] < now.strftime("%Y%m%d")].reset_index(drop=True)
+        print(f"[features] dropped partial day {now:%Y%m%d}")
     uni = pd.DataFrame(universe).drop_duplicates("code").set_index("code")
+    names = df["code"].map(uni["name"]).fillna("")
+    df["is_pref"] = (names.str.endswith("우") | names.str.contains(r"우B$|우C$|\(전환\)") | df["code"].str[-1].isin(list("579K"))).astype("int8")
     df["market_kq"] = df["code"].map(uni["market"]).eq("KOSDAQ").astype("int8")
     shares = df["code"].map(uni["shares"]).astype("float64")
 

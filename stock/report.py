@@ -70,7 +70,7 @@ LABELS = {
     "SHANGHAI_r1": ("상하이", _pct), "SHANGHAI_r5": ("상하이 5일", _pct), "SHANGHAI_r20": ("상하이 20일", _pct), "HANGSENG_r1": ("항셍", _pct),
     "HANGSENG_r5": ("항셍 5일", _pct), "HANGSENG_r20": ("항셍 20일", _pct), "EWY_r1": ("한국 ETF(EWY) 밤사이", _pct), "EWY_r5": ("EWY 5일", _pct),
     "EWY_r20": ("EWY 20일", _pct), "NVDA_r1": ("엔비디아 밤사이", _pct), "NVDA_r5": ("엔비디아 5일", _pct), "NVDA_r20": ("엔비디아 20일", _pct),
-    "dow": ("요일", lambda v: "월화수목금토일"[int(v)]), "month": ("월", _n), "short_ban": ("공매도 금지 기간", None), "market_kq": ("코스닥", None),
+    "is_pref": ("우선주", None), "dow": ("요일", lambda v: "월화수목금토일"[int(v)]), "month": ("월", _n), "short_ban": ("공매도 금지 기간", None), "market_kq": ("코스닥", None),
     "rk_ret1": ("전일 등락 순위", lambda v: f"상위 {(1-v)*100:.0f}%"), "rk_vr20": ("거래량 배수 순위", lambda v: f"상위 {(1-v)*100:.0f}%"),
     "rk_turn": ("회전율 순위", lambda v: f"상위 {(1-v)*100:.0f}%"), "rk_logmcap": ("시총 순위", lambda v: f"상위 {(1-v)*100:.0f}%"),
     "rk_logval": ("거래대금 순위", lambda v: f"상위 {(1-v)*100:.0f}%"), "rk_ret5": ("5일 등락 순위", lambda v: f"상위 {(1-v)*100:.0f}%"),
@@ -127,10 +127,10 @@ def _evidence(code: str, name: str, dart: list[dict]) -> dict:
     return ev
 
 
-def score_today(panel: pd.DataFrame, res: dict, universe: list[dict]) -> dict:
+def score_today(today: pd.DataFrame, res: dict, universe: list[dict]) -> dict:
     cols = res["features"]
-    last_date = panel["date"].max()
-    today = panel[panel["date"] == last_date].copy()
+    last_date = today["date"].max()
+    today = today.copy()
     names = {u["code"]: u["name"] for u in universe}
     halted = {u["code"] for u in universe if (u.get("status") not in (None, "ok") and u.get("halt") == "HALTED")}
     today = today[(today["volume"] > 0)]
@@ -156,7 +156,7 @@ def score_today(panel: pd.DataFrame, res: dict, universe: list[dict]) -> dict:
                 "mcap": float(r["mcap"]) if pd.notna(r["mcap"]) else None,
                 "p": round(float(r[f"p_{key}"]), 4), "raw": round(float(r[f"raw_{key}"]), 4),
                 "hist_rate": b["rate"], "hist_n": b["n"],
-                "halted": r["code"] in halted,
+                "halted": r["code"] in halted, "pref": bool(r.get("is_pref", 0)),
                 "reasons": reasons(t["model"], cols, r),
             })
         ev = pmap(lambda it: _evidence(it["code"], it["name"], dart), items, workers=8, label=f"evidence-{key}")
@@ -172,11 +172,10 @@ def score_today(panel: pd.DataFrame, res: dict, universe: list[dict]) -> dict:
     return out, today
 
 
-def grade_history(panel: pd.DataFrame) -> list[dict]:
-    """history/에 저장된 과거 예측을 실제 결과로 채점."""
+def grade_history(actual: pd.DataFrame) -> list[dict]:
+    """history/에 저장된 과거 예측을 실제 결과로 채점. actual: code,date,ret1,hi_ret,lo_ret"""
     hist_dir = OUT / "history"
     hist_dir.mkdir(exist_ok=True)
-    actual = panel[["code", "date", "ret1", "hi_ret", "lo_ret"]]
     graded = []
     for f in sorted(hist_dir.glob("*.json"))[-60:]:
         try:
@@ -215,8 +214,10 @@ def next_trading_day(as_of: str) -> str:
     return d.strftime("%Y%m%d")
 
 
-def write(panel: pd.DataFrame, res: dict, universe: list[dict], market: pd.DataFrame):
-    today, scored = score_today(panel, res, universe)
+def write(last: pd.DataFrame, actual: pd.DataFrame, res: dict, universe: list[dict], market: pd.DataFrame,
+          n_train: int = 0, train_from: str = ""):
+    """last: 마지막 거래일 행(특징 포함). actual: 전 기간 code,date,ret1,hi_ret,lo_ret."""
+    today, scored = score_today(last, res, universe)
     target_date = next_trading_day(today["as_of"])
     stats = {k: {kk: vv for kk, vv in v["stats"].items()} for k, v in res["targets"].items()}
     imp = {k: v["importance"] for k, v in res["targets"].items()}
@@ -227,7 +228,6 @@ def write(panel: pd.DataFrame, res: dict, universe: list[dict], market: pd.DataF
         if len(g) >= 2:
             mk[sym] = {"date": g["date"].iloc[-1], "close": float(g["close"].iloc[-1]),
                        "r1": float(g["close"].iloc[-1] / g["close"].iloc[-2] - 1)}
-    last = panel[panel["date"] == today["as_of"]]
     mk["n_up_yesterday"] = int((last["ret1"] >= 0.295).sum())
     mk["n_dn_yesterday"] = int((last["ret1"] <= -0.295).sum())
 
@@ -237,11 +237,11 @@ def write(panel: pd.DataFrame, res: dict, universe: list[dict], market: pd.DataF
         "expected_up": round(today["expected_up"], 2), "expected_dn": round(today["expected_dn"], 2),
         "up": today["up"], "dn": today["dn"], "market": mk,
         "stats": stats, "importance": imp, "n_features": len(res["features"]),
-        "train_rows": int((panel["y_up"] >= 0).sum()), "train_from": str(panel["date"].min()),
+        "train_rows": n_train, "train_from": train_from,
     }
     (OUT / "history").mkdir(exist_ok=True)
     (OUT / "history" / f"{target_date}.json").write_text(json.dumps(doc, ensure_ascii=False))
-    doc["history"] = grade_history(panel)
+    doc["history"] = grade_history(actual)
     (OUT / "latest.json").write_text(json.dumps(doc, ensure_ascii=False))
     # 전 종목 점수(검색용, 가벼운 버전)
     slim = scored[["code", "close", "ret1", "p_up", "p_dn"]].copy()
