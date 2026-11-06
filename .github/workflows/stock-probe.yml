@@ -1,0 +1,11 @@
+name: stock-probe
+on:
+  push:
+    branches: [claude/project-thread-4ct9w2]
+    paths: [stock/tools/probe.py, .github/workflows/stock-probe.yml]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python stock/tools/probe.py
