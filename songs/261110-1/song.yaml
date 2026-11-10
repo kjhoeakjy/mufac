@@ -1,0 +1,390 @@
+title: 아직도 너야
+hook: 아직도 너야
+theme: 사랑
+story: 헤어지고 다 괜찮아졌다고 말하는 사람이 결국 마음이 돌아가는 곳은 여전히 그 사람이라고 너에게 털어놓는 느린 고백
+created: 2026-11-10 13:33
+request: {}
+lang: ko
+instrumental: false
+sound_plan: 장조 안에 단조 코드를 섞어 씁쓸한 밝음을 내고, 프리코러스에서 단조로 한 번 꺾이는 66bpm 4/4 한국 발라드다. 1절에는 드럼이 없다. 2절부터 사이드스틱과 부드러운 킥이 들어오고, 마지막 후렴에서야 가장 차오른다. 베이스는 2절부터 둥근 핑거 베이스가 뿌리음만 지키다가 마지막 후렴에서 조금 움직인다. 화성은 그랜드 피아노 분산화음이 끌고 간다. 프리코러스에서 낮은 첼로가 들어오고, 첫 후렴은 현 패드만 깔고, 2절 후렴은 현이 꽉 찬다. 멜로디는 절에서 좁은 음역으로 말하듯 가다가, 프리코러스에서 같은 음을 반복하며 밀어 올린다. 후렴 첫 음 '아'에서 위로 도약하고, '너야'의 마지막 음을 길게 끈다. 마지막 후렴은 옥타브 위로 올라간다. 보컬은 성숙한 남성 바리톤이다. 절은 숨이 섞인 가깝고 건조한 소리로 박자 뒤에 앉고, 후렴은 더블링하되 벨팅 직전에서 멈춘다. 마지막 후렴에서만 목을 다 연다. 피아노에는 큰 홀 잔향을 주고 목소리는 가깝게 둔다. 2절 후렴 뒤에는 피아노 솔로 간주를 둔다. 브릿지는 피아노와 거의 말하는 목소리만 남기고 낯선 코드를 한 번 지난다. 마지막 후렴은 현 선율과 스택 하모니로 가장 넓게 연다. 아웃트로는 피아노 두 마디로 마지막 음을 길게 남기고 끝낸다.
+style: 'Korean ballad, 2010s, slow 66 bpm, bittersweet major with a minor turn in the pre-chorus. Warm mature male baritone, breathy close vocal behind the beat, opens up only at the final chorus, sung in Korean, korean lyrics. Intro: grand piano arpeggios. Verse 1: piano and voice, narrow conversational melody. Pre-chorus: cello enters, rising repeated note. Chorus: string pad only, upward leap on the hook, long held last note. Verse 2 adds side-stick, soft kick and round fingered bass on roots. Chorus two full, doubled vocal. Piano solo interlude. Bridge: piano and near-spoken voice, one borrowed chord. Final chorus octave up, string melody, stacked harmonies. Outro: piano alone, last note held. Hall reverb on piano, intimate dry vocal. Aching, honest, unhurried.'
+exclude: trap hi-hats, autotune, electric guitar
+photo_query: man window night city
+image_prompt: A man in a dark wool coat seen from behind, standing at a tall window at night, blurred city lights beyond the glass. A single warm lamp glows beside him on a small table. Muted blue and amber tones, quiet longing.
+short_scenes:
+- The same man opens the tall window wide at night, wind lifting the curtain, city lights flooding in blue and amber, his head slightly raised, the warm lamp glowing behind him.
+- Close-up of his hand resting flat against the cold window glass at night, faint city lights blurred beyond, warm amber lamp light on his fingers.
+- Early dawn, the same window half open, curtain still, the lamp still on beside an empty chair with the dark coat draped over it, soft pale blue light.
+title_kind: 후렴 문장
+tempo: 느림
+arc: '화법: 너에게. 기(1절): 이제는 잘 지낸다는 말이 쉽게 나오고 네 이야기에도 웃으며 넘기는 겉모습만 보여 주고, 감정은 아직 말하지 않는다. 승(프리코러스→후렴): 다 놓은 줄 알았지만 세상이 조용해지면 결국 ''아직도 너야''라는 한 문장이 터진다. 전(2절→브릿지): 2절은 시점을 너에게로 옮긴다. 네가 잘 지내길 빌면서도 나처럼 흔들리길 바라는 모순이다. 브릿지에서 처음으로 ''잊지 못한 게 아니라 놓기 싫었던 건 나''라고 인정한다. 결(마지막 후렴→아웃트로): 후렴 셋째 줄 ''보고 싶은 건''이 ''숨기지 않을게''로 바뀐다. 같은 ''아직도 너야''가 숨겨 온 미련에서 스스로 하는 고백으로 들린다. 아웃트로는 피아노만 남는다.'
+line_plan: '[Verse 1] 1행: 선언(정확한 말). 안부 인사가 습관처럼 된 상태. 2행: 모순(정확한 말). 거짓 안부가 이제 쉽게 나온다. 3행: 새 뜻. 누가 너를 꺼내는 순간을 열어 둔다(양보형 1회). 4행: 전환. 웃으며 넘기는 겉모습으로 닫는다. [Pre-Chorus] 1행: 뒤집기의 준비. 다 놓은 줄 알았는데. 2행: 전환. 고요해지는 때를 열어 두고 -면으로 후렴 첫 음절에 떨어뜨린다. [Chorus] 1행: 고백(훅 1). 2행: 모순. 다 잊은 날에도 너다. 3행: 고백. 보고 싶은 건(감정어, 명사로 끊고 다음 줄이 받음). 4행: 고백(훅 2). [Verse 2] 1행: 새 뜻. 시점이 너에게 넘어가 너의 안부를 추측한다. 2행: 전환. 그러길 빈다. 3행: 정확한 말의 앞부분. 나처럼. 4행: 모순(정확한 말). 흔들리길 바란다. [Pre-Chorus] 1절과 같음. [Chorus] 1절 후렴과 같음(훅 3·4). [Bridge] 1행: 고백. 잊지 못한 게 아니라. 2행: 뒤집기. 놓기 싫었던 건 나다(곡에서 처음 하는 인정이며 훅은 쓰지 않음). [Final Chorus] 1행: 훅 5. 2행: 모순(유지). 3행: 바뀐 줄. 숨기지 않겠다는 의지의 고백. 4행: 훅 6. [Outro] 가사 없이 피아노만. 훅이 들어가는 줄: 후렴 1·4행, 2절 후렴 1·4행, 마지막 후렴 1·4행. 총 6회이며, ''너야''로 끝나는 줄까지 치면 9회.'
+why: 다섯 후보 가운데 '아직도 너야'가 사건 없이 마음 하나만으로 가장 많은 사람이 자기 사람을 꽂아 넣을 수 있는 말이라 골랐습니다. 직전 두 곡이 혼잣말과 우리 화법이었으므로 너에게 말하는 화법으로 썼고, 바로 앞 곡이 132bpm 록이었기 때문에 이번에는 느린 피아노 발라드로 갔습니다. 한로로처럼 후렴의 마지막 줄을 제목으로 삼았습니다. 극동아시아타이거즈처럼 마지막 후렴에서는 한 줄만 바꿔 결론을 냅니다. '보고 싶은 건'이 '숨기지 않을게'로 바뀌어, 감추던 마음이 고백으로 넘어갑니다. 자우림처럼 모순을 한 줄에 붙이고 설명하지 않는 방식('다 잊은 날에도 너야', '잘 빌면서 흔들리길 바라')으로 정확한 말을 세웠습니다. 제목은 그대로 외칠 수 있는 후렴 문장으로 정했습니다.
+share_line: 놓기 싫었던 건 나야
+youtube_meta:
+  situation: 헤어진 사람 생각나는 밤 노래
+  shorts_title: 아직도 너야
+  hashtags:
+  - 발라드
+  - 이별노래
+  - 감성노래
+  - 새벽감성
+  - 감성플리
+  - 잠안오는밤
+  - 피아노발라드
+  - 미련노래
+  - 퇴근길노래
+  - 위로노래
+  - 한국발라드
+  - 밤에듣는노래
+tags:
+- 음악
+- 노래
+- 감성
+- 발라드
+- 플레이리스트
+- 노래 추천
+- 이별 노래
+- 이별 발라드
+- 피아노 발라드
+- 한국 발라드
+- 감성 발라드
+- 새벽 감성
+- 잠 안 오는 밤
+- 밤에 듣는 노래
+- 헤어진 사람
+- 전 연인 생각
+- 미련
+- 보고 싶은 사람
+- 아직도 너야
+- 잊지 못한 사람
+- 고백 노래
+- 남자 발라드
+- 감성 플리
+- 퇴근길 노래
+- 혼자 듣는 노래
+- 슬픈 노래
+- 위로 노래
+- 잔잔한 노래
+- 새벽에 듣는 노래
+- 사랑 노래
+- korean ballad
+- korean piano ballad
+- kpop ballad
+- sad korean song
+- breakup song
+references:
+- title: 사랑하게 될 거야
+  artist: 한로로
+  takeaway: 후렴의 마지막 줄을 제목으로 삼고, 마지막 후렴은 살짝만 바꿔 결론을 낸다.
+- title: 다시, 다시 만나
+  artist: 극동아시아타이거즈
+  takeaway: 마지막 후렴에서 핵심 한 줄만 뒤집어, 되풀이되던 말이 다른 뜻으로 들리게 한다.
+- title: 미안해 널 미워해
+  artist: 자우림
+  takeaway: 반대되는 마음을 한 줄에 붙여 두고 설명하지 않아야 모순이 박힌다.
+candidates:
+- hook: 아직도 너야
+  theme: 사랑
+  story: 헤어지고 다 괜찮아졌다고 말하는 사람이 결국 마음이 돌아가는 곳은 여전히 그 사람이라고 너에게 털어놓는 느린 고백
+- hook: 가까워서 멀어
+  theme: 사랑
+  story: 오래 만난 연인이 가장 가까운 사이라서 오히려 꺼내지 못하는 말을 중간 템포로 짚는 노래
+- hook: 잘 가라는 말
+  theme: 아픔
+  story: 끝내 하지 못하고 보낸 인사를 지나고 나서야 담담하게 건네는 위로의 노래
+- hook: 오늘은 웃자
+  theme: 어른
+  story: 버거운 하루들 사이에서 친구들과 오늘 하루만큼은 가볍게 넘기자고 말하는 밝은 노래
+- hook: 다시 아침
+  theme: 아픔
+  story: 무너진 밤을 지나 아무 일 없던 얼굴로 또 하루를 여는 사람의 미디엄 템포 노래
+chosen: 0
+lyrics: |
+  [Intro: grand piano arpeggios]
+
+  [Verse 1: piano and voice only]
+  잘 지낸다는 말
+  이제는 쉽게 나와
+  네 이름 앞에서도
+  웃으면서 넘겨
+
+  [Pre-Chorus: cello enters, building]
+  다 놓은 줄 알았는데
+  세상이 조용해지면
+
+  [Chorus: strings only, doubled vocal]
+  아직도 너야
+  다 잊은 날에도 너야
+  보고 싶은 건
+  아직도 너야
+
+  [Verse 2: side-stick, soft kick and bass added]
+  너도 잘 지내겠지
+  진심인 척 빌면서
+  어느 밤엔 나처럼
+  흔들리길 바라
+
+  [Pre-Chorus: cello, building]
+  다 놓은 줄 알았는데
+  세상이 조용해지면
+
+  [Chorus: full, doubled vocals]
+  아직도 너야
+  다 잊은 날에도 너야
+  보고 싶은 건
+  아직도 너야
+
+  [Piano Solo]
+
+  [Bridge: piano and near-spoken voice]
+  잊지 못한 게 아니라
+  놓기 싫었던 건 나야
+
+  [Final Chorus: octave up, string melody, stacked harmonies]
+  아직도 너야
+  다 잊은 날에도 너야
+  숨기지 않을게
+  아직도 너야
+
+  [Outro: piano alone, last note held]
+
+  [End]
+lyrics_draft: '[Intro: grand piano arpeggios]
+
+
+  [Verse 1: piano and voice only]
+
+  잘 지낸다는 말
+
+  이제는 쉽게 나와
+
+  누가 네 이야기를 꺼내도
+
+  웃으면서 넘겨
+
+
+  [Pre-Chorus: cello enters, building]
+
+  다 놓은 줄 알았는데
+
+  세상이 조용해지면
+
+
+  [Chorus: strings only, doubled vocal]
+
+  아직도 너야
+
+  다 잊은 날에도 너야
+
+  보고 싶은 건
+
+  아직도 너야
+
+
+  [Verse 2: side-stick, soft kick and bass added]
+
+  너도 잘 지내겠지
+
+  그러길 빌면서
+
+  어느 밤엔 나처럼
+
+  흔들리길 바라
+
+
+  [Pre-Chorus: cello, building]
+
+  다 놓은 줄 알았는데
+
+  세상이 조용해지면
+
+
+  [Chorus: full, doubled vocals]
+
+  아직도 너야
+
+  다 잊은 날에도 너야
+
+  보고 싶은 건
+
+  아직도 너야
+
+
+  [Piano Solo]
+
+
+  [Bridge: piano and near-spoken voice]
+
+  잊지 못한 게 아니라
+
+  놓기 싫었던 건 나야
+
+
+  [Final Chorus: octave up, string melody, stacked harmonies]
+
+  아직도 너야
+
+  다 잊은 날에도 너야
+
+  숨기지 않을게
+
+  아직도 너야
+
+
+  [Outro: piano alone, last note held]
+
+
+  [End]'
+polish:
+- '누가 네 이야기를 꺼내도 → 네 이름 앞에서도: 11음절에 양보형과 ''누가 꺼내는'' 상황 서술이 섞여 있어, 상황을 지우고 뜻만 남겨 7음절로 줄임'
+- '그러길 빌면서 → 진심인 척 빌면서: 앞 줄 ''잘 지내겠지''를 되풀이하는 빈 줄이라, 다음 줄 ''흔들리길 바라''와 부딪히는 속마음을 드러내 모순을 세움'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A man in a dark wool coat seen from behind, standing at a tall window at night, blurred city lights beyond the glass. A single warm lamp glows beside him on a small table. Muted blue and amber tones, quiet longing.
+youtube_preview:
+  title: 아직도 너야 - 연주왕김연주 | 헤어진 사람 생각나는 밤 노래
+  shorts_title: '아직도 너야 #shorts'
+  shorts_titles:
+  - '잘 지낸다는 말 #shorts'
+  - '아직도 너야 #shorts'
+  - '잊지 못한 게 아니라 #shorts'
+  - '놓기 싫었던 건 나야 #shorts'
+  description: '잘 지낸다는 말
+
+    이제는 쉽게 나와
+
+    네 이름 앞에서도
+
+    웃으면서 넘겨
+
+
+    다 놓은 줄 알았는데
+
+    세상이 조용해지면
+
+
+    아직도 너야
+
+    다 잊은 날에도 너야
+
+    보고 싶은 건
+
+    아직도 너야
+
+
+    너도 잘 지내겠지
+
+    진심인 척 빌면서
+
+    어느 밤엔 나처럼
+
+    흔들리길 바라
+
+
+    다 놓은 줄 알았는데
+
+    세상이 조용해지면
+
+
+    아직도 너야
+
+    다 잊은 날에도 너야
+
+    보고 싶은 건
+
+    아직도 너야
+
+
+    잊지 못한 게 아니라
+
+    놓기 싫었던 건 나야
+
+
+    아직도 너야
+
+    다 잊은 날에도 너야
+
+    숨기지 않을게
+
+    아직도 너야
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #발라드 #이별노래 #감성노래 #노래 #음악 #인공지능 #새벽감성 #감성플리 #잠안오는밤 #피아노발라드 #미련노래 #퇴근길노래 #위로노래 #한국발라드 #밤에듣는노래'
+  tags:
+  - 아직도 너야
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 인공지능
+  - 감성
+  - 발라드
+  - 플레이리스트
+  - 노래 추천
+  - 이별 노래
+  - 이별 발라드
+  - 피아노 발라드
+  - 한국 발라드
+  - 감성 발라드
+  - 새벽 감성
+  - 잠 안 오는 밤
+  - 밤에 듣는 노래
+  - 헤어진 사람
+  - 전 연인 생각
+  - 미련
+  - 보고 싶은 사람
+  - 잊지 못한 사람
+  - 고백 노래
+  - 남자 발라드
+  - 감성 플리
+  - 퇴근길 노래
+  - 혼자 듣는 노래
+  - 슬픈 노래
+  - 위로 노래
+  - 잔잔한 노래
+  - 새벽에 듣는 노래
+  - 사랑 노래
+  - korean ballad
+  - korean piano ballad
+  - kpop ballad
+  - sad korean song
+  - breakup song
+  - AI음악
+  - AI노래
+  - AI 작곡
+  - suno
+  - ai music
+  - 신곡
+  - 가사
+  - kpop
+  - korean music
+  - k-pop
+  - korean song
+  hashtags:
+  - 발라드
+  - 이별노래
+  - 감성노래
+  - 노래
+  - 음악
+  - 인공지능
+  - 새벽감성
+  - 감성플리
+  - 잠안오는밤
+  - 피아노발라드
+  - 미련노래
+  - 퇴근길노래
+  - 위로노래
+  - 한국발라드
+  - 밤에듣는노래
+  playlists:
+  - 연주왕김연주 노래
+  - 헤어진 날 듣는 노래
+  privacy: private
