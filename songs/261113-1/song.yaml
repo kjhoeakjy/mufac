@@ -1,0 +1,387 @@
+title: 읽기만 해요
+hook: 읽기만 해요
+theme: 사랑
+story: 대답이 끝이 될까 봐 기다리는 쪽을 고른 사람이, 마음만 받아 달라고 너에게 부탁하는 노래
+created: 2026-11-13 12:13
+request: {}
+lang: ko
+instrumental: false
+sound_plan: 밝은 장조에 프리코러스에서만 살짝 단조로 기우는 2020년대 신스팝, 104bpm 중간 템포. 리듬은 1절에 핑거스냅과 부드러운 킥만, 후렴부터 타이트하고 또렷한 드럼에 클랩을 겹친다. 베이스는 둥근 신스 베이스가 뿌리음을 지키다 후렴에서 옥타브로 움직인다. 화성은 일렉 피아노 코드와 뮤트된 플럭 신스, 2절에 뮤트 기타 스탭이 더해진다. 멜로디는 절에서 좁은 음역으로 말하듯, 프리코러스는 같은 음을 반복하며 올라가다 한 박 쉬고, 후렴 첫 음 '읽'에서 위로 뛰어 '해요'를 길게 끈다. 보컬은 맑고 가벼운 여성 소프라노, 수줍고 담백하게 가까이 마른 소리로, 마지막 후렴에서만 목을 다 연다. 공간은 깔끔한 현대 믹스에 후렴만 넓게. 2후렴 뒤 신스 리드가 훅 멜로디를 받는 간주, 브릿지는 일렉 피아노와 거의 말하는 목소리만 남기고, 마지막 후렴은 3도 하모니와 신스 리드 더블로 가장 넓게 연 뒤, 인트로의 플럭 모티프 하나만 남기고 끊는다.
+style: 'Korean pop, 2020s synth pop, mid-tempo 104 bpm, bright major key with a soft minor turn in the pre-chorus. Light clear female soprano, plain and shy, close dry vocal behind the beat, full voice only at the final chorus, sung in Korean, korean lyrics. Intro: muted plucked synth motif. Verse 1: round synth bass, finger snaps, narrow talky melody. Pre-chorus: pad swells, rising repeated note, one beat of silence. Chorus: punchy drums with claps, electric piano chords, upward leap on the hook, long held last word, doubled vocal. Verse 2 adds muted guitar stabs. Synth lead interlude after chorus two. Bridge: electric piano and near-spoken voice. Final chorus widest, third harmony, synth lead doubles the hook. Outro: plucked motif alone, then stops. Polished wide mix. Wistful, tender, hopeful.'
+exclude: autotune, trap hi-hats, rap
+photo_query: woman window letter dusk
+image_prompt: A young woman in an oversized knit sweater sits sideways on a windowsill at dusk, seen from the side, holding a folded letter against her knees. Soft blue evening light outside, one warm lamp inside, pastel blue and peach tones, quiet and hopeful.
+short_scenes:
+- The same young woman stands at the open window at dusk, letter held loosely to her chest, wind lifting her hair, pastel blue sky and warm lamp glow behind her.
+- Close-up of her hands on the windowsill, fingers resting on the folded letter, warm lamp light on the paper, soft blue shadows.
+- The empty windowsill after night falls, the folded letter left beside the lamp, the window slightly open, deep blue sky with a faint peach edge.
+title_kind: 후렴 문장
+tempo: 중간
+arc: '화법: 너에게(전곡 해요체). 기: 기다리는 게 편하다고, 끝을 듣는 것보다 낫다고 담담하게 말하며 묻지 않는 말로 그대에게 쓴다. 승: 그대가 읽는 순간까지가 내 몫이라며 ''읽기만 해요, 대답은 하지 말아요, 보고 싶다고 썼어요''를 부탁한다. 전: 2절은 시점을 그대 쪽으로 옮겨 읽는 얼굴을 떠올리고 궁금함을 접는다. 브릿지에서 처음으로 ''편하다고 한 기다림은 하루도 편하지 않았어요''라고 인정한다. 결: 마지막 후렴 둘째 줄 ''대답은 하지 말아요''가 ''대답해도 돼요''로 바뀌어, 같은 훅이 기다림의 허락으로 들린다.'
+line_plan: '[Verse 1] 1 모순(임팩트): 기다리는 쪽이 편하다는 고백 같은 선언. 2 뒤집기(임팩트): 끝을 듣는 것보다는, 앞 줄의 까닭을 비교로 뒤집어 드러냄. 3 새 뜻: 묻는 말을 빼고 쓰는 마음. 4 정확한 말(리프레인): 그래도 그대에게 쓴다. [Pre-Chorus] 5 새 뜻: 그대가 읽는 순간. 6 정확한 말: 거기까지가 내 몫이라는 체념, -면으로 열어 후렴으로. [Chorus] 7 부탁(훅1): 읽기만 해요. 8 부탁: 대답은 하지 말라. 9 고백: 보고 싶다고 썼다. 10 부탁(훅2): 읽기만 해요. [Verse 2] 11 전환: 시점이 그대 쪽으로, 읽고 덮는 얼굴. 12 질문: 웃었는지 울었는지. 13 새 뜻: 궁금함을 접는다. 14 리프레인: 그대에게 써요. [Pre-Chorus] 15 새 뜻: 말 없는 그대. 16 정확한 말: 침묵이 가장 다정한 대답일 수 있다는 것, -면으로 열기. [Chorus] 17 훅3, 18 부탁, 19 고백, 20 훅4. [Bridge] 21 전환: 1절 첫 줄의 기다림을 다시 불러냄. 22 고백(진심): 하루도 편하지 않았다. [Final Chorus] 23 훅5, 24 뒤집기: 대답해도 된다(바뀐 줄), 25 고백, 26 훅6. 훅 등장 줄: 7,10,17,20,23,26 총 6회.'
+why: 보내 놓고 대답을 기다려 본 적 없는 사람은 거의 없어서, 다섯 중 가장 넓게 자기 얘기로 받아들여진다. 한로로의 원리대로 후렴을 상대에게 하는 짧은 부탁형으로 세웠고, 자우림처럼 '기다리는 게 편해요'라는 모순을 설명 없이 둔 채 시작한다. 브릿지에서 그 첫 줄을 '하루도 편하지 않았어요'로 뒤집어 처음으로 진심을 말하게 했다. 마지막 후렴은 극동아시아타이거즈처럼 한 줄만 바꾼다. '대답은 하지 말아요'가 '대답해도 돼요'로 바뀌면서 같은 '읽기만 해요'가 정반대의 속마음으로 들린다. 제목은 외칠 수 있고 저장하고 싶은 부탁 문장이라 후렴 문장 그대로 썼다.
+share_line: 하루도 편하지 않았어요
+youtube_meta:
+  situation: 답장 기다리는 밤에 듣는 노래
+  shorts_title: 읽기만 해요
+  hashtags:
+  - 감성노래
+  - 새벽감성
+  - 감성플리
+  - 짝사랑노래
+  - 고백노래
+  - 신스팝
+  - 케이팝
+  - 밤에듣는노래
+  - 위로노래
+  - 연락기다리는노래
+  - 드라이브노래
+  - 여자보컬
+tags:
+- 음악
+- 노래
+- 노래 추천
+- 감성
+- 플레이리스트
+- 감성 플레이리스트
+- 신스팝
+- 케이팝
+- 한국 팝
+- 새벽 감성
+- 밤에 듣는 노래
+- 짝사랑 노래
+- 고백 노래
+- 답장 기다리는 노래
+- 연락 기다릴 때
+- 보고 싶을 때 듣는 노래
+- 읽씹
+- 대답 없는 사람
+- 기다림
+- 설레는 노래
+- 잔잔한 팝
+- 여자 보컬
+- 미드템포
+- 퇴근길 노래
+- 드라이브 노래
+- 혼자 듣는 노래
+- 사랑 노래
+- 이별 전 노래
+- 썸 노래
+- korean pop
+- kpop
+- korean synth pop
+- k-pop playlist
+- 읽기만 해요
+references:
+- title: 사랑하게 될 거야
+  artist: 한로로
+  takeaway: 후렴은 상대에게 건네는 짧은 부탁이나 다짐 한 줄로 세우고, 마지막 후렴은 한 줄만 바꿔 결론을 낸다.
+- title: 미안해 널 미워해
+  artist: 자우림
+  takeaway: 반대되는 마음을 한 줄에 붙이고 풀지 않아야 같은 말이 들을 때마다 다른 무게가 된다.
+- title: 다시, 다시 만나
+  artist: 극동아시아타이거즈
+  takeaway: 마지막 후렴의 핵심어 하나를 뒤집으면 되풀이되던 훅이 전혀 다른 뜻으로 돌아온다.
+candidates:
+- hook: 읽기만 해요
+  theme: 사랑
+  story: 대답이 끝이 될까 봐 기다리는 쪽을 고른 사람이, 마음만 받아 달라고 너에게 부탁하는 노래
+- hook: 모르는 사람
+  theme: 사랑
+  story: 헤어진 뒤 서로 모르는 사람이 되어 가는 것을 느리게 받아들이는 사람의 노래
+- hook: 괜찮아질까 봐
+  theme: 아픔
+  story: 아픈 게 나아지면 그 사람까지 흐려질까 봐 낫기가 두려운 사람의 담담한 노래
+- hook: 다음 계절에
+  theme: 아픔
+  story: 하지 못한 말을 늘 다음으로 미루며 버티는 사람이 스스로에게 건네는 노래
+- hook: 오늘은 좋아
+  theme: 어른
+  story: 가진 건 없어도 기분만은 넉넉한 날, 내일 걱정을 접고 웃는 사람들의 밝은 노래
+chosen: 0
+lyrics: |
+  [Intro: muted plucked synth motif]
+
+  [Verse 1: synth bass, finger snaps, voice close]
+  기다리는 게 편해요
+  끝을 듣는 것보다는
+  묻지 않는 말로만
+  그대에게 써요
+
+  [Pre-Chorus: pad swells, one beat of silence]
+  그대가 읽는 그 순간
+  거기까지가 내 몫이면
+
+  [Chorus: drums and claps, doubled vocal]
+  읽기만 해요
+  대답은 하지 말아요
+  보고 싶다고 썼어요
+  읽기만 해요
+
+  [Verse 2: muted guitar stabs added]
+  알 수 없는 그대 마음
+  웃었는지 울었는지
+  궁금한 건 접어 두고
+  그대에게 써요
+
+  [Pre-Chorus: pad swells, one beat of silence]
+  아무 말 없는 그대가
+  가장 다정한 대답이면
+
+  [Chorus: drums and claps, doubled vocal]
+  읽기만 해요
+  대답은 하지 말아요
+  보고 싶다고 썼어요
+  읽기만 해요
+
+  [Instrumental: synth lead takes the hook melody]
+
+  [Bridge: electric piano and near-spoken voice]
+  편하다고 한 기다림
+  하루도 편하지 않았어요
+
+  [Final Chorus: widest, third harmony, synth lead doubles the hook]
+  읽기만 해요
+  대답해도 돼요
+  보고 싶다고 썼어요
+  읽기만 해요
+
+  [Outro: plucked synth motif alone, then stops]
+
+  [End]
+lyrics_draft: '[Intro: muted plucked synth motif]
+
+
+  [Verse 1: synth bass, finger snaps, voice close]
+
+  기다리는 게 편해요
+
+  끝을 듣는 것보다는
+
+  묻지 않는 말로만
+
+  그대에게 써요
+
+
+  [Pre-Chorus: pad swells, one beat of silence]
+
+  그대가 읽는 그 순간
+
+  거기까지가 내 몫이면
+
+
+  [Chorus: drums and claps, doubled vocal]
+
+  읽기만 해요
+
+  대답은 하지 말아요
+
+  보고 싶다고 썼어요
+
+  읽기만 해요
+
+
+  [Verse 2: muted guitar stabs added]
+
+  읽고 덮는 그대 얼굴
+
+  웃었는지 울었는지
+
+  궁금한 건 접어 두고
+
+  그대에게 써요
+
+
+  [Pre-Chorus: pad swells, one beat of silence]
+
+  아무 말 없는 그대가
+
+  가장 다정한 대답이면
+
+
+  [Chorus: drums and claps, doubled vocal]
+
+  읽기만 해요
+
+  대답은 하지 말아요
+
+  보고 싶다고 썼어요
+
+  읽기만 해요
+
+
+  [Instrumental: synth lead takes the hook melody]
+
+
+  [Bridge: electric piano and near-spoken voice]
+
+  편하다고 한 기다림
+
+  하루도 편하지 않았어요
+
+
+  [Final Chorus: widest, third harmony, synth lead doubles the hook]
+
+  읽기만 해요
+
+  대답해도 돼요
+
+  보고 싶다고 썼어요
+
+  읽기만 해요
+
+
+  [Outro: plucked synth motif alone, then stops]
+
+
+  [End]'
+polish:
+- '읽고 덮는 그대 얼굴 → 알 수 없는 그대 마음: 읽고 덮는 동작의 차례로 장면을 세우는 서술 줄이라, 같은 8음절로 뜻(상대의 속을 모른다는 마음)만 남김. 다음 줄 ''웃었는지 울었는지''가 그 마음을 받아 한 문장으로 이어짐'
+- '나머지 줄은 그대로 둠: 첫 두 줄이 고백으로 열리고, 후렴은 훅 ''읽기만 해요''가 첫·끝 줄에 두 번 들어가며 제목과 같음. 브릿지가 1절의 ''편해요''를 처음으로 뒤집고, 마지막 후렴은 ''대답해도 돼요'' 한 줄만 바뀌어 다른 뜻으로 들림. 전곡이 해요체로 통일되어 있고, 생활 소품·어색한 구어체·짧은 부정·-다 종결도 없어 손대지 않음'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A young woman in an oversized knit sweater sits sideways on a windowsill at dusk, seen from the side, holding a folded letter against her knees. Soft blue evening light outside, one warm lamp inside, pastel blue and peach tones, quiet and hopeful.
+youtube_preview:
+  title: 읽기만 해요 - 연주왕김연주 | 답장 기다리는 밤에 듣는 노래
+  shorts_title: '읽기만 해요 #shorts'
+  shorts_titles:
+  - '기다리는 게 편해요 #shorts'
+  - '읽기만 해요 #shorts'
+  - '편하다고 한 기다림 #shorts'
+  - '하루도 편하지 않았어요 #shorts'
+  description: '기다리는 게 편해요
+
+    끝을 듣는 것보다는
+
+    묻지 않는 말로만
+
+    그대에게 써요
+
+
+    그대가 읽는 그 순간
+
+    거기까지가 내 몫이면
+
+
+    읽기만 해요
+
+    대답은 하지 말아요
+
+    보고 싶다고 썼어요
+
+    읽기만 해요
+
+
+    알 수 없는 그대 마음
+
+    웃었는지 울었는지
+
+    궁금한 건 접어 두고
+
+    그대에게 써요
+
+
+    아무 말 없는 그대가
+
+    가장 다정한 대답이면
+
+
+    읽기만 해요
+
+    대답은 하지 말아요
+
+    보고 싶다고 썼어요
+
+    읽기만 해요
+
+
+    편하다고 한 기다림
+
+    하루도 편하지 않았어요
+
+
+    읽기만 해요
+
+    대답해도 돼요
+
+    보고 싶다고 썼어요
+
+    읽기만 해요
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #감성노래 #새벽감성 #감성플리 #노래 #음악 #인공지능 #짝사랑노래 #고백노래 #신스팝 #케이팝 #밤에듣는노래 #위로노래 #연락기다리는노래 #드라이브노래 #여자보컬'
+  tags:
+  - 읽기만 해요
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 인공지능
+  - 노래 추천
+  - 감성
+  - 플레이리스트
+  - 감성 플레이리스트
+  - 신스팝
+  - 케이팝
+  - 한국 팝
+  - 새벽 감성
+  - 밤에 듣는 노래
+  - 짝사랑 노래
+  - 고백 노래
+  - 답장 기다리는 노래
+  - 연락 기다릴 때
+  - 보고 싶을 때 듣는 노래
+  - 읽씹
+  - 대답 없는 사람
+  - 기다림
+  - 설레는 노래
+  - 잔잔한 팝
+  - 여자 보컬
+  - 미드템포
+  - 퇴근길 노래
+  - 드라이브 노래
+  - 혼자 듣는 노래
+  - 사랑 노래
+  - 이별 전 노래
+  - 썸 노래
+  - korean pop
+  - kpop
+  - korean synth pop
+  - k-pop playlist
+  - AI음악
+  - AI노래
+  - AI 작곡
+  - suno
+  - ai music
+  - 신곡
+  - 가사
+  - korean music
+  - k-pop
+  - korean song
+  hashtags:
+  - 감성노래
+  - 새벽감성
+  - 감성플리
+  - 노래
+  - 음악
+  - 인공지능
+  - 짝사랑노래
+  - 고백노래
+  - 신스팝
+  - 케이팝
+  - 밤에듣는노래
+  - 위로노래
+  - 연락기다리는노래
+  - 드라이브노래
+  - 여자보컬
+  playlists:
+  - 연주왕김연주 노래
+  - 헤어진 날 듣는 노래
+  privacy: private
