@@ -1,0 +1,390 @@
+title: 모르는 사람
+hook: 모르는 사람이 돼
+theme: 사랑
+story: 한때 가장 가까웠던 사람과 남보다 먼 사이가 된 누구나, 끝난 사랑을 혼자 되뇌며 부른다.
+created: 2026-11-14 11:59
+request: {}
+lang: ko
+instrumental: false
+sound_plan: 장조 안에 maj7·m9 코드를 쓰고 프리코러스에서 단조로 한 번 꺾이는 쓸쓸한 R&B, 느린 76bpm. 리듬은 프로그래밍 드럼으로 깊고 부드러운 킥에 스네어는 박 뒤로 살짝 늦게, 핑거스냅이 인트로부터 들린다. 베이스는 둥근 핑거 베이스가 킥과 맞물려 뿌리음을 지키고 후렴 끝에서 한 번 미끄러진다. 화성은 Rhodes가 곡 전체를 끌고, 프리코러스에 뮤트한 클린 기타 스트로크, 2절부터 먼 패드가 깔린다. 멜로디는 절에서 좁은 음역의 싱코페이션으로 말하듯, 프리코러스는 내려앉듯 하강하다 후렴 첫 음 '모'에서 위로 뛰어 '돼'를 길게 끈다. 보컬은 숨 섞인 부드러운 남성 테너, 가깝고 건조하게 박 뒤에서, 후렴은 스택 하모니로 넓게, 브릿지에서 가성 한 줄, 마지막 후렴에만 작은 런과 애드리브. 공간은 따뜻하고 가까운 방, 리드 보컬은 앞에, 백킹은 넓게 뒤에. 전개는 Rhodes와 스냅 인트로 → 1절 비트 반 → 첫 후렴 풀 비트 → 2절 고스트 노트 하이햇과 패드 → Rhodes 솔로 간주 → 브릿지에서 비트가 빠지고 Rhodes와 목소리만 → 마지막 후렴 가장 따뜻하게 → 아웃트로 Rhodes 루프가 잦아들며 마지막 코드를 길게 남긴다.
+style: 'Korean R&B, 2010s neo soul ballad, slow 76 bpm, warm maj7 and m9 chords with a bittersweet minor turn in the pre-chorus. Smooth breathy male tenor, close dry vocal behind the beat, one falsetto line in the bridge, sung in Korean, korean lyrics. Intro: Rhodes chords alone with finger snaps. Verse 1: deep soft kick, crisp late snare, round fingered bass locked to the kick, narrow syncopated melody. Pre-chorus: falling melody over muted clean guitar strokes. Chorus: full beat, stacked harmonies, upward leap on the hook, long held note on the last word. Verse 2 adds 16th hi-hats with ghost notes and a soft pad. Rhodes solo after chorus two. Bridge: beat drops, Rhodes and voice alone. Final chorus warmest, small runs and ad-libs on the last hook. Outro: Rhodes loop fading, last chord held. Close warm room, wide backing vocals. Late night, aching, tender.'
+exclude: autotune, trap hi-hats, distorted guitar
+photo_query: strangers passing night street
+image_prompt: A man in a dark wool coat and a woman in a beige trench coat pass each other on a wide crosswalk at night, side views, eyes not meeting. Blurred amber streetlights and deep blue shadows, wet asphalt reflecting light. Quiet, bittersweet, late-night mood.
+short_scenes:
+- The man and the woman cross paths in the middle of the crosswalk under amber streetlight, shoulders almost touching, city lights blurred wide behind them, deep blue night.
+- Close-up of the man's hand at his side, fingers half-curled as if about to wave, amber light on wet asphalt below.
+- The empty crosswalk after they have gone, the signal light glowing on wet asphalt, deep blue night and soft amber reflections.
+title_kind: 짧은 명사구
+tempo: 느림
+arc: '화법: 혼잣말(떠난 너를 떠올리며 혼자 되뇜). 기: 끝난 사랑은 남보다 멀다는 것, 다 아는데 안부 묻는 법은 모른다는 지금의 자리. 승: 만나기 전으로 돌아가면 우리는 ''모르는 사람이 돼'', 사랑했던 얼굴로. 전: 2절에서 너와 웃던 그때의 나조차 내가 아니라는 쪽으로 시점이 나에게로 돌고, 브릿지에서 처음으로 진심을 말한다. 보고 싶은 날이 와도 처음 보는 얼굴로 지나가겠다는 것. 결: 마지막 후렴에서 ''모르는 사람이 돼''가 ''모르는 사람이 될게''로 바뀌어 체념이 선택이 되고, ''네 이름은 외우는데''가 ''그것도 사랑이라면''으로 바뀌며 끝난다.'
+line_plan: '[Verse 1] 1 선언(첫 줄): 끝난 사랑은 남보다 멀다. 2 선언/정확한 말(둘째 줄): 인사조차 어려운 사이. 3 새 뜻: 다 아는 사람이다. 4 뒤집기: 그런데 안부 하나 묻는 법은 모른다. [Pre-Chorus] 5 전환: 만나기 전으로 되돌아감. 6 열림(-면): 그렇게 돌아가면 → 후렴 첫 음절로. [Chorus] 7 선언(훅): 모르는 사람이 된다. 8 모순: 사랑했던 얼굴 그대로. 9 선언(훅) 반복. 10 고백/모순: 이름은 여전히 외운다. [Verse 2] 11 새 뜻: 너와 웃던 그때의 나. 12 전환: 그 나조차 내가 아니다. 13 새 뜻: 돌아보면 남의 이야기. 14 정확한 말(모순): 아프지 않다는 게 아프다. [Pre-Chorus] 15~16 반복. [Chorus] 17 훅, 18 모순, 19 훅, 20 고백. [Bridge] 21 고백: 보고 싶은 날이 와도. 22 정확한 말/의지: 처음 보는 얼굴로 지나가겠다(첫 진심, 훅 없음). [Final Chorus] 23 고백(훅 변형 ''될게''): 스스로 남이 되기로 함. 24 모순 유지. 25 고백(훅 변형) 반복. 26 뒤집기/질문형 조건: 그것도 사랑이라면. 훅 줄 번호: 7, 9, 17, 19, 23, 25 (6회, 마지막 후렴은 Suno 반복으로 더 들림).'
+why: 헤어진 연인, 멀어진 친구, 끊긴 사이까지 '다 알던 사람이 모르는 사람이 되는 일'은 거의 모든 사람이 겪어서 가장 넓다. 조사 노트의 현관·비밀번호 초안은 한 장면의 상황극이라 버리고, 사물 없이 뜻만 남는 혼잣말로 다시 썼다. 극동아시아타이거즈가 마지막 후렴에서 핵심어 하나를 뒤집는 원리와 터치드가 후렴 낱말 하나로 화자의 변화를 보이는 원리를 가져와 '돼'를 '될게'로 바꿨다. 그래서 어쩔 수 없이 남이 되던 사람이 브릿지를 지나 스스로 남이 되기를 고르는 사람이 된다. 자우림처럼 반대되는 감정을 한 줄에 붙이고 풀지 않는 줄('아프지 않은 게 아파')을 2절에 두었고, 제목은 훅 안의 명사구 '모르는 사람'으로 짧게 잘라 부르는 순간 각자의 얼굴이 떠오르게 했다.
+share_line: 아프지 않은 게 아파
+youtube_meta:
+  situation: 헤어진 사람 생각날 때 듣는 노래
+  shorts_title: 모르는 사람이 돼
+  hashtags:
+  - 이별노래
+  - 감성노래
+  - 알앤비
+  - 새벽감성
+  - 감성플리
+  - 이별플리
+  - 밤에듣는노래
+  - 혼자듣는노래
+  - 헤어진후
+  - 위로노래
+  - 알앤비플리
+  - 잔잔한노래
+tags:
+- 음악
+- 노래
+- 감성
+- 노래 추천
+- 플레이리스트
+- 이별노래
+- 감성노래
+- 알앤비
+- R&B
+- korean r&b
+- neo soul
+- kpop
+- korean ballad
+- 새벽감성
+- 밤에 듣는 노래
+- 혼자 듣는 노래
+- 이별 플레이리스트
+- 헤어진 후
+- 헤어진 연인
+- 전 연인
+- 모르는 사람
+- 모르는 사람이 돼
+- 남이 된 사이
+- 끝난 사랑
+- 잊지 못한 사람
+- 보고 싶은 사람
+- 감성 플리
+- 잔잔한 노래
+- 느린 노래
+- 위로 노래
+- 새벽 플리
+- 드라이브 노래
+- 퇴근길 노래
+- 창작곡
+- 자작곡
+references:
+- title: 다시, 다시 만나
+  artist: 극동아시아타이거즈
+  takeaway: 마지막 후렴에서 핵심어 하나만 바꿔('돼'→'될게') 같은 훅이 체념에서 선택으로 다르게 들리게 한다.
+- title: 미안해 널 미워해
+  artist: 자우림
+  takeaway: 반대되는 감정을 한 줄에 붙이고 풀어 설명하지 않는다('아프지 않은 게 아파').
+- title: Hi Bully
+  artist: 터치드
+  takeaway: 후렴 낱말 한두 개를 바꿔 화자가 변해 가는 과정을 보여 준다.
+candidates:
+- hook: 모르는 사람이 돼
+  theme: 사랑
+  story: 한때 가장 가까웠던 사람과 남보다 먼 사이가 된 누구나, 끝난 사랑을 혼자 되뇌며 부른다.
+- hook: 괜찮아질까 봐
+  theme: 아픔
+  story: 아픈 게 익숙해진 사람이, 다 나아 버리면 그 시간까지 지워질까 두려워 혼자 중얼거린다.
+- hook: 오늘은 좋아
+  theme: 어른
+  story: 가진 건 없어도 기분 하나는 넉넉한 날, 내일 걱정을 미뤄 둔 어른들이 가볍게 부른다.
+- hook: 뭐가 됐어
+  theme: 어른
+  story: 어릴 적 꿈꾸던 나에게 질문을 받는 지금의 어른이, 중간 템포로 담담하게 돌아본다.
+- hook: 다시 가 볼까
+  theme: 아픔
+  story: 넘어지고 울고 난 다음 날, 그래도 다시 나서 보려는 사람이 밝게 부른다.
+chosen: 0
+lyrics: |
+  [Intro: Rhodes chords and finger snaps]
+
+  [Verse 1: soft kick, round bass, Rhodes, close vocal]
+  끝난 사랑은 남보다 멀어
+  인사 한마디도 어려운 사이
+  네 웃는 버릇도 아는데
+  안부 묻는 법은 몰라
+
+  [Pre-Chorus: muted clean guitar, falling melody]
+  너를 만나기 전으로
+  다시 돌아가는 거면
+
+  [Chorus: full beat, stacked harmonies]
+  모르는 사람이 돼
+  사랑했던 얼굴로
+  모르는 사람이 돼
+  네 이름은 외우는데
+
+  [Verse 2: ghost-note hi-hats and soft pad added]
+  너와 웃던 그때의 나
+  이젠 내가 아니야
+  돌아보면 남의 얘기
+  아프지 않은 게 아파
+
+  [Pre-Chorus: muted clean guitar, falling melody]
+  너를 만나기 전으로
+  다시 돌아가는 거면
+
+  [Chorus: full beat, wider harmonies]
+  모르는 사람이 돼
+  사랑했던 얼굴로
+  모르는 사람이 돼
+  네 이름은 외우는데
+
+  [Instrumental: Rhodes solo]
+
+  [Bridge: beat drops, Rhodes and voice alone, falsetto]
+  보고 싶은 날이 와도
+  처음 보듯 지나갈게
+
+  [Final Chorus: warmest, stacked harmonies, ad-libs]
+  모르는 사람이 될게
+  사랑했던 얼굴로
+  모르는 사람이 될게
+  그것도 사랑이라면
+
+  [Outro: Rhodes loop fades, last chord held]
+
+  [End]
+lyrics_draft: '[Intro: Rhodes chords and finger snaps]
+
+
+  [Verse 1: soft kick, round bass, Rhodes, close vocal]
+
+  끝난 사랑은 남보다 멀어
+
+  인사 한마디도 어려운 사이
+
+  네 웃는 버릇도 아는데
+
+  안부 묻는 법은 몰라
+
+
+  [Pre-Chorus: muted clean guitar, falling melody]
+
+  만나기 전 그 자리로
+
+  다시 돌아가는 거면
+
+
+  [Chorus: full beat, stacked harmonies]
+
+  모르는 사람이 돼
+
+  사랑했던 얼굴로
+
+  모르는 사람이 돼
+
+  네 이름은 외우는데
+
+
+  [Verse 2: ghost-note hi-hats and soft pad added]
+
+  너와 웃던 그때의 나
+
+  이젠 내가 아니야
+
+  돌아보면 남의 얘기
+
+  아프지 않은 게 아파
+
+
+  [Pre-Chorus: muted clean guitar, falling melody]
+
+  만나기 전 그 자리로
+
+  다시 돌아가는 거면
+
+
+  [Chorus: full beat, wider harmonies]
+
+  모르는 사람이 돼
+
+  사랑했던 얼굴로
+
+  모르는 사람이 돼
+
+  네 이름은 외우는데
+
+
+  [Instrumental: Rhodes solo]
+
+
+  [Bridge: beat drops, Rhodes and voice alone, falsetto]
+
+  보고 싶은 날이 와도
+
+  처음 보는 얼굴로 지나갈게
+
+
+  [Final Chorus: warmest, stacked harmonies, ad-libs]
+
+  모르는 사람이 될게
+
+  사랑했던 얼굴로
+
+  모르는 사람이 될게
+
+  그것도 사랑이라면
+
+
+  [Outro: Rhodes loop fades, last chord held]
+
+
+  [End]'
+polish:
+- '만나기 전 그 자리로 → 너를 만나기 전으로: ''그 자리''라는 장소 그림을 지우고 상대를 넣어 너에게 하는 말로 맞춤(너·네가 든 줄 비율 보강)'
+- '처음 보는 얼굴로 지나갈게 → 처음 보듯 지나갈게: 11음절을 8음절로 줄이고, 후렴의 ''얼굴로''와 겹치는 말을 빼 브릿지를 후렴과 구분함'
+- '나머지 줄: 첫 두 줄이 선언으로 열리고, 후렴은 훅 2회·제목 포함·모순 한 줄로 서 있으며, 마지막 후렴이 두 줄 바뀌어 뜻이 뒤집히므로 그대로 둠'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A man in a dark wool coat and a woman in a beige trench coat pass each other on a wide crosswalk at night, side views, eyes not meeting. Blurred amber streetlights and deep blue shadows, wet asphalt reflecting light. Quiet, bittersweet, late-night mood.
+youtube_preview:
+  title: 모르는 사람 - 연주왕김연주 | 헤어진 사람 생각날 때 듣는 노래
+  shorts_title: '모르는 사람이 돼 #shorts'
+  shorts_titles:
+  - '끝난 사랑은 남보다 멀어 #shorts'
+  - '모르는 사람이 돼 #shorts'
+  - '보고 싶은 날이 와도 #shorts'
+  - '아프지 않은 게 아파 #shorts'
+  description: '끝난 사랑은 남보다 멀어
+
+    인사 한마디도 어려운 사이
+
+    네 웃는 버릇도 아는데
+
+    안부 묻는 법은 몰라
+
+
+    너를 만나기 전으로
+
+    다시 돌아가는 거면
+
+
+    모르는 사람이 돼
+
+    사랑했던 얼굴로
+
+    모르는 사람이 돼
+
+    네 이름은 외우는데
+
+
+    너와 웃던 그때의 나
+
+    이젠 내가 아니야
+
+    돌아보면 남의 얘기
+
+    아프지 않은 게 아파
+
+
+    너를 만나기 전으로
+
+    다시 돌아가는 거면
+
+
+    모르는 사람이 돼
+
+    사랑했던 얼굴로
+
+    모르는 사람이 돼
+
+    네 이름은 외우는데
+
+
+    보고 싶은 날이 와도
+
+    처음 보듯 지나갈게
+
+
+    모르는 사람이 될게
+
+    사랑했던 얼굴로
+
+    모르는 사람이 될게
+
+    그것도 사랑이라면
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #이별노래 #감성노래 #알앤비 #노래 #음악 #인공지능 #새벽감성 #감성플리 #이별플리 #밤에듣는노래 #혼자듣는노래 #헤어진후 #위로노래 #알앤비플리 #잔잔한노래'
+  tags:
+  - 모르는 사람
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 인공지능
+  - 감성
+  - 노래 추천
+  - 플레이리스트
+  - 이별노래
+  - 감성노래
+  - 알앤비
+  - R&B
+  - korean r&b
+  - neo soul
+  - kpop
+  - korean ballad
+  - 새벽감성
+  - 밤에 듣는 노래
+  - 혼자 듣는 노래
+  - 이별 플레이리스트
+  - 헤어진 후
+  - 헤어진 연인
+  - 전 연인
+  - 모르는 사람이 돼
+  - 남이 된 사이
+  - 끝난 사랑
+  - 잊지 못한 사람
+  - 보고 싶은 사람
+  - 감성 플리
+  - 잔잔한 노래
+  - 느린 노래
+  - 위로 노래
+  - 새벽 플리
+  - 드라이브 노래
+  - 퇴근길 노래
+  - 창작곡
+  - 자작곡
+  - AI음악
+  - AI노래
+  - AI 작곡
+  - suno
+  - ai music
+  - 신곡
+  - 가사
+  - korean music
+  - k-pop
+  - korean song
+  hashtags:
+  - 이별노래
+  - 감성노래
+  - 알앤비
+  - 노래
+  - 음악
+  - 인공지능
+  - 새벽감성
+  - 감성플리
+  - 이별플리
+  - 밤에듣는노래
+  - 혼자듣는노래
+  - 헤어진후
+  - 위로노래
+  - 알앤비플리
+  - 잔잔한노래
+  playlists:
+  - 연주왕김연주 노래
+  - 헤어진 날 듣는 노래
+  privacy: private
