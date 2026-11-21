@@ -1,0 +1,392 @@
+title: 행복하지 마
+hook: 행복하지 마
+theme: 사랑
+story: 헤어진 사람이 잘 지내길 바라면서도 너무 행복하지는 말라고, 반은 웃으며 반은 진심으로 너에게 말하는 중간 템포의 노래
+created: 2026-11-21 12:50
+request: {}
+lang: ko
+instrumental: false
+sound_plan: 밝은 장조에 프리코러스에서 단조 코드로 한 번 씁쓸하게 꺾이는 92bpm 중간 템포의 어쿠스틱 팝. 인트로는 카포 끼운 어쿠스틱 기타 스트럼 혼자 네 마디. 1절은 두 번째 기타의 핑거피킹과 목소리만, 둥근 어쿠스틱 베이스가 뿌리음을 가볍게 짚고 멜로디는 좁은 음역에서 말하듯 간다. 프리코러스에서 카혼이 들어와 같은 음을 되풀이하며 밀어 올리고, 후렴은 '행복하지 마'의 첫 음에서 위로 뛰어 마지막 '마'를 길게 끈다. 후렴에는 손뼉과 스트럼, 더블링한 보컬과 3도 하모니가 붙는다. 2절은 가벼운 피아노가 보컬에 대답하고, 두 번째 후렴 뒤에 휘파람 선율 간주를 둔다. 브릿지는 기타 하나와 거의 말하듯 부르는 목소리만 남겨 가장 조용하게. 마지막 후렴은 기타 둘·피아노·카혼·하모니가 다 들어와 가장 따뜻하고, 휘파람이 훅에 대답한다. 보컬은 맑고 가까운 여성 메조, 박자에 살짝 늦게, 목소리에 작은 웃음이 묻어 있고 마지막 후렴에서만 소리를 다 연다. 거실처럼 건조하고 따뜻한 공간에 기타 줄 소리가 들리게, 끝은 기타 스트럼 하나가 느려지며 멈춘다.
+style: 'Korean acoustic pop, 2010s, warm 92 bpm, bright major key with a bittersweet minor turn in the pre-chorus. Clear female mezzo, close and light, behind the beat, a small smile in the voice, full voice only at the final chorus, sung in Korean, korean lyrics. Intro: strummed acoustic guitar alone. Verse 1: fingerpicked guitar, round acoustic bass, narrow conversational melody. Pre-chorus: cajon enters, rising repeated note. Chorus: handclaps, upward leap on the hook, long held last word, doubled vocal, third harmony. Verse 2 adds light piano answering the voice. Whistle interlude after chorus two. Bridge: one guitar and near-spoken voice. Final chorus warmest, stacked harmonies, whistle answers the hook. Outro: guitar alone, slows, then stops. Living room sound, dry and warm. Wry, tender, bittersweet.'
+exclude: electric guitar, synth, autotune
+photo_query: woman acoustic guitar window
+image_prompt: A young woman in a cream knit sweater sits sideways on a wooden floor by an open window in late afternoon, an acoustic guitar on her lap and a mug beside her. Warm golden light, soft dust in the air, cream and amber tones, wry and tender mood.
+short_scenes:
+- The same woman by the window tilts her head back laughing as she strums the guitar, golden light flooding the room, cream and amber tones.
+- Close-up of her hand resting still on the guitar strings, fingers loose, warm afternoon light on the wood grain.
+- Evening blue light in the same room, the guitar leaning against the window frame beside the empty mug, her silhouette walking out of the frame.
+title_kind: 후렴 문장
+tempo: 중간
+arc: '화법: 너에게. 기(1절): 잘 지내라던 말이 반만 진심이었다고 털어놓고, 나머지 반은 이 노래로 하겠다고 연다. 승(프리코러스→후렴): 누구 곁에서든 네가 웃을 때면 ''행복하지 마'', 나보다 덜 웃으라는 쩨쩨한 진심. 전(2절→브릿지): 2절은 시간이 지나 네가 잘 산다는 얘기에 반갑고 밉고, 나도 이제 잘 웃는다는 걸 인정한다. 브릿지에서 처음으로 진짜 속을 말한다: 네가 우는 건 싫다, 내 탓이라 해도. 결(마지막 후렴): ''덜 웃어 줘''가 ''더 웃어 줘''로, ''행복은 말고''가 ''행복까지''로 바뀌어, 같은 ''행복하지 마''가 웃으며 하는 축복으로 들린다. 아웃트로는 가사 없이 기타 하나로 닫는다.'
+line_plan: '[1절] 1: 고백(두 줄에 걸친 첫 문장) - 너에게 했던 작별 인사를 꺼낸다. 2: 뒤집기 - 그 인사가 반만 진심이었다. 3: 전환 - 나머지 반이 따로 있다. 4: 정확한 말 - 그 반은 노래로만 할 수 있는 말이다. [프리코러스] 5: 전환 - 누구 곁이든 상관없이. 6: 열어 두기(-면) - 네가 웃는 순간으로 후렴에 떨어진다. [후렴] 7: 부탁(훅) - 행복하지 말라는 쩨쩨한 진심. 8: 부탁 - 나보다 덜 웃으라는 비교. 9: 모순 - 잘 지내되 행복은 빼라는 구분, 공유용 줄. 10: 부탁(훅) - 되풀이로 못 박음. [2절] 11: 새 뜻 - 시간이 지나 네가 잘 산다는 소식. 12: 모순 - 반가움과 미움이 같이 온다. 13: 전환 - 나도 달라졌다. 14: 정확한 말 - 나도 웃으며 산다는 자조 섞인 인정. [프리코러스] 15~16: 1절과 같음. [후렴] 17~20: 첫 후렴과 같음. [브릿지] 21: 고백 - 곡에서 처음 나오는 진심, 네가 우는 건 싫다. 22: 정확한 말 - 내 탓이라 해도 싫다, 바라던 게 반대였다는 인정. 훅 없음. [마지막 후렴] 23: 부탁(훅) - 같은 말이 다르게 들림. 24: 뒤집기 - 덜을 더로. 25: 뒤집기 - 행복은 말고를 행복까지로. 26: 부탁(훅) - 웃으며 하는 거짓말이 된 훅. 훅 줄 번호: 7, 10, 17, 20, 23, 26 (총 6회).'
+why: 헤어진 사람에게 잘 지내라고 하면서 속으로는 너무 잘 지내지는 말라고 바라는 마음은 거의 누구나 겪어 본, 그러나 입 밖에 내지 않는 진심이라 가장 넓게 닿는다. 자우림이 '미안해'와 '미워해'를 설명 없이 나란히 둔 것처럼 '잘 지내길, 행복은 말고'라는 모순을 풀지 않고 후렴에 세웠다. 브릿지에서 처음으로 '네가 우는 건 싫어'라는 직진 고백을 꺼내고, 한로로와 극동아시아타이거즈처럼 마지막 후렴에서 '덜'을 '더'로, '행복은 말고'를 '행복까지'로 한 글자씩 뒤집어 같은 훅이 축복으로 들리게 했다. 제목은 외치기 쉬운 5음절 부탁 문장이고 모음으로 끝나 길게 늘여 부를 수 있어 후렴 문장 그대로 썼다.
+share_line: 잘 지내길, 행복은 말고
+youtube_meta:
+  situation: 헤어지고 웃으며 듣는 노래
+  shorts_title: 행복하지 마
+  hashtags:
+  - 이별노래
+  - 감성노래
+  - 어쿠스틱
+  - 감성플리
+  - 인디
+  - 새벽감성
+  - 드라이브노래
+  - 위로노래
+  - 헤어진뒤
+  - 전애인
+  - 여자보컬
+  - 행복하지마
+tags:
+- 음악
+- 노래
+- 감성
+- 노래 추천
+- 플레이리스트
+- 이별노래
+- 감성노래
+- 어쿠스틱
+- 어쿠스틱 팝
+- 인디
+- 인디음악
+- 감성플리
+- 새벽감성
+- 드라이브노래
+- 헤어진 뒤 듣는 노래
+- 전 애인 생각날 때
+- 미련 노래
+- 쿨한 이별
+- 잘 지내
+- 행복하지 마
+- 여자 보컬
+- 따뜻한 노래
+- 휘파람 노래
+- 기타 노래
+- 카혼
+- 산책할 때 듣는 노래
+- 혼자 듣기 좋은 노래
+- 이별 후
+- 연애 노래
+- 공감 노래
+- korean acoustic
+- korean indie
+- kpop
+- breakup song
+- acoustic pop
+references:
+- title: 미안해 널 미워해
+  artist: 자우림
+  takeaway: 반대되는 마음(잘 지내길/행복은 말고)을 한 줄에 붙이고 설명하지 않는다.
+- title: 사랑하게 될 거야
+  artist: 한로로
+  takeaway: 마지막 후렴은 한두 글자만 바꿔(덜→더, 말고→까지) 결론을 낸다.
+- title: 다시, 다시 만나
+  artist: 극동아시아타이거즈
+  takeaway: 되풀이된 후렴의 핵심어 하나를 반대로 바꿔 같은 훅을 다른 뜻으로 들리게 한다.
+- title: 좋지 아니한가
+  artist: 크라잉넛
+  takeaway: 쩨쩨한 우김을 앞에 쌓아 두었다가 한 번 비틀어 받아들임으로 끝낸다.
+candidates:
+- hook: 행복하지 마
+  theme: 사랑
+  story: 헤어진 사람이 잘 지내길 바라면서도 너무 행복하지는 말라고, 반은 웃으며 반은 진심으로 너에게 말하는 중간 템포의 노래
+- hook: 늦게 알았어
+  theme: 아픔
+  story: 끝난 뒤에야 그때가 시작이었다는 걸 알게 된 사람이 혼자 읊조리는 느린 고백
+- hook: 다 잊어도 돼
+  theme: 사랑
+  story: 떠난 사람에게 나는 기억할 테니 너는 가볍게 가라고 담담하게 건네는 위로
+- hook: 오늘은 좋다
+  theme: 어른
+  story: 가진 건 없어도 기분만은 넉넉한 날, 같이 걷는 사람에게 웃으며 하는 밝은 노래
+- hook: 그래도 가
+  theme: 어른
+  story: 다 그만두고 싶은 아침마다 자기 등을 떠미는 사람의 담담한 응원
+chosen: 0
+lyrics: |
+  [Intro: strummed acoustic guitar alone]
+
+  [Verse 1: fingerpicked guitar and voice, intimate]
+  잘 지내라고 했던 말
+  절반만 진심이었어
+  나머지 절반은
+  이 노래로 대신할게
+
+  [Pre-Chorus: cajon enters, building]
+  누구 옆에 있든지
+  네가 크게 웃을 때면
+
+  [Chorus: strums and handclaps, doubled vocals]
+  행복하지 마
+  너는 나보다 덜 웃어 줘
+  잘 지내길, 행복은 말고
+  행복하지 마
+
+  [Verse 2: light piano answers the voice]
+  네가 잘 산다는 얘기
+  반가웠다가 미웠어
+  이상하게 나도
+  웃으며 잘 살고 있어
+
+  [Pre-Chorus: cajon, rising]
+  누구 옆에 있든지
+  네가 크게 웃을 때면
+
+  [Chorus: strums and handclaps, third harmony]
+  행복하지 마
+  너는 나보다 덜 웃어 줘
+  잘 지내길, 행복은 말고
+  행복하지 마
+
+  [Instrumental: whistle melody over two guitars]
+
+  [Bridge: one guitar and near-spoken voice]
+  네가 우는 건 싫어
+  내 탓이라 해도 싫어
+
+  [Final Chorus: warmest, stacked harmonies, whistle answers]
+  행복하지 마
+  너는 나보다 더 웃어 줘
+  잘 지내길, 행복까지
+  행복하지 마
+
+  [Outro: guitar strum alone, slows down]
+
+  [End]
+lyrics_draft: '[Intro: strummed acoustic guitar alone]
+
+
+  [Verse 1: fingerpicked guitar and voice, intimate]
+
+  잘 지내라고 했던 말
+
+  절반만 진심이었어
+
+  나머지 절반은
+
+  이 노래로 대신할게
+
+
+  [Pre-Chorus: cajon enters, building]
+
+  누구 옆에 있든지
+
+  네가 크게 웃을 때면
+
+
+  [Chorus: strums and handclaps, doubled vocals]
+
+  행복하지 마
+
+  너는 나보다 덜 웃어 줘
+
+  잘 지내길, 행복은 말고
+
+  행복하지 마
+
+
+  [Verse 2: light piano answers the voice]
+
+  네가 잘 산다는 얘기
+
+  반가웠다가 미웠어
+
+  이상하게 나도
+
+  잘 웃고 사는 편이야
+
+
+  [Pre-Chorus: cajon, rising]
+
+  누구 옆에 있든지
+
+  네가 크게 웃을 때면
+
+
+  [Chorus: strums and handclaps, third harmony]
+
+  행복하지 마
+
+  너는 나보다 덜 웃어 줘
+
+  잘 지내길, 행복은 말고
+
+  행복하지 마
+
+
+  [Instrumental: whistle melody over two guitars]
+
+
+  [Bridge: one guitar and near-spoken voice]
+
+  네가 우는 건 싫어
+
+  내 탓이라 해도 싫어
+
+
+  [Final Chorus: warmest, stacked harmonies, whistle answers]
+
+  행복하지 마
+
+  너는 나보다 더 웃어 줘
+
+  잘 지내길, 행복까지
+
+  행복하지 마
+
+
+  [Outro: guitar strum alone, slows down]
+
+
+  [End]'
+polish:
+- '잘 웃고 사는 편이야 → 웃으며 잘 살고 있어: ''~하는 편이야''는 흐리는 완곡이라 직진 문장으로 바꿈. 음절 수는 줄임'
+- '나머지 줄은 그대로 둠: 첫 두 줄이 고백이고, 후렴은 훅 ''행복하지 마''가 첫 줄과 끝 줄에 있으며 부탁과 뒤집기로만 되어 있음. 브릿지는 처음 꺼내는 진심이고, 마지막 후렴은 ''덜→더'', ''행복은 말고→행복까지''로 뜻이 뒤집혀 점검표를 통과함'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A young woman in a cream knit sweater sits sideways on a wooden floor by an open window in late afternoon, an acoustic guitar on her lap and a mug beside her. Warm golden light, soft dust in the air, cream and amber tones, wry and tender mood.
+youtube_preview:
+  title: 행복하지 마 - 연주왕김연주 | 헤어지고 웃으며 듣는 노래
+  shorts_title: '행복하지 마 #shorts'
+  shorts_titles:
+  - '잘 지내라고 했던 말 #shorts'
+  - '행복하지 마 #shorts'
+  - '네가 우는 건 싫어 #shorts'
+  - '잘 지내길, 행복은 말고 #shorts'
+  description: '잘 지내라고 했던 말
+
+    절반만 진심이었어
+
+    나머지 절반은
+
+    이 노래로 대신할게
+
+
+    누구 옆에 있든지
+
+    네가 크게 웃을 때면
+
+
+    행복하지 마
+
+    너는 나보다 덜 웃어 줘
+
+    잘 지내길, 행복은 말고
+
+    행복하지 마
+
+
+    네가 잘 산다는 얘기
+
+    반가웠다가 미웠어
+
+    이상하게 나도
+
+    웃으며 잘 살고 있어
+
+
+    누구 옆에 있든지
+
+    네가 크게 웃을 때면
+
+
+    행복하지 마
+
+    너는 나보다 덜 웃어 줘
+
+    잘 지내길, 행복은 말고
+
+    행복하지 마
+
+
+    네가 우는 건 싫어
+
+    내 탓이라 해도 싫어
+
+
+    행복하지 마
+
+    너는 나보다 더 웃어 줘
+
+    잘 지내길, 행복까지
+
+    행복하지 마
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #이별노래 #감성노래 #어쿠스틱 #노래 #음악 #인공지능 #감성플리 #인디 #새벽감성 #드라이브노래 #위로노래 #헤어진뒤 #전애인 #여자보컬 #행복하지마'
+  tags:
+  - 행복하지 마
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 인공지능
+  - 감성
+  - 노래 추천
+  - 플레이리스트
+  - 이별노래
+  - 감성노래
+  - 어쿠스틱
+  - 어쿠스틱 팝
+  - 인디
+  - 인디음악
+  - 감성플리
+  - 새벽감성
+  - 드라이브노래
+  - 헤어진 뒤 듣는 노래
+  - 전 애인 생각날 때
+  - 미련 노래
+  - 쿨한 이별
+  - 잘 지내
+  - 여자 보컬
+  - 따뜻한 노래
+  - 휘파람 노래
+  - 기타 노래
+  - 카혼
+  - 산책할 때 듣는 노래
+  - 혼자 듣기 좋은 노래
+  - 이별 후
+  - 연애 노래
+  - 공감 노래
+  - korean acoustic
+  - korean indie
+  - kpop
+  - breakup song
+  - acoustic pop
+  - AI음악
+  - AI노래
+  - AI 작곡
+  - suno
+  - ai music
+  - 신곡
+  - 가사
+  - korean music
+  - k-pop
+  - korean song
+  hashtags:
+  - 이별노래
+  - 감성노래
+  - 어쿠스틱
+  - 노래
+  - 음악
+  - 인공지능
+  - 감성플리
+  - 인디
+  - 새벽감성
+  - 드라이브노래
+  - 위로노래
+  - 헤어진뒤
+  - 전애인
+  - 여자보컬
+  - 행복하지마
+  playlists:
+  - 연주왕김연주 노래
+  - 헤어진 날 듣는 노래
+  privacy: private
