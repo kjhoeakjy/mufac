@@ -1,0 +1,396 @@
+title: 울고 나면 배고파
+hook: 울고 나면 배고파
+theme: 아픔
+story: 크게 무너진 뒤에도 몸은 배고프고 잠도 오는 것이 우습고 서러운 사람이, 그렇게 다시 살아지는 자기를 담담하게 받아들이며 부르는 중간 템포의 노래.
+created: 2026-11-22 11:54
+request: {}
+lang: ko
+instrumental: false
+sound_plan: 따뜻한 장조에 add9과 7th 코드로 색을 내고, 프리코러스에서만 단조로 살짝 꺾이는 94bpm 중간 템포의 인디록입니다. 드럼은 작은 방에서 친 라이브 드럼입니다. 스네어는 밝고 건조하게, 하이햇은 8분음으로 치고 후렴에서는 라이드로 바꿉니다. 탐은 프리코러스 빌드에서만 씁니다. 베이스는 피크로 치며 멜로디를 움직입니다. 절에서는 뿌리음을 8분음으로 지키고, 후렴에서는 경과음을, 브릿지에서는 걷는 라인을 탑니다. 화성은 깨끗한 일렉 기타 아르페지오가 끌고, 두 번째 기타가 후렴에서 가볍게 크런치를 더합니다. 2절부터는 Rhodes가 뒤를 받칩니다. 멜로디는 절에서 좁은 음역으로 말하듯 갑니다. 프리코러스는 같은 음을 반복하며 밀어 올리고, 후렴 첫 음 '울'에서 도약해 마지막 '배고파'를 길게 끕니다. 보컬은 꾸밈없고 약간 능청이 묻은 남성 테너입니다. 가볍게 더블링하고 후렴에서 3도 위 하모니 한 줄을 얹으며, 마지막 후렴에서만 목소리를 다 엽니다. 공간은 스프링 리버브와 테이프 질감으로 작고 따뜻하게 둡니다. 구간마다 악기가 이렇게 드나듭니다. 인트로는 기타 아르페지오 혼자, 1절은 기타·베이스·하이햇, 프리코러스는 탐 빌드, 첫 후렴은 크런치 기타·라이드·하모니입니다. 2절에 Rhodes와 보컬에 대답하는 기타가 들어오고, 2절 후렴 뒤 8마디 기타 솔로가 나옵니다. 브릿지는 기타 하나와 거의 말하는 목소리에 걷는 베이스만 남깁니다. 마지막 후렴에서는 글로켄슈필이 훅을 따라 부릅니다. 끝은 기타 리프가 혼자 반복하다 느려지며 멈추는 것으로 냅니다.
+style: 'Korean indie rock, 2010s, mid-tempo 94 bpm, warm major key, a bittersweet minor turn in the pre-chorus. Plain honest male tenor, unpolished, wry, close vocal behind the beat, full voice only at the final chorus, sung in Korean, korean lyrics. Intro: clean electric guitar arpeggios alone. Verse 1: guitar, melodic picked bass, live drums in a small room with eighth hi-hats, narrow conversational melody. Pre-chorus: rising repeated note, toms build. Chorus: second guitar with light crunch, ride cymbal, upward leap on the first word, long held last word, third harmony. Verse 2 adds Rhodes and a guitar answering the voice. Guitar solo after chorus two. Bridge: one guitar and near-spoken voice, walking bass. Final chorus fullest, glockenspiel doubles the hook. Outro: guitar riff repeats, slows, then stops. Spring reverb, tape warmth. Wry, tender, bittersweet.'
+exclude: synth lead, autotune, brass
+photo_query: man alone late night kitchen
+image_prompt: A young man in a grey hoodie seen from the side, sitting alone at a small table by a dark window late at night, eyes slightly red, holding a spoon over a steaming bowl. Warm yellow lamp light against blue night, quiet, wry and tender mood.
+short_scenes:
+- The same young man in the grey hoodie leans back and laughs at himself, steam rising from the bowl, warm lamp glow filling the small room against the blue window.
+- Close-up of his hand holding the spoon, a dried tear mark on the back of his wrist, warm yellow light on the table.
+- The empty bowl on the table under the lamp, the chair pushed back, blue dawn light starting at the window.
+title_kind: 후렴 문장
+tempo: 중간
+arc: '화법: 혼잣말(떠난 너를 떠올리는 줄 포함). 기: 마음은 무너졌는데 몸은 꼬박꼬박 살아가는 우스운 상태를 모순으로 연다. 승: 프리코러스가 ''웃기지만 맞는 말''로 열어 두고, 후렴이 ''울고 나면 배고파''라는 한 문장을 못 박는다. 전: 2절은 너에게로 시점을 돌려 너도 그렇게 살 거라고 짐작한다. 브릿지에서 처음으로 진심을 말한다. 너를 잃은 것보다 배고픈 내가 더 서럽다는 것. 결: 마지막 후렴의 셋째 줄 ''산 사람은 살아''가 ''미안해 나 잘 살게''로 바뀐다. 남의 말 같던 속담이 너에게 하는 사과이자 다짐이 되고, 아웃트로는 기타만 남아 끝난다.'
+line_plan: '[Verse 1] 1 모순(임팩트): 마음은 무너졌다. 2 뒤집기(임팩트): 몸은 멀쩡히 산다. 3 정확한 말: 끝난 일은 끝난 채로 둔다. 4 새 뜻: 잠까지 제때 온다(3과 같은 틀에 낱말 하나만 바꿈). [Pre-Chorus] 5 전환: 우스운 말이다. 6 정확한 말: 그래도 맞는 말이다, ''-는데''로 열어 둔다. [Chorus] 7 훅·선언: 울고 나면 배고프다. 8 선언: 슬픔은 몸을 이기지 못한다. 9 선언: 산 사람은 산다(판을 삶 전체로 넓힘). 10 훅·선언. [Verse 2] 11 새 뜻(시점 전환): 너를 부르던 입. 12 뒤집기: 그 입이 이제 하품을 한다. 13 새 뜻: 너도 어딘가에 있다. 14 정확한 말: 너도 똑같이 살 것이다(1절 2줄을 되받음). [Pre-Chorus] 15~16은 5~6 반복. [Chorus] 17~20은 7~10 반복. [Bridge] 21 고백 준비: 너를 잃은 것보다. 22 고백(곡의 진심): 배고픈 내가 더 서럽다. [Final Chorus] 23 훅. 24 선언. 25 바뀐 줄·고백과 부탁: 미안하다, 잘 살겠다. 26 훅. 훅이 들어간 줄: 7, 10, 17, 20, 23, 26(모두 6번).'
+why: 조사 노트의 '번호를 바꿨네'는 도어락·계단·택배 상자 같은 생활 소품으로 한 장면을 세우는 곡이라서 내려놓았습니다. 대신 울고 나서도 배는 고프다는, 거의 모든 사람이 겪었지만 노래로는 잘 하지 않는 말을 훅으로 골랐습니다. 자우림이 감정의 이유를 사소하게 대던 원리와 같은 문장 틀에 낱말 하나만 바꾸던 방식을 가져왔습니다('끝난 건 끝난 대로 / 잠은 잠대로'). 잔나비처럼 감정이 가장 높은 자리 바로 뒤에 몸의 말로 내려오게 했습니다. 극동아시아타이거즈처럼 마지막 후렴에서는 한 줄만 바꿨습니다. '산 사람은 살아'라는 누구나 아는 말이 '미안해 나 잘 살게'라는 고백으로 바뀝니다. 제목은 외쳐 부를 수 있고 끝이 모음으로 열리는 후렴 문장을 그대로 썼습니다.
+share_line: 배고픈 내가 서러워
+youtube_meta:
+  situation: 울고 난 밤에 듣는 노래
+  shorts_title: 울고 나면 배고파
+  hashtags:
+  - 인디밴드
+  - 감성노래
+  - 위로노래
+  - 새벽감성
+  - 이별노래
+  - 인디록
+  - 감성플리
+  - 혼자듣기좋은노래
+  - 밤에듣는노래
+  - 힐링노래
+  - 플레이리스트
+  - 울고싶을때
+tags:
+- 음악
+- 노래
+- 감성
+- 인디
+- 인디밴드
+- 인디록
+- 플레이리스트
+- 노래 추천
+- 감성 노래
+- 위로 노래
+- 이별 노래
+- 새벽 감성
+- 밤에 듣는 노래
+- 울고 싶을 때 듣는 노래
+- 혼자 듣기 좋은 노래
+- 힐링 노래
+- 헤어진 후 듣는 노래
+- 슬플 때 듣는 노래
+- 담담한 노래
+- 밴드 음악
+- 기타 음악
+- 잔잔한 노래
+- 중간 템포
+- 울고 나면 배고파
+- 배고파
+- 산 사람은 살아
+- 잘 살게
+- 이별 후
+- 새벽 노래
+- 자취방 노래
+- 감성 플리
+- 인디 플리
+- korean indie
+- korean indie rock
+- kpop
+- korean band
+- sad korean song
+references:
+- title: 미안해 널 미워해
+  artist: 자우림
+  takeaway: 서로 부딪히는 두 감정을 한 줄에 붙여 놓고 설명하지 않는 모순의 힘을 '울고 나면 배고파'에 썼다.
+- title: 스물다섯, 스물하나
+  artist: 자우림
+  takeaway: 같은 문장 틀에 낱말 하나만 바꿔 쌓는 방식을 1절 '끝난 건 끝난 대로 / 잠은 잠대로'에 썼다.
+- title: 뜨거운 여름밤은 가고 남은 건 볼품없지만
+  artist: 잔나비
+  takeaway: 감정이 가장 높은 자리 바로 뒤에 생활의 말로 내려와 김을 빼는 원리를 후렴의 '배고파'에 썼다.
+- title: 다시, 다시 만나
+  artist: 극동아시아타이거즈
+  takeaway: 마지막 후렴에서 핵심 한 줄만 바꿔 결론을 내는 방식으로 '산 사람은 살아'를 '미안해 나 잘 살게'로 바꿨다.
+candidates:
+- hook: 울고 나면 배고파
+  theme: 아픔
+  story: 크게 무너진 뒤에도 몸은 배고프고 잠도 오는 것이 우습고 서러운 사람이, 그렇게 다시 살아지는 자기를 담담하게 받아들이며 부르는 중간 템포의 노래.
+- hook: 언제 이렇게 됐지
+  theme: 어른
+  story: 어릴 때 되고 싶던 모습과 다른 어른이 된 자신을 문득 알아챈 사람이, 탓하지도 웃지도 못하고 혼자 묻는 느린 노래.
+- hook: 이번엔 안 해
+  theme: 사랑
+  story: 헤어진 사람에게 연락하지 않겠다고 백 번 다짐하면서 그 다짐을 매번 새로 하는 사람의 가볍고 밝은 노래.
+- hook: 보고 싶어서 안 봐
+  theme: 사랑
+  story: 좋아하는 마음이 들킬까 봐 오히려 거리를 두는 사람이 처음으로 그 모순을 털어놓는 느린 고백.
+- hook: 별일 아니었네
+  theme: 아픔
+  story: 그때는 세상이 끝날 것 같던 일이 지나고 보니 작아진 것을 알게 된 사람이 예전의 자기를 다독이는 담담한 위로.
+chosen: 0
+lyrics: |
+  [Intro: clean electric guitar arpeggios alone]
+
+  [Verse 1: guitar, picked bass, light hi-hat]
+  마음은 무너졌는데
+  몸은 꼬박꼬박 살아
+  끝난 건 끝난 대로
+  잠은 잠대로 오네
+
+  [Pre-Chorus: toms build, rising]
+  웃기지도 않는 말
+  그래도 맞는 말인데
+
+  [Chorus: second guitar crunch, ride, harmony]
+  울고 나면 배고파
+  슬픔은 배를 이기지 못해
+  산 사람은 살아
+  울고 나면 배고파
+
+  [Verse 2: rhodes enters, guitar answers the voice]
+  네 이름 부르던 입이
+  이제는 하품을 하네
+  너도 어딘가에서
+  꼬박꼬박 살겠지
+
+  [Pre-Chorus: toms build, rising]
+  웃기지도 않는 말
+  그래도 맞는 말인데
+
+  [Chorus: full band, doubled vocal]
+  울고 나면 배고파
+  슬픔은 배를 이기지 못해
+  산 사람은 살아
+  울고 나면 배고파
+
+  [Guitar Solo: melodic lead over the chorus chords]
+
+  [Bridge: one guitar and near-spoken voice, walking bass]
+  널 잃은 것보다
+  배고픈 내가 서러워
+
+  [Final Chorus: fullest, glockenspiel doubles the hook, full voice]
+  울고 나면 배고파
+  슬픔은 배를 이기지 못해
+  미안해 나 잘 살게
+  울고 나면 배고파
+
+  [Outro: guitar riff alone, slows, then stops]
+
+  [End]
+lyrics_draft: '[Intro: clean electric guitar arpeggios alone]
+
+
+  [Verse 1: guitar, picked bass, light hi-hat]
+
+  마음은 무너졌는데
+
+  몸은 꼬박꼬박 살아
+
+  끝난 건 끝난 대로
+
+  잠은 잠대로 오네
+
+
+  [Pre-Chorus: toms build, rising]
+
+  웃기지도 않는 말
+
+  그래도 맞는 말인데
+
+
+  [Chorus: second guitar crunch, ride, harmony]
+
+  울고 나면 배고파
+
+  슬픔은 배를 이기지 못해
+
+  산 사람은 살아
+
+  울고 나면 배고파
+
+
+  [Verse 2: rhodes enters, guitar answers the voice]
+
+  네 이름 부르던 입이
+
+  오늘은 하품을 하네
+
+  너도 어딘가에서
+
+  꼬박꼬박 살겠지
+
+
+  [Pre-Chorus: toms build, rising]
+
+  웃기지도 않는 말
+
+  그래도 맞는 말인데
+
+
+  [Chorus: full band, doubled vocal]
+
+  울고 나면 배고파
+
+  슬픔은 배를 이기지 못해
+
+  산 사람은 살아
+
+  울고 나면 배고파
+
+
+  [Guitar Solo: melodic lead over the chorus chords]
+
+
+  [Bridge: one guitar and near-spoken voice, walking bass]
+
+  널 잃은 것보다
+
+  배고픈 내가 서러워
+
+
+  [Final Chorus: fullest, glockenspiel doubles the hook, full voice]
+
+  울고 나면 배고파
+
+  슬픔은 배를 이기지 못해
+
+  미안해 나 잘 살게
+
+  울고 나면 배고파
+
+
+  [Outro: guitar riff alone, slows, then stops]
+
+
+  [End]'
+polish:
+- '오늘은 하품을 하네 → 이제는 하품을 하네: ''오늘''이라는 시각 표시를 지우고 하루가 아닌 시간의 흐름(마음)만 남김, 음절 수 동일'
+- '그 밖의 줄은 그대로 둠: 첫 두 줄이 모순으로 열리고, 훅(8자)이 제목과 같으며 후렴 첫·끝 줄에 있고, 브릿지가 처음 말하는 진심(서러움)으로 곡을 뒤집고, 마지막 후렴이 한 줄(미안해 나 잘 살게)만 바뀌어 다른 뜻으로 들림. 생활 소품·구어 버릇말·설명 줄이 없어 고칠 이유가 없음'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A young man in a grey hoodie seen from the side, sitting alone at a small table by a dark window late at night, eyes slightly red, holding a spoon over a steaming bowl. Warm yellow lamp light against blue night, quiet, wry and tender mood.
+youtube_preview:
+  title: 울고 나면 배고파 - 연주왕김연주 | 울고 난 밤에 듣는 노래
+  shorts_title: '울고 나면 배고파 #shorts'
+  shorts_titles:
+  - '마음은 무너졌는데 #shorts'
+  - '울고 나면 배고파 #shorts'
+  - '널 잃은 것보다 #shorts'
+  - '배고픈 내가 서러워 #shorts'
+  description: '마음은 무너졌는데
+
+    몸은 꼬박꼬박 살아
+
+    끝난 건 끝난 대로
+
+    잠은 잠대로 오네
+
+
+    웃기지도 않는 말
+
+    그래도 맞는 말인데
+
+
+    울고 나면 배고파
+
+    슬픔은 배를 이기지 못해
+
+    산 사람은 살아
+
+    울고 나면 배고파
+
+
+    네 이름 부르던 입이
+
+    이제는 하품을 하네
+
+    너도 어딘가에서
+
+    꼬박꼬박 살겠지
+
+
+    웃기지도 않는 말
+
+    그래도 맞는 말인데
+
+
+    울고 나면 배고파
+
+    슬픔은 배를 이기지 못해
+
+    산 사람은 살아
+
+    울고 나면 배고파
+
+
+    널 잃은 것보다
+
+    배고픈 내가 서러워
+
+
+    울고 나면 배고파
+
+    슬픔은 배를 이기지 못해
+
+    미안해 나 잘 살게
+
+    울고 나면 배고파
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #인디밴드 #감성노래 #위로노래 #노래 #음악 #인공지능 #새벽감성 #이별노래 #인디록 #감성플리 #혼자듣기좋은노래 #밤에듣는노래 #힐링노래 #플레이리스트 #울고싶을때'
+  tags:
+  - 울고 나면 배고파
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 인공지능
+  - 감성
+  - 인디
+  - 인디밴드
+  - 인디록
+  - 플레이리스트
+  - 노래 추천
+  - 감성 노래
+  - 위로 노래
+  - 이별 노래
+  - 새벽 감성
+  - 밤에 듣는 노래
+  - 울고 싶을 때 듣는 노래
+  - 혼자 듣기 좋은 노래
+  - 힐링 노래
+  - 헤어진 후 듣는 노래
+  - 슬플 때 듣는 노래
+  - 담담한 노래
+  - 밴드 음악
+  - 기타 음악
+  - 잔잔한 노래
+  - 중간 템포
+  - 배고파
+  - 산 사람은 살아
+  - 잘 살게
+  - 이별 후
+  - 새벽 노래
+  - 자취방 노래
+  - 감성 플리
+  - 인디 플리
+  - korean indie
+  - korean indie rock
+  - kpop
+  - korean band
+  - sad korean song
+  - AI음악
+  - AI노래
+  - AI 작곡
+  - suno
+  - ai music
+  - 신곡
+  - 가사
+  - korean music
+  - k-pop
+  - korean song
+  hashtags:
+  - 인디밴드
+  - 감성노래
+  - 위로노래
+  - 노래
+  - 음악
+  - 인공지능
+  - 새벽감성
+  - 이별노래
+  - 인디록
+  - 감성플리
+  - 혼자듣기좋은노래
+  - 밤에듣는노래
+  - 힐링노래
+  - 플레이리스트
+  - 울고싶을때
+  playlists:
+  - 연주왕김연주 노래
+  - 혼자 우는 밤에
+  privacy: private
