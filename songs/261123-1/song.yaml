@@ -1,0 +1,390 @@
+title: 남은 건 우리
+hook: 남은 건 우리
+theme: 사랑
+story: 설렘이 다 지나간 뒤에도 곁에 남은 두 사람이 서로에게 담담하게 부르는 느린 노래.
+created: 2026-11-23 12:35
+request: {}
+lang: ko
+instrumental: false
+sound_plan: 장조 안에 프리코러스에서 단조가 한 번 스치는 쓸쓸하고 따뜻한 진행, 72bpm 4/4의 드라마 OST 발라드. 인트로는 그랜드 피아노와 첼로만, 1절은 피아노와 목소리로 좁은 음역에서 말하듯 부른다. 프리코러스에서 현악 패드가 들어오고 같은 음을 반복하다 끝에서 올라가 후렴 첫 음에서 도약한다. 첫 후렴은 드럼 없이 현이 선율을 받치고 훅의 마지막 낱말을 길게 끈다. 2절부터 소프트 킥과 하프 아르페지오, 더블베이스가 뿌리음을 길게 지키고, 둘째 후렴은 현 전체와 보컬 더블링. 간주는 오보에가 후렴 선율을 한 번 노래한다. 브릿지는 피아노와 목소리만 남겨 가장 조용하게, 이어 온음 전조와 팀파니 롤로 마지막 후렴에 들어가 오케스트라 전체가 가장 크게 열리고 남자 테너가 3도 하모니로 합류해 '우리'를 소리로 만든다. 보컬은 맑고 따뜻한 여성 메조, 절은 가깝고 박자 뒤로, 비브라토는 긴 음 끝에만. 공간은 큰 홀 리버브에 보컬은 가깝게. 아웃트로는 현이 길게 남고 피아노 한 음으로 끝낸다.
+style: 'Korean drama OST ballad, 2010s, slow 72 bpm, bittersweet major with a minor turn in the pre-chorus. Clear warm female mezzo, sincere, close and behind the beat, sung in Korean, korean lyrics; a warm male tenor harmony joins at the final chorus. Intro: grand piano and cello. Verse 1: piano and voice, narrow conversational melody. Pre-chorus: string pad, rising repeated note. Chorus: strings carry it without drums, upward leap on the hook, long held last word. Verse 2 adds soft kick, harp and double bass. Chorus two full strings, doubled vocal. Oboe solo. Bridge: piano and voice alone. Key change into the final chorus, timpani roll, full orchestra, biggest. Outro: strings hold, one piano note. Concert hall reverb, intimate vocal. Tender, cinematic, grateful.'
+exclude: electric guitar, synth, trap hi-hats
+photo_query: old couple walking road dusk
+image_prompt: A middle-aged couple seen from behind walking side by side on a long empty country road at dusk, wearing plain coats, their hands loosely joined. Warm amber light, long shadows, muted autumn fields, quiet and tender.
+short_scenes:
+- The same couple from behind on the country road at golden dusk, wind lifting their coats, the road stretching far ahead, warm amber light at its fullest.
+- Close-up of two weathered hands loosely holding each other between two coat sleeves, soft amber light, muted autumn colors.
+- The empty country road after dusk, two faint sets of footprints on the dusty edge, a deep blue sky with the last warm glow on the horizon.
+title_kind: 후렴 문장
+tempo: 느림
+arc: '기(화법: 우리): 설렘과 예쁜 말은 다 지나가고 이름만 불러도 아는 사이가 된 지금을 담담하게 놓는다. 승: 손에 쥔 게 없다는 데서 후렴 ''남은 건 우리''로 떨어진다, 다 지고도 지지 않았고 이대로 행복하다. 전: 2절은 서로 미워한 날들로 시점을 옮겨 떠날 이유는 많았는데 남는 데엔 이유가 없다고 말하고, 브릿지에서 처음으로 ''가려면 가도 됐는데 둘 다 가지 않았어''라는 진심을 털어놓는다. 결: 마지막 후렴은 같지만 셋째 줄 ''이대로 행복해''가 ''가지 않아 줘서 고마워''로 바뀌어 남은 것이 우연이 아니라 서로의 선택이었다는 뜻이 되고, 아웃트로는 현이 길게 남는다.'
+line_plan: '1(V1) 선언: 설렘은 지나간다는 진실 / 2(V1) 뒤집기: 그 뒤에야 오는 사랑 / 3 새 뜻: 꾸미는 말이 사라짐 / 4 정확한 말: 이름만으로 통하는 사이 / 5(Pre) 전환: 흘러간 것들을 돌아봄 / 6(Pre) 전환, 열린 끝: 빈손 → 후렴으로 / 7(Ch) 선언·훅 / 8(Ch) 모순: 다 지고도 지지 않음 / 9(Ch) 고백: 이대로 행복함 / 10(Ch) 훅 / 11(V2) 새 뜻: 미워한 날로 시점 이동 / 12(V2) 뒤집기: 그 날도 우리 편 / 13(V2) 정확한 말: 떠날 이유는 늘 많음 / 14(V2) 정확한 말·공유 줄: 남는 데엔 이유가 없음 / 15~16(Pre) 1과 같음 / 17~20(Ch) 훅 17·20 / 21(Bridge) 고백: 가도 됐다는 인정 / 22(Bridge) 고백: 둘 다 가지 않았음 / 23(Final) 훅 / 24 모순 / 25 고백(바뀐 줄): 가지 않아 줘서 고마움 / 26 훅. 훅 줄 번호 7·10·17·20·23·26, 총 6회.'
+why: 직전 두 곡이 너에게와 혼잣말이어서 이번에는 우리 화법을 골랐고, 오래 함께한 사람이 있는 누구나 자기 얘기로 받을 수 있는 '남은 건 우리'가 가장 넓다. 극동아시아타이거즈처럼 2절은 1절의 틀을 두고 시점만 바꿨고, 한로로처럼 마지막 후렴은 한 줄만 바꿔 브릿지의 고백(둘 다 가지 않았어)이 '가지 않아 줘서 고마워'로 돌아오게 했다. 자우림식으로 명사에서 끊고 짧은 줄로 가며, 사물은 '손' 하나만 뜻으로 썼다. 제목은 후렴 첫 줄 그대로인 다섯 음절 문장이라 소리 내어 세 번 말해도 어색하지 않고 끝이 모음이라 늘여 부르기 좋다. 장르는 이전 곡에 없던 OST 발라드로 골라 느린 템포에 영화적 전개를 줬다.
+share_line: 다 지고도 지지 않았지
+youtube_meta:
+  situation: 오래된 연인에게 듣는 노래
+  shorts_title: 남은 건 우리
+  hashtags:
+  - 발라드
+  - 감성노래
+  - OST
+  - 드라마OST
+  - 사랑노래
+  - 위로노래
+  - 감성플리
+  - 새벽감성
+  - 커플노래
+  - 오래된연인
+  - 퇴근길노래
+  - 고백노래
+tags:
+- 음악
+- 노래
+- 감성
+- 발라드
+- 플레이리스트
+- 노래 추천
+- OST
+- 드라마 OST
+- 감성 발라드
+- 사랑 노래
+- 위로 노래
+- 고백 노래
+- 커플 노래
+- 오래된 연인
+- 장기 연애
+- 부부 노래
+- 결혼기념일 노래
+- 새벽 감성
+- 잠 안 오는 밤
+- 퇴근길 노래
+- 감성 플리
+- 잔잔한 노래
+- 피아노 발라드
+- 오케스트라 발라드
+- 여자 보컬 발라드
+- 듀엣 하모니
+- 남은 건 우리
+- 곁에 있어 준 사람
+- 고마운 사람
+- 함께 늙어 가는
+- korean ballad
+- korean ost
+- kdrama ost
+- kpop ballad
+- emotional korean song
+references:
+- title: 다시, 다시 만나
+  artist: 극동아시아타이거즈
+  takeaway: 마지막 후렴에서 한 줄만 바꿔 같은 후렴이 다른 뜻으로 들리게 한다.
+- title: 사랑하게 될 거야
+  artist: 한로로
+  takeaway: 후렴은 짧은 말 한 문장으로 세우고 마지막에만 살짝 비틀어 결론을 낸다.
+- title: 스물다섯, 스물하나
+  artist: 자우림
+  takeaway: 명사와 관형형에서 줄을 끊어 짧게 가고, 지나간 것을 담담한 한 줄로 말한다.
+candidates:
+- hook: 남은 건 우리
+  theme: 사랑
+  story: 설렘이 다 지나간 뒤에도 곁에 남은 두 사람이 서로에게 담담하게 부르는 느린 노래.
+- hook: 그래도 가자
+  theme: 어른
+  story: 지친 사람들이 함께 다시 일어서며 중간 템포로 부르는 노래.
+- hook: 다 잊어도 돼
+  theme: 아픔
+  story: 아픈 일을 겪은 사람이 스스로에게 놓아주라고 조용히 건네는 노래.
+- hook: 오늘은 살자
+  theme: 어른
+  story: 내일은 몰라도 오늘 하루만큼은 살아 보자고 밝게 부르는 노래.
+- hook: 늦어도 와
+  theme: 사랑
+  story: 오지 않는 사람을 기다리는 사람이 회상하며 부르는 중간 템포의 노래.
+chosen: 0
+lyrics: |
+  [Intro: piano and cello]
+
+  [Verse 1: piano and voice only]
+  설렘은 다 지나갔어
+  그 뒤에 오는 사랑
+  예쁜 말은 잊혀 가고
+  이름만 불러도 아는 사이
+
+  [Pre-Chorus: string pad enters, rising]
+  흘러간 것들 뒤로
+  손에 쥔 게 없는데
+
+  [Chorus: strings carry the melody, no drums]
+  남은 건 우리
+  다 지고도 지지 않았지
+  이대로 행복해
+  남은 건 우리
+
+  [Verse 2: soft kick, harp and double bass enter]
+  서로를 미워한 날도
+  돌아보니 우리 편이야
+  떠날 이유는 많았지
+  남는 데엔 이유가 없어
+
+  [Pre-Chorus: strings swell]
+  흘러간 것들 뒤로
+  손에 쥔 게 없는데
+
+  [Chorus: full strings, doubled vocals]
+  남은 건 우리
+  다 지고도 지지 않았지
+  이대로 행복해
+  남은 건 우리
+
+  [Instrumental: oboe melody over strings]
+
+  [Bridge: piano and voice alone]
+  가려면 가도 됐는데
+  둘 다 가지 않았어
+
+  [Final Chorus: key change, timpani, full orchestra, male harmony joins]
+  남은 건 우리
+  다 지고도 지지 않았지
+  가지 않아 줘서 고마워
+  남은 건 우리
+
+  [Outro: strings hold, one piano note]
+
+  [End]
+lyrics_draft: '[Intro: piano and cello]
+
+
+  [Verse 1: piano and voice only]
+
+  설렘은 다 지나갔어
+
+  그 뒤에 오는 사랑
+
+  예쁜 말은 잊혀 가고
+
+  이름만 불러도 아는 사이
+
+
+  [Pre-Chorus: string pad enters, rising]
+
+  흘러간 것들 뒤로
+
+  손에 쥔 게 없는데
+
+
+  [Chorus: strings carry the melody, no drums]
+
+  남은 건 우리
+
+  다 지고도 지지 않았지
+
+  이대로 행복해
+
+  남은 건 우리
+
+
+  [Verse 2: soft kick, harp and double bass enter]
+
+  서로를 미워한 날도
+
+  돌아보니 우리 편이야
+
+  떠날 이유는 늘 많았지
+
+  남는 데엔 이유가 없어
+
+
+  [Pre-Chorus: strings swell]
+
+  흘러간 것들 뒤로
+
+  손에 쥔 게 없는데
+
+
+  [Chorus: full strings, doubled vocals]
+
+  남은 건 우리
+
+  다 지고도 지지 않았지
+
+  이대로 행복해
+
+  남은 건 우리
+
+
+  [Instrumental: oboe melody over strings]
+
+
+  [Bridge: piano and voice alone]
+
+  가려면 가도 됐는데
+
+  둘 다 가지 않았어
+
+
+  [Final Chorus: key change, timpani, full orchestra, male harmony joins]
+
+  남은 건 우리
+
+  다 지고도 지지 않았지
+
+  가지 않아 줘서 고마워
+
+  남은 건 우리
+
+
+  [Outro: strings hold, one piano note]
+
+
+  [End]'
+polish:
+- '떠날 이유는 늘 많았지 → 떠날 이유는 많았지: 빈도를 세는 ''늘''을 빼서 보고서 말투를 걷어냄. 다음 줄 ''남는 데엔 이유가 없어''와의 대비는 그대로 둠'
+- '나머지 줄은 그대로 둠: 사물·장소·생활 소품이 없고, 첫 두 줄이 선언으로 열리며, 후렴은 훅 ''남은 건 우리''가 첫 줄과 끝 줄에 있고 모순(''다 지고도 지지 않았지'')과 고백(''이대로 행복해'')으로만 되어 있음. 브릿지는 처음 나오는 인정이고, 마지막 후렴은 한 줄이 바뀌어 ''고마워''로 뜻이 달라져 고칠 필요가 없음'
+photo:
+  source: openai
+  model: gpt-image-2.5-flare
+  prompt: A middle-aged couple seen from behind walking side by side on a long empty country road at dusk, wearing plain coats, their hands loosely joined. Warm amber light, long shadows, muted autumn fields, quiet and tender.
+youtube_preview:
+  title: 남은 건 우리 - 연주왕김연주 | 오래된 연인에게 듣는 노래
+  shorts_title: '남은 건 우리 #shorts'
+  shorts_titles:
+  - '설렘은 다 지나갔어 #shorts'
+  - '남은 건 우리 #shorts'
+  - '가려면 가도 됐는데 #shorts'
+  - '다 지고도 지지 않았지 #shorts'
+  description: '설렘은 다 지나갔어
+
+    그 뒤에 오는 사랑
+
+    예쁜 말은 잊혀 가고
+
+    이름만 불러도 아는 사이
+
+
+    흘러간 것들 뒤로
+
+    손에 쥔 게 없는데
+
+
+    남은 건 우리
+
+    다 지고도 지지 않았지
+
+    이대로 행복해
+
+    남은 건 우리
+
+
+    서로를 미워한 날도
+
+    돌아보니 우리 편이야
+
+    떠날 이유는 많았지
+
+    남는 데엔 이유가 없어
+
+
+    흘러간 것들 뒤로
+
+    손에 쥔 게 없는데
+
+
+    남은 건 우리
+
+    다 지고도 지지 않았지
+
+    이대로 행복해
+
+    남은 건 우리
+
+
+    가려면 가도 됐는데
+
+    둘 다 가지 않았어
+
+
+    남은 건 우리
+
+    다 지고도 지지 않았지
+
+    가지 않아 줘서 고마워
+
+    남은 건 우리
+
+
+    노래·가사 연주왕김연주
+
+    음악·이미지 AI 생성 (Suno)
+
+    © 2026 연주왕김연주. 무단 복제·재업로드 금지.
+
+
+    #발라드 #감성노래 #OST #노래 #음악 #인공지능 #드라마OST #사랑노래 #위로노래 #감성플리 #새벽감성 #커플노래 #오래된연인 #퇴근길노래 #고백노래'
+  tags:
+  - 남은 건 우리
+  - 연주왕김연주
+  - 음악
+  - 노래
+  - 인공지능
+  - 감성
+  - 발라드
+  - 플레이리스트
+  - 노래 추천
+  - OST
+  - 드라마 OST
+  - 감성 발라드
+  - 사랑 노래
+  - 위로 노래
+  - 고백 노래
+  - 커플 노래
+  - 오래된 연인
+  - 장기 연애
+  - 부부 노래
+  - 결혼기념일 노래
+  - 새벽 감성
+  - 잠 안 오는 밤
+  - 퇴근길 노래
+  - 감성 플리
+  - 잔잔한 노래
+  - 피아노 발라드
+  - 오케스트라 발라드
+  - 여자 보컬 발라드
+  - 듀엣 하모니
+  - 곁에 있어 준 사람
+  - 고마운 사람
+  - 함께 늙어 가는
+  - korean ballad
+  - korean ost
+  - kdrama ost
+  - kpop ballad
+  - emotional korean song
+  - AI음악
+  - AI노래
+  - AI 작곡
+  - suno
+  - ai music
+  - 신곡
+  - 가사
+  - kpop
+  - korean music
+  - k-pop
+  - korean song
+  hashtags:
+  - 발라드
+  - 감성노래
+  - OST
+  - 노래
+  - 음악
+  - 인공지능
+  - 드라마OST
+  - 사랑노래
+  - 위로노래
+  - 감성플리
+  - 새벽감성
+  - 커플노래
+  - 오래된연인
+  - 퇴근길노래
+  - 고백노래
+  playlists:
+  - 연주왕김연주 노래
+  - 헤어진 날 듣는 노래
+  privacy: private
